@@ -89,7 +89,6 @@ export const Login = () => {
             <StyledInput
               placeholder="Inter password"
               type="password"
-              style={{ marginBottom: "20px" }}
             />
           </Form.Item>
           <Form.Item name={"sas"}>
@@ -101,6 +100,7 @@ export const Login = () => {
                 color: "#fff",
                 height: "60px",
                 marginBottom: "5px",
+                marginTop:"10px"
               }}
             >
               Create
