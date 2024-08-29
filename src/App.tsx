@@ -1,5 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import { Navbar } from "./components/shared";
+import { Company } from "./pages";
 import { Login } from "./pages";
 import { Button, ConfigProvider, theme } from "antd";
 import { useState } from "react";
@@ -9,8 +11,22 @@ function App() {
   const { defaultAlgorithm, darkAlgorithm } = theme;
   return (
     <>
-      <ConfigProvider theme={{ algorithm: themeValue=="light"?defaultAlgorithm:darkAlgorithm}}>
-        <Button onClick={()=>setTheme(e=>e=="light"?"dark":"light")}>{themeValue=="dark"?"light":"dark"}</Button>
+      <Routes>
+        <Route path="login" element={<Login />} />
+        <Route path="/" element={<Navbar />}>
+          <Route path="company" element={<Company />} />
+        </Route>
+      </Routes>
+      <ConfigProvider
+        theme={{
+          algorithm: themeValue == "light" ? defaultAlgorithm : darkAlgorithm,
+        }}
+      >
+        <Button
+          onClick={() => setTheme((e) => (e == "light" ? "dark" : "light"))}
+        >
+          {themeValue == "dark" ? "light" : "dark"}
+        </Button>
         <Routes>
           <Route path="/login" element={<Login />} />
         </Routes>
