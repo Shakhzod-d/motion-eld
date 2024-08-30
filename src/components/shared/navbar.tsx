@@ -20,7 +20,8 @@ export const Navbar: React.FC = () => {
     <Layout>
       <Sider
         style={{
-          height: "100vh",
+          minHeight: "100vh",
+          height: "auto",
           padding: "30px 10px",
           width: "100%",
           maxWidth: "300px!important",
