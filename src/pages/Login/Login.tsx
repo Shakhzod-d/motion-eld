@@ -57,7 +57,8 @@ const Description = styled.p`
   }
 `;
 export const Login = () => {
-  const onFinish = (data: LoginData) => {
+  const onFinish = (values: unknown) => {
+    const data = values as LoginData;
     console.log(data);
   };
   return (

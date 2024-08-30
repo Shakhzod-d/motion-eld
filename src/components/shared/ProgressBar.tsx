@@ -10,7 +10,7 @@ const Title = styled.p`
   font-weight: 700;
   font-size: 12px;
   letter-spacing: -0.04em;
-  margin-bottom:5px;
+  margin-bottom: 5px;
 `;
 const Value = styled.p`
   font-weight: 590;
@@ -26,7 +26,7 @@ export const ProgressBar: FC<Props> = ({ title, value, color }) => {
         gapDegree={70}
         strokeColor={color}
         strokeWidth={15}
-        format={(percent) => `${percent / 10} (${percent}%)`}
+        format={(percent = 0) => `${percent / 10} (${percent}%)`}
         style={{ position: "relative", color: "red" }}
         showInfo={false}
       />
