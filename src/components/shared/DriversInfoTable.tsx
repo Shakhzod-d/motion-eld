@@ -21,7 +21,7 @@ const StyledTable = styled(Table)`
   .ant-table-tbody > tr > td {
     // border-radius: 10px;
     padding: 29px 25px;
-    width: 1575px;
+  width: 1575px;
     // height: 77px;
     background: #fdfdfd;
     // text-align: center;
@@ -32,7 +32,8 @@ const StyledTable = styled(Table)`
     padding: 29px 25px;
     width: 1575px;
     height: 77px;
-    margin-bottom: 10px; /* Har bir qator orasida joy */
+    margin-bottom: 10px;
+    
   }
   .ant-table-tbody > tr > td:nth-child(2) {
     color: #ff4d4f;
@@ -117,7 +118,7 @@ const dataSource = [
 ];
 export const DriversInfoTable = () => {
   return (
-    <div style={{}}>
+    <div style={{overflow:"auto"}}>
       <StyledTable
         dataSource={dataSource}
         columns={columns}

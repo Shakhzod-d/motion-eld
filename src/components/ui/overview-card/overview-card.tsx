@@ -1,25 +1,6 @@
-import styled from "styled-components";
-import { InfoCard } from "../../utils";
-const Wrapper = styled.div`
-  display: flex;
-  gap: 56px;
-  justify-content: center;
-`;
-const Value = styled.p`
-  font-weight: 590;
-  font-size: 48px;
-  margin-bottom: 15px;
-`;
-const Title = styled.p`
-  font-weight: 590;
-  font-size: 14px;
-  text-align: center;
-`;
-const Item = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+import { InfoCard } from "../../../utils/constants";
+import { Item, Title, Value, Wrapper } from "./overview-styled";
+
 export const OverviewCard = () => {
   return (
     <InfoCard>
