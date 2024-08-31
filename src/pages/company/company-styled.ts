@@ -8,12 +8,6 @@ export const Container = styled.div<{ $flex?: boolean }>`
   position: relative;
 
   .top {
-    display: flex;
-    gap: 15px;
-    max-width: 310px;
-    margin-left: auto;
-    align-items: center;
-
     & > span {
       padding-top: 10px !important;
       padding-bottom: 10px !important;
@@ -39,14 +33,6 @@ export const Container = styled.div<{ $flex?: boolean }>`
   }
 
   .cards-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    padding: 20px 24px;
-    color: #303030;
-    font-size: 14px;
-    font-weight: 600;
     & > p {
       max-width: 355px;
       width: 100%;
@@ -65,6 +51,31 @@ export const Container = styled.div<{ $flex?: boolean }>`
   }
 `;
 
+export const Top = styled.div`
+  display: flex;
+  gap: 15px;
+  max-width: 310px;
+  margin-left: auto;
+  align-items: center;
+`;
+
+export const CardsTop = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  padding: 20px 24px;
+  color: #303030;
+  font-size: 14px;
+  font-weight: 600;
+`;
+
 export const StyledSelect = styled(Select)`
-  width: 100%;
+  * {
+    width: 150px !important;
+    min-width: max-content !important;
+    background: transparent !important;
+    border: none !important;
+  }
+  .ant-select-dropdown {
+    width: 250px !important;
+  }
 `;

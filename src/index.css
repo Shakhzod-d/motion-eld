@@ -14,8 +14,7 @@
 
 body {
   background: #101525;
-  overflow: hidden;
-
+  /* overflow: hidden; */
 }
 
 .ant-layout-sider-children {

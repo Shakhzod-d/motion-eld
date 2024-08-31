@@ -1,6 +1,5 @@
 import { useState } from "react";
 import {
-  ActiveBtn,
   DefaultBtn,
   ModalCheckBox,
   ModalInput,
@@ -11,91 +10,42 @@ import {
   TopContainer,
 } from "./units-styled";
 import { Table, Flex, Modal } from "antd";
-
-const columns = [
-  {
-    title: "#",
-    dataIndex: "id",
-    key: "id",
-  },
-  {
-    title: "Vehicle ID",
-    dataIndex: "index",
-    key: "index",
-  },
-  {
-    title: "Drivers",
-    dataIndex: "driver_name",
-    key: "drivers_name",
-  },
-  {
-    title: "Make/Model",
-    dataIndex: "model",
-    key: "model",
-  },
-  {
-    title: "Eld",
-    dataIndex: "eld",
-    key: "eld",
-  },
-  {
-    title: "Notes",
-    dataIndex: "notes",
-    key: "notes",
-  },
-  {
-    title: "VIN",
-    dataIndex: "vin",
-    key: "vin",
-  },
-  {
-    title: "Documents",
-    dataIndex: "documents",
-    key: "documents",
-  },
-  {
-    title: "Activated",
-    dataIndex: "activated",
-    key: "activated",
-  },
-];
-
-const data = Array(10).fill({
-  id: "0",
-  index: 152,
-  driver_name: "Davit Kiknavelidze",
-  model: "Freightliner/ Cascadia",
-  eld: "PT30_09A3",
-  notes: "1FUJGLDV2HLJH2911",
-  vin: "Not uploaded",
-  documents: "2024-03-02",
-  activated: "",
-});
+import {
+  Main,
+  unitsButtons,
+  unitsColumns,
+  unitsData,
+} from "../../utils/constants";
+import { Navbar } from "../../components/ui";
+import { TransparentButton } from "../ifta-reports/ifta-reports-styled";
 
 export const Units = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
+  const [activeBtn, setActiveBtn] = useState<number>(1);
+
   return (
-    <>
-      <section>
-        <TopContainer>
-          <PrimaryBtn
-            style={{ padding: "20px 35px" }}
-            onClick={() => setOpen(true)}
+    <Main>
+      <Navbar title={"Units"} />
+      <TopContainer>
+        <PrimaryBtn onClick={() => setOpen(true)}>Add new vehicle</PrimaryBtn>
+      </TopContainer>
+      <Flex gap={10}>
+        {unitsButtons.map((item) => (
+          <TransparentButton
+            active={(activeBtn == item.id).toString()}
+            onClick={() => setActiveBtn(item.id)}
           >
-            Add new vehicle
-          </PrimaryBtn>
-        </TopContainer>
-        <ActiveBtn style={{ padding: "20px 35px" }}>Vehicle</ActiveBtn>
-        <DefaultBtn style={{ padding: "20px 35px", marginLeft: "5px" }}>
-          Deactivated
-        </DefaultBtn>
-        <Table
-          columns={columns}
-          dataSource={data}
-          id="table"
-          style={{ marginTop: "20px" }}
-        />
-      </section>
+            {item.text}
+          </TransparentButton>
+        ))}
+      </Flex>
+
+      {/* Units table data */}
+
+      <Table columns={unitsColumns} dataSource={unitsData} id="table" />
+
+      {/* Units change modal */}
+
       <Modal
         centered
         open={open}
@@ -104,6 +54,7 @@ export const Units = () => {
         width={1000}
       >
         <ModalTitle>Create Vehicle</ModalTitle>
+
         <Flex vertical gap={10}>
           <Flex justify="space-between" gap="10px">
             <ModalInput placeholder="Vehicle ID" type="number" />
@@ -165,6 +116,6 @@ export const Units = () => {
           </Flex>
         </Flex>
       </Modal>
-    </>
+    </Main>
   );
 };

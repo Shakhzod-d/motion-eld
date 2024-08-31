@@ -6,13 +6,17 @@ import {
   IftaReportColData,
   IftaReportData,
   IftaReportSelectData,
+  Main,
 } from "../../utils/constants";
+import { Navbar } from "../../components/ui";
 
 export const IftaReports = () => {
   const [activeBtn, setActiveBtn] = useState<number>(1);
 
   return (
-    <>
+    <Main>
+      <Navbar title={"Ifta Reports"} />
+
       {/* Ifta Reports sort select items */}
 
       <Flex justify="space-between" align="center">
@@ -46,6 +50,6 @@ export const IftaReports = () => {
       {/* Ifta Reports data table */}
 
       <Table columns={IftaReportColData} dataSource={IftaReportData} />
-    </>
+    </Main>
   );
 };

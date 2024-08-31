@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  align-items: start;
   padding: 20px 25px;
   border-radius: 10px;
   border: 1px solid #fdfdfd;
@@ -12,6 +12,10 @@ export const Card = styled.div`
   cursor: pointer;
   margin-bottom: 5px;
   gap: 20px;
+
+  * {
+    overflow: hidden;
+  }
 
   &:hover {
     border-color: #fc973a;
