@@ -1,4 +1,4 @@
-export { ViolationsChart } from "./ViolationsChart";
-export { ProgressBar } from "./ProgressBar";
-export { DriversInfoTable } from "./DriversInfoTable";
-export { Navbar } from "./navbar";
+export { ViolationsChart } from "./violations-chart";
+export { ProgressBar } from "./progress-bar";
+export { Sidebar } from "./sidebar";
+export { DriversInfoTable } from "./driversInfoTable";

@@ -1,31 +1,19 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Navbar } from "./components/shared";
 import { Company } from "./pages";
 import { Login } from "./pages";
-import { ConfigProvider, theme } from "antd";
-import { useState } from "react";
-import { Dashboard } from "./pages/Dashboard/Dashboard";
-// import { dark, light } from "./utils";
+import { Dashboard } from "./pages/dashboard/dashboard";
+import Layout from "./components/shared/layout";
 function App() {
-  const [themeValue, _] = useState<string>("light");
-  const { defaultAlgorithm, darkAlgorithm } = theme;
   return (
     <>
-      <ConfigProvider
-        theme={{
-          algorithm: themeValue == "light" ? defaultAlgorithm : darkAlgorithm,
-        }}
-      >
-        <Routes>
-          <Route path="login" element={<Login />} />
-          <Route path="/" element={<Navbar />}>
-            <Route path="company" element={<Company />} />
-          </Route>
-
-          <Route path="/" element={<Dashboard />} />
-        </Routes>
-      </ConfigProvider>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="company" element={<Company />} />
+        </Route>
+        <Route path="login" element={<Login />} />
+      </Routes>
     </>
   );
 }

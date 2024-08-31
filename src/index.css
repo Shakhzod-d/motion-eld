@@ -5,8 +5,9 @@
 }
 
 body {
-  background: #19223f;
+  background: #101525;
   overflow: hidden;
+
 }
 
 .ant-layout-sider-children {
@@ -31,6 +32,7 @@ body {
     margin: 10px 6px 20px;
   }
   .ant-menu-item {
+    width: 100%;
     padding: 25px 20px;
     display: flex;
     align-items: center;
