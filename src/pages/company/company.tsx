@@ -20,7 +20,11 @@ export const Company: FC<CompanyProps> = () => (
         <div className="cards-top">
           <p>Name</p>
           <div>
+<<<<<<< HEAD
             <StyledSelect
+=======
+            <Select
+>>>>>>> 09629f2cc2bbf7b84d9bc46ef253c1d8d20ac667
               defaultValue="status"
               options={[
                 { value: "status", label: "Status" },
@@ -30,7 +34,11 @@ export const Company: FC<CompanyProps> = () => (
             />
           </div>
           <div>
+<<<<<<< HEAD
             <StyledSelect
+=======
+            <Select
+>>>>>>> 09629f2cc2bbf7b84d9bc46ef253c1d8d20ac667
               defaultValue="contact"
               options={[
                 { value: "contact", label: "Contact" },
@@ -40,7 +48,11 @@ export const Company: FC<CompanyProps> = () => (
             />
           </div>
           <div>
+<<<<<<< HEAD
             <StyledSelect
+=======
+            <Select
+>>>>>>> 09629f2cc2bbf7b84d9bc46ef253c1d8d20ac667
               defaultValue="created"
               options={[
                 { value: "created", label: "Created" },

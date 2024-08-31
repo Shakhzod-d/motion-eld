@@ -6,8 +6,18 @@ import { FaUser } from "react-icons/fa";
 import { CiEdit } from "react-icons/ci";
 import { Button, Modal } from "antd";
 
+<<<<<<< HEAD
 const CompanyCard = () => {
   const [open, setOpen] = useState<boolean>(false);
+=======
+interface CompanyCardProps {
+  data: object;
+}
+
+const CompanyCard = ({}: CompanyCardProps) => {
+  const [open, setOpen] = useState<boolean>(false);
+  // console.log(data);
+>>>>>>> 09629f2cc2bbf7b84d9bc46ef253c1d8d20ac667
 
   return (
     <>
