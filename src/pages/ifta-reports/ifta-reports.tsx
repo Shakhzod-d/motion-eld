@@ -1,9 +1,55 @@
-import type { FC } from "react";
+import { useState } from "react";
+import { Flex, Table } from "antd";
+import { ReportsSelect, TransparentButton } from "./ifta-reports-styled";
+import {
+  IftaReportButtons,
+  IftaReportColData,
+  IftaReportData,
+  IftaReportSelectData,
+  Main,
+} from "../../utils/constants";
+import { Navbar } from "../../components/ui";
 
-interface IftaReportsProps {
-  data?: string[];
-}
+export const IftaReports = () => {
+  const [activeBtn, setActiveBtn] = useState<number>(1);
 
-export const IftaReports: FC<IftaReportsProps> = () => {
-  return <h1>gchjk</h1>;
+  return (
+    <Main>
+      <Navbar title={"Ifta Reports"} />
+
+      {/* Ifta Reports sort select items */}
+
+      <Flex justify="space-between" align="center">
+        <Flex gap={10}>
+          {IftaReportSelectData.map((item) => (
+            <ReportsSelect
+              key={item.id}
+              defaultValue={item.defaultValue}
+              options={item.options}
+            />
+          ))}
+        </Flex>
+
+        <TransparentButton>Generate CSV</TransparentButton>
+      </Flex>
+
+      {/* Ifta Reports change UI data buttons */}
+
+      <Flex gap={"10px"} style={{ margin: "20px 0" }}>
+        {IftaReportButtons.map((item) => (
+          <TransparentButton
+            key={item.id}
+            active={(activeBtn == item.id).toString()}
+            onClick={() => setActiveBtn(item.id)}
+          >
+            {item.text}
+          </TransparentButton>
+        ))}
+      </Flex>
+
+      {/* Ifta Reports data table */}
+
+      <Table columns={IftaReportColData} dataSource={IftaReportData} />
+    </Main>
+  );
 };

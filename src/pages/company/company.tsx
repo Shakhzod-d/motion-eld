@@ -1,64 +1,56 @@
-import type { FC } from "react";
-import { Button, Input, Select } from "antd";
-import { Container } from "./company-styled";
+// import type { FC } from "react";
+import { Button, Input } from "antd";
+import { CardsTop, Container, StyledSelect, Top } from "./company-styled";
 import { AiOutlineSearch } from "react-icons/ai";
 import CompanyCard from "../../components/shared/company-card/company-card";
 import { FaPlus } from "react-icons/fa6";
+import { Main } from "../../utils/constants";
+import { Navbar } from "../../components/ui";
 
-interface CompanyProps {
-  data?: object;
-}
-
-export const Company: FC<CompanyProps> = () => (
-  <>
+export const Company = () => (
+  <Main>
+    <Navbar title={"Company"} />
     <Container>
-      <div className="top">
+      <Top>
         <Input type="search" prefix={<AiOutlineSearch />} />
         <Button type="primary" icon={<FaPlus />}></Button>
-      </div>
-      <div className="cards">
-        <div className="cards-top">
-          <p>Name</p>
-          <div>
-            <Select
-              defaultValue="status"
-              options={[
-                { value: "status", label: "Status" },
-                { value: "active", label: "Actice" },
-                { value: "completed", label: "Completed" },
-              ]}
-            />
-          </div>
-          <div>
-            <Select
-              defaultValue="contact"
-              options={[
-                { value: "contact", label: "Contact" },
-                { value: "active", label: "Actice" },
-                { value: "completed", label: "Completed" },
-              ]}
-            />
-          </div>
-          <div>
-            <Select
-              defaultValue="created"
-              options={[
-                { value: "created", label: "Created" },
-                { value: "active", label: "Actice" },
-                { value: "completed", label: "Completed" },
-              ]}
-            />
-          </div>
-          <p></p>
-        </div>
-        <div>
-          {Array(8)
-            .fill(0)
-            .map((_, index) => {
-              return <CompanyCard data={{}} key={index} />;
-            })}
-        </div>
+      </Top>
+
+      <CardsTop>
+        <p>Name</p>
+        <StyledSelect
+          defaultValue="status"
+          options={[
+            { value: "status", label: "Status" },
+            { value: "active", label: "Actice" },
+            { value: "completed", label: "Completed" },
+          ]}
+        />
+        <StyledSelect
+          defaultValue="contact"
+          options={[
+            { value: "contact", label: "Contact" },
+            { value: "active", label: "Actice" },
+            { value: "completed", label: "Completed" },
+          ]}
+        />
+        <StyledSelect
+          defaultValue="created"
+          options={[
+            { value: "created", label: "Created" },
+            { value: "active", label: "Actice" },
+            { value: "completed", label: "Completed" },
+          ]}
+        />
+        <p></p>
+      </CardsTop>
+      <div>
+        {Array(8)
+          .fill(0)
+          .map((_, index) => {
+            return <CompanyCard key={index} />;
+          })}
       </div>
     </Container>
-  </>
+  </Main>
 );

@@ -1,372 +1,51 @@
-import { useState, type FC } from "react";
+import { useState } from "react";
 import {
-  ActiveBtn,
   DefaultBtn,
   ModalCheckBox,
   ModalInput,
   ModalSelect,
   ModalTextArea,
+  ModalTitle,
   PrimaryBtn,
   TopContainer,
 } from "./units-styled";
-import { Flex, Modal, Table, TableProps } from "antd";
+import { Table, Flex, Modal } from "antd";
+import {
+  Main,
+  unitsButtons,
+  unitsColumns,
+  unitsData,
+} from "../../utils/constants";
+import { Navbar } from "../../components/ui";
+import { TransparentButton } from "../ifta-reports/ifta-reports-styled";
 
-interface UnitsProps {
-  data?: string[];
-}
+export const Units = () => {
+  const [open, setOpen] = useState<boolean>(false);
+  const [activeBtn, setActiveBtn] = useState<number>(1);
 
-interface DataType {
-  key: string;
-  id: string;
-  index: number;
-  driver_name: string;
-  model: string;
-  eld: string;
-  notes: string;
-  vin: string;
-  documents: string;
-  activated: string;
-}
-
-const columns: TableProps<DataType>["columns"] = [
-  {
-    title: "#",
-    dataIndex: "id",
-    key: "id",
-  },
-  {
-    title: "Vehicle ID",
-    dataIndex: "index",
-    key: "index",
-  },
-  {
-    title: "Drivers",
-    dataIndex: "driver_name",
-    key: "drivers_name",
-  },
-  {
-    title: "Make/Model",
-    dataIndex: "model",
-    key: "model",
-  },
-  {
-    title: "Eld",
-    dataIndex: "eld",
-    key: "eld",
-  },
-  {
-    title: "Notes",
-    dataIndex: "notes",
-    key: "notes",
-  },
-  {
-    title: "VIN",
-    dataIndex: "vin",
-    key: "vin",
-  },
-  {
-    title: "Documents",
-    dataIndex: "documents",
-    key: "documents",
-  },
-  {
-    title: "Activated",
-    dataIndex: "activated",
-    key: "activated",
-  },
-];
-
-const data: DataType[] = [
-  {
-    key: "name",
-    id: "0",
-    index: 152,
-    driver_name: "Davit Kiknavelidze",
-    model: "Freightliner/ Cascadia",
-    eld: "PT30_09A3",
-    notes: "1FUJGLDV2HLJH2911",
-    vin: "Not uploaded",
-    documents: "2024-03-02",
-    activated: "",
-  },
-  {
-    key: "name",
-    id: "0",
-    index: 152,
-    driver_name: "Davit Kiknavelidze",
-    model: "Freightliner/ Cascadia",
-    eld: "PT30_09A3",
-    notes: "1FUJGLDV2HLJH2911",
-    vin: "Not uploaded",
-    documents: "2024-03-02",
-    activated: "",
-  },
-  {
-    key: "name",
-    id: "0",
-    index: 152,
-    driver_name: "Davit Kiknavelidze",
-    model: "Freightliner/ Cascadia",
-    eld: "PT30_09A3",
-    notes: "1FUJGLDV2HLJH2911",
-    vin: "Not uploaded",
-    documents: "2024-03-02",
-    activated: "",
-  },
-  {
-    key: "name",
-    id: "0",
-    index: 152,
-    driver_name: "Davit Kiknavelidze",
-    model: "Freightliner/ Cascadia",
-    eld: "PT30_09A3",
-    notes: "1FUJGLDV2HLJH2911",
-    vin: "Not uploaded",
-    documents: "2024-03-02",
-    activated: "",
-  },
-  {
-    key: "name",
-    id: "0",
-    index: 152,
-    driver_name: "Davit Kiknavelidze",
-    model: "Freightliner/ Cascadia",
-    eld: "PT30_09A3",
-    notes: "1FUJGLDV2HLJH2911",
-    vin: "Not uploaded",
-    documents: "2024-03-02",
-    activated: "",
-  },
-  {
-    key: "name",
-    id: "0",
-    index: 152,
-    driver_name: "Davit Kiknavelidze",
-    model: "Freightliner/ Cascadia",
-    eld: "PT30_09A3",
-    notes: "1FUJGLDV2HLJH2911",
-    vin: "Not uploaded",
-    documents: "2024-03-02",
-    activated: "",
-  },
-  {
-    key: "name",
-    id: "0",
-    index: 152,
-    driver_name: "Davit Kiknavelidze",
-    model: "Freightliner/ Cascadia",
-    eld: "PT30_09A3",
-    notes: "1FUJGLDV2HLJH2911",
-    vin: "Not uploaded",
-    documents: "2024-03-02",
-    activated: "",
-  },
-  {
-    key: "name",
-    id: "0",
-    index: 152,
-    driver_name: "Davit Kiknavelidze",
-    model: "Freightliner/ Cascadia",
-    eld: "PT30_09A3",
-    notes: "1FUJGLDV2HLJH2911",
-    vin: "Not uploaded",
-    documents: "2024-03-02",
-    activated: "",
-  },
-  {
-    key: "name",
-    id: "0",
-    index: 152,
-    driver_name: "Davit Kiknavelidze",
-    model: "Freightliner/ Cascadia",
-    eld: "PT30_09A3",
-    notes: "1FUJGLDV2HLJH2911",
-    vin: "Not uploaded",
-    documents: "2024-03-02",
-    activated: "",
-  },
-  {
-    key: "name",
-    id: "0",
-    index: 152,
-    driver_name: "Davit Kiknavelidze",
-    model: "Freightliner/ Cascadia",
-    eld: "PT30_09A3",
-    notes: "1FUJGLDV2HLJH2911",
-    vin: "Not uploaded",
-    documents: "2024-03-02",
-    activated: "",
-  },
-  {
-    key: "name",
-    id: "0",
-    index: 152,
-    driver_name: "Davit Kiknavelidze",
-    model: "Freightliner/ Cascadia",
-    eld: "PT30_09A3",
-    notes: "1FUJGLDV2HLJH2911",
-    vin: "Not uploaded",
-    documents: "2024-03-02",
-    activated: "",
-  },
-  {
-    key: "name",
-    id: "0",
-    index: 152,
-    driver_name: "Davit Kiknavelidze",
-    model: "Freightliner/ Cascadia",
-    eld: "PT30_09A3",
-    notes: "1FUJGLDV2HLJH2911",
-    vin: "Not uploaded",
-    documents: "2024-03-02",
-    activated: "",
-  },
-  {
-    key: "name",
-    id: "0",
-    index: 152,
-    driver_name: "Davit Kiknavelidze",
-    model: "Freightliner/ Cascadia",
-    eld: "PT30_09A3",
-    notes: "1FUJGLDV2HLJH2911",
-    vin: "Not uploaded",
-    documents: "2024-03-02",
-    activated: "",
-  },
-  {
-    key: "name",
-    id: "0",
-    index: 152,
-    driver_name: "Davit Kiknavelidze",
-    model: "Freightliner/ Cascadia",
-    eld: "PT30_09A3",
-    notes: "1FUJGLDV2HLJH2911",
-    vin: "Not uploaded",
-    documents: "2024-03-02",
-    activated: "",
-  },
-  {
-    key: "name",
-    id: "0",
-    index: 152,
-    driver_name: "Davit Kiknavelidze",
-    model: "Freightliner/ Cascadia",
-    eld: "PT30_09A3",
-    notes: "1FUJGLDV2HLJH2911",
-    vin: "Not uploaded",
-    documents: "2024-03-02",
-    activated: "",
-  },
-  {
-    key: "name",
-    id: "0",
-    index: 152,
-    driver_name: "Davit Kiknavelidze",
-    model: "Freightliner/ Cascadia",
-    eld: "PT30_09A3",
-    notes: "1FUJGLDV2HLJH2911",
-    vin: "Not uploaded",
-    documents: "2024-03-02",
-    activated: "",
-  },
-  {
-    key: "name",
-    id: "0",
-    index: 152,
-    driver_name: "Davit Kiknavelidze",
-    model: "Freightliner/ Cascadia",
-    eld: "PT30_09A3",
-    notes: "1FUJGLDV2HLJH2911",
-    vin: "Not uploaded",
-    documents: "2024-03-02",
-    activated: "",
-  },
-  {
-    key: "name",
-    id: "0",
-    index: 152,
-    driver_name: "Davit Kiknavelidze",
-    model: "Freightliner/ Cascadia",
-    eld: "PT30_09A3",
-    notes: "1FUJGLDV2HLJH2911",
-    vin: "Not uploaded",
-    documents: "2024-03-02",
-    activated: "",
-  },
-  {
-    key: "name",
-    id: "0",
-    index: 152,
-    driver_name: "Davit Kiknavelidze",
-    model: "Freightliner/ Cascadia",
-    eld: "PT30_09A3",
-    notes: "1FUJGLDV2HLJH2911",
-    vin: "Not uploaded",
-    documents: "2024-03-02",
-    activated: "",
-  },
-  {
-    key: "name",
-    id: "0",
-    index: 152,
-    driver_name: "Davit Kiknavelidze",
-    model: "Freightliner/ Cascadia",
-    eld: "PT30_09A3",
-    notes: "1FUJGLDV2HLJH2911",
-    vin: "Not uploaded",
-    documents: "2024-03-02",
-    activated: "",
-  },
-  {
-    key: "name",
-    id: "0",
-    index: 152,
-    driver_name: "Davit Kiknavelidze",
-    model: "Freightliner/ Cascadia",
-    eld: "PT30_09A3",
-    notes: "1FUJGLDV2HLJH2911",
-    vin: "Not uploaded",
-    documents: "2024-03-02",
-    activated: "",
-  },
-  {
-    key: "name",
-    id: "0",
-    index: 152,
-    driver_name: "Davit Kiknavelidze",
-    model: "Freightliner/ Cascadia",
-    eld: "PT30_09A3",
-    notes: "1FUJGLDV2HLJH2911",
-    vin: "Not uploaded",
-    documents: "2024-03-02",
-    activated: "",
-  },
-];
-
-export const Units: FC<UnitsProps> = () => {
-  const [open, setOpen] = useState(false);
   return (
-    <>
-      <section>
-        <TopContainer>
-          <PrimaryBtn
-            style={{ padding: "20px 35px" }}
-            onClick={() => setOpen(true)}
+    <Main>
+      <Navbar title={"Units"} />
+      <TopContainer>
+        <PrimaryBtn onClick={() => setOpen(true)}>Add new vehicle</PrimaryBtn>
+      </TopContainer>
+      <Flex gap={10}>
+        {unitsButtons.map((item) => (
+          <TransparentButton
+            active={(activeBtn == item.id).toString()}
+            onClick={() => setActiveBtn(item.id)}
           >
-            Add new vehicle
-          </PrimaryBtn>
-        </TopContainer>
-        <ActiveBtn style={{ padding: "20px 35px" }}>Vehicle</ActiveBtn>
-        <DefaultBtn style={{ padding: "20px 35px", marginLeft: "5px" }}>
-          Deactivated
-        </DefaultBtn>
-        <Table
-          columns={columns}
-          dataSource={data}
-          id="table"
-          style={{ marginTop: "20px" }}
-        />
-      </section>
+            {item.text}
+          </TransparentButton>
+        ))}
+      </Flex>
+
+      {/* Units table data */}
+
+      <Table columns={unitsColumns} dataSource={unitsData} id="table" />
+
+      {/* Units change modal */}
+
       <Modal
         centered
         open={open}
@@ -374,78 +53,69 @@ export const Units: FC<UnitsProps> = () => {
         onCancel={() => setOpen(false)}
         width={1000}
       >
-        <h2 className="modal-title">Create Vehicle</h2>
-        <Flex
-          justify="space-between"
-          gap="10px"
-          style={{ marginBottom: "10px" }}
-        >
-          <ModalInput placeholder="Vehicle ID" type="number" />
-          <ModalSelect
-            defaultValue={"default"}
-            options={[{ value: "default", label: "Makes" }]}
-          />
-        </Flex>
-        <Flex
-          justify="space-between"
-          gap="10px"
-          style={{ marginBottom: "10px" }}
-        >
-          <ModalSelect
-            defaultValue={"default"}
-            options={[{ value: "default", label: "Models" }]}
-          />
-          <ModalInput placeholder="Licensec Plate No" type="number" />
-        </Flex>
-        <Flex
-          justify="space-between"
-          gap="10px"
-          style={{ marginBottom: "10px" }}
-        >
-          <ModalSelect
-            defaultValue={"default"}
-            options={[
-              { value: "default", label: "Licensec Plate Issuing State" },
-            ]}
-          />
-          <ModalSelect
-            defaultValue={"default"}
-            options={[{ value: "default", label: "Year" }]}
-          />
-        </Flex>
-        <Flex>
-          <ModalSelect
-            defaultValue={"default"}
-            options={[{ value: "default", label: "Fuel Type" }]}
-            style={{ width: "100%" }}
-          />
-        </Flex>
-        <ModalTextArea placeholder="Notes" />
-        <Flex vertical style={{ marginBottom: "10px" }}>
-          <ModalCheckBox>Enter Vin Manually</ModalCheckBox>
-          <ModalInput placeholder="Type" style={{ width: "100%" }} />
-        </Flex>
-        <Flex vertical style={{ marginBottom: "10px" }}>
-          <ModalCheckBox>
-            Get Automatically from ELD ( recommended )
-          </ModalCheckBox>
-          <ModalInput placeholder="Type" style={{ width: "100%" }} />
-        </Flex>
-        <Flex justify="end" gap={"10px"}>
-          <DefaultBtn
-            onClick={() => setOpen(false)}
-            style={{ width: "200px", height: "55px" }}
-          >
-            Close
-          </DefaultBtn>
-          <PrimaryBtn
-            onClick={() => setOpen(false)}
-            style={{ width: "200px", height: "55px" }}
-          >
-            Save
-          </PrimaryBtn>
+        <ModalTitle>Create Vehicle</ModalTitle>
+
+        <Flex vertical gap={10}>
+          <Flex justify="space-between" gap="10px">
+            <ModalInput placeholder="Vehicle ID" type="number" />
+            <ModalSelect
+              defaultValue={"default"}
+              options={[{ value: "default", label: "Makes" }]}
+            />
+          </Flex>
+          <Flex justify="space-between" gap="10px">
+            <ModalSelect
+              defaultValue={"default"}
+              options={[{ value: "default", label: "Models" }]}
+            />
+            <ModalInput placeholder="Licensec Plate No" type="number" />
+          </Flex>
+          <Flex justify="space-between" gap="10px">
+            <ModalSelect
+              defaultValue={"default"}
+              options={[
+                { value: "default", label: "Licensec Plate Issuing State" },
+              ]}
+            />
+            <ModalSelect
+              defaultValue={"default"}
+              options={[{ value: "default", label: "Year" }]}
+            />
+          </Flex>
+          <Flex>
+            <ModalSelect
+              defaultValue={"default"}
+              options={[{ value: "default", label: "Fuel Type" }]}
+              style={{ width: "100%" }}
+            />
+          </Flex>
+          <ModalTextArea placeholder="Notes" />
+          <Flex vertical>
+            <ModalCheckBox>Enter Vin Manually</ModalCheckBox>
+            <ModalInput placeholder="Type" style={{ width: "100%" }} />
+          </Flex>
+          <Flex vertical>
+            <ModalCheckBox>
+              Get Automatically from ELD ( recommended )
+            </ModalCheckBox>
+            <ModalInput placeholder="Type" style={{ width: "100%" }} />
+          </Flex>
+          <Flex justify="end" gap={"10px"}>
+            <DefaultBtn
+              onClick={() => setOpen(false)}
+              style={{ width: "200px", height: "55px" }}
+            >
+              Close
+            </DefaultBtn>
+            <PrimaryBtn
+              onClick={() => setOpen(false)}
+              style={{ width: "200px", height: "55px" }}
+            >
+              Save
+            </PrimaryBtn>
+          </Flex>
         </Flex>
       </Modal>
-    </>
+    </Main>
   );
 };

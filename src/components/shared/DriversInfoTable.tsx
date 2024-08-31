@@ -4,16 +4,16 @@ import styled from "styled-components";
 const StyledTable = styled(Table)`
   .ant-table {
     border-radius: 10px;
-   
+
     margin-bottom: 10px;
-     background-color: #f3f3f4;
+    background-color: #f3f3f4;
   }
-      .ant-table {
+  .ant-table {
   }
   .ant-table-thead > tr > th {
     background-color: #f5f5f5;
     color: #000;
-    
+
     font-weight: bold;
     // text-align: center;
   }
@@ -26,7 +26,7 @@ const StyledTable = styled(Table)`
     background: #fdfdfd;
     // text-align: center;
   }
-   .ant-table-tbody > tr {
+  .ant-table-tbody > tr {
     background: #fff;
     border-radius: 10px;
     padding: 29px 25px;

@@ -16,6 +16,7 @@ export const PrimaryBtn = styled(Button)`
   font-weight: 500;
   letter-spacing: -0.5px;
   height: 100%;
+  padding: 20px 35px;
 `;
 
 export const DefaultBtn = styled(Button)`
@@ -96,4 +97,12 @@ export const ModalCheckBox = styled(Checkbox)`
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 10px;
+`;
+
+export const ModalTitle = styled.h2`
+  color: #000;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 30px;
 `;
