@@ -2,6 +2,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "SF Pro Display";
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("../public/fonts/SFPRODISPLAYBOLD.OTF");
+  src: url("../public/fonts/SFPRODISPLAYMEDIUM.OTF");
+  src: url("../public/fonts/SFPRODISPLAYREGULAR.OTF");
 }
 
 body {
@@ -82,4 +90,37 @@ body {
 
 .ant-modal-footer {
   display: none;
+}
+
+.ant-table-thead th {
+  background-color: #f3f3f4 !important;
+  scrollbar-color: #f3f3f4 !important;
+}
+
+/* .ant-table-row-level-0 {
+  border-radius: 10px !important;
+  background: #fdfdfd !important;
+  margin-bottom: 50px !important;
+  overflow: hidden !important;
+} */
+
+.ant-table-thead * {
+  color: #303030;
+  font-size: 14px;
+  font-weight: 590;
+}
+
+.ant-table-tbody * {
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 2;
+}
+
+.modal-title {
+  color: #000;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 30px;
 }

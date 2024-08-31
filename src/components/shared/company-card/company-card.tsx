@@ -1,4 +1,4 @@
-import { useState, type FC } from "react";
+import { useState } from "react";
 import { BtnGroup, Card } from "./company-styled";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
@@ -10,13 +10,13 @@ interface CompanyCardProps {
   data: object;
 }
 
-const CompanyCard: FC<CompanyCardProps> = ({ data }) => {
+const CompanyCard = ({}: CompanyCardProps) => {
   const [open, setOpen] = useState<boolean>(false);
-  console.log(data);
+  // console.log(data);
 
   return (
     <>
-      <Card onClick={() => setOpen(!open)}>
+      <Card>
         <div className="card-name">
           <div className="card-img">
             <img src="/src/assets/company-logo.png" alt="logo" />
@@ -54,7 +54,7 @@ const CompanyCard: FC<CompanyCardProps> = ({ data }) => {
           <p>Created: Apr 3rd 2023 </p>
           <p>Edited: Apr 3rd 2023</p>
         </div>
-        <div className="card-edit">
+        <div className="card-edit" onClick={() => setOpen(!open)}>
           <CiEdit />
           <span>Edit</span>
         </div>

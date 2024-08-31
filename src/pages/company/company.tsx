@@ -19,7 +19,7 @@ export const Company: FC<CompanyProps> = () => (
       <div className="cards">
         <div className="cards-top">
           <p>Name</p>
-          <p>
+          <div>
             <Select
               defaultValue="status"
               options={[
@@ -28,8 +28,8 @@ export const Company: FC<CompanyProps> = () => (
                 { value: "completed", label: "Completed" },
               ]}
             />
-          </p>
-          <p>
+          </div>
+          <div>
             <Select
               defaultValue="contact"
               options={[
@@ -38,8 +38,8 @@ export const Company: FC<CompanyProps> = () => (
                 { value: "completed", label: "Completed" },
               ]}
             />
-          </p>
-          <p>
+          </div>
+          <div>
             <Select
               defaultValue="created"
               options={[
@@ -48,7 +48,7 @@ export const Company: FC<CompanyProps> = () => (
                 { value: "completed", label: "Completed" },
               ]}
             />
-          </p>
+          </div>
           <p></p>
         </div>
         <div>

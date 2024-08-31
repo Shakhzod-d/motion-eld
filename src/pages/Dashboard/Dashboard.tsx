@@ -7,11 +7,13 @@ import { CardWrapper, Day, DayBtn, Title } from "./dashboard-styled";
 
 export const Dashboard = () => {
   const [activeBtn, setActiveBtn] = useState<number>(1);
+
   return (
     <Main>
       <Navbar title="Dashboard" />
       <Day>
         {btnArr.map((item) => (
+          // MUST CHECK
           <DayBtn
             key={item.id}
             style={{
