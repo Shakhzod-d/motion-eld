@@ -6,13 +6,8 @@ import { FaUser } from "react-icons/fa";
 import { CiEdit } from "react-icons/ci";
 import { Button, Modal } from "antd";
 
-interface CompanyCardProps {
-  data: object;
-}
-
-const CompanyCard = ({}: CompanyCardProps) => {
+const CompanyCard = () => {
   const [open, setOpen] = useState<boolean>(false);
-  // console.log(data);
 
   return (
     <>
@@ -60,7 +55,6 @@ const CompanyCard = ({}: CompanyCardProps) => {
         </div>
       </Card>
       <Modal
-        title=""
         centered
         open={open}
         onOk={() => setOpen(false)}
