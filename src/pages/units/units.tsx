@@ -10,6 +10,7 @@ import {
   TopContainer,
 } from "./units-styled";
 import { Flex, Modal, Table, TableProps } from "antd";
+import { Main } from "../../utils/constants";
 
 interface UnitsProps {
   data?: string[];
@@ -347,7 +348,7 @@ export const Units: FC<UnitsProps> = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <section>
+      <Main>
         <TopContainer>
           <PrimaryBtn
             style={{ padding: "20px 35px" }}
@@ -366,7 +367,7 @@ export const Units: FC<UnitsProps> = () => {
           id="table"
           style={{ marginTop: "20px" }}
         />
-      </section>
+      </Main>
       <Modal
         centered
         open={open}

@@ -1,6 +1,9 @@
 import { Button } from "antd";
 import styled from "styled-components";
-
+interface ButtonProps {
+  active?: boolean;
+  border: string;
+}
 export const Day = styled.div`
   width: 100%;
   display: flex;
@@ -9,7 +12,9 @@ export const Day = styled.div`
   margin-bottom: 10px;
 `;
 
-export const DayBtn = styled(Button)`
+export const DayBtn = styled(Button)<ButtonProps>`
+  background-color: ${({ active }) => (active ? "#19223f" : "")};
+  border-radius:${({ border }) => border}
   padding: 15px 30px;
   width: 81px;
   height: 49px;
