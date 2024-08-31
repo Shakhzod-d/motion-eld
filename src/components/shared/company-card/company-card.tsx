@@ -1,4 +1,4 @@
-import { useState, type FC } from "react";
+import { useState } from "react";
 import { BtnGroup, Card } from "./company-styled";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
@@ -10,9 +10,9 @@ interface CompanyCardProps {
   data: object;
 }
 
-const CompanyCard: FC<CompanyCardProps> = ({ data }) => {
+const CompanyCard = ({}: CompanyCardProps) => {
   const [open, setOpen] = useState<boolean>(false);
-  console.log(data);
+  // console.log(data);
 
   return (
     <>
