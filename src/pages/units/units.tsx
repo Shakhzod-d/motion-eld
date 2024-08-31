@@ -1,4 +1,4 @@
-import { useState, type FC } from "react";
+import { useState } from "react";
 import {
   ActiveBtn,
   DefaultBtn,
@@ -6,29 +6,13 @@ import {
   ModalInput,
   ModalSelect,
   ModalTextArea,
+  ModalTitle,
   PrimaryBtn,
   TopContainer,
 } from "./units-styled";
-import { Flex, Modal, Table, TableProps } from "antd";
+import { Table, Flex, Modal } from "antd";
 
-interface UnitsProps {
-  data?: string[];
-}
-
-interface DataType {
-  key: string;
-  id: string;
-  index: number;
-  driver_name: string;
-  model: string;
-  eld: string;
-  notes: string;
-  vin: string;
-  documents: string;
-  activated: string;
-}
-
-const columns: TableProps<DataType>["columns"] = [
+const columns = [
   {
     title: "#",
     dataIndex: "id",
@@ -76,8 +60,7 @@ const columns: TableProps<DataType>["columns"] = [
   },
 ];
 
-const data: DataType[] = Array(70).fill({
-  key: "name",
+const data = Array(10).fill({
   id: "0",
   index: 152,
   driver_name: "Davit Kiknavelidze",
@@ -89,7 +72,7 @@ const data: DataType[] = Array(70).fill({
   activated: "",
 });
 
-export const Units: FC<UnitsProps> = () => {
+export const Units = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -120,76 +103,66 @@ export const Units: FC<UnitsProps> = () => {
         onCancel={() => setOpen(false)}
         width={1000}
       >
-        <h2 className="modal-title">Create Vehicle</h2>
-        <Flex
-          justify="space-between"
-          gap="10px"
-          style={{ marginBottom: "10px" }}
-        >
-          <ModalInput placeholder="Vehicle ID" type="number" />
-          <ModalSelect
-            defaultValue={"default"}
-            options={[{ value: "default", label: "Makes" }]}
-          />
-        </Flex>
-        <Flex
-          justify="space-between"
-          gap="10px"
-          style={{ marginBottom: "10px" }}
-        >
-          <ModalSelect
-            defaultValue={"default"}
-            options={[{ value: "default", label: "Models" }]}
-          />
-          <ModalInput placeholder="Licensec Plate No" type="number" />
-        </Flex>
-        <Flex
-          justify="space-between"
-          gap="10px"
-          style={{ marginBottom: "10px" }}
-        >
-          <ModalSelect
-            defaultValue={"default"}
-            options={[
-              { value: "default", label: "Licensec Plate Issuing State" },
-            ]}
-          />
-          <ModalSelect
-            defaultValue={"default"}
-            options={[{ value: "default", label: "Year" }]}
-          />
-        </Flex>
-        <Flex>
-          <ModalSelect
-            defaultValue={"default"}
-            options={[{ value: "default", label: "Fuel Type" }]}
-            style={{ width: "100%" }}
-          />
-        </Flex>
-        <ModalTextArea placeholder="Notes" />
-        <Flex vertical style={{ marginBottom: "10px" }}>
-          <ModalCheckBox>Enter Vin Manually</ModalCheckBox>
-          <ModalInput placeholder="Type" style={{ width: "100%" }} />
-        </Flex>
-        <Flex vertical style={{ marginBottom: "10px" }}>
-          <ModalCheckBox>
-            Get Automatically from ELD ( recommended )
-          </ModalCheckBox>
-          <ModalInput placeholder="Type" style={{ width: "100%" }} />
-        </Flex>
-        <Flex justify="end" gap={"10px"}>
-          <DefaultBtn
-            onClick={() => setOpen(false)}
-            style={{ width: "200px", height: "55px" }}
-          >
-            Close
-          </DefaultBtn>
-          <PrimaryBtn
-            onClick={() => setOpen(false)}
-            style={{ width: "200px", height: "55px" }}
-          >
-            Save
-          </PrimaryBtn>
+        <ModalTitle>Create Vehicle</ModalTitle>
+        <Flex vertical gap={10}>
+          <Flex justify="space-between" gap="10px">
+            <ModalInput placeholder="Vehicle ID" type="number" />
+            <ModalSelect
+              defaultValue={"default"}
+              options={[{ value: "default", label: "Makes" }]}
+            />
+          </Flex>
+          <Flex justify="space-between" gap="10px">
+            <ModalSelect
+              defaultValue={"default"}
+              options={[{ value: "default", label: "Models" }]}
+            />
+            <ModalInput placeholder="Licensec Plate No" type="number" />
+          </Flex>
+          <Flex justify="space-between" gap="10px">
+            <ModalSelect
+              defaultValue={"default"}
+              options={[
+                { value: "default", label: "Licensec Plate Issuing State" },
+              ]}
+            />
+            <ModalSelect
+              defaultValue={"default"}
+              options={[{ value: "default", label: "Year" }]}
+            />
+          </Flex>
+          <Flex>
+            <ModalSelect
+              defaultValue={"default"}
+              options={[{ value: "default", label: "Fuel Type" }]}
+              style={{ width: "100%" }}
+            />
+          </Flex>
+          <ModalTextArea placeholder="Notes" />
+          <Flex vertical>
+            <ModalCheckBox>Enter Vin Manually</ModalCheckBox>
+            <ModalInput placeholder="Type" style={{ width: "100%" }} />
+          </Flex>
+          <Flex vertical>
+            <ModalCheckBox>
+              Get Automatically from ELD ( recommended )
+            </ModalCheckBox>
+            <ModalInput placeholder="Type" style={{ width: "100%" }} />
+          </Flex>
+          <Flex justify="end" gap={"10px"}>
+            <DefaultBtn
+              onClick={() => setOpen(false)}
+              style={{ width: "200px", height: "55px" }}
+            >
+              Close
+            </DefaultBtn>
+            <PrimaryBtn
+              onClick={() => setOpen(false)}
+              style={{ width: "200px", height: "55px" }}
+            >
+              Save
+            </PrimaryBtn>
+          </Flex>
         </Flex>
       </Modal>
     </>

@@ -1,6 +1,10 @@
 import { Button, Select } from "antd";
 import styled from "styled-components";
 
+// interface ButtonProps {
+//   active?: boolean;
+// }
+
 export const ReportsSelect = styled(Select)`
   width: 185px;
   height: 50px;
@@ -27,15 +31,20 @@ export const ReportsSelect = styled(Select)`
   }
 `;
 
-export const TransparentButton = styled(Button)`
+export const TransparentButton = styled(Button)<{ active?: string }>`
   padding: 15px 35px;
   border-radius: 10px;
-  background: #fff;
-  color: #000;
+  background-color: ${({ active }) => (active == "true" ? "#19223F" : "#fff")};
+  color: ${({ active }) => (active == "true" ? "#fff" : "#000")};
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.5px;
   width: 163px;
   height: 50px;
   border: none;
+
+  &:hover {
+    background-color: ${({ active }) =>
+      active == "true" ? "#19223F" : "#fff"}!important;
+  }
 `;

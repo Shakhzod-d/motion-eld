@@ -1,90 +1,51 @@
-import { Flex, Table, TableProps } from "antd";
-import { useState, type FC } from "react";
+import { useState } from "react";
+import { Flex, Table } from "antd";
 import { ReportsSelect, TransparentButton } from "./ifta-reports-styled";
+import {
+  IftaReportButtons,
+  IftaReportColData,
+  IftaReportData,
+  IftaReportSelectData,
+} from "../../utils/constants";
 
-interface IftaReportsProps {
-  data?: string[];
-}
-
-interface DataType {
-  key: string;
-  vehicle: string;
-  state: string;
-  melis: string;
-}
-
-const columns: TableProps<DataType>["columns"] = [
-  {
-    title: "Vehicle",
-    dataIndex: "vehicle",
-    key: "vehicle",
-  },
-  {
-    title: "State",
-    dataIndex: "state",
-    key: "state",
-  },
-  {
-    title: "Melis",
-    dataIndex: "melis",
-    key: "melis",
-  },
-];
-
-const data: DataType[] = Array(30).fill({
-  key: "0",
-  vehicle: "148",
-  state: "AR",
-  melis: "43",
-});
-const buttons = [
-  { id: 1, text: "Vehicle" },
-  { id: 2, text: "State" },
-];
-
-export const IftaReports: FC<IftaReportsProps> = () => {
+export const IftaReports = () => {
   const [activeBtn, setActiveBtn] = useState<number>(1);
+
   return (
     <>
-      <section>
-        <Flex justify="space-between" align="center">
-          <Flex gap={10}>
+      {/* Ifta Reports sort select items */}
+
+      <Flex justify="space-between" align="center">
+        <Flex gap={10}>
+          {IftaReportSelectData.map((item) => (
             <ReportsSelect
-              defaultValue={"default"}
-              options={[{ value: "default", label: "Year" }]}
-            />
-            <ReportsSelect
-              defaultValue={"default"}
-              options={[{ value: "default", label: "1 quater" }]}
-            />
-            <ReportsSelect
-              defaultValue={"default"}
-              options={[{ value: "default", label: "State" }]}
-            />
-            <ReportsSelect
-              defaultValue={"default"}
-              options={[{ value: "default", label: "Vehicle" }]}
-            />
-          </Flex>
-          <TransparentButton>Generate CSV</TransparentButton>
-        </Flex>
-        <Flex gap={"10px"} style={{ margin: "20px 0" }}>
-          {buttons.map((item) => (
-            <TransparentButton
               key={item.id}
-              style={{
-                height: "60px",
-                background: `${activeBtn == item.id ? "#19223F" : "#fff"}`,
-                color: `${activeBtn == item.id ? "#fff" : "#000"}`,
-              }}
-              onClick={() => setActiveBtn(item.id)}
-            >
-              {item.text}
-            </TransparentButton>
+              defaultValue={item.defaultValue}
+              options={item.options}
+            />
           ))}
         </Flex>
-        <Table columns={columns} dataSource={data} />
-      </section>
+
+        <TransparentButton>Generate CSV</TransparentButton>
+      </Flex>
+
+      {/* Ifta Reports change UI data buttons */}
+
+      <Flex gap={"10px"} style={{ margin: "20px 0" }}>
+        {IftaReportButtons.map((item) => (
+          <TransparentButton
+            key={item.id}
+            active={(activeBtn == item.id).toString()}
+            onClick={() => setActiveBtn(item.id)}
+          >
+            {item.text}
+          </TransparentButton>
+        ))}
+      </Flex>
+
+      {/* Ifta Reports data table */}
+
+      <Table columns={IftaReportColData} dataSource={IftaReportData} />
     </>
   );
 };

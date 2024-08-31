@@ -1,3 +1,4 @@
+import { Select } from "antd";
 import styled from "styled-components";
 
 export const Container = styled.div<{ $flex?: boolean }>`
@@ -62,4 +63,8 @@ export const Container = styled.div<{ $flex?: boolean }>`
       }
     }
   }
+`;
+
+export const StyledSelect = styled(Select)`
+  width: 100%;
 `;

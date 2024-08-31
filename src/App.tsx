@@ -5,12 +5,7 @@ import { Login } from "./pages";
 import { Dashboard } from "./pages/Dashboard/Dashboard";
 import "./App.css";
 
-// import { Button, ConfigProvider, theme } from "antd";
-// import { useState } from "react";
-// import { dark, light } from "./utils";
 function App() {
-  // const [themeValue, setTheme] = useState<string>("light");
-  // const { defaultAlgorithm, darkAlgorithm } = theme;
   return (
     <>
       <Routes>
@@ -25,33 +20,6 @@ function App() {
           <Route path="manage-company" element={<ManageCompany />} />
         </Route>
       </Routes>
-      {/* <ConfigProvider
-      
-import { ConfigProvider, theme } from "antd";
-import { useState } from "react";
-import { Dashboard } from "./pages/Dashboard/Dashboard";
-// import { dark, light } from "./utils";
-function App() {
-  const [themeValue, _] = useState<string>("light");
-  const { defaultAlgorithm, darkAlgorithm } = theme;
-  return (
-    <>
-      <ConfigProvider
-        theme={{
-          algorithm: themeValue == "light" ? defaultAlgorithm : darkAlgorithm,
-        }}
-      >
-        <Button
-          onClick={() => setTheme((e) => (e == "light" ? "dark" : "light"))}
-        >
-          {themeValue == "dark" ? "light" : "dark"}
-        </Button> 
-      <Routes>
-        <Route path="/login" element={<Login />} />
-      </Routes> 
-      </ConfigProvider> */}
-
-      {/* </ConfigProvider> */}
     </>
   );
 }

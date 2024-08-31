@@ -1,4 +1,1 @@
-export interface LoginData {
-    login:string,
-    password:string
-}
+export * from "./interfaces";

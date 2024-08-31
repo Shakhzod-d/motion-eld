@@ -1,4 +1,4 @@
-import { useState, type FC } from "react";
+import { useState } from "react";
 import { BtnGroup, Card } from "./company-styled";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
@@ -6,13 +6,8 @@ import { FaUser } from "react-icons/fa";
 import { CiEdit } from "react-icons/ci";
 import { Button, Modal } from "antd";
 
-interface CompanyCardProps {
-  data: object;
-}
-
-const CompanyCard: FC<CompanyCardProps> = ({ data }) => {
+const CompanyCard = () => {
   const [open, setOpen] = useState<boolean>(false);
-  console.log(data);
 
   return (
     <>
@@ -60,7 +55,6 @@ const CompanyCard: FC<CompanyCardProps> = ({ data }) => {
         </div>
       </Card>
       <Modal
-        title=""
         centered
         open={open}
         onOk={() => setOpen(false)}

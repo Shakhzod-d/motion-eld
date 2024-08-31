@@ -1,6 +1,6 @@
 import type { FC } from "react";
-import { Button, Input, Select } from "antd";
-import { Container } from "./company-styled";
+import { Button, Input } from "antd";
+import { Container, StyledSelect } from "./company-styled";
 import { AiOutlineSearch } from "react-icons/ai";
 import CompanyCard from "../../components/shared/company-card/company-card";
 import { FaPlus } from "react-icons/fa6";
@@ -19,8 +19,8 @@ export const Company: FC<CompanyProps> = () => (
       <div className="cards">
         <div className="cards-top">
           <p>Name</p>
-          <p>
-            <Select
+          <div>
+            <StyledSelect
               defaultValue="status"
               options={[
                 { value: "status", label: "Status" },
@@ -28,9 +28,9 @@ export const Company: FC<CompanyProps> = () => (
                 { value: "completed", label: "Completed" },
               ]}
             />
-          </p>
-          <p>
-            <Select
+          </div>
+          <div>
+            <StyledSelect
               defaultValue="contact"
               options={[
                 { value: "contact", label: "Contact" },
@@ -38,9 +38,9 @@ export const Company: FC<CompanyProps> = () => (
                 { value: "completed", label: "Completed" },
               ]}
             />
-          </p>
-          <p>
-            <Select
+          </div>
+          <div>
+            <StyledSelect
               defaultValue="created"
               options={[
                 { value: "created", label: "Created" },
@@ -48,14 +48,14 @@ export const Company: FC<CompanyProps> = () => (
                 { value: "completed", label: "Completed" },
               ]}
             />
-          </p>
+          </div>
           <p></p>
         </div>
         <div>
           {Array(8)
             .fill(0)
             .map((_, index) => {
-              return <CompanyCard data={{}} key={index} />;
+              return <CompanyCard key={index} />;
             })}
         </div>
       </div>

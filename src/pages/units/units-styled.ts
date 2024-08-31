@@ -97,3 +97,11 @@ export const ModalCheckBox = styled(Checkbox)`
   font-weight: 500;
   margin-bottom: 10px;
 `;
+
+export const ModalTitle = styled.h2`
+  color: #000;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 30px;
+`;
