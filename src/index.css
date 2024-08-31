@@ -55,6 +55,36 @@ body {
       height: 20px;
     }
   }
+  .ant-menu-submenu {
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px 20px;
+    color: #ffffff5b !important;
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 30px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+    .ant-menu-title-content {
+      margin-left: 20px !important;
+    }
+    .ant-menu-item {
+      background: rgba(255, 255, 255, 0.1);
+      height: 50px !important;
+      padding: 0 !important;
+    }
+  }
+  .ant-menu-submenu-title {
+    padding: 0 !important;
+  }
+  .ant-menu-sub {
+    border-radius: 10px;
+    background: transparent !important;
+  }
+
   .ant-menu-item-selected {
     background: #fff;
     color: #19223f;

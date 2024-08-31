@@ -62,6 +62,11 @@ export const Navbar: React.FC = () => {
               key: "3",
               icon: <VscFileSubmodule />,
               label: "Fleet manager",
+              children: [
+                { label: "lorem", key: "4", icon: "-" },
+                { label: "lorem", key: "5", icon: "-" },
+                { label: "lorem", key: "6", icon: "-" },
+              ],
             },
           ]}
           style={{ flex: 1 }}

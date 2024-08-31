@@ -1,8 +1,9 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import { Navbar } from "./components/shared";
-import { Company, Drivers, IftaReports, Units } from "./pages";
+import { Company, Drivers, IftaReports, ManageCompany, Units } from "./pages";
 import { Login } from "./pages";
+import { Dashboard } from "./pages/Dashboard/Dashboard";
+import "./App.css";
 
 // import { Button, ConfigProvider, theme } from "antd";
 // import { useState } from "react";
@@ -18,7 +19,10 @@ function App() {
           <Route path="company" element={<Company />} />
           <Route path="units" element={<Units />} />
           <Route path="drivers" element={<Drivers />} />
+          <Route path="company" element={<Company />} />
+          <Route index element={<Dashboard />} />
           <Route path="ifta-reports" element={<IftaReports />} />
+          <Route path="manage-company" element={<ManageCompany />} />
         </Route>
       </Routes>
       {/* <ConfigProvider
@@ -46,15 +50,8 @@ function App() {
         <Route path="/login" element={<Login />} />
       </Routes> 
       </ConfigProvider> */}
-        <Routes>
-          <Route path="login" element={<Login />} />
-          <Route path="/" element={<Navbar />}>
-            <Route path="company" element={<Company />} />
-          </Route>
 
-          <Route path="/" element={<Dashboard />} />
-        </Routes>
-      </ConfigProvider>
+      {/* </ConfigProvider> */}
     </>
   );
 }
