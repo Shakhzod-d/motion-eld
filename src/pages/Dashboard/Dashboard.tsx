@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Drivers, OverviewCard } from "../../components/ui";
 import { DriversInfoTable, ViolationsChart } from "../../components/shared";
-import { Day, DayBtn, Main, Title } from "./style";
+import { Day, DayBtn, Main, Title } from "./dashboard-style";
 import { btnArr } from "../../utils/constants";
 
 export const Dashboard = () => {
