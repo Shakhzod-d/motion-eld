@@ -4,16 +4,16 @@ import styled from "styled-components";
 const StyledTable = styled(Table)`
   .ant-table {
     border-radius: 10px;
-   
+
     margin-bottom: 10px;
-     background-color: #f3f3f4;
+    background-color: #f3f3f4;
   }
-      .ant-table {
+  .ant-table {
   }
   .ant-table-thead > tr > th {
     background-color: #f5f5f5;
     color: #000;
-    
+
     font-weight: bold;
     // text-align: center;
   }
@@ -21,18 +21,19 @@ const StyledTable = styled(Table)`
   .ant-table-tbody > tr > td {
     // border-radius: 10px;
     padding: 29px 25px;
-    width: 1575px;
+  width: 1575px;
     // height: 77px;
     background: #fdfdfd;
     // text-align: center;
   }
-   .ant-table-tbody > tr {
+  .ant-table-tbody > tr {
     background: #fff;
     border-radius: 10px;
     padding: 29px 25px;
     width: 1575px;
     height: 77px;
-    margin-bottom: 10px; /* Har bir qator orasida joy */
+    margin-bottom: 10px;
+    
   }
   .ant-table-tbody > tr > td:nth-child(2) {
     color: #ff4d4f;
@@ -117,7 +118,7 @@ const dataSource = [
 ];
 export const DriversInfoTable = () => {
   return (
-    <div style={{}}>
+    <div style={{overflow:"auto"}}>
       <StyledTable
         dataSource={dataSource}
         columns={columns}

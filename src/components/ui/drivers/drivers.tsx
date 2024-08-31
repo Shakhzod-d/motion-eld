@@ -1,29 +1,14 @@
-import styled from "styled-components";
-import { InfoCard } from "../../utils";
+import { InfoCard } from "../../../utils/constants";
 import { FaPowerOff } from "react-icons/fa";
 import { TbMoonStars } from "react-icons/tb";
 import { BsTruck } from "react-icons/bs";
 import { GrUserAdmin } from "react-icons/gr";
-
-const Item = styled.div`
-  width: 70px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-const ItemTitle = styled.p`
-  font-weight: 590;
-  font-size: 14px;
-  color: #5d5e5f;
-  margin-bottom: 5px;
-`;
+import { Item, ItemTitle, Title } from "./drivers-style";
 
 export const Drivers = () => {
   return (
     <InfoCard>
-      <p style={{ fontWeight: "590", color: "#303030", marginBottom: "42px" }}>
-        Drivers
-      </p>
+      <Title>Drivers</Title>
       <div style={{ display: "flex", gap: "50px" }}>
         <Item>
           <FaPowerOff

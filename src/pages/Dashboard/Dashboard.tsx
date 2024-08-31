@@ -1,16 +1,16 @@
 import { useState } from "react";
 
-import { Drivers, OverviewCard } from "../../components/ui";
 import { DriversInfoTable, ViolationsChart } from "../../components/shared";
-import { Day, DayBtn, Main, Title } from "./dashboard-style";
-import { btnArr } from "../../utils/constants";
+import { Drivers, Navbar, OverviewCard } from "../../components/ui";
+import { btnArr, Main } from "../../utils/constants";
+import { CardWrapper, Day, DayBtn, Title } from "./dashboard-styled";
 
 export const Dashboard = () => {
   const [activeBtn, setActiveBtn] = useState<number>(1);
 
   return (
     <Main>
-      <div>Header</div>
+      <Navbar title="Dashboard" />
       <Day>
         {btnArr.map((item) => (
           // MUST CHECK
@@ -27,19 +27,11 @@ export const Dashboard = () => {
           </DayBtn>
         ))}
       </Day>
-      <div
-        style={{
-          display: "flex",
-          gap: "12px",
-          marginBottom: "40px",
-          justifyContent: "space-between",
-          overflow: "hidden",
-        }}
-      >
+      <CardWrapper>
         <Drivers />
         <ViolationsChart />
         <OverviewCard />
-      </div>
+      </CardWrapper>
       <Title>Drivers info</Title>
       <DriversInfoTable />
     </Main>
