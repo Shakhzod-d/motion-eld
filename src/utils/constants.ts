@@ -169,7 +169,7 @@ export const unitsData = Array(10).fill({
 export const Main = styled.main`
   border-radius: 20px;
   padding: 0 20px 20px 20px;
-  width: calc(100vw - 350px);
+  width: 100%;
   max-width: 100vw;
   min-height: calc(100vh - 15px);
   background: #f3f3f4;
