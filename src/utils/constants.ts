@@ -175,7 +175,10 @@ export const Main = styled.main`
   background: #f3f3f4;
   overflow: "hidden";
 `;
-
+export const OutletWrapper = styled.div`
+  padding: 10px;
+  width: 100%;
+`;
 export const InfoCard = styled.div`
   border-radius: 15px;
   padding: 25px;
