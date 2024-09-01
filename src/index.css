@@ -14,87 +14,16 @@
 
 body {
   background: #101525;
-  /* overflow: hidden; */
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
 }
 
 .ant-layout-sider-children {
   display: flex;
   flex-direction: column;
-}
-
-#aside {
-  display: flex;
-  gap: 25px;
-  max-width: 300px !important;
-  width: 300px !important;
-  flex: 0 0 300px !important;
-  padding: 10px;
-  img {
-    margin-bottom: 20px;
-  }
-  p {
-    color: #fff;
-    font-size: 16px;
-    font-weight: 300;
-    margin: 10px 6px 20px;
-  }
-  .ant-menu-item {
-    width: 100%;
-    padding: 25px 20px;
-    display: flex;
-    align-items: center;
-    height: 70px;
-    gap: 10px;
-    border-radius: 10px;
-    font-size: 17px;
-    font-weight: 500;
-    background: rgba(255, 255, 255, 0.1);
-    margin: 0 !important;
-    margin-bottom: 10px !important;
-    width: 100%;
-    svg {
-      width: 20px;
-      height: 20px;
-    }
-  }
-  .ant-menu-submenu {
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 25px 20px;
-    color: #ffffff5b !important;
-    font-size: 16px;
-    font-weight: 300;
-    margin-bottom: 30px;
-
-    svg {
-      width: 20px;
-      height: 20px;
-    }
-    .ant-menu-title-content {
-      margin-left: 20px !important;
-    }
-    .ant-menu-item {
-      background: rgba(255, 255, 255, 0.1);
-      height: 50px !important;
-      padding: 0 !important;
-    }
-  }
-  .ant-menu-submenu-title {
-    padding: 0 !important;
-  }
-  .ant-menu-sub {
-    border-radius: 10px;
-    background: transparent !important;
-  }
-
-  .ant-menu-item-selected {
-    background: #fff;
-    color: #19223f;
-    * {
-      fill: #19223f;
-      stroke: #19223f;
-    }
-  }
 }
 
 .btn-default {
