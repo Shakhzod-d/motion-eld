@@ -14,13 +14,10 @@ export const Dashboard = () => {
       <Navbar title="Dashboard" />
       <Day>
         {btnArr.map((item) => (
-          // MUST CHECK
           <DayBtn
+            active={activeBtn == item.id}
+            border={item.border}
             key={item.id}
-            style={{
-              borderRadius: item.border,
-              background: `${activeBtn == item.id ? "#19223f" : ""}`,
-            }}
             type={activeBtn == item.id ? "primary" : "default"}
             onClick={() => setActiveBtn(item.id)}
           >
