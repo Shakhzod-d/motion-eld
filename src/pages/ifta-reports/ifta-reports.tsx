@@ -7,7 +7,7 @@ import {
   IftaReportData,
   IftaReportSelectData,
   Main,
-} from "../../utils/constants";
+} from "../../utils/index";
 import { Navbar } from "../../components/ui";
 
 export const IftaReports = () => {

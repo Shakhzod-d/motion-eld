@@ -1,4 +1,4 @@
-import { InfoCard } from "../../../utils/constants";
+import { InfoCard } from "../../../utils/index";
 import { FaPowerOff } from "react-icons/fa";
 import { TbMoonStars } from "react-icons/tb";
 import { BsTruck } from "react-icons/bs";

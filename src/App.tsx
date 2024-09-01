@@ -1,9 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
-import { Company, IftaReports, ManageCompany, Units } from "./pages";
-import { Login } from "./pages";
-import { Dashboard } from "./pages";
+import { Company, IftaReports, ManageCompany, Transfer, Units , Dashboard,Login} from "./pages";
 import Layout from "./components/shared/layout";
+import "./App.css";
+
 function App() {
   return (
     <>
@@ -14,6 +13,8 @@ function App() {
           <Route path="units" element={<Units />} />
           <Route path="ifta-reports" element={<IftaReports />} />
           <Route path="manage-company" element={<ManageCompany />} />
+          <Route path="transfer" element={<Transfer />} />
+          <Route path="dashboard" element={<Dashboard/>}/>
         </Route>
         <Route path="login" element={<Login />} />
       </Routes>

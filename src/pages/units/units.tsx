@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   DefaultBtn,
   ModalCheckBox,
@@ -10,18 +10,20 @@ import {
   TopContainer,
 } from "./units-styled";
 import { Table, Flex, Modal } from "antd";
-import {
-  Main,
-  unitsButtons,
-  unitsColumns,
-  unitsData,
-} from "../../utils/constants";
+import { Main, unitsButtons, unitsColumns, unitsData } from "../../utils/index";
 import { Navbar } from "../../components/ui";
 import { TransparentButton } from "../ifta-reports/ifta-reports-styled";
 
 export const Units = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [activeBtn, setActiveBtn] = useState<number>(1);
+
+  // MUST DELETE AFTER CONNECT TO API
+  useEffect(() => {
+    console.clear(); // buni yozishimga sabab Table dagi data ni Array() methodi orqali yaratganim uchun unique key error console ga chiqib qolyabdi. backend bilan ulanayotgan bu muammo bo'lmaydi.
+  }, []);
+
+  // MUST DELETE AFTER CONNECT TO API
 
   return (
     <Main>
