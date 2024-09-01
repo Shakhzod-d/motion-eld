@@ -7,15 +7,19 @@ import { Flex } from "antd";
 import { Main, manageCompanyButtons } from "../../utils/constants";
 import { Navbar } from "../../components/ui";
 import { Div, Label, StyledInput } from "./manage-company-styled";
+import { DriversStatistics } from "../../components/shared";
 
 export const ManageCompany = () => {
   const [activeBtn, setActiveBtn] = useState<number>(1);
 
   return (
     <Main>
-      {/* Universal component which cretead by Behruz */}
+      {/* Universal statistics component */}
+
       <Flex gap={20} vertical>
         <Navbar title={"Manage Company"} />
+
+        <DriversStatistics />
 
         <Flex justify="space-between">
           <Flex gap={5}>

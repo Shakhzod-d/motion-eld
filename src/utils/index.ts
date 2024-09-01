@@ -14,4 +14,5 @@ export {
   OutletWrapper,
   InfoCard,
   btnArr,
+  driversStatisticsData,
 } from "./constants";
