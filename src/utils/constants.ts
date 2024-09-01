@@ -176,7 +176,7 @@ export const Main = styled.main`
   overflow: "hidden";
 `;
 export const OutletWrapper = styled.div`
-  padding: 7px;
+  padding: 10px;
   width: 100%;
 `;
 export const InfoCard = styled.div`

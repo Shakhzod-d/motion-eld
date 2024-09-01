@@ -1,10 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Company, IftaReports, ManageCompany, Units } from "./pages";
+import { Company, IftaReports, ManageCompany, Units, Logs } from "./pages";
 import { Login } from "./pages";
 import { Dashboard } from "./pages";
 import Layout from "./components/shared/layout";
-import { Logs } from "./pages";
 function App() {
   return (
     <>
