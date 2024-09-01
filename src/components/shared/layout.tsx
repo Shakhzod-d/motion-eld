@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Sidebar } from "./sidebar";
-import { OutletWrapper } from "../../utils/constants";
+import { OutletWrapper } from "../../utils/index";
 
 const Layout = () => {
   return (

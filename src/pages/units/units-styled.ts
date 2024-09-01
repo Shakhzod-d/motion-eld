@@ -2,10 +2,11 @@ import { Button, Checkbox, Input, Select } from "antd";
 import TextArea from "antd/es/input/TextArea";
 import styled from "styled-components";
 
-export const TopContainer = styled.div`
+export const TopContainer = styled.div<{ gap?: string }>`
   display: flex;
   justify-content: end;
   margin: 20px;
+  gap: ${({ gap }) => (gap ? gap : "0")};
 `;
 
 export const PrimaryBtn = styled(Button)`

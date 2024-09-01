@@ -1,4 +1,4 @@
-import { InfoCard } from "../../../utils/constants";
+import { InfoCard } from "../../../utils/index";
 import { Item, Title, Value, Wrapper } from "./overview-styled";
 
 export const OverviewCard = () => {

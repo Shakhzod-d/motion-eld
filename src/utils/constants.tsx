@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { TableProps } from "antd";
 import { IftaReportColumns } from "../types";
 import styled from "styled-components";
@@ -166,6 +167,61 @@ export const unitsData = Array(10).fill({
   activated: "",
 });
 
+export const transferBtns = [
+  { id: 1, text: "Map" },
+  { id: 2, text: "Drivers" },
+  { id: 3, text: "Logs" },
+];
+
+export const transferColums = [
+  {
+    title: "Driver",
+    dataIndex: "driver",
+    key: "driver",
+    render: (title: string) => <b style={{ fontWeight: "900" }}> {title}</b>,
+  },
+  {
+    title: "Comment",
+    dataIndex: "comment",
+    key: "comment",
+  },
+  {
+    title: "Start Date",
+    dataIndex: "start_date",
+    key: "start_date",
+  },
+  {
+    title: "End Date",
+    dataIndex: "end_date",
+    key: "end_date",
+  },
+  {
+    title: "Status",
+    dataIndex: "status",
+    key: "status",
+  },
+  {
+    title: "Processed Time",
+    dataIndex: "p_time",
+    key: "p_time",
+  },
+  {
+    title: "Submission ID",
+    dataIndex: "s_id",
+    key: "s_id",
+  },
+];
+
+export const transferData = Array(3).fill({
+  driver: "Koba Gogelashvili",
+  comment: "in7558",
+  start_date: "Thu, Feb 22, 00:00, EST",
+  end_date: "Thu, Feb 29, 23:59, EST",
+  status: "Information",
+  p_time: "Thu, Feb 29, 17:34, EST",
+  s_id: "693a6d13-dd88-4e00-a546-d6a9c8d97da9",
+});
+
 export const Main = styled.main`
   border-radius: 20px;
   padding: 0 20px 20px 20px;
@@ -175,10 +231,12 @@ export const Main = styled.main`
   background: #f3f3f4;
   overflow: "hidden";
 `;
+
 export const OutletWrapper = styled.div`
   padding: 10px;
   width: 100%;
 `;
+
 export const InfoCard = styled.div`
   border-radius: 15px;
   padding: 25px;

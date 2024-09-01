@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { DriversInfoTable, ViolationsChart } from "../../components/shared";
 import { Drivers, Navbar, OverviewCard } from "../../components/ui";
-import { btnArr, Main } from "../../utils/constants";
+import { btnArr, Main } from "../../utils/index";
 import { CardWrapper, Day, DayBtn, Title } from "./dashboard-styled";
 // import { CardWrapper, Day, DayBtn, Title } from "./dashboard-styled";
 
