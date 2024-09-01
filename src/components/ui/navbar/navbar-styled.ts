@@ -7,6 +7,7 @@ export const Header = styled.header`
   align-items: center;
   padding: 20px 0;
 `;
+
 export const Title = styled.h2`
   font-weight: 500;
   font-size: 40px;

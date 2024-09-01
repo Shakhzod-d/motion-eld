@@ -251,3 +251,10 @@ export const btnArr = [
   { id: 2, text: "12D", border: "2px" },
   { id: 3, text: "30D", border: "2px 10px 10px 2px" },
 ];
+
+export const driversStatisticsData = [
+  { id: 1, text: "On duty", statistics_number: "0", color: "#3DA8d5" },
+  { id: 2, text: "Drive", statistics_number: "2", color: "#32BE61" },
+  { id: 3, text: "Off duty", statistics_number: "3", color: "#8C8C9B" },
+  { id: 4, text: "Sleeper", statistics_number: "6", color: "#FC973A" },
+];
