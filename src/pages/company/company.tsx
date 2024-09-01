@@ -4,7 +4,7 @@ import { CardsTop, Container, StyledSelect, Top } from "./company-styled";
 import { AiOutlineSearch } from "react-icons/ai";
 import CompanyCard from "../../components/shared/company-card/company-card";
 import { FaPlus } from "react-icons/fa6";
-import { Main } from "../../utils/constants";
+import { Main } from "../../utils/index";
 import { Navbar } from "../../components/ui";
 
 export const Company = () => (

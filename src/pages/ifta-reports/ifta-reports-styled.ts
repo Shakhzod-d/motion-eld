@@ -35,8 +35,9 @@ export const TransparentButton = styled(Button)<{
   active?: string;
   height?: string;
   width?: string;
+  padding?: string;
 }>`
-  padding: 15px 35px;
+  padding: ${({ padding }) => (padding ? padding : "15px 35px")};
   border-radius: 10px;
   background-color: ${({ active }) => (active == "true" ? "#19223F" : "#fff")};
   color: ${({ active }) => (active == "true" ? "#fff" : "#000")};
