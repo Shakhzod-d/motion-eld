@@ -169,13 +169,16 @@ export const unitsData = Array(10).fill({
 export const Main = styled.main`
   border-radius: 20px;
   padding: 0 20px 20px 20px;
-  width: calc(100vw - 350px);
+  width: 100%;
   max-width: 100vw;
   min-height: calc(100vh - 15px);
   background: #f3f3f4;
   overflow: "hidden";
 `;
-
+export const OutletWrapper = styled.div`
+  padding: 7px;
+  width: 100%;
+`;
 export const InfoCard = styled.div`
   border-radius: 15px;
   padding: 25px;

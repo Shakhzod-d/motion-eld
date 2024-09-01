@@ -9,10 +9,6 @@ import {
   PrimaryBtn,
   TopContainer,
 } from "./units-styled";
-<<<<<<< HEAD
-import { Flex, Modal, Table, TableProps } from "antd";
-import { Main } from "../../utils/constants";
-=======
 import { Table, Flex, Modal } from "antd";
 import {
   Main,
@@ -22,36 +18,12 @@ import {
 } from "../../utils/constants";
 import { Navbar } from "../../components/ui";
 import { TransparentButton } from "../ifta-reports/ifta-reports-styled";
->>>>>>> main
 
 export const Units = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [activeBtn, setActiveBtn] = useState<number>(1);
 
   return (
-<<<<<<< HEAD
-    <>
-      <Main>
-        <TopContainer>
-          <PrimaryBtn
-            style={{ padding: "20px 35px" }}
-            onClick={() => setOpen(true)}
-          >
-            Add new vehicle
-          </PrimaryBtn>
-        </TopContainer>
-        <ActiveBtn style={{ padding: "20px 35px" }}>Vehicle</ActiveBtn>
-        <DefaultBtn style={{ padding: "20px 35px", marginLeft: "5px" }}>
-          Deactivated
-        </DefaultBtn>
-        <Table
-          columns={columns}
-          dataSource={data}
-          id="table"
-          style={{ marginTop: "20px" }}
-        />
-      </Main>
-=======
     <Main>
       <Navbar title={"Units"} />
       <TopContainer>
@@ -74,7 +46,6 @@ export const Units = () => {
 
       {/* Units change modal */}
 
->>>>>>> main
       <Modal
         centered
         open={open}

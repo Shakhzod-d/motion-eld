@@ -4,7 +4,7 @@ import { Company, IftaReports, ManageCompany, Units } from "./pages";
 import { Login } from "./pages";
 import { Dashboard } from "./pages";
 import Layout from "./components/shared/layout";
-import { Logs } from "./pages/Logs/Logs";
+import { Logs } from "./pages";
 function App() {
   return (
     <>
@@ -15,6 +15,7 @@ function App() {
           <Route path="units" element={<Units />} />
           <Route path="ifta-reports" element={<IftaReports />} />
           <Route path="manage-company" element={<ManageCompany />} />
+          <Route path="/logs" element={<Logs />} />
         </Route>
         <Route path="login" element={<Login />} />
       </Routes>
