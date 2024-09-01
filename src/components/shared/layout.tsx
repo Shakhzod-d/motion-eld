@@ -1,13 +1,14 @@
 import { Outlet } from "react-router-dom";
 import { Sidebar } from "./sidebar";
+import { OutletWrapper } from "../../utils/constants";
 
 const Layout = () => {
   return (
     <div style={{ display: "flex" }}>
       <Sidebar />
-      <div style={{ padding: "7px", width:"100%"}}>
+      <OutletWrapper>
         <Outlet />
-      </div>
+      </OutletWrapper>
     </div>
   );
 };
