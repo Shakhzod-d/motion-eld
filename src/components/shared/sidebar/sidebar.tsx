@@ -23,7 +23,7 @@ const items = [
     label: "ELD",
     page: [
       { id: 1, text: "- Logs", url: "/logs" },
-      { id: 2, text: " -  Transfer", url: "/" },
+      { id: 2, text: " -  Transfer", url: "/transfer" },
     ],
   },
   {
@@ -31,7 +31,7 @@ const items = [
     icon: <MdOutlineReportProblem />,
     label: "Reports",
     page: [
-      { id: 1, text: " -  Ifta Reports", url: "/" },
+      { id: 1, text: " -  Ifta Reports", url: "/ifta-reports" },
       { id: 2, text: " -  Driver Reports", url: "/" },
       { id: 3, text: " -  DVIR Reports", url: "/" },
     ],
@@ -41,9 +41,9 @@ const items = [
     icon: <VscFileSubmodule />,
     label: "Fleet manager",
     page: [
-      { id: 1, text: " -  Units", url: "/" },
+      { id: 1, text: " -  Units", url: "/units" },
       { id: 2, text: "  -  Drivers", url: "/" },
-      { id: 3, text: " -  Manage company", url: "/" },
+      { id: 3, text: " -  Manage company", url: "/manage-company" },
     ],
   },
 ];

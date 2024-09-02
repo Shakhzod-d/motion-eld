@@ -29,6 +29,8 @@ export const Title = styled.h2`
 `;
 
 export const CardWrapper = styled.div`
+  width: 100%;
+  max-width:1570px;
   display: flex;
   gap: 12px;
   margin-bottom: 40px;

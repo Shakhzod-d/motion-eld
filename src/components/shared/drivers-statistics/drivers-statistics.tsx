@@ -4,7 +4,7 @@ import { driversStatisticsData } from "../../../utils";
 
 export const DriversStatistics = () => {
   return (
-    <Flex gap={11}>
+    <Flex gap={11} style={{ marginBottom: "10px" }}>
       {driversStatisticsData.map((item) => (
         <Flex gap={2} key={item.id}>
           <Left color={item.color}>{item.statistics_number}</Left>
