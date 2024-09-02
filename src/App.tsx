@@ -8,6 +8,7 @@ import {
   Dashboard,
   Login,
   Logs,
+  Drivers,
 } from "./pages";
 import Layout from "./components/shared/layout";
 import "./App.css";
@@ -22,6 +23,7 @@ function App() {
           <Route path="units" element={<Units />} />
           <Route path="ifta-reports" element={<IftaReports />} />
           <Route path="manage-company" element={<ManageCompany />} />
+          <Route path="drivers" element={<Drivers />} />
           <Route path="transfer" element={<Transfer />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="logs" element={<Logs />} />
