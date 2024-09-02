@@ -4,7 +4,10 @@
   box-sizing: border-box;
   font-family: "SF Pro Display";
 }
-
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
 @font-face {
   font-family: "SF Pro Display";
   src: url("../public/fonts/SFPRODISPLAYBOLD.OTF");
@@ -15,6 +18,7 @@
 body {
   background: #101525;
   overflow: hidden;
+
 }
 
 a {
