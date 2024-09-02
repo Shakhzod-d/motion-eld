@@ -7,6 +7,7 @@ import {
   Units,
   Dashboard,
   Login,
+  Logs,
 } from "./pages";
 import Layout from "./components/shared/layout";
 import "./App.css";
@@ -23,6 +24,7 @@ function App() {
           <Route path="manage-company" element={<ManageCompany />} />
           <Route path="transfer" element={<Transfer />} />
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="logs" element={<Logs />} />
         </Route>
         <Route path="login" element={<Login />} />
       </Routes>

@@ -2,6 +2,7 @@
 import { TableProps } from "antd";
 import { IftaReportColumns } from "../types";
 import styled from "styled-components";
+import { LogsDrivers, LogsLog, LogsMap, Trackings, Violation } from "../pages";
 
 export const manageCompanyButtons = [
   { id: 1, text: "Company" },
@@ -155,6 +156,11 @@ export const unitsColumns = [
   },
 ];
 
+export const Between = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 export const unitsData = Array(10).fill({
   id: "0",
   index: 152,
@@ -166,7 +172,14 @@ export const unitsData = Array(10).fill({
   documents: "2024-03-02",
   activated: "",
 });
-
+export const SmallBox = styled.div`
+  border-radius: 5px 0 0 5px;
+  padding: 10px 15px;
+  width: 42px;
+  height: 38px;
+  background: #fff;
+  color: #8c8c9b;
+`;
 export const transferBtns = [
   { id: 1, text: "Map" },
   { id: 2, text: "Drivers" },
@@ -246,8 +259,391 @@ export const InfoCard = styled.div`
   background: #fff;
 `;
 
+export const Box = styled.div`
+  border-radius: 5px;
+  padding: 10px 20px;
+  width: 200px;
+  height: 38px;
+  min-width: 200px;
+  background: #fff;
+  color: #8c8c9b;
+  margin-bottom: 10px;
+`;
+
 export const btnArr = [
   { id: 1, text: "8D", border: "10px 2px 2px 10px" },
   { id: 2, text: "12D", border: "2px" },
   { id: 3, text: "30D", border: "2px 10px 10px 2px" },
+];
+
+export const driversStatisticsData = [
+  { id: 1, text: "On duty", statistics_number: "0", color: "#3DA8d5" },
+  { id: 2, text: "Drive", statistics_number: "2", color: "#32BE61" },
+  { id: 3, text: "Off duty", statistics_number: "3", color: "#8C8C9B" },
+  { id: 4, text: "Sleeper", statistics_number: "6", color: "#FC973A" },
+];
+
+export const LogsTabPages = [
+  { label: "Map", key: "1", children: <LogsMap /> },
+  { label: "Drivers", key: "2", children: <LogsDrivers /> },
+  { label: "Logs", key: "3", children: <LogsLog /> },
+  { label: "Violation", key: "4", children: <Violation /> },
+  { label: "Trackings", key: "5", children: <Trackings /> },
+];
+
+export const ArticleMapItem = [
+  {
+    id: 1,
+    title: "Aisyah Clara Riyanti ",
+    text: "459, Cedar Ln, Los Angeles",
+    status: "61 mph",
+    desc: "Started: 03-11-2024, 02:13 EDT",
+  },
+  {
+    id: 2,
+    title: "Matthew Wilson",
+    text: "937, Main St, New York",
+    status: "0 mph",
+    desc: "Started: 03-11-2024, 02:13 EDT",
+  },
+  {
+    id: 3,
+    title: "Mehdi Kasongo",
+    text: "311, Pine Rd, New York",
+    status: "SB",
+    desc: "Started: 03-11-2024, 02:13 EDT",
+  },
+  {
+    id: 4,
+    title: "Kendrik Ababio",
+    text: "900, Maple Ave, Houston",
+    status: "SB",
+    desc: "Started: 03-11-2024, 02:13 EDT",
+  },
+  {
+    id: 5,
+    title: "Mohammed Chizimu",
+    text: "294, Maple Ave, New York",
+    status: "SB",
+    desc: "Started: 03-11-2024, 02:13 EDT",
+  },
+  {
+    id: 6,
+    title: "Ronald Kim",
+    text: "990, Pine Rd, New York311, Pine Rd, New York",
+    status: "OFF",
+    desc: "Started: 03-11-2024, 02:13 EDT",
+  },
+  {
+    id: 7,
+    title: "Mehdi Kasongo",
+    text: "311, Pine Rd, New York",
+    status: "SB",
+    desc: "Started: 03-11-2024, 02:13 EDT",
+  },
+  {
+    id: 8,
+    title: "Mehdi Kasongo",
+    text: "311, Pine Rd, New York",
+    status: "OFF",
+    desc: "Started: 03-11-2024, 02:13 EDT",
+  },
+];
+export const TrackingsMapItem = [
+  {
+    id: 1,
+    title: "Daniel Lee",
+    text: "Truck no: 103",
+    status: "SB",
+    desc: "Started: 03-11-2024, 02:13 EDT",
+    time: "2024-01-20 00:08",
+  },
+  {
+    id: 2,
+    title: "Kimberly Miller",
+    text: "Truck no: 103",
+    status: "OFF",
+    desc: "54, Oak St, New York, Florida",
+    time: "54, Oak St, New York, Florida",
+  },
+  {
+    id: 3,
+    title: "Linda Williams",
+    text: "Truck no: 103",
+    status: "ON",
+    desc: "424, Main St, Los Angeles, Illinois",
+    time: "2024-01-20 00:08",
+  },
+  {
+    id: 4,
+    title: "John Clark",
+    text: "Truck no: 103",
+    status: "OFF",
+    desc: "252, Cedar Ln, San Francisco, Illinois",
+    time: "2024-01-20 00:08",
+  },
+  {
+    id: 5,
+    title: "John Clark",
+    text: "Truck no: 103",
+    status: "OFF",
+    desc: "252, Cedar Ln, San Francisco, Illinois",
+    time: "2024-01-20 00:08",
+  },
+  {
+    id: 6,
+    title: "John Clark",
+    text: "Truck no: 103",
+    status: "SB",
+    desc: "252, Cedar Ln, San Francisco, Illinois",
+    time: "2024-01-20 00:08",
+  },
+  {
+    id: 7,
+    title: "John Clark",
+    text: "Truck no: 103",
+    status: "ON",
+    desc: "252, Cedar Ln, San Francisco, Illinois",
+    time: "2024-01-20 00:08",
+  },
+  {
+    id: 8,
+    title: "John Clark",
+    text: "Truck no: 103",
+    status: "OFF",
+    desc: "252, Cedar Ln, San Francisco, Illinois",
+    time: "2024-01-20 00:08",
+  },
+];
+
+// tab header
+export const LogsDriverDataHeader = [
+  { header: "ID", accessor: "id" },
+  { header: "Date", accessor: "date" },
+  { header: "Truck no", accessor: "truckNo" },
+  { header: "Status", accessor: "status" },
+  { header: "Last known Location", accessor: "location" },
+  { header: "", accessor: "week" },
+  { header: "Warnings & Violation", accessor: "warnings" },
+  { header: "Break", accessor: "break" },
+  { header: "Drive", accessor: "drive" },
+  { header: "Shift", accessor: "shift" },
+  { header: "Cycle", accessor: "cycle" },
+  { header: "Recap", accessor: "recap" },
+];
+export const LogsDataHeader = [
+  { header: "ID", accessor: "id" },
+  { header: "Date", accessor: "date" },
+  { header: "Truck no", accessor: "truckNo" },
+  { header: "Status", accessor: "status" },
+  { header: "Last known Location", accessor: "location" },
+  { header: "", accessor: "week" },
+  { header: "Warnings & Violation", accessor: "warnings" },
+  { header: "Break", accessor: "break" },
+  { header: "Drive", accessor: "drive" },
+  { header: "Shift", accessor: "shift" },
+  { header: "Cycle", accessor: "cycle" },
+  { header: "Recap", accessor: "recap" },
+];
+export const violationTabHeader = [
+  { header: "Driver", accessor: "driver" },
+  { header: "Error", accessor: "error" },
+  { header: "Status", accessor: "status" },
+  { header: "Start", accessor: "start" },
+  { header: "Address", accessor: "address" },
+  { header: "Odometer", accessor: "odometer" },
+  { header: "Engine hours", accessor: "hours" },
+];
+
+// tab info
+export const LogsDriverData = [
+  {
+    id: 1,
+    date: "1/1/2020",
+    truckNo: 2358,
+    status: "DR",
+    location: "835, Trần Hưng Đạo",
+    warnings: "No Signature!",
+    break: "04:37",
+    drive: "04:34",
+    shift: "27:25",
+    cycle: "27:25",
+    recap: "00:00",
+    week: "13 weeks ago",
+  },
+  {
+    id: 2,
+    date: "1/9/2018",
+    truckNo: 3389,
+    status: "OFF",
+    location: "682, Trần Hưng Đạo",
+    warnings: "Trailer is not set",
+    break: "04:37",
+    drive: "04:34",
+    shift: "27:25",
+    cycle: "27:25",
+    recap: "00:00",
+    week: "13 weeks ago",
+  },
+  {
+    id: 3,
+    date: "1/1/2020",
+    truckNo: 2358,
+    status: "DR",
+    location: "835, Trần Hưng Đạo",
+    warnings: "BOL is not set",
+    break: "04:37",
+    drive: "04:34",
+    shift: "27:25",
+    cycle: "27:25",
+    recap: "00:00",
+    week: "13 weeks ago",
+  },
+  {
+    id: 4,
+    date: "1/9/2018",
+    truckNo: 3389,
+    status: "OFF",
+    location: "682, Trần Hưng Đạo",
+    warnings: "11 hours driving limit ",
+    break: "04:37",
+    drive: "04:34",
+    shift: "27:25",
+    cycle: "27:25",
+    recap: "00:00",
+    week: "13 weeks ago",
+  },
+  {
+    id: 5,
+    date: "1/1/2020",
+    truckNo: 2358,
+    status: "DR",
+    location: "835, Trần Hưng Đạo",
+    warnings: "8 hours break limit",
+    break: "04:37",
+    drive: "04:34",
+    shift: "27:25",
+    cycle: "27:25",
+    recap: "00:00",
+    week: "13 weeks ago",
+  },
+];
+export const violationTabData = [
+  {
+    driver: "Larry Jones",
+    error: "Malf. Start",
+    status: "",
+    start: "10:35:15 PM",
+    address: "3.33 mi N of Urie, WY",
+    odometer: "518983",
+    hours: "1946.6",
+  },
+  {
+    driver: "Carol Lau",
+    error: "Codriver odometer is wrong 03-12-2024 02:25:13 AM",
+    status: "OFF",
+    start: "10:35:15 PM",
+    address: "3.33 mi N of Urie, WY",
+    odometer: "518983",
+    hours: "1946.6",
+  },
+  {
+    driver: "Melissa Wilson",
+    error: "Power log status duplication",
+    status: "poweron",
+    start: "10:35:15 PM",
+    address: "0.45 mi SE of Joseph City, AZ",
+    odometer: "1",
+    hours: "1",
+  },
+  {
+    driver: "Brenda Martin",
+    error: "Odometer change incorrect",
+    status: "poweron",
+    start: "10:35:15 PM",
+    address: "0.45 mi SE of Joseph City, AZ",
+    odometer: "1",
+    hours: "1",
+  },
+  {
+    driver: "Greg Anderson",
+    error: "Certify log while driving",
+    status: "certify",
+    start: "10:35:15 PM",
+    address: "0.45 mi SE of Joseph City, AZ",
+    odometer: "",
+    hours: "",
+  },
+];
+export const LogsData = [
+  {
+    id: 1,
+    date: "1/1/2020",
+    truckNo: 2358,
+    status: "DR",
+    location: "835, Trần Hưng Đạo",
+    warnings: "",
+    break: "04:37",
+    drive: "04:34",
+    shift: "27:25",
+    cycle: "27:25",
+    recap: "00:00",
+    week: "",
+  },
+  {
+    id: 2,
+    date: "1/9/2018",
+    truckNo: 3389,
+    status: "OFF",
+    location: "682, Trần Hưng Đạo",
+    warnings: "",
+    break: "04:37",
+    drive: "04:34",
+    shift: "27:25",
+    cycle: "27:25",
+    recap: "00:00",
+    week: "",
+  },
+  {
+    id: 3,
+    date: "1/1/2020",
+    truckNo: 2358,
+    status: "DR",
+    location: "835, Trần Hưng Đạo",
+    warnings: "",
+    break: "04:37",
+    drive: "04:34",
+    shift: "27:25",
+    cycle: "27:25",
+    recap: "00:00",
+    week: "13 weeks ago",
+  },
+  {
+    id: 4,
+    date: "1/9/2018",
+    truckNo: 3389,
+    status: "SB",
+    location: "682, Trần Hưng Đạo",
+    warnings: "",
+    break: "04:37",
+    drive: "04:34",
+    shift: "27:25",
+    cycle: "27:25",
+    recap: "00:00",
+    week: "11 days ago",
+  },
+  {
+    id: 5,
+    date: "1/1/2020",
+    truckNo: 2358,
+    status: "ON",
+    location: "835, Trần Hưng Đạo",
+    warnings: "",
+    break: "04:37",
+    drive: "04:34",
+    shift: "27:25",
+    cycle: "27:25",
+    recap: "00:00",
+    week: "10 days ago",
+  },
 ];
