@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { Sidebar } from "./sidebar";
 import { OutletWrapper } from "../../utils/index";
+import { DriverEditModal } from "./driver-edit-modal/driver-edir-modal";
 
 const Layout = () => {
   return (
@@ -9,6 +10,7 @@ const Layout = () => {
       <OutletWrapper>
         <Outlet />
       </OutletWrapper>
+      <DriverEditModal />
     </div>
   );
 };

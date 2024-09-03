@@ -17,7 +17,7 @@ export const Logs = () => {
 
   useEffect(() => {
     if (pathname.length <= 6) navigate("map");
-  }, []);
+  }, [navigate, pathname.length]);
 
   return (
     <Main>

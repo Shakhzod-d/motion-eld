@@ -729,3 +729,11 @@ export const LogsData = [
     week: "10 days ago",
   },
 ];
+
+export const driverEditModalBtns = [
+  { id: 0, text: "On" },
+  { id: 1, text: "Sb" },
+  { id: 2, text: "Off" },
+  { id: 3, text: "Ym" },
+  { id: 4, text: "Pc" },
+];

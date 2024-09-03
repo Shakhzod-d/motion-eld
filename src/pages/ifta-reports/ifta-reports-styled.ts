@@ -1,4 +1,4 @@
-import { Button, Select } from "antd";
+import { Button, Select, TimePicker } from "antd";
 import styled from "styled-components";
 
 // interface ButtonProps {
@@ -38,11 +38,15 @@ export const TransparentButton = styled(Button)<{
   padding?: string;
   display?: string;
   border?: string;
+  background?: string;
+  color?: string;
 }>`
   padding: ${({ padding }) => (padding ? padding : "15px 35px")};
   border-radius: ${({ border }) => border || "10px"};
-  background-color: ${({ active }) => (active == "true" ? "#19223F" : "#fff")};
-  color: ${({ active }) => (active == "true" ? "#fff" : "#000")};
+  background-color: ${({ active, background }) =>
+    active == "true" ? "#19223F" : background || "#fff"};
+  color: ${({ active, color }) =>
+    active == "true" ? "#fff" : color || "#000"};
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.5px;
@@ -54,6 +58,18 @@ export const TransparentButton = styled(Button)<{
   &:hover {
     background-color: ${({ active }) =>
       active == "true" ? "#19223F" : "#fff"}!important;
+    border: 1px solid #f3f3f3;
+  }
+`;
+
+export const StyledTimePicker = styled(TimePicker)`
+  border-radius: 10px;
+  background: var(--card-card-primary, #f9f9fa);
+  width: 100% !important;
+  max-width: 462px !important;
+
+  * {
+    text-transform: uppercase;
   }
 `;
 

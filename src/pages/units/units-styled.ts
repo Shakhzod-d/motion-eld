@@ -39,14 +39,14 @@ export const ActiveBtn = styled(Button)`
   font-weight: 500;
 `;
 
-export const ModalInput = styled(Input)`
+export const ModalInput = styled(Input)<{ width?: string }>`
   padding: 20px 25px;
   color: #000;
   font-size: 16px;
   font-weight: 500;
   border-radius: 10px;
   background: #f9f9fa;
-  width: 50%;
+  width: ${({ width }) => width || "50%"};
   border: none !important;
   &::placeholder {
     color: #000;
