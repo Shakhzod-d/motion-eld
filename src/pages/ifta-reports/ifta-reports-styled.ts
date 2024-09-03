@@ -36,9 +36,11 @@ export const TransparentButton = styled(Button)<{
   height?: string;
   width?: string;
   padding?: string;
+  display?: string;
+  border?: string;
 }>`
   padding: ${({ padding }) => (padding ? padding : "15px 35px")};
-  border-radius: 10px;
+  border-radius: ${({ border }) => border || "10px"};
   background-color: ${({ active }) => (active == "true" ? "#19223F" : "#fff")};
   color: ${({ active }) => (active == "true" ? "#fff" : "#000")};
   font-size: 16px;
@@ -47,6 +49,7 @@ export const TransparentButton = styled(Button)<{
   width: ${({ width }) => (width ? width : "163px")};
   height: ${({ height }) => (height ? height : "50px")};
   border: none;
+  display: ${({ display }) => display || "flex"};
 
   &:hover {
     background-color: ${({ active }) =>

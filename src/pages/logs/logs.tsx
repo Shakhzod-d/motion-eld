@@ -3,7 +3,6 @@ import { DriversStatistics } from "../../components/shared";
 import { Navbar } from "../../components/ui";
 import { Main } from "../../utils";
 import { LogsTabPages } from "../../utils/constants";
-import { ReflashButton } from "./logs-styled";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { TransparentButton } from "../ifta-reports/ifta-reports-styled";
 import { useEffect } from "react";
