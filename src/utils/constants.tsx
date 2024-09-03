@@ -2,6 +2,7 @@
 import { TableProps } from "antd";
 import { IftaReportColumns } from "../types";
 import styled from "styled-components";
+import { StatusBadge } from "../components/shared/custom-table/custom-styled";
 
 export const manageCompanyButtons = [
   { id: 1, text: "Company" },
@@ -736,4 +737,86 @@ export const driverEditModalBtns = [
   { id: 2, text: "Off" },
   { id: 3, text: "Ym" },
   { id: 4, text: "Pc" },
+];
+
+export const ehfModalColums = [
+  {
+    title: "ID",
+    dataIndex: "id",
+    key: "id",
+  },
+  {
+    title: "Status",
+    dataIndex: "status",
+    key: "status",
+    render: (title: string) => (
+      <StatusBadge status={title}> {title}</StatusBadge>
+    ),
+  },
+  {
+    title: "Start",
+    dataIndex: "start",
+    key: "start",
+  },
+  {
+    title: "Duration",
+    dataIndex: "duration",
+    key: "duration",
+  },
+  {
+    title: "Location",
+    dataIndex: "location",
+    key: "location",
+  },
+  {
+    title: "Vehicle",
+    dataIndex: "vehicle",
+    key: "vehicle",
+  },
+  {
+    title: "Odometr",
+    dataIndex: "odometr",
+    key: "odometr",
+  },
+  {
+    title: "Eng. hours",
+    dataIndex: "e_hours",
+    key: "e_hours",
+  },
+];
+
+export const ehfModalData = [
+  {
+    key: "0",
+    id: "1",
+    status: "DR",
+    start: "3:01:58 PM",
+    duration: "5h:38m:9s",
+    location: "876, Maple Ave, Chicago",
+    vehicle: "1015",
+    odometr: "244342",
+    e_hours: "10123",
+  },
+  {
+    key: "1",
+    id: "1",
+    status: "SB",
+    start: "3:01:58 PM",
+    duration: "",
+    location: "876, Maple Ave, Chicago",
+    vehicle: "1015",
+    odometr: "244342",
+    e_hours: "10123",
+  },
+  {
+    key: "2",
+    id: "1",
+    status: "Intermediate",
+    start: "3:01:58 PM",
+    duration: "",
+    location: "876, Maple Ave, Chicago",
+    vehicle: "1015",
+    odometr: "244342",
+    e_hours: "10123",
+  },
 ];

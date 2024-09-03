@@ -24,4 +24,6 @@ export {
   violationTabHeader,
   driverColumns,
   driverEditModalBtns,
+  ehfModalColums,
+  ehfModalData,
 } from "./constants";

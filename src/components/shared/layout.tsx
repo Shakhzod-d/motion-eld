@@ -1,16 +1,18 @@
 import { Outlet } from "react-router-dom";
 import { Sidebar } from "./sidebar";
 import { OutletWrapper } from "../../utils/index";
-import { DriverEditModal } from "./driver-edit-modal/driver-edir-modal";
+import { useState } from "react";
+import { EhfModal } from "./ehf-modal/ehf-modal";
 
 const Layout = () => {
+  const [open, setOpen] = useState<boolean>(true);
   return (
     <div style={{ display: "flex" }}>
       <Sidebar />
       <OutletWrapper>
         <Outlet />
       </OutletWrapper>
-      <DriverEditModal />
+      <EhfModal setOpen={setOpen} open={open} />
     </div>
   );
 };

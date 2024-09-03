@@ -1,5 +1,5 @@
 import { Flex, Modal } from "antd";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import {
   StyledTimePicker,
   TransparentButton,
@@ -11,11 +11,21 @@ import {
 } from "../../../pages/units/units-styled";
 import { driverEditModalBtns } from "../../../utils";
 
-export const DriverEditModal = () => {
+interface Props {
+  setOpen: Dispatch<SetStateAction<boolean>>;
+  open: boolean;
+}
+
+export const DriverEditModal = ({ setOpen, open }: Props) => {
   const [activeBtn, setActiveBtn] = useState<number | null>(null);
 
   return (
-    <Modal width={1000} open={true}>
+    <Modal
+      width={1000}
+      open={open}
+      onOk={() => setOpen(false)}
+      onCancel={() => setOpen(false)}
+    >
       <Flex gap={10} vertical>
         <Flex gap={10}>
           {driverEditModalBtns.map((item) => (
