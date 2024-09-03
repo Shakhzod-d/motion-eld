@@ -820,3 +820,61 @@ export const ehfModalData = [
     e_hours: "10123",
   },
 ];
+
+export const logFormModalColums = [
+  {
+    title: "",
+    key: "url",
+    dataIndex: "url",
+  },
+  {
+    title: "State",
+    dataIndex: "state",
+    key: "state",
+    render: (title: string) => (
+      <StatusBadge status={title}> {title}</StatusBadge>
+    ),
+  },
+
+  {
+    title: "Date",
+    dataIndex: "date",
+    key: "date",
+  },
+  {
+    title: "Start",
+    dataIndex: "start",
+    key: "start",
+  },
+  {
+    title: "Duration",
+    dataIndex: "duration",
+    key: "duration",
+  },
+  {
+    title: "Result",
+    dataIndex: "result",
+    key: "result",
+  },
+];
+
+export const logFormModalData = [
+  {
+    key: "0",
+    url: "From",
+    state: "SB",
+    date: "03-12-2024",
+    start: "02:59:09 AM",
+    duration: "2h:30m56s",
+    result: "2h:30m56s",
+  },
+  {
+    key: "0",
+    url: "To",
+    state: "SB",
+    date: "03-12-2024",
+    start: "02:59:09 AM",
+    duration: "2h:30m56s",
+    result: "2h:30m56s",
+  },
+];

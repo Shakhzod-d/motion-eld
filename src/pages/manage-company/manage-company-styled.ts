@@ -8,13 +8,21 @@ export const Label = styled.label`
   margin-bottom: 5px;
 `;
 
-export const StyledInput = styled(Input)`
-  padding: 20px 25px;
+export const StyledInput = styled(Input)<{
+  height?: string;
+  width?: string;
+  background?: string;
+  padding?: string;
+}>`
+  padding: ${({ padding }) => padding || "20px 25px"};
   color: #000;
   font-size: 16px;
   font-weight: 500;
   border: none;
   max-width: 380px;
+  width: ${({ width }) => width || ""};
+  height: ${({ height }) => height || ""};
+  background: ${({ background }) => background || "transparent"};
 `;
 
 export const Div = styled.div`

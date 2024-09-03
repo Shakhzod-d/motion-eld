@@ -26,4 +26,7 @@ export {
   driverEditModalBtns,
   ehfModalColums,
   ehfModalData,
+  logFormModalColums,
+  LogsTabPages,
+  logFormModalData,
 } from "./constants";
