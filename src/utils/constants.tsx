@@ -2,7 +2,6 @@
 import { TableProps } from "antd";
 import { IftaReportColumns } from "../types";
 import styled from "styled-components";
-import { LogsDrivers, LogsLog, LogsMap, Trackings, Violation } from "../pages";
 
 export const manageCompanyButtons = [
   { id: 1, text: "Company" },
@@ -10,6 +9,89 @@ export const manageCompanyButtons = [
   { id: 3, text: "Users" },
   { id: 4, text: "Api keys" },
   { id: 5, text: "Histories" },
+];
+
+export const driversData = Array(70).fill({
+  key: "name",
+  id: "0",
+  f_name: "Davis",
+  l_name: "Miller",
+  u_name: "captain_49",
+  co_driver: "",
+  driver_Type: "",
+  app_version: "4.6.7",
+  documents: "Not uploaded",
+  activated: "2024-03-02",
+  device_info: "Open",
+  action: "",
+});
+
+export const driverColumns = [
+  {
+    title: "#",
+    dataIndex: "id",
+    key: "id",
+  },
+  {
+    title: "First Name",
+    dataIndex: "f_name",
+    key: "f_name",
+  },
+  {
+    title: "Last Name",
+    dataIndex: "l_name",
+    key: "l_name",
+  },
+  {
+    title: "User Name",
+    dataIndex: "u_name",
+    key: "u_name",
+  },
+  {
+    title: "Co driver",
+    dataIndex: "co_driver",
+    key: "co_driver",
+  },
+  {
+    title: "Driver Type",
+    dataIndex: "driver_type",
+    key: "driver_type",
+  },
+  {
+    title: "Vehicle ID",
+    dataIndex: "v_id",
+    key: "v_id",
+  },
+  {
+    title: "App Version",
+    dataIndex: "app_version",
+    key: "app_version",
+  },
+  {
+    title: "Documents",
+    dataIndex: "documents",
+    key: "documents",
+  },
+  {
+    title: "Activated",
+    dataIndex: "activated",
+    key: "activated",
+  },
+  {
+    title: "Device Info",
+    dataIndex: "device_info",
+    key: "device_info",
+    render: (text: string) => (
+      <u>
+        <b>{text}</b>
+      </u>
+    ),
+  },
+  {
+    title: "Action",
+    dataIndex: "action",
+    key: "action",
+  },
 ];
 
 export const IftaReportButtons = [
@@ -284,11 +366,11 @@ export const driversStatisticsData = [
 ];
 
 export const LogsTabPages = [
-  { label: "Map", key: "1", children: <LogsMap /> },
-  { label: "Drivers", key: "2", children: <LogsDrivers /> },
-  { label: "Logs", key: "3", children: <LogsLog /> },
-  { label: "Violation", key: "4", children: <Violation /> },
-  { label: "Trackings", key: "5", children: <Trackings /> },
+  { label: "Map", key: "1", to: "map" },
+  { label: "Drivers", key: "2", to: "drivers" },
+  { label: "Logs", key: "3", to: "logs" },
+  { label: "Violation", key: "4", to: "violation" },
+  { label: "Trackings", key: "5", to: "tracking" },
 ];
 
 export const ArticleMapItem = [
@@ -646,4 +728,12 @@ export const LogsData = [
     recap: "00:00",
     week: "10 days ago",
   },
+];
+
+export const driverEditModalBtns = [
+  { id: 0, text: "On" },
+  { id: 1, text: "Sb" },
+  { id: 2, text: "Off" },
+  { id: 3, text: "Ym" },
+  { id: 4, text: "Pc" },
 ];

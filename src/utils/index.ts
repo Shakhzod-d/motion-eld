@@ -15,4 +15,13 @@ export {
   InfoCard,
   btnArr,
   driversStatisticsData,
+  driversData,
+  LogsDriverData,
+  LogsData,
+  LogsDataHeader,
+  LogsDriverDataHeader,
+  violationTabData,
+  violationTabHeader,
+  driverColumns,
+  driverEditModalBtns,
 } from "./constants";

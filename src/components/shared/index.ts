@@ -5,3 +5,5 @@ export { DriversInfoTable } from "./DriversInfoTable";
 export { DriversStatistics } from "./drivers-statistics/drivers-statistics";
 export { MapArticle } from "./map-article";
 export { CustomTable } from "./custom-table";
+export { DriverInfo } from "./driver-info/driver-info";
+export { DriverEditModal } from "./driver-edit-modal/driver-edir-modal";
