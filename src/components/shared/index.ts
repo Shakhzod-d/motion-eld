@@ -7,3 +7,6 @@ export { MapArticle } from "./map-article";
 export { CustomTable } from "./custom-table";
 export { DriverInfo } from "./driver-info/driver-info";
 export { DriverEditModal } from "./driver-edit-modal/driver-edir-modal";
+export { EhfModal } from "./ehf-modal/ehf-modal";
+export { TimePickerModal } from "./time-picker-modal/time-picker-modal";
+export { LogFormModal } from "./log-form-modal/log-form-modal";

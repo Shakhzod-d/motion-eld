@@ -62,12 +62,15 @@ export const TransparentButton = styled(Button)<{
   }
 `;
 
-export const StyledTimePicker = styled(TimePicker)`
+export const StyledTimePicker = styled(TimePicker)<{
+  width?: string;
+  padding?: string;
+}>`
   border-radius: 10px;
-  background: var(--card-card-primary, #f9f9fa);
+  background: #f9f9fa;
   width: 100% !important;
-  max-width: 462px !important;
-
+  max-width: ${({ width }) => width || "462px"} !important;
+  padding: ${({ padding }) => padding || ""}!important;
   * {
     text-transform: uppercase;
   }

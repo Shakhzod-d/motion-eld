@@ -37,13 +37,19 @@ export const TableData = styled.td<{ color: string | number }>`
 export const StatusBadge = styled.span<{ status: string | number }>`
   padding: 5px 10px;
   border-radius: 5px;
-  color: #fff;
+  color: ${({ status }) =>
+    status == "Intermediate" || status == "Power Off" || status == "Power On"
+      ? "#8C8C9B"
+      : "#fff"};
   background-color: ${({ status }) =>
     status === "DR" || status === "ON"
       ? "#28a745"
       : status === "SB"
       ? "#ffc107"
-      : status == ""
+      : status == "" ||
+        status == "Intermediate" ||
+        status == "Power Off" ||
+        status == "Power On"
       ? "#fff"
       : "#6c757d"};
 `;

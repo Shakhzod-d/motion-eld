@@ -1,16 +1,18 @@
 import { Outlet } from "react-router-dom";
 import { Sidebar } from "./sidebar";
 import { OutletWrapper } from "../../utils/index";
-import { DriverEditModal } from "./driver-edit-modal/driver-edir-modal";
+import { useState } from "react";
+import { LogFormModal } from "./log-form-modal/log-form-modal";
 
 const Layout = () => {
+  const [open, setOpen] = useState<boolean>(true);
   return (
     <div style={{ display: "flex" }}>
       <Sidebar />
       <OutletWrapper>
         <Outlet />
       </OutletWrapper>
-      <DriverEditModal />
+      <LogFormModal setOpen={setOpen} open={open} />
     </div>
   );
 };
