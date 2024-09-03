@@ -9,9 +9,13 @@ import {
   Login,
   Logs,
   Drivers,
+  LogsMap,
+  LogsLog,
+  LogsDrivers,
+  Violation,
+  Trackings,
 } from "./pages";
 import Layout from "./components/shared/layout";
-import "./App.css";
 
 function App() {
   return (
@@ -26,7 +30,13 @@ function App() {
           <Route path="drivers" element={<Drivers />} />
           <Route path="transfer" element={<Transfer />} />
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="logs" element={<Logs />} />
+          <Route path="logs" element={<Logs />}>
+            <Route path="map" element={<LogsMap />} />
+            <Route path="logs" element={<LogsLog />} />
+            <Route path="drivers" element={<LogsDrivers />} />
+            <Route path="violation" element={<Violation />} />
+            <Route path="tracking" element={<Trackings />} />
+          </Route>
         </Route>
         <Route path="login" element={<Login />} />
       </Routes>
