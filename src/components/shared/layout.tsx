@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import { Sidebar } from "./sidebar";
 import { OutletWrapper } from "../../utils/index";
 import { useState } from "react";
-import { LogFormModal } from "./log-form-modal/log-form-modal";
+import { TimePickerModal } from "./time-picker-modal/time-picker-modal";
 
 const Layout = () => {
   const [open, setOpen] = useState<boolean>(true);
@@ -12,7 +12,7 @@ const Layout = () => {
       <OutletWrapper>
         <Outlet />
       </OutletWrapper>
-      <LogFormModal setOpen={setOpen} open={open} />
+      <TimePickerModal setOpen={setOpen} open={open} />
     </div>
   );
 };
