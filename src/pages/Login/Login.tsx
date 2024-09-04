@@ -1,4 +1,4 @@
-import { Button, Form,} from "antd";
+import { Button, Form } from "antd";
 import { LoginData } from "../../types";
 import {
   BoldText,
