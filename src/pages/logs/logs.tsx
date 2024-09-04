@@ -13,7 +13,7 @@ export const Logs = () => {
       <DriversStatistics />
       <ReflashButton>Reflash</ReflashButton>
       <StyleTabs
-        defaultActiveKey="1"
+        defaultActiveKey="2"
         type="card"
         size="large"
         tabBarGutter={5}

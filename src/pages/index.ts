@@ -12,3 +12,4 @@ export { LogsDrivers } from "./logs-drivers";
 export { LogsLog } from "./logs-log";
 export { Violation } from "./violation";
 export { Trackings } from "./trackings";
+export { DriversInfo } from "./drivers-info";
