@@ -10,3 +10,7 @@ export { DriverEditModal } from "./driver-edit-modal/driver-edir-modal";
 export { EhfModal } from "./ehf-modal/ehf-modal";
 export { TimePickerModal } from "./time-picker-modal/time-picker-modal";
 export { LogFormModal } from "./log-form-modal/log-form-modal";
+export {Diagrams} from "./diagrams"
+export {DriversForm} from "./drivers-form"
+export {DriversHeader} from "./drivers-header"
+export {TripPlanner} from "./trip-planner"

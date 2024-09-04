@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const TableContainer = styled.div`
 export   margin-top: 20px;
   border-radius: 8px;
-  height: 750px;
+  // height: 750px;
   overflow: auto;
 `;
 

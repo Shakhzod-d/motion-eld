@@ -1,61 +1,15 @@
-import { Button, Form, Input } from "antd";
-import styled from "styled-components";
+import { Button, Form,} from "antd";
 import { LoginData } from "../../types";
-const Main = styled.main`
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  background: #19223f;
-  padding: 5px;
-  gap: 5px;
-`;
-const FromWrapper = styled.section`
-  width: 100%;
-  background: #f3f3f4;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const Label = styled.label`
-  font-size: 14px;
-  color: #8c8c9b;
-`;
-const StyledForm = styled(Form)`
-  width: 552px;
-  display: flex;
-  flex-direction: column;
-`;
-const BoldText = styled.p`
-  font-weight: 700;
-  font-size: 16px;
-  text-align: center;
+import {
+  BoldText,
+  Description,
+  FromWrapper,
+  Label,
+  Main,
+  StyledForm,
+  StyledInput,
+} from "./login-styled";
 
-  color: #000;
-`;
-const StyledInput = styled(Input)`
-  border-radius: 10px;
-  padding: 25px 20px;
-  width: 552px;
-  height: 69px;
-  background: #ffffff;
-  border: none;
-  outline: none;
-  font-weight: 500;
-  font-size: 16px;
-  color: #000;
-  margin-top: 5px;
-`;
-const Description = styled.p`
-  font-weight: 500;
-  font-size: 16px;
-  color: #8c8c9b;
-  text-align: center;
-
-  span {
-    color: #fc973a;
-  }
-`;
 export const Login = () => {
   const onFinish = (values: unknown) => {
     const data = values as LoginData;

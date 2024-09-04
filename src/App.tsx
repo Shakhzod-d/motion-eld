@@ -14,6 +14,7 @@ import {
   LogsDrivers,
   Violation,
   Trackings,
+  DriversInfo,
 } from "./pages";
 import Layout from "./components/shared/layout";
 
@@ -36,6 +37,7 @@ function App() {
             <Route path="drivers" element={<LogsDrivers />} />
             <Route path="violation" element={<Violation />} />
             <Route path="tracking" element={<Trackings />} />
+            <Route path="info" element={<DriversInfo />} />
           </Route>
         </Route>
         <Route path="login" element={<Login />} />
