@@ -2,7 +2,7 @@
 import { Button, Checkbox, TableProps } from "antd";
 import { IftaReportColumns } from "../types";
 import styled from "styled-components";
-import { DriversInfo, LogsLog, LogsMap, Trackings, Violation } from "../pages";
+import { StatusBadge } from "../components/shared/custom-table/custom-styled";
 import { MdCheckBoxOutlineBlank, MdModeEdit } from "react-icons/md";
 import { IoAddCircle } from "react-icons/io5";
 
@@ -27,6 +27,90 @@ export const Text = styled.p<{
   margin-bottom: ${({ mb }) => mb};
   gap: 2px;
 `;
+
+export const driversData = Array(70).fill({
+  key: "name",
+  id: "0",
+  f_name: "Davis",
+  l_name: "Miller",
+  u_name: "captain_49",
+  co_driver: "",
+  driver_Type: "",
+  app_version: "4.6.7",
+  documents: "Not uploaded",
+  activated: "2024-03-02",
+  device_info: "Open",
+  action: "",
+});
+
+export const driverColumns = [
+  {
+    title: "#",
+    dataIndex: "id",
+    key: "id",
+  },
+  {
+    title: "First Name",
+    dataIndex: "f_name",
+    key: "f_name",
+  },
+  {
+    title: "Last Name",
+    dataIndex: "l_name",
+    key: "l_name",
+  },
+  {
+    title: "User Name",
+    dataIndex: "u_name",
+    key: "u_name",
+  },
+  {
+    title: "Co driver",
+    dataIndex: "co_driver",
+    key: "co_driver",
+  },
+  {
+    title: "Driver Type",
+    dataIndex: "driver_type",
+    key: "driver_type",
+  },
+  {
+    title: "Vehicle ID",
+    dataIndex: "v_id",
+    key: "v_id",
+  },
+  {
+    title: "App Version",
+    dataIndex: "app_version",
+    key: "app_version",
+  },
+  {
+    title: "Documents",
+    dataIndex: "documents",
+    key: "documents",
+  },
+  {
+    title: "Activated",
+    dataIndex: "activated",
+    key: "activated",
+  },
+  {
+    title: "Device Info",
+    dataIndex: "device_info",
+    key: "device_info",
+    render: (text: string) => (
+      <u>
+        <b>{text}</b>
+      </u>
+    ),
+  },
+  {
+    title: "Action",
+    dataIndex: "action",
+    key: "action",
+  },
+];
+
 export const IftaReportButtons = [
   { id: 1, text: "Vehicle" },
   { id: 2, text: "State" },
@@ -318,11 +402,11 @@ export const driversStatisticsData = [
 ];
 
 export const LogsTabPages = [
-  { label: "Map", key: "1", children: <LogsMap /> },
-  { label: "Drivers", key: "2", children: <DriversInfo /> },
-  { label: "Logs", key: "3", children: <LogsLog /> },
-  { label: "Violation", key: "4", children: <Violation /> },
-  { label: "Trackings", key: "5", children: <Trackings /> },
+  { label: "Map", key: "1", to: "map" },
+  { label: "Drivers", key: "2", to: "info" },
+  { label: "Logs", key: "3", to: "logs" },
+  { label: "Violation", key: "4", to: "violation" },
+  { label: "Trackings", key: "5", to: "tracking" },
 ];
 
 export const ArticleMapItem = [
@@ -802,4 +886,151 @@ export const logsForm = [
   { id: 5, title: "Trailers", value: "Bobtail, v378397" },
   { id: 6, title: "Shipping docs", value: "N/A 11194RY9P" },
   { id: 7, title: "Signature", value: "Signed" },
+]
+export const driverEditModalBtns = [
+  { id: 0, text: "On" },
+  { id: 1, text: "Sb" },
+  { id: 2, text: "Off" },
+  { id: 3, text: "Ym" },
+  { id: 4, text: "Pc" },
+];
+
+export const ehfModalColums = [
+  {
+    title: "ID",
+    dataIndex: "id",
+    key: "id",
+  },
+  {
+    title: "Status",
+    dataIndex: "status",
+    key: "status",
+    render: (title: string) => (
+      <StatusBadge status={title}> {title}</StatusBadge>
+    ),
+  },
+  {
+    title: "Start",
+    dataIndex: "start",
+    key: "start",
+  },
+  {
+    title: "Duration",
+    dataIndex: "duration",
+    key: "duration",
+  },
+  {
+    title: "Location",
+    dataIndex: "location",
+    key: "location",
+  },
+  {
+    title: "Vehicle",
+    dataIndex: "vehicle",
+    key: "vehicle",
+  },
+  {
+    title: "Odometr",
+    dataIndex: "odometr",
+    key: "odometr",
+  },
+  {
+    title: "Eng. hours",
+    dataIndex: "e_hours",
+    key: "e_hours",
+  },
+];
+
+export const ehfModalData = [
+  {
+    key: "0",
+    id: "1",
+    status: "DR",
+    start: "3:01:58 PM",
+    duration: "5h:38m:9s",
+    location: "876, Maple Ave, Chicago",
+    vehicle: "1015",
+    odometr: "244342",
+    e_hours: "10123",
+  },
+  {
+    key: "1",
+    id: "1",
+    status: "SB",
+    start: "3:01:58 PM",
+    duration: "",
+    location: "876, Maple Ave, Chicago",
+    vehicle: "1015",
+    odometr: "244342",
+    e_hours: "10123",
+  },
+  {
+    key: "2",
+    id: "1",
+    status: "Intermediate",
+    start: "3:01:58 PM",
+    duration: "",
+    location: "876, Maple Ave, Chicago",
+    vehicle: "1015",
+    odometr: "244342",
+    e_hours: "10123",
+  },
+];
+
+export const logFormModalColums = [
+  {
+    title: "",
+    key: "url",
+    dataIndex: "url",
+  },
+  {
+    title: "State",
+    dataIndex: "state",
+    key: "state",
+    render: (title: string) => (
+      <StatusBadge status={title}> {title}</StatusBadge>
+    ),
+  },
+
+  {
+    title: "Date",
+    dataIndex: "date",
+    key: "date",
+  },
+  {
+    title: "Start",
+    dataIndex: "start",
+    key: "start",
+  },
+  {
+    title: "Duration",
+    dataIndex: "duration",
+    key: "duration",
+  },
+  {
+    title: "Result",
+    dataIndex: "result",
+    key: "result",
+  },
+];
+
+export const logFormModalData = [
+  {
+    key: "0",
+    url: "From",
+    state: "SB",
+    date: "03-12-2024",
+    start: "02:59:09 AM",
+    duration: "2h:30m56s",
+    result: "2h:30m56s",
+  },
+  {
+    key: "0",
+    url: "To",
+    state: "SB",
+    date: "03-12-2024",
+    start: "02:59:09 AM",
+    duration: "2h:30m56s",
+    result: "2h:30m56s",
+  },
 ];

@@ -10,15 +10,14 @@
 }
 @font-face {
   font-family: "SF Pro Display";
-  src: url("../public/fonts/SFPRODISPLAYBOLD.OTF");
-  src: url("../public/fonts/SFPRODISPLAYMEDIUM.OTF");
-  src: url("../public/fonts/SFPRODISPLAYREGULAR.OTF");
+  src: url("../fonts/SFPRODISPLAYBOLD.OTF");
+  src: url("../fonts/SFPRODISPLAYMEDIUM.OTF");
+  src: url("../fonts/SFPRODISPLAYREGULAR.OTF");
 }
 
 body {
   background: #101525;
   overflow: hidden;
-  
 }
 
 a {

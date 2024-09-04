@@ -47,6 +47,10 @@ export const TabBtn = styled.div`
   background: rgba(255, 255, 255, 0.1);
   margin-bottom: 10px;
   color: #fff;
+  overflow: hidden;
+  * {
+    cursor: pointer;
+  }
 `;
 export const BtnWrap = styled.div`
   padding: 25px 20px 10px 20px;
@@ -60,18 +64,24 @@ export const PageActive = styled(NavLink)`
   color: white;
   width: 100%;
   height: 49px;
-  // border: 1px solid red;
+  transition: all 0.3s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
   &.active {
     background: rgba(255, 255, 255, 0.1);
   }
 `;
-export const User = styled.div`
+export const User = styled.div<{ background?: string; color?: string }>`
   display: flex;
   padding: 25px 20px;
   align-items: center;
   gap: 10px;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.15);
+  background: ${({ background }) =>
+    background ? background : "rgba(255, 255, 255, 0.15)"};
 
   img {
     width: 42px;
@@ -81,7 +91,7 @@ export const User = styled.div`
   }
 
   h2 {
-    color: #fff;
+    color: ${({ color }) => (color ? color : "#fff")};
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 5px;
@@ -89,8 +99,9 @@ export const User = styled.div`
 
   p {
     margin: 0 !important;
-    color: rgba(255, 255, 255, 0.7);
+    color: ${({ color }) => (color ? color : "#fff")};
     font-size: 12px;
     font-weight: 400;
+    opacity: 0.7;
   }
 `;

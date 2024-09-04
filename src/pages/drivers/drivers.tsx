@@ -1,4 +1,4 @@
-import { useState, type FC } from "react";
+import { useState } from "react";
 import {
   ActiveBtn,
   DefaultBtn,
@@ -9,115 +9,17 @@ import {
   PrimaryBtn,
   TopContainer,
 } from "../units/units-styled";
-import { Flex, Modal, Table, TableProps } from "antd";
+import { Flex, Modal, Table } from "antd";
+import { driverColumns, driversData, Main } from "../../utils";
+import { Navbar } from "../../components/ui";
 
-interface DriversProps {
-  data?: string[];
-}
-
-interface DataType {
-  key: string;
-  id: string;
-  f_name: string;
-  l_name: string;
-  u_name: string;
-  co_driver: string;
-  driver_Type: string;
-  app_version: string;
-  documents: string;
-  activated: string;
-  device_info: string;
-  action: string;
-}
-
-const columns: TableProps<DataType>["columns"] = [
-  {
-    title: "#",
-    dataIndex: "id",
-    key: "id",
-  },
-  {
-    title: "First Name",
-    dataIndex: "f_name",
-    key: "f_name",
-  },
-  {
-    title: "Last Name",
-    dataIndex: "l_name",
-    key: "l_name",
-  },
-  {
-    title: "User Name",
-    dataIndex: "u_name",
-    key: "u_name",
-  },
-  {
-    title: "Co driver",
-    dataIndex: "co_driver",
-    key: "co_driver",
-  },
-  {
-    title: "Driver Type",
-    dataIndex: "driver_type",
-    key: "driver_type",
-  },
-  {
-    title: "Vehicle ID",
-    dataIndex: "v_id",
-    key: "v_id",
-  },
-  {
-    title: "App Version",
-    dataIndex: "app_version",
-    key: "app_version",
-  },
-  {
-    title: "Documents",
-    dataIndex: "documents",
-    key: "documents",
-  },
-  {
-    title: "Activated",
-    dataIndex: "activated",
-    key: "activated",
-  },
-  {
-    title: "Device Info",
-    dataIndex: "device_info",
-    key: "device_info",
-    render: (text) => (
-      <u>
-        <b>{text}</b>
-      </u>
-    ),
-  },
-  {
-    title: "Action",
-    dataIndex: "action",
-    key: "action",
-  },
-];
-
-const data: DataType[] = Array(70).fill({
-  key: "name",
-  id: "0",
-  f_name: "Davis",
-  l_name: "Miller",
-  u_name: "captain_49",
-  co_driver: "",
-  driver_Type: "",
-  app_version: "4.6.7",
-  documents: "Not uploaded",
-  activated: "2024-03-02",
-  device_info: "Open",
-  action: "",
-});
-
-export const Drivers: FC<DriversProps> = () => {
+export const Drivers = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <section>
+      <Main>
+        <Navbar title={"Drivers"} />
+
         <TopContainer>
           <PrimaryBtn
             style={{ padding: "20px 35px" }}
@@ -131,12 +33,12 @@ export const Drivers: FC<DriversProps> = () => {
           Deactivated
         </DefaultBtn>
         <Table
-          columns={columns}
-          dataSource={data}
+          columns={driverColumns}
+          dataSource={driversData}
           id="table"
           style={{ marginTop: "20px" }}
         />
-      </section>
+      </Main>
       <Modal
         centered
         open={open}

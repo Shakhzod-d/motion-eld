@@ -5,8 +5,12 @@ export { DriversInfoTable } from "./DriversInfoTable";
 export { DriversStatistics } from "./drivers-statistics/drivers-statistics";
 export { MapArticle } from "./map-article";
 export { CustomTable } from "./custom-table";
-export { DriversHeader } from "./drivers-header";
-export { Diagrams } from "./diagrams";
-export { DriversForm } from "./drivers-form";
-export { TripPlanner } from "./trip-planner";
-export {DriversDiagram } from "./drivers-diagram"
+export { DriverInfo } from "./driver-info/driver-info";
+export { DriverEditModal } from "./driver-edit-modal/driver-edir-modal";
+export { EhfModal } from "./ehf-modal/ehf-modal";
+export { TimePickerModal } from "./time-picker-modal/time-picker-modal";
+export { LogFormModal } from "./log-form-modal/log-form-modal";
+export {Diagrams} from "./diagrams"
+export {DriversForm} from "./drivers-form"
+export {DriversHeader} from "./drivers-header"
+export {TripPlanner} from "./trip-planner"

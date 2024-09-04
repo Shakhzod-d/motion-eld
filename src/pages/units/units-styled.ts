@@ -9,18 +9,30 @@ export const TopContainer = styled.div<{ gap?: string }>`
   gap: ${({ gap }) => (gap ? gap : "0")};
 `;
 
-export const PrimaryBtn = styled(Button)`
+export const PrimaryBtn = styled(Button)<{
+  padding?: string;
+  width?: string;
+  height?: string;
+  backgroung?: string;
+}>`
   border-radius: 10px;
-  background: #fc973a;
   color: #fff;
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.5px;
-  height: 100%;
-  padding: 20px 35px;
+
+  padding: ${({ padding }) => padding || "20px 35px"};
+  width: ${({ width }) => width || ""};
+  height: ${({ height }) => height || "100%"};
+  background: ${({ backgroung }) => backgroung || "#fc973a"};
 `;
 
-export const DefaultBtn = styled(Button)`
+export const DefaultBtn = styled(Button)<{
+  padding?: string;
+  width?: string;
+  height?: string;
+  backgroung?: string;
+}>`
   border-radius: 10px;
   background: #fff;
   color: #000;
@@ -28,6 +40,10 @@ export const DefaultBtn = styled(Button)`
   font-weight: 500;
   letter-spacing: -0.5px;
   height: 100%;
+  padding: ${({ padding }) => padding || ""};
+  width: ${({ width }) => width || ""};
+  height: ${({ height }) => height || ""};
+  background: ${({ backgroung }) => backgroung || ""};
 `;
 
 export const ActiveBtn = styled(Button)`
@@ -39,14 +55,14 @@ export const ActiveBtn = styled(Button)`
   font-weight: 500;
 `;
 
-export const ModalInput = styled(Input)`
+export const ModalInput = styled(Input)<{ width?: string }>`
   padding: 20px 25px;
   color: #000;
   font-size: 16px;
   font-weight: 500;
   border-radius: 10px;
   background: #f9f9fa;
-  width: 50%;
+  width: ${({ width }) => width || "50%"};
   border: none !important;
   &::placeholder {
     color: #000;
