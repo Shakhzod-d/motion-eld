@@ -79,4 +79,6 @@ export const P = styled.p`
 export const Div = styled.div`
   border-radius: 9px;
   background: #f9f9fa;
+  display: flex;
+  align-items: center;
 `;
