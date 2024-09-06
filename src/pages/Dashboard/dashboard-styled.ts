@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import styled from "styled-components";
 interface ButtonProps {
-  active?: boolean;
+  $active?: boolean;
   border: string;
 }
 export const Day = styled.div`
@@ -13,7 +13,7 @@ export const Day = styled.div`
 `;
 
 export const DayBtn = styled(Button)<ButtonProps>`
-  background-color: ${({ active }) => (active ? "#19223f" : "")};
+  background-color: ${({ $active }) => ($active ? "#19223f" : "")};
   border-radius:${({ border }) => border}
   padding: 15px 30px;
   width: 81px;
@@ -29,11 +29,11 @@ export const Title = styled.h2`
 `;
 
 export const CardWrapper = styled.div`
-  width: 100%;
-  max-width:1570px;
   display: flex;
-  gap: 12px;
+  width: 100%;
+  max-width: 1920px;
   margin-bottom: 40px;
-  justify-content: center;
-  overflow-x: auto;
+  gap:10px;
+  // justify-content: center;
+  overflow-x: auto !important;
 `;

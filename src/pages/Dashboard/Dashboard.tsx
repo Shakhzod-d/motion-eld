@@ -14,7 +14,7 @@ export const Dashboard = () => {
       <Day>
         {btnArr.map((item) => (
           <DayBtn
-            active={activeBtn == item.id}
+            $active={activeBtn == item.id}
             border={item.border}
             key={item.id}
             type={activeBtn == item.id ? "primary" : "default"}

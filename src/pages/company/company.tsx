@@ -1,19 +1,25 @@
 // import type { FC } from "react";
-import { Button, Input } from "antd";
-import { CardsTop, Container, StyledSelect, Top } from "./company-styled";
 import { AiOutlineSearch } from "react-icons/ai";
 import CompanyCard from "../../components/shared/company-card/company-card";
 import { FaPlus } from "react-icons/fa6";
 import { Main } from "../../utils/index";
 import { Navbar } from "../../components/ui";
+import {
+  AddBtn,
+  CardsTop,
+  Container,
+  CustomInput,
+  StyledSelect,
+  Top,
+} from "./company-styled";
 
 export const Company = () => (
   <Main>
     <Navbar title={"Company"} />
     <Container>
       <Top>
-        <Input type="search" prefix={<AiOutlineSearch />} />
-        <Button type="primary" icon={<FaPlus />}></Button>
+        <CustomInput type="search" prefix={<AiOutlineSearch />} />
+        <AddBtn type="primary" icon={<FaPlus size={20} />}></AddBtn>
       </Top>
 
       <CardsTop>

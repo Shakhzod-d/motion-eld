@@ -9,7 +9,7 @@ export const Drivers = () => {
   return (
     <InfoCard>
       <Title>Drivers</Title>
-      <div style={{ display: "flex", gap: "50px" }}>
+      <div style={{ display: "flex", gap: "50px",}}>
         <Item>
           <FaPowerOff
             color="#b0b0b9"

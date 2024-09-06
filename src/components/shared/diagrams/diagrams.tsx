@@ -2,7 +2,6 @@ import { Flex } from "antd";
 import { CustomButton, Wrapper } from "./diagrams-styled";
 import { circleDiagram } from "../../../utils/constants";
 import { DriversDiagram } from "../drivers-diagram";
-
 export const Diagrams = () => {
   return (
     <>
@@ -15,6 +14,7 @@ export const Diagrams = () => {
                 value={item.value}
                 color={item.color}
                 valueData={item.valueData}
+                key={item.id}
               />
             ))}
           </Flex>

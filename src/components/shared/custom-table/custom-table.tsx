@@ -49,7 +49,7 @@ export const CustomTable = ({ columns, data }: TableProps) => {
                   }
                 >
                   {column.accessor === "status" ? (
-                    <StatusBadge status={row[column.accessor]}>
+                    <StatusBadge $status={row[column.accessor]}>
                       {row[column.accessor]}
                     </StatusBadge>
                   ) : (
