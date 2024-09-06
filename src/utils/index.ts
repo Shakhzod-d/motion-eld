@@ -1,3 +1,5 @@
+import { createBrowserHistory } from "history";
+
 export {
   transferData,
   transferBtns,
@@ -30,3 +32,7 @@ export {
   LogsTabPages,
   logFormModalData,
 } from "./constants";
+export const history = createBrowserHistory()
+export const historyPush = (path: string) => {
+  history.push(path);
+};

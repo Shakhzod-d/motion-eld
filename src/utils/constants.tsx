@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { StatusBadge } from "../components/shared/custom-table/custom-styled";
 import { MdCheckBoxOutlineBlank, MdModeEdit } from "react-icons/md";
 import { IoAddCircle } from "react-icons/io5";
+import moment from "moment";
 
 export const manageCompanyButtons = [
   { id: 1, text: "Company" },
@@ -17,14 +18,14 @@ export const Text = styled.p<{
   size?: number;
   $font?: string;
   color?: string;
-  mb?: string;
+  $mb?: string;
 }>`
   font-weight: ${({ $font }) => $font};
   font-size: ${({ size }) => `${size}px`};
   letter-spacing: -0.03em;
   color: ${({ color }) => color};
   display: flex;
-  margin-bottom: ${({ mb }) => mb};
+  margin-bottom: ${({ $mb }) => $mb};
   gap: 2px;
 `;
 
@@ -118,20 +119,20 @@ export const IftaReportButtons = [
 
 export const CustomButton = styled(Button)<{
   padding?: string;
-  background?: string;
+  $background?: string;
   height?: string;
   color?: string;
   width?: string;
   mb?: string;
 }>`
-  background: ${({ background }) => background};
+  background: ${({ $background }) => $background};
   width: ${({ width }) => width};
   padding: ${({ padding }) => padding};
   height: ${({ height }) => height};
   color: ${({ color }) => color};
-  margin-bottom:${({ mb }) => mb};
+  margin-bottom: ${({ mb }) => mb};
   &:hover {
-    background: ${({ background }) => background}!important;
+    background: ${({ $background }) => $background}!important;
     opacity: 0.7;
   }
 `;
@@ -358,7 +359,7 @@ export const Main = styled.main`
   padding: 0 20px 20px 20px;
   width: 100%;
   max-width: 100vw;
-  min-height: calc(100vh - 15px);
+  height: calc(100vh - 15px);
   background: #f3f3f4;
   overflow: "hidden";
 `;
@@ -366,13 +367,14 @@ export const Main = styled.main`
 export const OutletWrapper = styled.div`
   padding: 10px;
   width: 100%;
+  max-width: 100vw;
 `;
 
 export const InfoCard = styled.div`
+  flex: 0 0 517px;
   border-radius: 15px;
   padding: 25px;
-  width: 100%;
-  max-width: 517px;
+  width: 517px ;
   height: 244px;
   background: #fff;
 `;
@@ -886,7 +888,7 @@ export const logsForm = [
   { id: 5, title: "Trailers", value: "Bobtail, v378397" },
   { id: 6, title: "Shipping docs", value: "N/A 11194RY9P" },
   { id: 7, title: "Signature", value: "Signed" },
-]
+];
 export const driverEditModalBtns = [
   { id: 0, text: "On" },
   { id: 1, text: "Sb" },
@@ -906,7 +908,7 @@ export const ehfModalColums = [
     dataIndex: "status",
     key: "status",
     render: (title: string) => (
-      <StatusBadge status={title}> {title}</StatusBadge>
+      <StatusBadge $status={title}> {title}</StatusBadge>
     ),
   },
   {
@@ -988,7 +990,7 @@ export const logFormModalColums = [
     dataIndex: "state",
     key: "state",
     render: (title: string) => (
-      <StatusBadge status={title}> {title}</StatusBadge>
+      <StatusBadge $status={title}> {title}</StatusBadge>
     ),
   },
 
@@ -1034,3 +1036,23 @@ export const logFormModalData = [
     result: "2h:30m56s",
   },
 ];
+
+export const parseUnix = (unix: number = 0) => {
+  return unix * 1000;
+};
+
+export const getDurationDate = (start: number, end: number) => {
+  const format = "MM/DD/YYYY HH:mm:ss";
+  const startTime = moment(start);
+  const endTime = moment(end);
+  const countDownStart = startTime.add(0, "second");
+  const then = moment(countDownStart).format(format);
+  const now = moment(endTime).format(format);
+  const ms = moment(now, format).diff(moment(then, format));
+  const duration = moment.duration(ms);
+  const hours = duration.get("hours");
+  const minutes = duration.get("minutes");
+  const seconds = duration.get("seconds");
+  const days = duration.get("days");
+  return { hours, minutes, seconds, days };
+};

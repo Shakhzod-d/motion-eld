@@ -1,4 +1,4 @@
-import { Select } from "antd";
+import { Button, Input, Select } from "antd";
 import styled from "styled-components";
 
 export const Container = styled.div<{ $flex?: boolean }>`
@@ -77,5 +77,22 @@ export const StyledSelect = styled(Select)`
   }
   .ant-select-dropdown {
     width: 250px !important;
+  }
+`;
+
+export const CustomInput = styled(Input)`
+  border-radius: 10px;
+  padding: 10px 15px;
+  width: 270px;
+  height: 44px;
+  background: #fdfdfd;
+`;
+export const AddBtn = styled(Button)`
+  width: 45px !important;
+  height: 43px !important;
+  background: #fc973a;
+  border-radius: 50%;
+  &:hover {
+    background:#fc903a  !important;
   }
 `;
