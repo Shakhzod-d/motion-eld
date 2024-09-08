@@ -9,7 +9,7 @@ interface Header {
 interface Name {
   label?: string;
   img?: string;
-  data?: { id: number; text: string; icon?: React.ReactElement }[];
+  data?: { id: number; text: string; icon?: React.ReactElement|string }[];
 }
 
 interface DataType {
@@ -24,14 +24,14 @@ interface Prop {
 interface Data {
   [key: string]: {
     label?: string;
-    data?: { id: number; text: string; icon?: React.ReactElement }[];
+    data?: { id: number; text: string; icon?: React.ReactElement|string }[];
   };
 }
 
 interface RowData {
   label?: string;
   img?: string;
-  data?: { id: number; text: string; icon?: React.ReactElement }[];
+  data?: { id: number; text: string; icon?: React.ReactElement|string }[];
 }
 export const InfoTable = ({ header, data }: Prop) => {
   const [open, setOpen] = useState<boolean>(false);
@@ -63,7 +63,7 @@ export const InfoTable = ({ header, data }: Prop) => {
                         ? "#FC973A"
                         : "#000"
                     }
-                    mb="5px"
+                    $mb="5px"
                     size={ind == 0 ? 20 : 16}
                   >
                     {rowData?.label ? rowData.label : ""}

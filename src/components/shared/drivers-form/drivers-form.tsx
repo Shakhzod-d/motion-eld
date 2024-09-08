@@ -15,7 +15,7 @@ export const DriversForm = () => {
         </Text>
         <CustomButton
           type="primary"
-          background="#FC973A"
+          $background="#FC973A"
           padding="15px 25px"
           height="50px"
         >

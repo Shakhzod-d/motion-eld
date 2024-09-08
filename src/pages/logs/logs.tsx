@@ -6,14 +6,10 @@ import { LogsTabPages } from "../../utils/constants";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { TransparentButton } from "../ifta-reports/ifta-reports-styled";
 import { useEffect } from "react";
-// import { ReflashButton, StyleTabs } from "./logs-styled";
-// import { ReflashButton, StyleTabs } from "./logs-styled";
 
 export const Logs = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-
-  console.log(pathname);
 
   useEffect(() => {
     if (pathname.length <= 6) navigate("map");

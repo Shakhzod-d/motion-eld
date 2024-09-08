@@ -33,8 +33,7 @@ const items = [
     label: "Reports",
     page: [
       { id: 1, text: " -  Ifta Reports", url: "/ifta-reports" },
-      { id: 2, text: " -  Driver Reports", url: "/" },
-      { id: 3, text: " -  DVIR Reports", url: "/" },
+
     ],
   },
   {
@@ -51,8 +50,6 @@ const items = [
 export const Sidebar = () => {
   const [btnActive, setBtnActive] = useState<number>(0);
   const { pathname } = useLocation();
-  console.log(pathname);
-
   return (
     <SidebarContainer>
       <Img src={Logo} alt="" />

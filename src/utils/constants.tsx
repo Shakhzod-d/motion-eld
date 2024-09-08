@@ -21,14 +21,14 @@ export const Text = styled.p<{
   size?: number;
   $font?: string;
   color?: string;
-  mb?: string;
+  $mb?: string;
 }>`
   font-weight: ${({ $font }) => $font};
   font-size: ${({ size }) => `${size}px`};
   letter-spacing: -0.03em;
   color: ${({ color }) => color};
   display: flex;
-  margin-bottom: ${({ mb }) => mb};
+  margin-bottom: ${({ $mb }) => $mb};
   gap: 2px;
 `;
 
@@ -122,20 +122,20 @@ export const IftaReportButtons = [
 
 export const CustomButton = styled(Button)<{
   padding?: string;
-  background?: string;
+  $background?: string;
   height?: string;
   color?: string;
   width?: string;
   mb?: string;
 }>`
-  background: ${({ background }) => background};
+  background: ${({ $background }) => $background};
   width: ${({ width }) => width};
   padding: ${({ padding }) => padding};
   height: ${({ height }) => height};
   color: ${({ color }) => color};
   margin-bottom: ${({ mb }) => mb};
   &:hover {
-    background: ${({ background }) => background}!important;
+    background: ${({ $background }) => $background}!important;
     opacity: 0.7;
   }
 `;
@@ -362,7 +362,7 @@ export const Main = styled.main`
   padding: 0 20px 20px 20px;
   width: 100%;
   max-width: 100vw;
-  min-height: calc(100vh - 15px);
+  height: calc(100vh - 15px);
   background: #f3f3f4;
   overflow: "hidden";
 `;
@@ -370,13 +370,14 @@ export const Main = styled.main`
 export const OutletWrapper = styled.div`
   padding: 10px;
   width: 100%;
+  max-width: 100vw;
 `;
 
 export const InfoCard = styled.div`
+  flex: 0 0 517px;
   border-radius: 15px;
   padding: 25px;
-  width: 100%;
-  max-width: 517px;
+  width: 517px ;
   height: 244px;
   background: #fff;
 `;
@@ -910,7 +911,7 @@ export const ehfModalColums = [
     dataIndex: "status",
     key: "status",
     render: (title: string) => (
-      <StatusBadge status={title}> {title}</StatusBadge>
+      <StatusBadge $status={title}> {title}</StatusBadge>
     ),
   },
   {
@@ -992,7 +993,7 @@ export const logFormModalColums = [
     dataIndex: "state",
     key: "state",
     render: (title: string) => (
-      <StatusBadge status={title}> {title}</StatusBadge>
+      <StatusBadge $status={title}> {title}</StatusBadge>
     ),
   },
 

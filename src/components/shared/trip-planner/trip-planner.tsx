@@ -17,7 +17,7 @@ export const TripPlanner = () => {
         </Text>
         <CustomButton
           type="primary"
-          background="#FC973A"
+          $background="#FC973A"
           padding="15px 25px"
           height="50px"
         >
@@ -29,7 +29,7 @@ export const TripPlanner = () => {
           <Block bottom="10px">
             <Text color="#5d5e5f">From</Text>
           </Block>
-          <Text size={14} color="#5d5e5f" mb="20px">
+          <Text size={14} color="#5d5e5f" $mb="20px">
             Location age: 14 min ago
           </Text>
           <Flex gap={"small"} style={{ marginBottom: "20px" }}>
@@ -39,7 +39,7 @@ export const TripPlanner = () => {
             </Block>
           </Flex>
           <CustomButton
-            background="#FC973A"
+            $background="#FC973A"
             color="#fff"
             width="100%"
             height="59px"

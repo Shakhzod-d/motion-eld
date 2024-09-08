@@ -19,7 +19,6 @@ const StyledTable = styled(Table)`
   }
 
   .ant-table-tbody > tr > td {
-    // border-radius: 10px;
     padding: 29px 25px;
   width: 1575px;
     // height: 77px;
@@ -118,7 +117,7 @@ const dataSource = [
 ];
 export const DriversInfoTable = () => {
   return (
-    <div style={{overflow:"auto"}}>
+    <div style={{overflowX:"auto", height:"400px"}}>
       <StyledTable
         dataSource={dataSource}
         columns={columns}

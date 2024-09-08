@@ -18,19 +18,26 @@ export const StyleInput = styled(Input)`
   position: sticky;
   margin-bottom: 10px;
 `;
-export const Card = styled.div<{ color: boolean }>`
+export const Card = styled.div<{ $color: boolean }>`
   border-radius: 10px;
   padding: 15px 10px 15px 15px;
-  border: ${({ color }) => (color ? "1px solid #FC973A" : "")};
+  border: ${({ $color }) => ($color ? "1px solid #FC973A" : "")};
   height: 108px;
   background: #fff;
   margin-bottom: 5px;
 `;
-export const Status = styled.div<{ statusBg: string }>`
+export const Status = styled.div<{ $statusBg: string }>`
   border-radius: 5px;
   padding: 5px 10px;
 
-  background:${({statusBg})=>statusBg =="ON"?"#3DA8D5":statusBg =="SB"?"#FC973A":statusBg =="OFF"?"#8C8C9B":"#32BE61"};
+  background: ${({ $statusBg }) =>
+    $statusBg == "ON"
+      ? "#3DA8D5"
+      : $statusBg == "SB"
+      ? "#FC973A"
+      : $statusBg == "OFF"
+      ? "#8C8C9B"
+      : "#32BE61"};
 
   color: #fff;
 `;

@@ -7,7 +7,7 @@ import { TimePickerModal } from "./time-picker-modal/time-picker-modal";
 const Layout = () => {
   const [open, setOpen] = useState<boolean>(true);
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex", width:"100%"}}>
       <Sidebar />
       <OutletWrapper>
         <Outlet />
