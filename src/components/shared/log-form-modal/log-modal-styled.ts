@@ -1,10 +1,10 @@
 import { Table } from "antd";
 import styled from "styled-components";
 
-export const Title = styled.h2`
+export const Title = styled.h2<{ size?: string }>`
   color: #000;
-  font-size: 32px;
-  font-weight: 500;
+  font-size: ${({ size }) => size || "36px"};
+  font-weight: 600;
   letter-spacing: -0.5px;
 `;
 
