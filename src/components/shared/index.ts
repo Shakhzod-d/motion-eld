@@ -1,3 +1,4 @@
+
 export { ViolationsChart } from "./violations-chart";
 export { ProgressBar } from "./progress-bar";
 export { Sidebar } from "./sidebar";
@@ -10,8 +11,9 @@ export { DriverEditModal } from "./driver-edit-modal/driver-edir-modal";
 export { EhfModal } from "./ehf-modal/ehf-modal";
 export { TimePickerModal } from "./time-picker-modal/time-picker-modal";
 export { LogFormModal } from "./log-form-modal/log-form-modal";
-export {Diagrams} from "./diagrams"
-export {DriversForm} from "./drivers-form"
-export {DriversHeader} from "./drivers-header"
-export {TripPlanner} from "./trip-planner"
-export {InfoTable} from "./info-table"
+export { Diagrams } from "./diagrams";
+export { DriversForm } from "./drivers-form";
+export { DriversHeader } from "./drivers-header";
+export { TripPlanner } from "./trip-planner";
+export { UserEditModal } from "./user-edit-modal";
+export { InfoTable } from "./info-table";

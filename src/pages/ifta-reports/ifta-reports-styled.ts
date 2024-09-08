@@ -52,7 +52,7 @@ export const TransparentButton = styled(Button)<{
   letter-spacing: -0.5px;
   width: ${({ width }) => (width ? width : "163px")};
   height: ${({ height }) => (height ? height : "50px")};
-  border: none;
+  border: 1px solid transparent;
   display: ${({ display }) => display || "flex"};
 
   &:hover {
