@@ -45,7 +45,7 @@ export const MapArticle = ({ data, search = false, width }: Props) => {
       {dataValue.map((item: ArticleProps) => (
         <Card
           key={item.id}
-          color={active == item.id}
+          $color={active == item.id}
           onClick={() => setActive(item.id)}
         >
           <Between>
@@ -53,7 +53,7 @@ export const MapArticle = ({ data, search = false, width }: Props) => {
               <Title>{item.title}</Title>
               <TruckNum>{item.text}</TruckNum>
             </div>
-            <Status  statusBg={item.status}>{item.status}</Status>
+            <Status  $statusBg={item.status}>{item.status}</Status>
           </Between>
           <Description>
             {item.desc}

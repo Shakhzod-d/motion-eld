@@ -4,7 +4,7 @@ import { OutletWrapper } from "../../utils/index";
 
 const Layout = () => {
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex", width:"100%"}}>
       <Sidebar />
       <OutletWrapper>
         <Outlet />

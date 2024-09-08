@@ -6,9 +6,13 @@ import {
   TableHeader,
   TableRow,
 } from "./custom-styled";
-type CustomObject = Record<string, string | number>;
+type CustomObject = {
+  [key: string]: string | number | JSX.Element;
+  status: string;
+};
+
 interface TableColumn {
-  header: string;
+  header: string | JSX.Element;
   accessor: string;
 }
 
@@ -31,6 +35,7 @@ export const CustomTable = ({ columns, data }: TableProps) => {
         <tbody>
           {data.map((row, index) => (
             <TableRow key={index}>
+              
               {columns.map((column) => (
                 <TableData
                   key={column.accessor}
@@ -44,7 +49,7 @@ export const CustomTable = ({ columns, data }: TableProps) => {
                   }
                 >
                   {column.accessor === "status" ? (
-                    <StatusBadge status={row[column.accessor]}>
+                    <StatusBadge $status={row[column.accessor]}>
                       {row[column.accessor]}
                     </StatusBadge>
                   ) : (

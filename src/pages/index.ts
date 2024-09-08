@@ -1,5 +1,5 @@
 export { Company } from "./company/company";
-export { Login } from "./login/login";
+export { Login } from "./login";
 export { Units } from "./units/units";
 export { Drivers } from "./drivers/drivers";
 export { IftaReports } from "./ifta-reports/ifta-reports";
@@ -12,3 +12,4 @@ export { LogsDrivers } from "./logs-drivers";
 export { LogsLog } from "./logs-log";
 export { Violation } from "./violation";
 export { Trackings } from "./trackings";
+export { DriversInfo } from "./drivers-info";

@@ -1,8 +1,11 @@
 /* eslint-disable react-refresh/only-export-components */
-import { TableProps } from "antd";
+import { Button, Checkbox, TableProps } from "antd";
 import { IftaReportColumns } from "../types";
 import styled from "styled-components";
 import { StatusBadge } from "../components/shared/custom-table/custom-styled";
+import { MdCheckBoxOutlineBlank, MdModeEdit } from "react-icons/md";
+import { IoAddCircle } from "react-icons/io5";
+import moment from "moment";
 
 export const manageCompanyButtons = [
   { id: 1, text: "Company" },
@@ -11,6 +14,20 @@ export const manageCompanyButtons = [
   { id: 4, text: "Api keys" },
   { id: 5, text: "Histories" },
 ];
+export const Text = styled.p<{
+  size?: number;
+  $font?: string;
+  color?: string;
+  $mb?: string;
+}>`
+  font-weight: ${({ $font }) => $font};
+  font-size: ${({ size }) => `${size}px`};
+  letter-spacing: -0.03em;
+  color: ${({ color }) => color};
+  display: flex;
+  margin-bottom: ${({ $mb }) => $mb};
+  gap: 2px;
+`;
 
 export const driversData = Array(70).fill({
   key: "name",
@@ -100,6 +117,25 @@ export const IftaReportButtons = [
   { id: 2, text: "State" },
 ];
 
+export const CustomButton = styled(Button)<{
+  padding?: string;
+  $background?: string;
+  height?: string;
+  color?: string;
+  width?: string;
+  mb?: string;
+}>`
+  background: ${({ $background }) => $background};
+  width: ${({ width }) => width};
+  padding: ${({ padding }) => padding};
+  height: ${({ height }) => height};
+  color: ${({ color }) => color};
+  margin-bottom: ${({ mb }) => mb};
+  &:hover {
+    background: ${({ $background }) => $background}!important;
+    opacity: 0.7;
+  }
+`;
 export const unitsButtons = [
   { id: 1, text: "Vehicle" },
   { id: 2, text: "Deactivated" },
@@ -323,7 +359,7 @@ export const Main = styled.main`
   padding: 0 20px 20px 20px;
   width: 100%;
   max-width: 100vw;
-  min-height: calc(100vh - 15px);
+  height: calc(100vh - 15px);
   background: #f3f3f4;
   overflow: "hidden";
 `;
@@ -331,13 +367,14 @@ export const Main = styled.main`
 export const OutletWrapper = styled.div`
   padding: 10px;
   width: 100%;
+  max-width: 100vw;
 `;
 
 export const InfoCard = styled.div`
+  flex: 0 0 517px;
   border-radius: 15px;
   padding: 25px;
-  width: 100%;
-  max-width: 517px;
+  width: 517px ;
   height: 244px;
   background: #fff;
 `;
@@ -368,7 +405,7 @@ export const driversStatisticsData = [
 
 export const LogsTabPages = [
   { label: "Map", key: "1", to: "map" },
-  { label: "Drivers", key: "2", to: "drivers" },
+  { label: "Drivers", key: "2", to: "info" },
   { label: "Logs", key: "3", to: "logs" },
   { label: "Violation", key: "4", to: "violation" },
   { label: "Trackings", key: "5", to: "tracking" },
@@ -730,7 +767,128 @@ export const LogsData = [
     week: "10 days ago",
   },
 ];
+export const DriversWeek = [
+  { id: 1, text: "Jan 24 / Wed" },
+  { id: 2, text: "Jan 23 / Tue" },
+  { id: 3, text: "Jan 24 / Wed" },
+  { id: 4, text: "Jan 22 / Mon" },
+  { id: 5, text: "Jan 21 / Sun" },
+  { id: 6, text: "Jan 20 / Sat" },
+  { id: 7, text: "Jan 19 / Fri" },
+];
 
+export const circleDiagram = [
+  {
+    id: 1,
+    title: "Break",
+    color: "#FFAF66",
+    valueData: "8:00",
+    value: 10,
+  },
+  {
+    id: 2,
+    title: "Drive",
+    color: "#32BE61",
+    valueData: "14:00",
+    value: 40,
+  },
+  {
+    id: 3,
+    title: "Shift",
+    color: "#6298EF",
+    valueData: "20:00",
+    value: 50,
+  },
+  {
+    id: 4,
+    title: "Cycle",
+    color: "#5D5E5F",
+    valueData: "50:00",
+    value: 80,
+  },
+];
+
+// MdModeEdit
+
+export const driversTableHeader = [
+  { header: <MdCheckBoxOutlineBlank />, accessor: "checkbox" },
+  { header: "ID", accessor: "id" },
+  { header: "Status", accessor: "status" },
+  { header: "Start", accessor: "start" },
+  { header: "Duration", accessor: "duration" },
+
+  { header: "Location", accessor: "location" },
+  { header: "Vehicle", accessor: "vehicle" },
+  { header: "Odometer", accessor: "odometer" },
+  { header: "Eng. hours", accessor: "hours" },
+  { header: "Notes", accessor: "notes" },
+  { header: "Document", accessor: "document" },
+  { header: "Trailer", accessor: "trailer" },
+  {
+    header: (
+      <IoAddCircle color="orange" size={20} style={{ cursor: "pointer" }} />
+    ),
+    accessor: "add",
+  },
+];
+
+export const driversTableData = [
+  {
+    id: 1,
+    checkbox: <Checkbox></Checkbox>,
+    status: "OFF",
+    start: "12:00:00 AM",
+    duration: "12min 9sec",
+    location: "82, Oak St, Chicago",
+    vehicle: "1015",
+    odometer: "518983",
+    hours: "10109.4",
+    notes: "",
+    document: "N/A",
+    trailer: "v502269",
+    add: <MdModeEdit color="blue" size={20} style={{ cursor: "pointer" }} />,
+  },
+  {
+    id: 2,
+    checkbox: <Checkbox></Checkbox>,
+    status: "SB",
+    start: "12:00:00 AM",
+    duration: "12min 9sec",
+    location: "82, Oak St, Chicago",
+    vehicle: "1015",
+    odometer: "518983",
+    hours: "10109.4",
+    notes: "",
+    document: "N/A",
+    trailer: "v502269",
+    add: <MdModeEdit color="blue" size={20} style={{ cursor: "pointer" }} />,
+  },
+  {
+    id: 3,
+    checkbox: <Checkbox></Checkbox>,
+    status: "ON",
+    start: "12:00:00 AM",
+    duration: "12min 9sec",
+    location: "82, Oak St, Chicago",
+    vehicle: "1015",
+    odometer: "518983",
+    hours: "10109.4",
+    notes: "",
+    document: "N/A",
+    trailer: "v502269",
+    add: <MdModeEdit color="blue" size={20} style={{ cursor: "pointer" }} />,
+  },
+];
+
+export const logsForm = [
+  { id: 1, title: "Driver", value: "Nematjon Mardonov" },
+  { id: 2, title: "Distance", value: "391 mil" },
+  { id: 3, title: "Co Driver", value: "Jonibek Murodov" },
+  { id: 4, title: "Truck", value: "105" },
+  { id: 5, title: "Trailers", value: "Bobtail, v378397" },
+  { id: 6, title: "Shipping docs", value: "N/A 11194RY9P" },
+  { id: 7, title: "Signature", value: "Signed" },
+];
 export const driverEditModalBtns = [
   { id: 0, text: "On" },
   { id: 1, text: "Sb" },
@@ -750,7 +908,7 @@ export const ehfModalColums = [
     dataIndex: "status",
     key: "status",
     render: (title: string) => (
-      <StatusBadge status={title}> {title}</StatusBadge>
+      <StatusBadge $status={title}> {title}</StatusBadge>
     ),
   },
   {
@@ -832,7 +990,7 @@ export const logFormModalColums = [
     dataIndex: "state",
     key: "state",
     render: (title: string) => (
-      <StatusBadge status={title}> {title}</StatusBadge>
+      <StatusBadge $status={title}> {title}</StatusBadge>
     ),
   },
 
@@ -878,3 +1036,23 @@ export const logFormModalData = [
     result: "2h:30m56s",
   },
 ];
+
+export const parseUnix = (unix: number = 0) => {
+  return unix * 1000;
+};
+
+export const getDurationDate = (start: number, end: number) => {
+  const format = "MM/DD/YYYY HH:mm:ss";
+  const startTime = moment(start);
+  const endTime = moment(end);
+  const countDownStart = startTime.add(0, "second");
+  const then = moment(countDownStart).format(format);
+  const now = moment(endTime).format(format);
+  const ms = moment(now, format).diff(moment(then, format));
+  const duration = moment.duration(ms);
+  const hours = duration.get("hours");
+  const minutes = duration.get("minutes");
+  const seconds = duration.get("seconds");
+  const days = duration.get("days");
+  return { hours, minutes, seconds, days };
+};

@@ -4,7 +4,7 @@ import { Item, Title, Value, Wrapper } from "./overview-styled";
 export const OverviewCard = () => {
   return (
     <InfoCard>
-      <p style={{ fontWeight: "590", color: "#303030", marginBottom: "42px" }}>
+      <p style={{ fontWeight: "590", color: "#303030", marginBottom: "42px"}}>
         Overview
       </p>
       <Wrapper>
