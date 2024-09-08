@@ -374,7 +374,7 @@ export const InfoCard = styled.div`
   flex: 0 0 517px;
   border-radius: 15px;
   padding: 25px;
-  width: 517px ;
+  width: 517px;
   height: 244px;
   background: #fff;
 `;
@@ -1056,3 +1056,188 @@ export const getDurationDate = (start: number, end: number) => {
   const days = duration.get("days");
   return { hours, minutes, seconds, days };
 };
+
+export const editUserModalBtns = [
+  { id: 1, text: "Base information" },
+  { id: 2, text: "Role" },
+];
+
+export const editUserRoleModalBtns = [
+  {
+    id: 1,
+    options: [
+      {
+        id: 1,
+        title: "Admin",
+        buttons: [{ id: 1, text: "Admin", isActive: false }],
+      },
+      {
+        id: 2,
+        title: "Driver",
+        buttons: [
+          { id: 1, text: "Admin", isActive: false },
+          { id: 2, text: "Edit", isActive: false },
+          { id: 3, text: "Add", isActive: false },
+          { id: 4, text: "View", isActive: true },
+        ],
+      },
+      {
+        id: 3,
+        title: "Logs",
+        buttons: [
+          { id: 1, text: "Admin", isActive: false },
+          { id: 2, text: "Edit", isActive: false },
+          { id: 3, text: "Add", isActive: false },
+          { id: 4, text: "View", isActive: false },
+        ],
+      },
+      {
+        id: 4,
+        title: "Accounts",
+        buttons: [
+          { id: 1, text: "Edit", isActive: false },
+          { id: 2, text: "View", isActive: false },
+        ],
+      },
+      {
+        id: 5,
+        title: "Notifications",
+        buttons: [
+          { id: 1, text: "Admin", isActive: false },
+          { id: 2, text: "Edit", isActive: false },
+          { id: 4, text: "View", isActive: false },
+        ],
+      },
+      {
+        id: 6,
+        title: "Terminals",
+        buttons: [
+          { id: 1, text: "Admin", isActive: false },
+          { id: 2, text: "Edit", isActive: false },
+          { id: 3, text: "Add", isActive: false },
+          { id: 4, text: "View", isActive: true },
+        ],
+      },
+      {
+        id: 7,
+        title: "Drivers",
+        buttons: [
+          { id: 1, text: "Admin", isActive: false },
+          { id: 2, text: "Edit", isActive: false },
+          { id: 3, text: "Add", isActive: true },
+          { id: 4, text: "View", isActive: true },
+        ],
+      },
+      {
+        id: 3,
+        title: "Provider",
+        buttons: [
+          { id: 1, text: "Admin", isActive: false },
+          { id: 2, text: "Edit", isActive: false },
+          { id: 3, text: "Add", isActive: false },
+          { id: 4, text: "View", isActive: false },
+        ],
+      },
+    ],
+  },
+  {
+    id: 2,
+    options: [
+      {
+        id: 1,
+        title: "Vehicle",
+        buttons: [
+          { id: 1, text: "Admin", isActive: false },
+          { id: 2, text: "Edit", isActive: false },
+          { id: 3, text: "Add", isActive: false },
+          { id: 4, text: "View", isActive: true },
+        ],
+      },
+      {
+        id: 2,
+        title: "Carrier",
+        buttons: [
+          { id: 1, text: "Admin", isActive: false },
+          { id: 2, text: "Edit", isActive: false },
+          { id: 3, text: "Add", isActive: false },
+          { id: 4, text: "View", isActive: true },
+        ],
+      },
+      {
+        id: 3,
+        title: "Users",
+        buttons: [
+          { id: 1, text: "Admin", isActive: false },
+          { id: 2, text: "Edit", isActive: false },
+          { id: 3, text: "Add", isActive: false },
+          { id: 4, text: "View", isActive: false },
+        ],
+      },
+      {
+        id: 4,
+        title: "Documents",
+        buttons: [
+          { id: 1, text: "Admin", isActive: false },
+          { id: 2, text: "Edit", isActive: false },
+          { id: 3, text: "Add", isActive: false },
+          { id: 4, text: "View", isActive: false },
+        ],
+      },
+      {
+        id: 5,
+        title: "Fmcsa",
+        buttons: [
+          { id: 3, text: "Add", isActive: false },
+          { id: 4, text: "View", isActive: false },
+        ],
+      },
+      {
+        id: 6,
+        title: "Locations",
+        buttons: [
+          { id: 3, text: "Add", isActive: false },
+          { id: 4, text: "View", isActive: false },
+        ],
+      },
+      {
+        id: 7,
+        title: "Liveshare",
+        buttons: [
+          { id: 1, text: "Admin", isActive: false },
+          { id: 2, text: "Edit", isActive: false },
+          { id: 3, text: "Add", isActive: false },
+          { id: 4, text: "View", isActive: false },
+        ],
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "Edit User",
+    options: [
+      {
+        id: 1,
+        title: "Duty Status (Admin)",
+        buttons: [{ id: 1, text: "Admin", isActive: false }],
+      },
+      {
+        id: 2,
+        title: "Reas Sign (Admin)",
+        buttons: [{ id: 1, text: "Admin", isActive: false }],
+      },
+      {
+        id: 3,
+        title: "Duty Status Pro (Admin)",
+        buttons: [{ id: 1, text: "Admin", isActive: false }],
+      },
+      {
+        id: 4,
+        title: "Payment (Admin)",
+        buttons: [
+          { id: 1, text: "Admin", isActive: false },
+          { id: 2, text: "Add", isActive: false },
+        ],
+      },
+    ],
+  },
+];

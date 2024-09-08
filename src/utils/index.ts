@@ -31,8 +31,10 @@ export {
   logFormModalColums,
   LogsTabPages,
   logFormModalData,
+  editUserModalBtns,
+  editUserRoleModalBtns,
 } from "./constants";
-export const history = createBrowserHistory()
+export const history = createBrowserHistory();
 export const historyPush = (path: string) => {
   history.push(path);
 };
