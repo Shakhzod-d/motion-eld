@@ -6,6 +6,10 @@ import { StatusBadge } from "../components/shared/custom-table/custom-styled";
 import { MdCheckBoxOutlineBlank, MdModeEdit } from "react-icons/md";
 import { IoAddCircle } from "react-icons/io5";
 
+import { HiPhone } from "react-icons/hi2";
+import { RiUser3Fill } from "react-icons/ri";
+import { IoMdMail } from "react-icons/io";
+
 export const manageCompanyButtons = [
   { id: 1, text: "Company" },
   { id: 2, text: "Profile" },
@@ -129,7 +133,7 @@ export const CustomButton = styled(Button)<{
   padding: ${({ padding }) => padding};
   height: ${({ height }) => height};
   color: ${({ color }) => color};
-  margin-bottom:${({ mb }) => mb};
+  margin-bottom: ${({ mb }) => mb};
   &:hover {
     background: ${({ background }) => background}!important;
     opacity: 0.7;
@@ -886,7 +890,7 @@ export const logsForm = [
   { id: 5, title: "Trailers", value: "Bobtail, v378397" },
   { id: 6, title: "Shipping docs", value: "N/A 11194RY9P" },
   { id: 7, title: "Signature", value: "Signed" },
-]
+];
 export const driverEditModalBtns = [
   { id: 0, text: "On" },
   { id: 1, text: "Sb" },
@@ -1032,5 +1036,72 @@ export const logFormModalData = [
     start: "02:59:09 AM",
     duration: "2h:30m56s",
     result: "2h:30m56s",
+  },
+];
+export const companyTableHeader = [
+  { header: "Name", accessor: "name" },
+  { header: "Status", accessor: "status" },
+  { header: "Contact", accessor: "contact" },
+  { header: "Created", accessor: "created" },
+  { header: "", accessor: "edit" },
+];
+
+export const companyTableData = [
+  {
+    name: {
+      label: "Sandbox Motions",
+      img: "/company-logo.png",
+      data: [
+        { id: 1, text: "9328382389", icon: <HiPhone /> },
+        { id: 2, text: "support@asritsolutions.com", icon: <IoMdMail /> },
+      ],
+    },
+    status: { label: "Active" },
+    contact: {
+      label: "",
+      data: [
+        { id: 1, text: "Farmon Muhammadiyev (Owner)", icon: <RiUser3Fill /> },
+        { id: 2, text: " (318) 818-0000", icon: <HiPhone /> },
+        { id: 3, text: "zavajan96@gmail.com", icon: <IoMdMail /> },
+      ],
+    },
+    created: {
+      label: "",
+      data: [
+        { id: 1, text: "Created: Apr 3rd 2023", icon: "" },
+        { id: 2, text: "Edited: Apr 3rd 2023", icon: "" },
+      ],
+    },
+    edit: { label: "Edit" },
+  },
+];
+
+export const usersTableHeader = [
+  { header: "Name", accessor: "name" },
+  { header: "Updated", accessor: "updated" },
+  { header: "Status", accessor: "status" },
+  { header: "Carrier", accessor: "carrier" },
+  { header: "Role", accessor: "role" },
+  { header: "", accessor: "edit" },
+];
+
+export const usersTableData = [
+  {
+    name: {
+      label: "Annette Black",
+      img: "/company-logo.png",
+      data: [{ id: 1, text: "support@asritsolutions.com",}],
+    },
+    updated: { label: "3 week ago" },
+    status: {
+      label: "Active",
+    },
+    carrier: {
+      label: "ASAP Transportation INC",
+    },
+    role: {
+      label: "Driver",
+    },
+    edit: { label: "Edit" },
   },
 ];
