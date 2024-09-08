@@ -109,6 +109,9 @@ export const Sidebar = () => {
             </TabBtn>
           );
         })}
+        <PageBtn onClick={() => setBtnActive(0)} to={"/users"}>
+          <p>Users</p>
+        </PageBtn>
       </div>
       <User className="user-profile">
         <img src="/src/assets/user.png" alt="user" />

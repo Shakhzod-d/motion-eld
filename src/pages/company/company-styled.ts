@@ -6,7 +6,6 @@ export const Container = styled.div<{ $flex?: boolean }>`
   overflow: auto;
   max-height: 80vh;
   position: relative;
-
   .top {
     & > span {
       padding-top: 10px !important;

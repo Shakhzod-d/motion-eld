@@ -5,6 +5,10 @@ import styled from "styled-components";
 import { StatusBadge } from "../components/shared/custom-table/custom-styled";
 import { MdCheckBoxOutlineBlank, MdModeEdit } from "react-icons/md";
 import { IoAddCircle } from "react-icons/io5";
+
+import { HiPhone } from "react-icons/hi2";
+import { RiUser3Fill } from "react-icons/ri";
+import { IoMdMail } from "react-icons/io";
 import moment from "moment";
 
 export const manageCompanyButtons = [
@@ -1036,11 +1040,73 @@ export const logFormModalData = [
     result: "2h:30m56s",
   },
 ];
+export const companyTableHeader = [
+  { header: "Name", accessor: "name" },
+  { header: "Status", accessor: "status" },
+  { header: "Contact", accessor: "contact" },
+  { header: "Created", accessor: "created" },
+  { header: "", accessor: "edit" },
+];
 
-export const parseUnix = (unix: number = 0) => {
-  return unix * 1000;
-};
+export const companyTableData = [
+  {
+    name: {
+      label: "Sandbox Motions",
+      img: "/company-logo.png",
+      data: [
+        { id: 1, text: "9328382389", icon: <HiPhone /> },
+        { id: 2, text: "support@asritsolutions.com", icon: <IoMdMail /> },
+      ],
+    },
+    status: { label: "Active" },
+    contact: {
+      label: "",
+      data: [
+        { id: 1, text: "Farmon Muhammadiyev (Owner)", icon: <RiUser3Fill /> },
+        { id: 2, text: " (318) 818-0000", icon: <HiPhone /> },
+        { id: 3, text: "zavajan96@gmail.com", icon: <IoMdMail /> },
+      ],
+    },
+    created: {
+      label: "",
+      data: [
+        { id: 1, text: "Created: Apr 3rd 2023", icon: "" },
+        { id: 2, text: "Edited: Apr 3rd 2023", icon: "" },
+      ],
+    },
+    edit: { label: "Edit" },
+  },
+];
 
+export const usersTableHeader = [
+  { header: "Name", accessor: "name" },
+  { header: "Updated", accessor: "updated" },
+  { header: "Status", accessor: "status" },
+  { header: "Carrier", accessor: "carrier" },
+  { header: "Role", accessor: "role" },
+  { header: "", accessor: "edit" },
+];
+
+export const usersTableData = [
+  {
+    name: {
+      label: "Annette Black",
+      img: "/company-logo.png",
+      data: [{ id: 1, text: "support@asritsolutions.com",}],
+    },
+    updated: { label: "3 week ago" },
+    status: {
+      label: "Active",
+    },
+    carrier: {
+      label: "ASAP Transportation INC",
+    },
+    role: {
+      label: "Driver",
+    },
+    edit: { label: "Edit" },
+  }
+  ]
 export const getDurationDate = (start: number, end: number) => {
   const format = "MM/DD/YYYY HH:mm:ss";
   const startTime = moment(start);
@@ -1240,4 +1306,4 @@ export const editUserRoleModalBtns = [
       },
     ],
   },
-];
+]
