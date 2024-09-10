@@ -562,18 +562,18 @@ export const TrackingsMapItem = [
 
 // tab header
 export const LogsDriverDataHeader = [
-  { header: "ID", accessor: "id" },
-  { header: "Date", accessor: "date" },
-  { header: "Truck no", accessor: "truckNo" },
-  { header: "Status", accessor: "status" },
-  { header: "Last known Location", accessor: "location" },
-  { header: "", accessor: "week" },
-  { header: "Warnings & Violation", accessor: "warnings" },
-  { header: "Break", accessor: "break" },
-  { header: "Drive", accessor: "drive" },
-  { header: "Shift", accessor: "shift" },
-  { header: "Cycle", accessor: "cycle" },
-  { header: "Recap", accessor: "recap" },
+  { header: "ID", accessor: "id", id: 1 },
+  { header: "Date", accessor: "date", id: 2 },
+  { header: "Truck no", accessor: "truckNo", id: 3 },
+  { header: "Status", accessor: "status", id: 4 },
+  { header: "Last known Location", accessor: "location", id: 5 },
+  { header: "", accessor: "week", id: 6 },
+  { header: "Warnings & Violation", accessor: "warnings", id: 7 },
+  { header: "Break", accessor: "break", id: 8 },
+  { header: "Drive", accessor: "drive", id: 9 },
+  { header: "Shift", accessor: "shift", id: 10 },
+  { header: "Cycle", accessor: "cycle", id: 11 },
+  { header: "Recap", accessor: "recap", id: 12 },
 ];
 export const LogsDataHeader = [
   { header: "ID", accessor: "id", id: 1 },
@@ -590,13 +590,13 @@ export const LogsDataHeader = [
   { header: "Recap", accessor: "recap", id: 12 },
 ];
 export const violationTabHeader = [
-  { header: "Driver", accessor: "driver" },
-  { header: "Error", accessor: "error" },
-  { header: "Status", accessor: "status" },
-  { header: "Start", accessor: "start" },
-  { header: "Address", accessor: "address" },
-  { header: "Odometer", accessor: "odometer" },
-  { header: "Engine hours", accessor: "hours" },
+  { header: "Driver", accessor: "driver", id: 1 },
+  { header: "Error", accessor: "error", id: 2 },
+  { header: "Status", accessor: "status", id: 3 },
+  { header: "Start", accessor: "start", id: 4 },
+  { header: "Address", accessor: "address", id: 5 },
+  { header: "Odometer", accessor: "odometer", id: 6 },
+  { header: "Engine hours", accessor: "hours", id: 7 },
 ];
 
 // tab info
@@ -835,24 +835,25 @@ export const circleDiagram = [
 // MdModeEdit
 
 export const driversTableHeader = [
-  { header: <MdCheckBoxOutlineBlank />, accessor: "checkbox" },
-  { header: "ID", accessor: "id" },
-  { header: "Status", accessor: "status" },
-  { header: "Start", accessor: "start" },
-  { header: "Duration", accessor: "duration" },
+  { header: <MdCheckBoxOutlineBlank />, accessor: "checkbox", id: 1 },
+  { header: "ID", accessor: "id", id: 1 },
+  { header: "Status", accessor: "status", id: 2 },
+  { header: "Start", accessor: "start", id: 3 },
+  { header: "Duration", accessor: "duration", id: 4 },
 
-  { header: "Location", accessor: "location" },
-  { header: "Vehicle", accessor: "vehicle" },
-  { header: "Odometer", accessor: "odometer" },
-  { header: "Eng. hours", accessor: "hours" },
-  { header: "Notes", accessor: "notes" },
-  { header: "Document", accessor: "document" },
-  { header: "Trailer", accessor: "trailer" },
+  { header: "Location", accessor: "location", id: 5 },
+  { header: "Vehicle", accessor: "vehicle", id: 6 },
+  { header: "Odometer", accessor: "odometer", id: 7 },
+  { header: "Eng. hours", accessor: "hours", id: 8 },
+  { header: "Notes", accessor: "notes", id: 9 },
+  { header: "Document", accessor: "document", id: 10 },
+  { header: "Trailer", accessor: "trailer", id: 11 },
   {
     header: (
       <IoAddCircle color="orange" size={20} style={{ cursor: "pointer" }} />
     ),
     accessor: "add",
+    id:12
   },
 ];
 
@@ -1323,7 +1324,6 @@ export const dashboardTableHeader = [
   { header: "Cycle", accessor: "cycle", id: 5 },
   { header: "Company", accessor: "company", id: 6 },
   { header: "Updated", accessor: "updated", id: 7 },
-
 ];
 
 export const dataSource = [

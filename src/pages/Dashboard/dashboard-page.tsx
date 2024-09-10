@@ -28,6 +28,9 @@ export const Dashboard = () => {
   const active = useSelector(
     (state: RootState) => state.booleans.dashboardProgress
   );
+  const sidebarActive = useSelector(
+    (state: RootState) => state.booleans.sidebarActive
+  );
   const option = [
     { value: "status", label: "Two-factures" },
     { value: "active", label: "Actice" },
@@ -46,13 +49,13 @@ export const Dashboard = () => {
           <CustomBtn key={item.id}>{item.text}</CustomBtn>
         ))}
       </Day>
-      <CardWrapper>
+      <CardWrapper $width={sidebarActive}>
         <Drivers />
         <ViolationsChart />
         <OverviewCard />
         <CustomBtn onClick={() => dispatch(dashboardProgressActive())}>
           <ArrowIcon $active={active}>
-          <IoIosArrowDown />
+            <IoIosArrowDown />
           </ArrowIcon>
         </CustomBtn>
       </CardWrapper>

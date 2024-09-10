@@ -1,4 +1,5 @@
 import { Button, Radio } from "antd";
+
 import styled from "styled-components";
 
 export const Day = styled.div`
@@ -26,13 +27,15 @@ export const Title = styled.h2`
   margin-bottom: 20px;
 `;
 
-export const CardWrapper = styled.div`
+export const CardWrapper = styled.div<{ $width: boolean }>`
   display: flex;
   width: 100%;
-  max-width: 1540px;
+  max-width: ${({ $width }) =>
+    $width ? "calc( 100vw - 370px )" : "calc( 100vw - 150px )"} ;
   margin-bottom: 40px;
   overflow-x: scroll !important;
   align-items: end;
+  ${({ $width }) => (!$width ? "justify-content:space-between" : "")};
   gap: 10px;
 `;
 export const CustomRadio = styled(Radio)``;

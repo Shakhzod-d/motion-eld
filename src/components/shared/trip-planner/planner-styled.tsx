@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export const Block = styled.div<{ bottom?: string; width?: string }>`
+export const Block = styled.div<{ $bottom?: string; width?: string }>`
   border-radius: 10px;
   padding: 20px;
   width: ${({ width }) => width};
   height: 59px;
   background: #fdfdfd;
-  margin-bottom: ${({ bottom }) => bottom};
+  margin-bottom: ${({ $bottom }) => $bottom};
 `;
 
 export const Map = styled.div`

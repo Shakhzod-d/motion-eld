@@ -1,12 +1,27 @@
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-export const SidebarContainer = styled.article`
+import styled, { css, keyframes } from "styled-components";
+const expandAnimation = keyframes`
+  from {
+    width: 100px;
+  }
+  to {
+    width: 300px;
+  }
+`;
+export const SidebarContainer = styled.article<{ $active: boolean }>`
   width: 100%;
   max-width: 300px;
+  max-width: ${({ $active }) => ($active ? "300px" : "100px")};
   height: 100vh;
+  transition: max-width 1s ease, width 0.3s ease;
   padding: 10px;
   display: flex;
   flex-direction: column;
+  ${({ $active }) =>
+    $active &&
+    css`
+      animation: ${expandAnimation} 0.6s ease-in;
+    `}
 `;
 
 export const Img = styled.img`
@@ -20,7 +35,7 @@ export const Description = styled.p`
   font-weight: 300;
   margin: 10px 0;
 `;
-export const PageBtn = styled(NavLink)`
+export const PageBtn = styled(NavLink)<{ $active: boolean }>`
   border-radius: 10px;
   padding: 25px 20px;
   width: 100%;
@@ -31,6 +46,15 @@ export const PageBtn = styled(NavLink)`
   gap: 10px;
   align-items: center;
   color: #fff;
+  ${({ $active }) =>
+    !$active
+      ? `display:flex; 
+    justify-content:center;
+    align-items:start; `
+      : ""};
+  * {
+    cursor: pointer;
+  };
   p {
     font-weight: 500;
     font-size: 17px;
@@ -40,14 +64,20 @@ export const PageBtn = styled(NavLink)`
     color: #000;
   }
 `;
-export const TabBtn = styled.div`
+export const TabBtn = styled.div<{ $active: boolean }>`
   border-radius: 10px;
-  width: 280px;
+  width: ${({ $active }) => ($active ? "280px" : "100%")};
   min-height: 70px;
   background: rgba(255, 255, 255, 0.1);
   margin-bottom: 10px;
   color: #fff;
   overflow: hidden;
+  ${({ $active }) =>
+    !$active
+      ? `display:flex; 
+    justify-content:center;
+    align-items:start; `
+      : ""};
   * {
     cursor: pointer;
   }
