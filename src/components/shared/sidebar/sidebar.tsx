@@ -15,7 +15,10 @@ import { FaPowerOff } from "react-icons/fa";
 import { MdOutlineReportProblem } from "react-icons/md";
 import { VscFileSubmodule } from "react-icons/vsc";
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../store/store";
+import { sidebarToggle } from "../../../store/booleans-slice";
 
 const items = [
   {
@@ -31,10 +34,7 @@ const items = [
     key: 2,
     icon: <MdOutlineReportProblem />,
     label: "Reports",
-    page: [
-      { id: 1, text: " -  Ifta Reports", url: "/ifta-reports" },
-
-    ],
+    page: [{ id: 1, text: " -  Ifta Reports", url: "/ifta-reports" }],
   },
   {
     key: 3,
@@ -49,23 +49,38 @@ const items = [
 ];
 export const Sidebar = () => {
   const [btnActive, setBtnActive] = useState<number>(0);
-  const { pathname } = useLocation();
+  const active = useSelector(
+    (state: RootState) => state.booleans.sidebarActive
+  );
+  const dispatch = useDispatch();
+  const tabBtnFun = (key: number) => {
+    if (key > 0) {
+      setBtnActive(key);
+      dispatch(sidebarToggle(true));
+    } else {
+      dispatch(sidebarToggle(active ? false : true));
+      setBtnActive(0);
+    }
+  };
   return (
-    <SidebarContainer>
-      <Img src={Logo} alt="" />
+    <SidebarContainer $active={active}>
+      <Img src={Logo} alt="" onClick={() => tabBtnFun(0)} />
       <div style={{ flex: "1" }}>
-        <PageBtn onClick={() => setBtnActive(0)} to={"/"}>
+        <PageBtn onClick={() => setBtnActive(0)} to={"/"} $active={active}>
           <PiChartLineFill />
-          <p>Dashboard</p>
+          {active && <p>Dashboard</p>}
         </PageBtn>
 
-        {pathname == "/company" ? (
-          <PageBtn onClick={() => setBtnActive(0)} to={"/company"}>
-            <HiOutlineBuildingLibrary />
-            <p>Company</p>
-          </PageBtn>
-        ) : (
-          <User className="light user-profile" background="#FFF" color="#000">
+        <PageBtn
+          onClick={() => setBtnActive(0)}
+          to={"/company"}
+          $active={active}
+        >
+          <HiOutlineBuildingLibrary />
+          {active && <p>Company</p>}
+        </PageBtn>
+
+        {/* <User className="light user-profile" background="#FFF" color="#000">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="41"
@@ -85,17 +100,20 @@ export const Sidebar = () => {
               </h2>
               <p>Zava Zava</p>
             </div>
-          </User>
-        )}
+          </User> */}
 
         <Description>Menu</Description>
         {items.map((item) => {
           const Icon = () => item.icon;
           return (
-            <TabBtn key={item.key} onClick={() => setBtnActive(item.key)}>
+            <TabBtn
+              key={item.key}
+              onClick={() => tabBtnFun(item.key)}
+              $active={active}
+            >
               <BtnWrap>
                 <Icon />
-                <p>{item.label}</p>
+                {active && <p>{item.label}</p>}
               </BtnWrap>
 
               {btnActive == item.key &&
@@ -109,16 +127,18 @@ export const Sidebar = () => {
             </TabBtn>
           );
         })}
-        <PageBtn onClick={() => setBtnActive(0)} to={"/users"}>
+        <PageBtn onClick={() => setBtnActive(0)} to={"/users"} $active={active}>
           <p>Users</p>
         </PageBtn>
       </div>
       <User className="user-profile">
         <img src="/src/assets/user.png" alt="user" />
-        <div>
-          <h2>Jonibek Muradov</h2>
-          <p>jonibek1984@gmail.com</p>
-        </div>
+        {active && (
+          <div>
+            <h2>Jonibek Muradov</h2>
+            <p>jonibek1984@gmail.com</p>
+          </div>
+        )}
       </User>
     </SidebarContainer>
   );

@@ -26,7 +26,7 @@ export const TripPlanner = () => {
       </Flex>
       <Flex gap={"small"}>
         <div style={{ width: "400px" }}>
-          <Block bottom="10px">
+          <Block $bottom="10px">
             <Text color="#5d5e5f">From</Text>
           </Block>
           <Text size={14} color="#5d5e5f" $mb="20px">

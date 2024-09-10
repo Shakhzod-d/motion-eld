@@ -1,11 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface Bool {
   dashboardProgress: boolean;
+  sidebarActive: boolean;
 }
 
 const initialState: Bool = {
   dashboardProgress: false,
+  sidebarActive: true,
 };
 
 export const booleanSlice = createSlice({
@@ -15,9 +17,11 @@ export const booleanSlice = createSlice({
     dashboardProgressActive: (state) => {
       state.dashboardProgress = !state.dashboardProgress;
     },
+    sidebarToggle: (state, action: PayloadAction<boolean>) => {
+      state.sidebarActive = action.payload;
+    },
   },
 });
 
-export const { dashboardProgressActive } = booleanSlice.actions;
+export const { dashboardProgressActive, sidebarToggle } = booleanSlice.actions;
 export default booleanSlice.reducer;
-
