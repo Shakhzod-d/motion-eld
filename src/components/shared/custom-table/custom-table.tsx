@@ -8,20 +8,29 @@ import {
 } from "./custom-styled";
 type CustomObject = {
   [key: string]: string | number | JSX.Element;
-  status: string;
+  // $status?: string;
 };
 
 interface TableColumn {
   header: string | JSX.Element;
   accessor: string;
+  id: number;
 }
 
 interface TableProps {
   columns: TableColumn[];
   data: CustomObject[];
+  itemColor?: string|undefined;
+  colorId?: number | string;
 }
 
-export const CustomTable = ({ columns, data }: TableProps) => {
+export const CustomTable = ({
+  columns,
+  data,
+  colorId,
+  itemColor,
+}: TableProps) => {
+  const color =itemColor ?itemColor :""
   return (
     <TableContainer>
       <TableElement>
@@ -35,18 +44,10 @@ export const CustomTable = ({ columns, data }: TableProps) => {
         <tbody>
           {data.map((row, index) => (
             <TableRow key={index}>
-              
               {columns.map((column) => (
                 <TableData
                   key={column.accessor}
-                  color={
-                    column.accessor == "week"
-                      ? "#3DA8D5"
-                      : column.accessor == "warnings" ||
-                        column.accessor == "error"
-                      ? "red"
-                      : ""
-                  }
+                  color={column.id == colorId ? color: ""}
                 >
                   {column.accessor === "status" ? (
                     <StatusBadge $status={row[column.accessor]}>

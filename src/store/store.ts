@@ -3,7 +3,7 @@ import booleanReducer from "./booleans-slice";
 
 export const store = configureStore({
   reducer: {
-    booleans: booleanReducer,  
+    booleans: booleanReducer, 
   },
 });
 

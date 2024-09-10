@@ -12,10 +12,11 @@ interface Props {
 export const CustomSelect = ({ option, width, height }: Props) => {
   return (
     <StyledSelect
-      defaultValue="status"
+      defaultValue={option[0].value}
       options={option}
       width={width}
       height={height}
+      
     />
   );
 };

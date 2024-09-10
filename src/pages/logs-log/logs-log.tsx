@@ -6,7 +6,7 @@ export function LogsLog() {
   return (
     <>
       <TimeContainer />
-      <CustomTable columns={LogsDataHeader} data={LogsData} />
+      <CustomTable columns={LogsDataHeader} data={LogsData}  colorId={6} itemColor="red"/>
     </>
   );
 }
