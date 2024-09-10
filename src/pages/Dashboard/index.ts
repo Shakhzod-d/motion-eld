@@ -1,2 +1,2 @@
-export { Dashboard } from "./Dashboard";
+export { Dashboard } from "./dashboard";
 //fix dashboard
