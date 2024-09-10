@@ -2,11 +2,13 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { StyledInput } from "./input-styled";
 interface Props {
   type?: string;
-  change?:  (event: React.ChangeEvent<HTMLInputElement>) => void;
+  change?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  width?: number;
+  height?: number;
 }
 export const CustomInput = ({ type, change }: Props) => {
   return (
-    <StyledInput
+    <StyledInput 
       prefix={type == "search" ? <AiOutlineSearch size={20} /> : null}
       onChange={change}
     />

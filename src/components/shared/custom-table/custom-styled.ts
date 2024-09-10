@@ -34,17 +34,17 @@ export const TableData = styled.td<{ color: string | number }>`
   color: ${({ color }) => color};
 `;
 
-export const StatusBadge = styled.span<{ $status: string | number }>`
+export const StatusBadge = styled.span<{ $status: string | number |JSX.Element }>`
   padding: 5px 10px;
   border-radius: 5px;
   color: ${({ $status }) =>
-    status == "Intermediate" || $status == "Power Off" || $status == "Power On"
+    $status == "Intermediate" || $status == "Power Off" || $status == "Power On"
       ? "#8C8C9B"
       : "#fff"};
   background-color: ${({ $status }) =>
     $status === "DR" || $status === "ON"
       ? "#28a745"
-      : status === "SB"
+      : $status === "SB"
       ? "#ffc107"
       : $status == "" ||
         $status == "Intermediate" ||

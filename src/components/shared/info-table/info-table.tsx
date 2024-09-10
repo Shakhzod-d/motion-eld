@@ -19,6 +19,7 @@ interface DataType {
 interface Prop {
   header: Header[];
   data: DataType[]; 
+  
 }
 
 interface Data {

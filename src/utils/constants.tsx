@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { Button, Checkbox, TableProps } from "antd";
 import { IftaReportColumns } from "../types";
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import { StatusBadge } from "../components/shared/custom-table/custom-styled";
 import { MdCheckBoxOutlineBlank, MdModeEdit } from "react-icons/md";
 import { IoAddCircle } from "react-icons/io5";
@@ -9,7 +9,6 @@ import { IoAddCircle } from "react-icons/io5";
 import { HiPhone } from "react-icons/hi2";
 import { RiUser3Fill } from "react-icons/ri";
 import { IoMdMail } from "react-icons/io";
-import moment from "moment";
 
 export const manageCompanyButtons = [
   { id: 1, text: "Company" },
@@ -373,14 +372,36 @@ export const OutletWrapper = styled.div`
   width: 100%;
   max-width: 100vw;
 `;
+const expandAnimation = keyframes`
+  from {
+    height: 50px;
+  }
+  to {
+    height: 244px;
+  }
+`;
 
-export const InfoCard = styled.div`
+export const InfoCard = styled.div<{ $active?: boolean; duration?: number }>`
   flex: 0 0 517px;
   border-radius: 15px;
-  padding: 25px;
+  ${({ $active }) =>
+    !$active &&
+    `
+  display:flex;
+  gap:40px;
+  align-items:center;
+  `}
+  padding: ${({ $active }) => ($active ? "25px" : "15px 20px")};
   width: 517px;
-  height: 244px;
+  height: ${({ $active }) => ($active ? "244px" : "50px")};
   background: #fff;
+  transition: height 1s ease, width 0.3s ease;
+  overflow: hidden;
+  ${({ $active }) =>
+    $active &&
+    css`
+      animation: ${expandAnimation} 0.6s ease-in;
+    `}
 `;
 
 export const Box = styled.div`
@@ -395,9 +416,8 @@ export const Box = styled.div`
 `;
 
 export const btnArr = [
-  { id: 1, text: "8D", border: "10px 2px 2px 10px" },
-  { id: 2, text: "12D", border: "2px" },
-  { id: 3, text: "30D", border: "2px 10px 10px 2px" },
+  { id: 2, text: "Auto Refresh off" },
+  { id: 3, text: "Refresh" },
 ];
 
 export const driversStatisticsData = [
@@ -556,18 +576,18 @@ export const LogsDriverDataHeader = [
   { header: "Recap", accessor: "recap" },
 ];
 export const LogsDataHeader = [
-  { header: "ID", accessor: "id" },
-  { header: "Date", accessor: "date" },
-  { header: "Truck no", accessor: "truckNo" },
-  { header: "Status", accessor: "status" },
-  { header: "Last known Location", accessor: "location" },
-  { header: "", accessor: "week" },
-  { header: "Warnings & Violation", accessor: "warnings" },
-  { header: "Break", accessor: "break" },
-  { header: "Drive", accessor: "drive" },
-  { header: "Shift", accessor: "shift" },
-  { header: "Cycle", accessor: "cycle" },
-  { header: "Recap", accessor: "recap" },
+  { header: "ID", accessor: "id", id: 1 },
+  { header: "Date", accessor: "date", id: 2 },
+  { header: "Truck no", accessor: "truckNo", id: 3 },
+  { header: "Status", accessor: "status", id: 4 },
+  { header: "Last known Location", accessor: "location", id: 5 },
+  { header: "", accessor: "week", id: 6 },
+  { header: "Warnings & Violation", id: 7, accessor: "warnings" },
+  { header: "Break", accessor: "break", id: 8 },
+  { header: "Drive", accessor: "drive", id: 9 },
+  { header: "Shift", accessor: "shift", id: 10 },
+  { header: "Cycle", accessor: "cycle", id: 11 },
+  { header: "Recap", accessor: "recap", id: 12 },
 ];
 export const violationTabHeader = [
   { header: "Driver", accessor: "driver" },
@@ -1092,7 +1112,7 @@ export const usersTableData = [
     name: {
       label: "Annette Black",
       img: "/company-logo.png",
-      data: [{ id: 1, text: "support@asritsolutions.com",}],
+      data: [{ id: 1, text: "support@asritsolutions.com" }],
     },
     updated: { label: "3 week ago" },
     status: {
@@ -1105,23 +1125,8 @@ export const usersTableData = [
       label: "Driver",
     },
     edit: { label: "Edit" },
-  }
-  ]
-export const getDurationDate = (start: number, end: number) => {
-  const format = "MM/DD/YYYY HH:mm:ss";
-  const startTime = moment(start);
-  const endTime = moment(end);
-  const countDownStart = startTime.add(0, "second");
-  const then = moment(countDownStart).format(format);
-  const now = moment(endTime).format(format);
-  const ms = moment(now, format).diff(moment(then, format));
-  const duration = moment.duration(ms);
-  const hours = duration.get("hours");
-  const minutes = duration.get("minutes");
-  const seconds = duration.get("seconds");
-  const days = duration.get("days");
-  return { hours, minutes, seconds, days };
-};
+  },
+];
 
 export const editUserModalBtns = [
   { id: 1, text: "Base information" },
@@ -1306,4 +1311,110 @@ export const editUserRoleModalBtns = [
       },
     ],
   },
-]
+];
+
+// DASHBOARD TABLE
+
+export const dashboardTableHeader = [
+  { header: "Name", accessor: "name", id: 1 },
+  { header: "Violations", accessor: "violations", id: 2 },
+  { header: "Date", accessor: "date", id: 3 },
+  { header: "Eld connection", accessor: "eld", id: 4 },
+  { header: "Cycle", accessor: "cycle", id: 5 },
+  { header: "Company", accessor: "company", id: 6 },
+  { header: "Updated", accessor: "updated", id: 7 },
+
+];
+
+export const dataSource = [
+  {
+    key: 1,
+    name: "Donald Lee",
+    violations: "Form & Signature",
+    date: "May 3, 2014",
+    eld: "Connected",
+    cycle: "5:51",
+    company: "Unity Eld Llc",
+    updated: "3 minutes ago",
+  },
+  {
+    key: 2,
+    name: "Ibrahim Mohammed",
+    violations: "Violation",
+    date: "November 23, 2006",
+    eld: "Connected",
+    cycle: "1:52",
+    company: "Unity Eld Llc",
+    updated: "3 minutes ago",
+  },
+  {
+    key: 3,
+    name: "Đường Vy",
+    violations: "Violation",
+    date: "October 5, 2012",
+    eld: "Not connected",
+    cycle: "2:45",
+    company: "Unity Eld Llc",
+    updated: "3 minutes ago",
+  },
+  {
+    key: 4,
+    name: "Hugo Nagy",
+    violations: "Form & Signature",
+    date: "January 18, 2018",
+    eld: "Connected",
+    cycle: "7:45",
+    company: "Unity Eld Llc",
+    updated: "3 minutes ago",
+  },
+  {
+    key: 5,
+    name: "Jahari Mambwe",
+    violations: "Violation",
+    date: "February 27, 2022",
+    eld: "Not connected",
+    cycle: "1:18",
+    company: "Unity Eld Llc",
+    updated: "3 minutes ago",
+  },
+  {
+    key: 6,
+    name: "Ryan Lee",
+    violations: "Form & Signature",
+    date: "July 3, 2011",
+    eld: "Connected",
+    cycle: "7:01",
+    company: "Unity Eld Llc",
+    updated: "3 minutes ago",
+  },
+  {
+    key: 7,
+    name: "Amy Gray",
+    violations: "Form & Signature",
+    date: "August 13, 2013",
+    eld: "Connected",
+    cycle: "4:40",
+    company: "Unity Eld Llc",
+    updated: "3 minutes ago",
+  },
+  {
+    key: 8,
+    name: "Amy Gray",
+    violations: "Form & Signature",
+    date: "August 13, 2013",
+    eld: "Connected",
+    cycle: "4:40",
+    company: "Unity Eld Llc",
+    updated: "3 minutes ago",
+  },
+  {
+    key: 9,
+    name: "Amy Gray",
+    violations: "Form & Signature",
+    date: "August 13, 2013",
+    eld: "Connected",
+    cycle: "4:40",
+    company: "Unity Eld Llc",
+    updated: "3 minutes ago",
+  },
+];
