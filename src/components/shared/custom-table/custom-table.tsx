@@ -14,13 +14,13 @@ type CustomObject = {
 interface TableColumn {
   header: string | JSX.Element;
   accessor: string;
-  id: number;
+  id?: number;
 }
 
 interface TableProps {
   columns: TableColumn[];
   data: CustomObject[];
-  itemColor?: string|undefined;
+  itemColor?: string | undefined;
   colorId?: number | string;
 }
 
@@ -30,7 +30,7 @@ export const CustomTable = ({
   colorId,
   itemColor,
 }: TableProps) => {
-  const color =itemColor ?itemColor :""
+  const color = itemColor ? itemColor : "";
   return (
     <TableContainer>
       <TableElement>
@@ -47,7 +47,7 @@ export const CustomTable = ({
               {columns.map((column) => (
                 <TableData
                   key={column.accessor}
-                  color={column.id == colorId ? color: ""}
+                  color={column.id == colorId ? color : ""}
                 >
                   {column.accessor === "status" ? (
                     <StatusBadge $status={row[column.accessor]}>
