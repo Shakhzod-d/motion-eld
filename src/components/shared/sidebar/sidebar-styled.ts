@@ -68,6 +68,7 @@ export const TabBtn = styled.div<{ $active: boolean }>`
   border-radius: 10px;
   width: ${({ $active }) => ($active ? "280px" : "100%")};
   min-height: 70px;
+    transition: max-width 1s ease, width 1.3s ease;
   background: rgba(255, 255, 255, 0.1);
   margin-bottom: 10px;
   color: #fff;
