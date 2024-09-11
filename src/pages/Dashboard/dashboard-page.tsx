@@ -6,15 +6,6 @@ import {
   OverviewCard,
 } from "../../components/ui";
 import { btnArr, Main } from "../../utils/index";
-// import {
-//   ArrowIcon,
-//   CardWrapper,
-//   CustomBtn,
-//   Day,
-//   SelectWrapper,
-//   TableWrapper,
-//   Title,
-// } from "./dashboard-styled;
 
 import { dashboardProgressActive } from "../../store/booleans-slice";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,7 +14,15 @@ import { IoIosArrowDown } from "react-icons/io";
 import { Flex, Radio } from "antd";
 import { dashboardTableHeader, dataSource, Text } from "../../utils/constants";
 import { RootState } from "../../store/store";
-import { ArrowIcon, CardWrapper, CustomBtn, Day, SelectWrapper, Title } from "./dashboard-styled";
+import {
+  ArrowIcon,
+  CardWrapper,
+  CustomBtn,
+  Day,
+  SelectWrapper,
+  Title,
+  TableWrapper,
+} from "./dashboard-styled";
 
 export const Dashboard = () => {
   const active = useSelector(
