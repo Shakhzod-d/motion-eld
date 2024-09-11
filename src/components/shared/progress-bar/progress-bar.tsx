@@ -9,7 +9,7 @@ interface Props {
 
 export const ProgressBar: FC<Props> = ({ title, value, color }) => {
   return (
-    <div style={{ position: "relative", width: 200 }}>
+    <div style={{ position: "relative", width: 155,  }}>
       <Progress
         type="dashboard"
         percent={value}
