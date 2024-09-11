@@ -22,6 +22,7 @@ import {
   SelectWrapper,
   Title,
   TableWrapper,
+  CustomRadio,
 } from "./dashboard-styled";
 
 export const Dashboard = () => {
@@ -62,8 +63,8 @@ export const Dashboard = () => {
       <Title>Drivers info</Title>
       <SelectWrapper>
         <Radio.Group defaultValue={1}>
-          <Radio value={1}>Include</Radio>
-          <Radio value={2}>Exclude</Radio>
+          <CustomRadio value={1}>Include</CustomRadio>
+          <CustomRadio value={2}>Exclude</CustomRadio>
         </Radio.Group>
         <Flex gap={"small"} align="center" wrap={true}>
           <CustomSelect option={option} />

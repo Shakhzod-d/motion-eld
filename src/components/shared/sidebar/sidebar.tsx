@@ -1,10 +1,12 @@
 import {
+  ArrowBtn,
   BtnWrap,
   Description,
-  Img,
   PageActive,
   PageBtn,
   SidebarContainer,
+  StyleFlex,
+  StyleLogo,
   TabBtn,
   User,
 } from "./sidebar-styled";
@@ -12,7 +14,10 @@ import Logo from "../../../assets/logo.svg";
 import { PiChartLineFill } from "react-icons/pi";
 import { HiOutlineBuildingLibrary } from "react-icons/hi2";
 import { FaPowerOff } from "react-icons/fa";
-import { MdOutlineReportProblem } from "react-icons/md";
+import {
+  MdOutlineKeyboardDoubleArrowRight,
+  MdOutlineReportProblem,
+} from "react-icons/md";
 import { VscFileSubmodule } from "react-icons/vsc";
 import { useState } from "react";
 
@@ -64,7 +69,12 @@ export const Sidebar = () => {
   };
   return (
     <SidebarContainer $active={active}>
-      <Img src={Logo} alt="" onClick={() => tabBtnFun(0)} />
+      <StyleFlex align="center" justify="space-between" $active={active}>
+        {active && <StyleLogo src={Logo} alt="" />}
+        <ArrowBtn $active={active} onClick={() => tabBtnFun(0)}>
+          <MdOutlineKeyboardDoubleArrowRight color="white" size={25} />
+        </ArrowBtn>
+      </StyleFlex>
       <div style={{ flex: "1" }}>
         <PageBtn onClick={() => setBtnActive(0)} to={"/"} $active={active}>
           <PiChartLineFill />

@@ -32,76 +32,78 @@ export const Text = styled.p<{
   gap: 2px;
 `;
 
-export const driversData = Array(70).fill({
-  key: "name",
-  id: "0",
-  f_name: "Davis",
-  l_name: "Miller",
-  u_name: "captain_49",
-  co_driver: "",
-  driver_Type: "",
-  app_version: "4.6.7",
-  documents: "Not uploaded",
-  activated: "2024-03-02",
-  device_info: "Open",
-  action: "",
-});
+export const driversData = [
+  {
+    id: "0",
+    f_name: "Davis",
+    l_name: "Miller",
+    u_name: "captain_49",
+    co_driver: "",
+    vehicle:"",
+    driver_Type: "",
+    app_version: "4.6.7",
+    documents: "Not uploaded",
+    activated: "2024-03-02",
+    device_info: "Open",
+    action: "",
+  },
+];
 
 export const driverColumns = [
   {
-    title: "#",
-    dataIndex: "id",
-    key: "id",
+    header: "#",
+    accessor: "id",
+    id: 1,
   },
   {
-    title: "First Name",
-    dataIndex: "f_name",
-    key: "f_name",
+    header: "First Name",
+    accessor: "f_name",
+    id: 2,
   },
   {
-    title: "Last Name",
-    dataIndex: "l_name",
-    key: "l_name",
+    header: "Last Name",
+    accessor: "l_name",
+    id: 3,
   },
   {
-    title: "User Name",
-    dataIndex: "u_name",
-    key: "u_name",
+    header: "User Name",
+    accessor: "u_name",
+    id: 4,
   },
   {
-    title: "Co driver",
-    dataIndex: "co_driver",
-    key: "co_driver",
+    header: "Co driver",
+    accessor: "Co_driver",
+    id: 5,
   },
   {
-    title: "Driver Type",
-    dataIndex: "driver_type",
-    key: "driver_type",
+    header: "Driver Type",
+    accessor: "driver_Type",
+    id: 6,
   },
   {
-    title: "Vehicle ID",
-    dataIndex: "v_id",
-    key: "v_id",
+    header: "Vehicle ID",
+    accessor: "vehicle",
+    id: 7,
   },
   {
-    title: "App Version",
-    dataIndex: "app_version",
-    key: "app_version",
+    header: "App version",
+    accessor: "app_version",
+    id: 8,
   },
   {
-    title: "Documents",
-    dataIndex: "documents",
-    key: "documents",
+    header: "Documents",
+    accessor: "documents",
+    id: 9,
   },
   {
-    title: "Activated",
-    dataIndex: "activated",
-    key: "activated",
+    header: "Activated",
+    accessor: "activated",
+    id: 10,
   },
   {
-    title: "Device Info",
-    dataIndex: "device_info",
-    key: "device_info",
+    header: "Device Info",
+    accessor: "device_info",
+    id: 11,
     render: (text: string) => (
       <u>
         <b>{text}</b>
@@ -109,9 +111,9 @@ export const driverColumns = [
     ),
   },
   {
-    title: "Action",
-    dataIndex: "action",
-    key: "action",
+    header: "Action",
+    accessor: "action",
+    id: 12,
   },
 ];
 
@@ -364,7 +366,7 @@ export const Main = styled.main`
   max-width: 100vw;
   height: calc(100vh - 15px);
   background: #f3f3f4;
-  overflow: "hidden";
+  overflow-y: hidden;
 `;
 
 export const OutletWrapper = styled.div`
@@ -853,7 +855,7 @@ export const driversTableHeader = [
       <IoAddCircle color="orange" size={20} style={{ cursor: "pointer" }} />
     ),
     accessor: "add",
-    id:12
+    id: 12,
   },
 ];
 
