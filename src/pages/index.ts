@@ -1,10 +1,10 @@
 export { Company } from "./company/company";
-export { Login } from "./Login";
+export { Login } from "../pages/Login/login-page";
 export { Units } from "./units/units";
 export { Drivers } from "./drivers/drivers";
 export { IftaReports } from "./ifta-reports/ifta-reports";
 export { ManageCompany } from "./manage-company/manage-company";
-export { Dashboard } from "./Dashboard";
+export { Dashboard } from "../pages/Dashboard/dashboard-page";
 export { Transfer } from "./transfer/transfer";
 export { Logs } from "./logs";
 export { LogsMap } from "./logs-map";
