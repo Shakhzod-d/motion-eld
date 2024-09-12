@@ -18,7 +18,7 @@ interface DataType {
 interface Prop {
   header: Header[];
   data: DataType[];
-  editData: (id: number) => void;
+  editData?: (id: number) => void ;
 }
 
 interface Data {
@@ -35,6 +35,11 @@ interface RowData {
   
 }
 export const InfoTable = ({ header, data, editData }: Prop) => {
+  const edit =(id:number)=>{
+    if(editData){
+      editData(id)
+    }
+  }
   return (
     <>
       <CardsTop>
@@ -64,7 +69,7 @@ export const InfoTable = ({ header, data, editData }: Prop) => {
                     }
                     $mb="5px"
                     size={ind == 0 ? 20 : 16}
-                    onClick={()=>rowData?.label =="Edit"? editData(1):null}
+                    onClick={()=>rowData?.label =="Edit"? edit(1):null}
                   >
                     {rowData?.label ? rowData.label : ""}
                   </Text>
