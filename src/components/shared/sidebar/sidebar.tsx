@@ -24,6 +24,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { sidebarToggle } from "../../../store/booleans-slice";
+import { Text } from "../../../utils/constants";
 
 const items = [
   {
@@ -126,7 +127,7 @@ export const Sidebar = () => {
         {active && (
           <div>
             <h2>Jonibek Muradov</h2>
-            <p>jonibek1984@gmail.com</p>
+            <Text size={12} color="#fff">jonibek1984@gmail.com</Text>
           </div>
         )}
       </User>

@@ -67,11 +67,11 @@ export const Dashboard = () => {
           <CustomRadio value={2}>Exclude</CustomRadio>
         </Radio.Group>
         <Flex gap={"small"} align="center" wrap={true}>
-          <CustomSelect option={option} />
-          <CustomSelect option={option} />
-          <CustomSelect option={option} />
-          <CustomSelect option={option} />
-          <CustomSelect option={option} />
+          <CustomSelect option={option} placeholder="Name" />
+          <CustomSelect option={option} placeholder="Company"/>
+          <CustomSelect option={option} placeholder="Violations"/>
+          <CustomSelect option={option} placeholder="Date"/>
+          <CustomSelect option={option} placeholder="Eld connection"/>
           <div>
             <Text size={12} $mb="10px" color="#2D2E2F">
               Driver option
@@ -84,14 +84,16 @@ export const Dashboard = () => {
             </Text>
             <CustomSelect
               option={[{ value: "order", label: "Order By" }]}
-              width={126}
+              width={"126px"}
+              placeholder="Cycle"
             />
           </div>
           <div>
             <Text size={12} $mb="20px"></Text>
             <CustomSelect
               option={[{ value: "direction", label: "direction" }]}
-              width={126}
+              width={"126px"}
+              placeholder="Order By"
             />
           </div>
         </Flex>
