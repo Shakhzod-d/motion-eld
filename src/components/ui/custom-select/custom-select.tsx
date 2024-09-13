@@ -8,11 +8,12 @@ interface Props {
   change?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   width?: string;
   height?: number;
+  placeholder?:string
 }
-export const CustomSelect = ({ option, width, height }: Props) => {
+export const CustomSelect = ({ option, width, height,placeholder }: Props) => {
   return (
     <StyledSelect
-      defaultValue={option[0].value}
+      defaultValue={placeholder}
       options={option}
       width={width}
       height={height}

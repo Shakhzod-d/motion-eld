@@ -109,7 +109,7 @@ export const PageActive = styled(NavLink)`
 `;
 export const User = styled.div<{ background?: string; color?: string }>`
   display: flex;
-  padding: 25px 20px;
+  padding: 15px 20px;
   align-items: center;
   width: 100%;
   max-width: 220px;
@@ -127,17 +127,9 @@ export const User = styled.div<{ background?: string; color?: string }>`
 
   h2 {
     color: ${({ color }) => (color ? color : "#fff")};
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     margin-bottom: 5px;
-  }
-
-  p {
-    margin: 0 !important;
-    color: ${({ color }) => (color ? color : "#fff")};
-    font-size: 12px;
-    font-weight: 400;
-    opacity: 0.7;
   }
 `;
 

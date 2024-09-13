@@ -28,4 +28,7 @@ export const StyledSelect = styled(Select)<Props>`
     font-size: 15px;
     height: 10px;
   }
+  &::placeholder {
+    color: #000 !important;
+  }
 `;

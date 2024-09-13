@@ -50,7 +50,7 @@ export const DriversAddModal = ({ open, setOpen }: Props) => {
       </CustomFlex>
       <CustomFlex gap={"middle"} align="center">
         {arr.map((item, index) => (
-          <Card height={49}>
+          <Card height={49} key={index}>
             <Text key={index}>{item}</Text>
           </Card>
         ))}
