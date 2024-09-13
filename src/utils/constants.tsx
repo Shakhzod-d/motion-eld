@@ -39,7 +39,7 @@ export const driversData = [
     l_name: "Miller",
     u_name: "captain_49",
     co_driver: "",
-    vehicle:"",
+    vehicle: "",
     driver_Type: "",
     app_version: "4.6.7",
     documents: "Not uploaded",
@@ -435,6 +435,18 @@ export const LogsTabPages = [
   { label: "Logs", key: "3", to: "logs" },
   { label: "Violation", key: "4", to: "violation" },
   { label: "Trackings", key: "5", to: "tracking" },
+];
+export const MCTabPages = [
+  { label: "Company", key: "1", to: "company" },
+  { label: "Users", key: "2", to: "users" },
+  { label: "Api keys", key: "3", to: "keys" },
+  { label: "Histories", key: "4", to: "histories" },
+];
+export const MCompanyPages = [
+  { label: "Company", key: "1", children: "Content of Map" },
+  { label: "Users", key: "2", children: "Content of Drivers" },
+  { label: "Api keys", key: "3", children: "Content of Logs" },
+  { label: "Histories", key: "4", children: "Content of Violation" },
 ];
 
 export const ArticleMapItem = [
@@ -1310,6 +1322,145 @@ export const editUserRoleModalBtns = [
         buttons: [
           { id: 1, text: "Admin", isActive: false },
           { id: 2, text: "Add", isActive: false },
+        ],
+      },
+    ],
+  },
+];
+export const permissionModal = [
+  {
+    id: 1,
+    options: [
+      {
+        id: 1,
+        title: "Vehicle",
+        buttons: [
+          { id: 1, text: "Edit", isActive: false },
+          { id: 1, text: "Add", isActive: false },
+          { id: 1, text: "View", isActive: true },
+        ],
+      },
+      {
+        id: 2,
+        title: "Driv",
+        buttons: [
+          { id: 1, text: "Add", isActive: false },
+
+          { id: 4, text: "View", isActive: true },
+        ],
+      },
+      {
+        id: 3,
+        title: "A. EHF",
+        buttons: [
+          { id: 1, text: "Three", isActive: false },
+          { id: 2, text: "False", isActive: false },
+        ],
+      },
+      {
+        id: 4,
+        title: "A.Split",
+        buttons: [
+          { id: 1, text: "Three", isActive: false },
+          { id: 2, text: "False", isActive: false },
+        ],
+      },
+    ],
+  },
+  {
+    id: 2,
+    options: [
+      {
+        id: 1,
+        title: "Carrier",
+        buttons: [{ id: 4, text: "View", isActive: true }],
+      },
+      {
+        id: 2,
+        title: "Terminals",
+        buttons: [{ id: 1, text: "View", isActive: true }],
+      },
+      {
+        id: 3,
+        title: "A. PTI",
+        buttons: [
+          { id: 1, text: "Thee", isActive: false },
+          { id: 2, text: "False", isActive: false },
+        ],
+      },
+      {
+        id: 4,
+        title: "A.Shift",
+        buttons: [
+          { id: 1, text: "Thee", isActive: false },
+          { id: 2, text: "False", isActive: false },
+        ],
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "",
+    options: [
+      {
+        id: 1,
+        title: "Logs",
+        buttons: [
+          { id: 1, text: "Edit", isActive: false },
+          { id: 2, text: "Add", isActive: false },
+          { id: 1, text: "View", isActive: true },
+        ],
+      },
+      {
+        id: 2,
+        title: "A.time",
+        buttons: [
+          { id: 1, text: "Thee", isActive: false },
+          { id: 2, text: "False", isActive: false },
+        ],
+      },
+      {
+        id: 3,
+        title: "A. Certify",
+        buttons: [
+          { id: 1, text: "Thee", isActive: false },
+          { id: 2, text: "False", isActive: false },
+        ],
+      },
+      {
+        id: 4,
+        title: "A. DFM",
+        buttons: [
+          { id: 1, text: "Thee", isActive: false },
+          { id: 2, text: "False", isActive: false },
+        ],
+      },
+    ],
+  },
+  {
+    id: 4,
+    title: "",
+    options: [
+      {
+        id: 1,
+        title: "Locations",
+        buttons: [{ id: 1, text: "Add", isActive: false }],
+      },
+
+      {
+        id: 3,
+        title: "A. Normalizer",
+        buttons: [
+          { id: 1, text: "Thee", isActive: false },
+          { id: 2, text: "False", isActive: false },
+        ],
+      },
+      {
+        id: 4,
+        title: "A. Break",
+        buttons: [
+          { id: 1, text: "Thee", isActive: false },
+          { id: 2, text: "False", isActive: false },
         ],
       },
     ],

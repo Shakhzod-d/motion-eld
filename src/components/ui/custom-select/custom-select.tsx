@@ -6,7 +6,7 @@ interface Option {
 interface Props {
   option: Option[];
   change?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  width?: number;
+  width?: string;
   height?: number;
 }
 export const CustomSelect = ({ option, width, height }: Props) => {

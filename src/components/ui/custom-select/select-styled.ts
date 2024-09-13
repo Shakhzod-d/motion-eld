@@ -1,11 +1,11 @@
 import { Select } from "antd";
 import styled from "styled-components";
 interface Props {
-  width?: number;
+  width?: string;
   height?: number;
 }
 export const StyledSelect = styled(Select)<Props>`
-  width: ${({ width = 300 }) => `${width}px`};
+  width: ${({ width = "300px" }) => width};
   height: ${({ height = 47 }) => `${height}px`};
   border-radius: 10px;
   background: #f9f9fa !important;
