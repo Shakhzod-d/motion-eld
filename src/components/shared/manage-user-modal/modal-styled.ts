@@ -23,13 +23,14 @@ export const StyleFlex = styled(Flex)`
   margin-bottom: 10px;
 `;
 
-export const CustomInput = styled(Input)`
+export const CustomInput = styled(Input)<{ $margin?: string }>`
   border-radius: 10px;
   padding: 20px !important;
   width: 100%;
   color: #000 !important;
   font-weight: 500;
   background: #f9f9fa;
+  margin: ${({ $margin }) => $margin};
   &::placeholder {
     color: #000 !important;
     font-weight: 500;

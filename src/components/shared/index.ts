@@ -18,3 +18,10 @@ export { InfoTable } from "./info-table";
 export { DriversAddModal } from "./drivers-add-modal";
 export { ManageUserModal } from "./manage-user-modal";
 export { CompanyModal } from "./company-page-modal";
+export {
+  Normalize,
+  UpdateModal,
+  actionAlert,
+  Certify,
+  TimeModal,
+} from "./driving-info-modals";

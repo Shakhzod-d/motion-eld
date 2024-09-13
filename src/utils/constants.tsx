@@ -22,6 +22,7 @@ export const Text = styled.p<{
   $font?: string;
   color?: string;
   $mb?: string;
+  $line?: string;
 }>`
   font-weight: ${({ $font }) => $font};
   font-size: ${({ size }) => `${size}px`};
@@ -29,7 +30,7 @@ export const Text = styled.p<{
   color: ${({ color }) => color};
   display: flex;
   margin-bottom: ${({ $mb }) => $mb};
-  gap: 2px;
+  line-height: ${({ $line }) => $line};
 `;
 
 export const driversData = [
