@@ -1466,6 +1466,23 @@ export const permissionModal = [
     ],
   },
 ];
+export const companySettingsModal = [
+  {
+    id: 1,
+    options: [
+      {
+        id: 1,
+        title: "V",
+        buttons: [
+          { id: 1, text: "Edit Logs", isActive: false },
+          { id: 1, text: "Documents", isActive: false },
+          { id: 1, text: "IFTA Real", isActive: false },
+          { id: 1, text: "Ai", isActive: true },
+        ],
+      },
+    ],
+  },
+];
 
 // DASHBOARD TABLE
 
