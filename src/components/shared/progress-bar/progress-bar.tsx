@@ -1,6 +1,6 @@
 import { Progress } from "antd";
 import { FC } from "react";
-import { Title, Value, ValueWrapper } from "./progress-styled";
+import { ProgressWrapper, Title, Value, ValueWrapper } from "./progress-styled";
 interface Props {
   title: string;
   value: number;
@@ -9,7 +9,7 @@ interface Props {
 
 export const ProgressBar: FC<Props> = ({ title, value, color }) => {
   return (
-    <div style={{ position: "relative", width: 155,  }}>
+    <ProgressWrapper>
       <Progress
         type="dashboard"
         percent={value}
@@ -18,7 +18,6 @@ export const ProgressBar: FC<Props> = ({ title, value, color }) => {
         strokeColor={color}
         strokeWidth={15}
         format={(percent = 0) => `${percent / 10} (${percent}%)`}
-        style={{ position: "relative", color: "red" }}
         showInfo={false}
       />
       <ValueWrapper>
@@ -28,6 +27,6 @@ export const ProgressBar: FC<Props> = ({ title, value, color }) => {
 
         <Value>{`${value / 10} (${value}%)`}</Value>
       </ValueWrapper>
-    </div>
+    </ProgressWrapper>
   );
 };

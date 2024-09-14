@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   DefaultBtn,
   ModalCheckBox,
@@ -9,21 +9,15 @@ import {
   PrimaryBtn,
   TopContainer,
 } from "./units-styled";
-import { Table, Flex, Modal } from "antd";
+import { Flex, Modal } from "antd";
 import { Main, unitsButtons, unitsColumns, unitsData } from "../../utils/index";
 import { Navbar } from "../../components/ui";
 import { TransparentButton } from "../ifta-reports/ifta-reports-styled";
+import { CustomTable } from "../../components/shared";
 
 export const Units = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [activeBtn, setActiveBtn] = useState<number>(1);
-
-  // MUST DELETE AFTER CONNECT TO API
-  useEffect(() => {
-    console.clear(); // buni yozishimga sabab Table dagi data ni Array() methodi orqali yaratganim uchun unique key error console ga chiqib qolyabdi. backend bilan ulanayotgan bu muammo bo'lmaydi.
-  }, []);
-
-  // MUST DELETE AFTER CONNECT TO API
 
   return (
     <Main>
@@ -34,6 +28,7 @@ export const Units = () => {
       <Flex gap={10}>
         {unitsButtons.map((item) => (
           <TransparentButton
+          key={item.id}
             active={(activeBtn == item.id).toString()}
             onClick={() => setActiveBtn(item.id)}
           >
@@ -44,7 +39,7 @@ export const Units = () => {
 
       {/* Units table data */}
 
-      <Table columns={unitsColumns} dataSource={unitsData} id="table" />
+      <CustomTable columns={unitsColumns} data={unitsData} />
 
       {/* Units change modal */}
 

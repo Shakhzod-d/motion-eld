@@ -36,12 +36,12 @@ export const BlueBtn = styled(Button)`
   background: #3da8d5;
   color: #fff;
 `;
-export const CustomBtn = styled(Button)<{ bg?: string; color?: string }>`
+export const CustomBtn = styled(Button)<{ $bg?: string; color?: string }>`
   border-radius: 10px;
   padding: 20px 40px;
   width: 150px;
   height: 59px;
   min-width: 150px;
-  background: ${({ bg = "#fc973a" }) => bg};
+  background: ${({ $bg = "#fc973a" }) => $bg};
   color: ${({ color = "#fff" }) => color};
 `;

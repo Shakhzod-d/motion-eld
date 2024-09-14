@@ -235,49 +235,50 @@ export const IftaReportSelectData = [
 
 export const unitsColumns = [
   {
-    title: "#",
-    dataIndex: "id",
-    key: "id",
+    header: "#",
+    accessor: "id",
+    id: 1,
   },
   {
-    title: "Vehicle ID",
-    dataIndex: "index",
-    key: "index",
+    header: "Vehicle ID",
+    accessor: "vehicle",
+    id: 2,
   },
   {
-    title: "Drivers",
-    dataIndex: "driver_name",
-    key: "drivers_name",
+    header: "Drivers",
+    accessor: "drivers",
+    id: 3,
   },
   {
-    title: "Make/Model",
-    dataIndex: "model",
-    key: "model",
+    header: "Make/Model",
+    accessor: "model",
+    id: 4,
   },
   {
-    title: "Eld",
-    dataIndex: "eld",
-    key: "eld",
+    header: "Eld",
+    accessor: "eld",
+    id: 5,
+  },
+
+  {
+    header: "VIN",
+    accessor: "vin1",
+    id: 6,
   },
   {
-    title: "Notes",
-    dataIndex: "notes",
-    key: "notes",
+    header: "VIN",
+    accessor: "vin2",
+    id: 7,
   },
   {
-    title: "VIN",
-    dataIndex: "vin",
-    key: "vin",
+    header: "Documents",
+    accessor: "documents",
+    id: 8,
   },
   {
-    title: "Documents",
-    dataIndex: "documents",
-    key: "documents",
-  },
-  {
-    title: "Activated",
-    dataIndex: "activated",
-    key: "activated",
+    header: "Activated",
+    accessor: "activated",
+    id: 8,
   },
 ];
 
@@ -287,13 +288,13 @@ export const Between = styled.div`
   align-items: center;
 `;
 export const unitsData = Array(10).fill({
-  id: "0",
-  index: 152,
-  driver_name: "Davit Kiknavelidze",
+  id: "1",
+  vehicle: 152,
+  drivers: "Davit Kiknavelidze",
   model: "Freightliner/ Cascadia",
   eld: "PT30_09A3",
-  notes: "1FUJGLDV2HLJH2911",
-  vin: "Not uploaded",
+  vin1: "1FUJGLDV2HLJH2911",
+  vin2: "Not uploaded",
   documents: "2024-03-02",
   activated: "",
 });
@@ -312,52 +313,23 @@ export const transferBtns = [
 ];
 
 export const transferColums = [
-  {
-    title: "Driver",
-    dataIndex: "driver",
-    key: "driver",
-    render: (title: string) => <b style={{ fontWeight: "900" }}> {title}</b>,
-  },
-  {
-    title: "Comment",
-    dataIndex: "comment",
-    key: "comment",
-  },
-  {
-    title: "Start Date",
-    dataIndex: "start_date",
-    key: "start_date",
-  },
-  {
-    title: "End Date",
-    dataIndex: "end_date",
-    key: "end_date",
-  },
-  {
-    title: "Status",
-    dataIndex: "status",
-    key: "status",
-  },
-  {
-    title: "Processed Time",
-    dataIndex: "p_time",
-    key: "p_time",
-  },
-  {
-    title: "Submission ID",
-    dataIndex: "s_id",
-    key: "s_id",
-  },
+  { header: "Driver", accessor: "driver", id: 1 },
+  { header: "Comment", accessor: "comment", id: 2 },
+  { header: "Start Date", accessor: "starD", id: 3 },
+  { header: "End Date", accessor: "endD", id: 4 },
+  { header: "Status", accessor: "status", id: 5 },
+  { header: "Processed Time", accessor: "time", id: 6 },
+  { header: "Submission ID", accessor: "submission", id: 7 },
 ];
 
 export const transferData = Array(3).fill({
   driver: "Koba Gogelashvili",
   comment: "in7558",
-  start_date: "Thu, Feb 22, 00:00, EST",
-  end_date: "Thu, Feb 29, 23:59, EST",
+  startD: "Thu, Feb 22, 00:00, EST",
+  endD: "Thu, Feb 29, 23:59, EST",
   status: "Information",
-  p_time: "Thu, Feb 29, 17:34, EST",
-  s_id: "693a6d13-dd88-4e00-a546-d6a9c8d97da9",
+  time: "Thu, Feb 29, 17:34, EST",
+  submission: "693a6d13-dd88-4e00-a546-d6a9c8d97da9",
 });
 
 export const Main = styled.main`

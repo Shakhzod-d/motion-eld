@@ -36,7 +36,7 @@ export const DriverEditModal = ({ setOpen, open }: Props) => {
               width="180px"
               height="120px"
               padding="60px 45px 30px"
-              background="#F9F9FA"
+              $background="#F9F9FA"
             >
               {item.text}
             </TransparentButton>
@@ -48,7 +48,7 @@ export const DriverEditModal = ({ setOpen, open }: Props) => {
             padding="15px 25px"
             width="121px"
             height="50px"
-            background="#F3F3F4"
+            $background="#F3F3F4"
           >
             Clear Form
           </TransparentButton>
@@ -64,7 +64,7 @@ export const DriverEditModal = ({ setOpen, open }: Props) => {
           <ModalInput placeholder="Lng" />
           <TransparentButton
             color="#fff"
-            background="#3DA8D5"
+            $background="#3DA8D5"
             width="128px"
             height="65px"
           >
@@ -76,7 +76,7 @@ export const DriverEditModal = ({ setOpen, open }: Props) => {
           <ModalInput placeholder="Location Name" width={"100%"} />
           <TransparentButton
             color="#fff"
-            background="#3DA8D5"
+            $background="#3DA8D5"
             width="156px"
             height="65px"
           >
@@ -92,7 +92,7 @@ export const DriverEditModal = ({ setOpen, open }: Props) => {
           <ModalInput placeholder="Note" width="100%" />
           <TransparentButton
             color="#fff"
-            background="#3DA8D5"
+            $background="#3DA8D5"
             width="128px"
             height="65px"
           >

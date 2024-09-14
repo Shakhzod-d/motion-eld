@@ -19,14 +19,14 @@ export const Phone = styled.p`
   }
 `;
 
-export const Status = styled.div<{ background: string }>`
+export const Status = styled.div<{ $background: string }>`
   padding: 8px 15px;
   color: #fff;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -1px;
   border-radius: 5px;
-  background: ${({ background }) => background};
+  background: ${({ $background }) => $background};
 `;
 
 export const P = styled.p`

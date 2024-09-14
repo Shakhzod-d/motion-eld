@@ -99,7 +99,7 @@ export const DriversAddModal = ({ open, setOpen }: Props) => {
           <CustomBtn>Time</CustomBtn>
         </CustomFlex>
         <CustomFlex gap={"small"}>
-          <CustomBtn bg="#F3F3F4" color="#000">
+          <CustomBtn $bg="#F3F3F4" color="#000">
             Cancel
           </CustomBtn>
           <CustomBtn>Ok</CustomBtn>
