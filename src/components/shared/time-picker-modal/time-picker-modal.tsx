@@ -34,7 +34,7 @@ export const TimePickerModal = ({ open, setOpen }: Props) => {
               width={"65px"}
               height={"34px"}
               padding="6px 11px"
-              background={"#f9f9fa"}
+              $background={"#f9f9fa"}
             />
 
             <Div>
@@ -42,7 +42,7 @@ export const TimePickerModal = ({ open, setOpen }: Props) => {
                 padding="3px 10px"
                 width="58px"
                 height="34px"
-                background={startActiveBtn != 1 ? "#F9F9FA" : "#F3F3F4"}
+                $background={startActiveBtn != 1 ? "#F9F9FA" : "#F3F3F4"}
                 onClick={() => setStartActiveBtn(1)}
               >
                 AM
@@ -51,7 +51,7 @@ export const TimePickerModal = ({ open, setOpen }: Props) => {
                 padding="3px 10px"
                 width="58px"
                 height="34px"
-                background={startActiveBtn != 2 ? "#F9F9FA" : "#F3F3F4"}
+                $background={startActiveBtn != 2 ? "#F9F9FA" : "#F3F3F4"}
                 onClick={() => setStartActiveBtn(2)}
               >
                 PM
@@ -69,7 +69,7 @@ export const TimePickerModal = ({ open, setOpen }: Props) => {
               width={"65px"}
               height={"34px"}
               padding="6px 11px"
-              background={"#f9f9fa"}
+              $background={"#f9f9fa"}
             />
 
             <Div>
@@ -77,7 +77,7 @@ export const TimePickerModal = ({ open, setOpen }: Props) => {
                 padding="3px 10px"
                 width="58px"
                 height="34px"
-                background={finishActiveBtn != 1 ? "#F9F9FA" : "#F3F3F4"}
+                $background={finishActiveBtn != 1 ? "#F9F9FA" : "#F3F3F4"}
                 onClick={() => setFinishActiveBtn(1)}
               >
                 AM
@@ -86,7 +86,7 @@ export const TimePickerModal = ({ open, setOpen }: Props) => {
                 padding="3px 10px"
                 width="58px"
                 height="34px"
-                background={finishActiveBtn != 2 ? "#F9F9FA" : "#F3F3F4"}
+                $background={finishActiveBtn != 2 ? "#F9F9FA" : "#F3F3F4"}
                 onClick={() => setFinishActiveBtn(2)}
               >
                 PM
@@ -100,7 +100,7 @@ export const TimePickerModal = ({ open, setOpen }: Props) => {
             padding="15px 25px"
             width="100px"
             height="50px"
-            backgroung="#F3F3F4"
+            $background="#F3F3F4"
           >
             <MdRestartAlt />
           </DefaultBtn>

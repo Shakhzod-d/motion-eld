@@ -1,6 +1,6 @@
 import { InfoCard } from "../../../utils/index";
 import { ProgressBar } from "../progress-bar";
-import { Title } from "./violations-styled";
+
 import { Text } from "../../../utils/constants";
 import { Flex, Progress } from "antd";
 import { useSelector } from "react-redux";
@@ -54,7 +54,7 @@ export const ViolationsChart = () => {
         )}
         {active && (
           <>
-            <Title>Violations Chart</Title>
+            <Text>Violations Chart</Text>
             <div
               style={{
                 display: "flex",

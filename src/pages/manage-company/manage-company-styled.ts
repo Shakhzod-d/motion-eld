@@ -11,7 +11,7 @@ export const Label = styled.label`
 export const StyledInput = styled(Input)<{
   height?: string;
   width?: string;
-  background?: string;
+  $background?: string;
   padding?: string;
 }>`
   padding: ${({ padding }) => padding || "20px 25px"};
@@ -22,7 +22,7 @@ export const StyledInput = styled(Input)<{
   max-width: 380px;
   width: ${({ width }) => width || ""};
   height: ${({ height }) => height || ""};
-  background: ${({ background }) => background || "transparent"};
+  background: ${({ $background }) => $background || "transparent"};
 `;
 
 export const Div = styled.div`

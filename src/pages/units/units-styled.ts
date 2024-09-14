@@ -2,18 +2,18 @@ import { Button, Checkbox, Input, Select } from "antd";
 import TextArea from "antd/es/input/TextArea";
 import styled from "styled-components";
 
-export const TopContainer = styled.div<{ gap?: string }>`
+export const TopContainer = styled.div<{ $gap?: string }>`
   display: flex;
   justify-content: end;
   margin: 20px;
-  gap: ${({ gap }) => (gap ? gap : "0")};
+  gap: ${({ $gap }) => ($gap ? $gap : "0")};
 `;
 
 export const PrimaryBtn = styled(Button)<{
   padding?: string;
   width?: string;
   height?: string;
-  backgroung?: string;
+  $background?: string;
 }>`
   border-radius: 10px;
   color: #fff;
@@ -24,14 +24,14 @@ export const PrimaryBtn = styled(Button)<{
   padding: ${({ padding }) => padding || "20px 35px"};
   width: ${({ width }) => width || ""};
   height: ${({ height }) => height || "100%"};
-  background: ${({ backgroung }) => backgroung || "#fc973a"};
+  background: ${({ $background }) => $background || "#fc973a"};
 `;
 
 export const DefaultBtn = styled(Button)<{
   padding?: string;
   width?: string;
   height?: string;
-  backgroung?: string;
+  $background?: string;
 }>`
   border-radius: 10px;
   background: #fff;
@@ -43,7 +43,7 @@ export const DefaultBtn = styled(Button)<{
   padding: ${({ padding }) => padding || ""};
   width: ${({ width }) => width || ""};
   height: ${({ height }) => height || ""};
-  background: ${({ backgroung }) => backgroung || ""};
+  background: ${({ $background }) => $background || ""};
 `;
 
 export const ActiveBtn = styled(Button)`

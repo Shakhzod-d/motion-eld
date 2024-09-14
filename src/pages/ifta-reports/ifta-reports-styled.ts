@@ -38,13 +38,13 @@ export const TransparentButton = styled(Button)<{
   padding?: string;
   display?: string;
   border?: string;
-  background?: string;
+  $background?: string;
   color?: string;
 }>`
   padding: ${({ padding }) => (padding ? padding : "15px 35px")};
   border-radius: ${({ border }) => border || "10px"};
-  background-color: ${({ active, background }) =>
-    active == "true" ? "#19223F" : background || "#fff"};
+  background-color: ${({ active, $background }) =>
+    active == "true" ? "#19223F" : $background || "#fff"};
   color: ${({ active, color }) =>
     active == "true" ? "#fff" : color || "#000"};
   font-size: 16px;
