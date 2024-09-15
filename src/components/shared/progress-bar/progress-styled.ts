@@ -14,7 +14,7 @@ export const ProgressWrapper = styled.div`
   width: 155px;
   height: 155px;
   position: relative;
-  border: 1px solid red;
+
 `;
 export const ValueWrapper = styled.div`
   position: absolute;
@@ -27,5 +27,5 @@ export const ValueWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 2px;
-  border: 1px solid red;
+
 `;
