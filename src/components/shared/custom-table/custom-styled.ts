@@ -4,7 +4,7 @@ export const TableContainer = styled.div`
 export   margin-top: 20px;
   border-radius: 8px;
   // height: 750px;
-  overflow: auto;
+  // overflow: auto;
 `;
 
 export const TableElement = styled.table`
@@ -32,9 +32,12 @@ export const TableData = styled.td<{ color: string | number }>`
   border-bottom: 1px solid #ddd;
   text-align: left;
   color: ${({ color }) => color};
+  position: relative;
 `;
 
-export const StatusBadge = styled.span<{ $status: string | number |JSX.Element }>`
+export const StatusBadge = styled.span<{
+  $status: string | number | JSX.Element;
+}>`
   padding: 5px 10px;
   border-radius: 5px;
   color: ${({ $status }) =>
