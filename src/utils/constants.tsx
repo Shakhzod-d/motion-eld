@@ -4,11 +4,12 @@ import { IftaReportColumns } from "../types";
 import styled, { keyframes, css } from "styled-components";
 import { StatusBadge } from "../components/shared/custom-table/custom-styled";
 import { MdCheckBoxOutlineBlank, MdModeEdit } from "react-icons/md";
-import { IoAddCircle } from "react-icons/io5";
+
 
 import { HiPhone } from "react-icons/hi2";
 import { RiUser3Fill } from "react-icons/ri";
 import { IoMdMail } from "react-icons/io";
+import { BsThreeDotsVertical } from "react-icons/bs";
 
 export const manageCompanyButtons = [
   { id: 1, text: "Company" },
@@ -836,11 +837,14 @@ export const driversTableHeader = [
   { header: "Document", accessor: "document", id: 10 },
   { header: "Trailer", accessor: "trailer", id: 11 },
   {
-    header: (
-      <IoAddCircle color="orange" size={20} style={{ cursor: "pointer" }} />
-    ),
+    header:"",
     accessor: "add",
     id: 12,
+  },
+  {
+    header:"",
+    accessor: "dots",
+    id: 13,
   },
 ];
 
@@ -859,6 +863,7 @@ export const driversTableData = [
     document: "N/A",
     trailer: "v502269",
     add: <MdModeEdit color="blue" size={20} style={{ cursor: "pointer" }} />,
+    dots:<BsThreeDotsVertical style={{cursor:"pointer"}}/>
   },
   {
     id: 2,
@@ -874,6 +879,7 @@ export const driversTableData = [
     document: "N/A",
     trailer: "v502269",
     add: <MdModeEdit color="blue" size={20} style={{ cursor: "pointer" }} />,
+    dots:<BsThreeDotsVertical style={{cursor:"pointer"}}/>
   },
   {
     id: 3,
@@ -889,6 +895,7 @@ export const driversTableData = [
     document: "N/A",
     trailer: "v502269",
     add: <MdModeEdit color="blue" size={20} style={{ cursor: "pointer" }} />,
+    dots:<BsThreeDotsVertical style={{cursor:"pointer"}}/>
   },
 ];
 

@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { TablePopup } from "../../ui";
 import {
   StatusBadge,
   TableContainer,
@@ -31,6 +33,14 @@ export const CustomTable = ({
   itemColor,
 }: TableProps) => {
   const color = itemColor ? itemColor : "";
+  const [PopupActive, setPopupActive] = useState<number | null>(null);
+  const PopupOpen = (index: number | null) => {
+    if (index == PopupActive) {
+      setPopupActive(null);
+    } else {
+      setPopupActive(index);
+    }
+  };
   return (
     <TableContainer>
       <TableElement>
@@ -48,6 +58,7 @@ export const CustomTable = ({
                 <TableData
                   key={column.accessor}
                   color={column.id == colorId ? color : ""}
+                  onClick={() => column.accessor == "dots" && PopupOpen(index)}
                 >
                   {column.accessor === "status" ? (
                     <StatusBadge $status={row[column.accessor]}>
@@ -56,6 +67,9 @@ export const CustomTable = ({
                   ) : (
                     row[column.accessor]
                   )}
+                  {column.accessor == "dots"
+                    ? PopupActive == index && <TablePopup />
+                    : ""}
                 </TableData>
               ))}
             </TableRow>

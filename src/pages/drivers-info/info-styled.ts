@@ -1,3 +1,4 @@
+import { Button, Flex } from "antd";
 import styled from "styled-components";
 
 export const Block = styled.div<{
@@ -25,7 +26,21 @@ export const Text = styled.p<{ size?: number; $font?: string; color?: string }>`
   gap: 2px;
 `;
 
-export const Wrapper =styled.div`
+export const Wrapper = styled.div`
   height: 840px;
   overflow: auto;
-`
+`;
+export const FlexWrapper = styled(Flex)`
+margin-bottom:20px;
+`;
+export const Btn = styled(Button)<{ $bg?: string }>`
+  border-radius: 10px;
+  padding: 15px 25px;
+  width: 107px;
+  height: 49px;
+  background: ${({ $bg = "#ADADB8" }) => $bg};
+  &:hover {
+    background: ${({ $bg = "#ADADB8" }) => $bg} !important;
+    opacity: 0.8;
+  }
+`;

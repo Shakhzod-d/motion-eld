@@ -12,17 +12,20 @@ export const Value = styled.p`
 `;
 export const ProgressWrapper = styled.div`
   width: 155px;
+  height: 155px;
   position: relative;
+  border: 1px solid red;
 `;
 export const ValueWrapper = styled.div`
- position: absolute;
- top: 65px;
-left: 45px;
-transform: "translate(-50%, -50%);
-text-align: center;
-color: #000;
-display:flex;
-align-items:center;
-flex-direction:column ;
-gap:2px;
+  position: absolute;
+  top: 65px;
+  left: 55px;
+
+  text-align: center;
+  color: #000;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2px;
+  border: 1px solid red;
 `;
