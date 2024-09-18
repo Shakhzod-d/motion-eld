@@ -17,7 +17,7 @@ import {
   DriversInfo,
   Users,
   TabCompany,
-  CompanyUsers
+  CompanyUsers,
 } from "./pages";
 import Layout from "./components/shared/layout";
 
@@ -31,20 +31,21 @@ function App() {
           <Route path="units" element={<Units />} />
           <Route path="ifta-reports" element={<IftaReports />} />
           <Route path="manage-company" element={<ManageCompany />}>
-          <Route path="company" element={<TabCompany/>} />
-          <Route path="users" element={<CompanyUsers/>} />
+            <Route path="company" element={<TabCompany />} />
+            <Route path="users" element={<CompanyUsers />} />
           </Route>
           <Route path="drivers" element={<Drivers />} />
           <Route path="transfer" element={<Transfer />} />
           <Route path="dashboard" element={<Dashboard />} />
-            <Route path="users" element={<Users />} />
+          <Route path="users" element={<Users />} />
           <Route path="logs" element={<Logs />}>
             <Route path="map" element={<LogsMap />} />
             <Route path="logs" element={<LogsLog />} />
-            <Route path="drivers" element={<LogsDrivers />} />
+            <Route path="drivers" element={<LogsDrivers />}>
+              <Route path="info" element={<DriversInfo />} />
+            </Route>
             <Route path="violation" element={<Violation />} />
             <Route path="tracking" element={<Trackings />} />
-            <Route path="info" element={<DriversInfo />} />
           </Route>
         </Route>
         <Route path="login" element={<Login />} />
