@@ -76,7 +76,7 @@ export const Dashboard = () => {
             <Text size={12} $mb="10px" color="#2D2E2F">
               Driver option
             </Text>
-            <CustomSelect option={option} />
+            <CustomSelect option={option}  placeholder="Cycle"/>
           </div>
           <div>
             <Text size={12} $mb="10px" color="#2D2E2F">
@@ -85,7 +85,7 @@ export const Dashboard = () => {
             <CustomSelect
               option={[{ value: "order", label: "Order By" }]}
               width={"126px"}
-              placeholder="Cycle"
+              placeholder="Order By"
             />
           </div>
           <div>
@@ -93,7 +93,7 @@ export const Dashboard = () => {
             <CustomSelect
               option={[{ value: "direction", label: "direction" }]}
               width={"126px"}
-              placeholder="Order By"
+              placeholder="Direction"
             />
           </div>
         </Flex>

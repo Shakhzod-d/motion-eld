@@ -123,7 +123,7 @@ export const Sidebar = () => {
         </PageBtn>
       </div>
       <User className="user-profile">
-        <img src="/src/assets/user.png" alt="user" />
+        <img src="/user.png" alt="user" />
         {active && (
           <div>
             <h2>Jonibek Muradov</h2>

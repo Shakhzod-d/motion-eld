@@ -11,6 +11,7 @@ import ptIcon from "../../../assets/icons/pt.svg";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { useState } from "react";
 import { DriversWeek } from "../../../utils/constants";
+import { Link } from "react-router-dom";
 
 export const DriversHeader = () => {
   const [activeBtn, setActiveBtn] = useState(1);
@@ -18,9 +19,11 @@ export const DriversHeader = () => {
     <div>
       <Flex justify="space-between">
         <Flex gap={"middle"} align="center">
-          <Block display="flex" content="center" >
-            <BiLeftArrow />
-          </Block>
+          <Link to={"/logs/drivers"}>
+            <Block display="flex" content="center">
+              <BiLeftArrow />
+            </Block>
+          </Link>
           <Block display="flex" content="center" $gap={64}>
             <div>
               <Text size={20} $font={500}>
@@ -59,7 +62,7 @@ export const DriversHeader = () => {
             </Block>
             <Block display="block" width={200}>
               <div>
-                <Text size={10} color="#babac1" >
+                <Text size={10} color="#babac1">
                   Violations:
                 </Text>
                 <Text $font={700}>No</Text>
@@ -87,7 +90,7 @@ export const DriversHeader = () => {
         {DriversWeek.map((item) => (
           <StyleButton
             key={item.id}
-            active={activeBtn == item.id?"true":""}
+            active={activeBtn == item.id ? "true" : ""}
             type={activeBtn == item.id ? "primary" : "default"}
             onClick={() => setActiveBtn(item.id)}
           >

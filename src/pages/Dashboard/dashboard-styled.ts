@@ -31,8 +31,9 @@ export const CardWrapper = styled.div<{ $width: boolean }>`
   display: flex;
   width: 100%;
   max-width: ${({ $width }) =>
-    $width ? "calc( 100vw - 370px )" : "calc( 100vw - 150px )"};
+    $width ? "calc( 100vw - 300px )" : "calc( 100vw - 150px )"};
   margin-bottom: 40px;
+
   overflow-x: scroll !important;
   align-items: end;
   ${({ $width }) => (!$width ? "justify-content:space-between" : "")};
