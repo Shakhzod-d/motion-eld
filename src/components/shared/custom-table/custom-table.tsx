@@ -8,6 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "./custom-styled";
+
 type CustomObject = {
   [key: string]: string | number | JSX.Element;
   // $status?: string;
@@ -24,6 +25,7 @@ interface TableProps {
   data: CustomObject[];
   itemColor?: string | undefined;
   colorId?: number | string;
+  onClick?: <T>(id: T) => void;
 }
 
 export const CustomTable = ({
@@ -31,16 +33,32 @@ export const CustomTable = ({
   data,
   colorId,
   itemColor,
+  onClick,
 }: TableProps) => {
   const color = itemColor ? itemColor : "";
-  const [PopupActive, setPopupActive] = useState<number | null>(null);
-  const PopupOpen = (index: number | null) => {
+  const [PopupActive, setPopupActive] = useState<
+    number | null | string | undefined
+  >(null);
+
+  function tableDataHandler<T>(
+    id: number | string | undefined,
+    text?: T
+  ): void {
+    if (onClick) {
+      onClick(id);
+    }
+    if (text == "dots") {
+      PopupOpen(id);
+    }
+  }
+  function PopupOpen<T extends number | null | string | undefined>(index: T) {
     if (index == PopupActive) {
       setPopupActive(null);
     } else {
       setPopupActive(index);
     }
-  };
+  }
+
   return (
     <TableContainer>
       <TableElement>
@@ -58,10 +76,10 @@ export const CustomTable = ({
                 <TableData
                   key={column.accessor}
                   color={column.id == colorId ? color : ""}
-                  onClick={() => column.accessor == "dots" && PopupOpen(index)}
+                  onClick={() => tableDataHandler(index, column.accessor)}
                 >
-                  {column.accessor === "status" ? (
-                    <StatusBadge $status={row[column.accessor]}>
+                  {column?.accessor === "status" ? (
+                    <StatusBadge $status={row[column?.accessor]}>
                       {row[column.accessor]}
                     </StatusBadge>
                   ) : (

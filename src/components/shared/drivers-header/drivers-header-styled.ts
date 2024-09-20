@@ -31,15 +31,16 @@ export const StyleButton = styled(Button)<{ active: string }>`
   padding: 20px;
   width: 192px;
   height: 57px;
-  background: ${({ active }) => (active =="true" ? "#19223f" : "")};
+  background: ${({ active }) => (active == "true" ? "#19223f" : "")};
 `;
 export const BtnContainer = styled.div`
   width: 100%;
-  max-width: 1400px;
+  max-width: 1900px;
   margin: 0 auto;
   margin-top: 10px;
   display: flex;
   gap: 10px;
   align-items: center;
+  justify-content: space-between;
   overflow-x: auto;
 `;
