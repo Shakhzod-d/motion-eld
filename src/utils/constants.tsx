@@ -5,7 +5,6 @@ import styled, { keyframes, css } from "styled-components";
 import { StatusBadge } from "../components/shared/custom-table/custom-styled";
 import { MdCheckBoxOutlineBlank, MdModeEdit } from "react-icons/md";
 
-
 import { HiPhone } from "react-icons/hi2";
 import { RiUser3Fill } from "react-icons/ri";
 import { IoMdMail } from "react-icons/io";
@@ -340,7 +339,7 @@ export const Main = styled.main`
   max-width: 100vw;
   height: calc(100vh - 15px);
   background: #f3f3f4;
-  overflow-y: hidden;
+  overflow: hidden;
 `;
 
 export const OutletWrapper = styled.div`
@@ -837,12 +836,12 @@ export const driversTableHeader = [
   { header: "Document", accessor: "document", id: 10 },
   { header: "Trailer", accessor: "trailer", id: 11 },
   {
-    header:"",
+    header: "",
     accessor: "add",
     id: 12,
   },
   {
-    header:"",
+    header: "",
     accessor: "dots",
     id: 13,
   },
@@ -863,7 +862,7 @@ export const driversTableData = [
     document: "N/A",
     trailer: "v502269",
     add: <MdModeEdit color="blue" size={20} style={{ cursor: "pointer" }} />,
-    dots:<BsThreeDotsVertical style={{cursor:"pointer"}}/>
+    dots: <BsThreeDotsVertical style={{ cursor: "pointer" }} />,
   },
   {
     id: 2,
@@ -879,7 +878,7 @@ export const driversTableData = [
     document: "N/A",
     trailer: "v502269",
     add: <MdModeEdit color="blue" size={20} style={{ cursor: "pointer" }} />,
-    dots:<BsThreeDotsVertical style={{cursor:"pointer"}}/>
+    dots: <BsThreeDotsVertical style={{ cursor: "pointer" }} />,
   },
   {
     id: 3,
@@ -895,7 +894,7 @@ export const driversTableData = [
     document: "N/A",
     trailer: "v502269",
     add: <MdModeEdit color="blue" size={20} style={{ cursor: "pointer" }} />,
-    dots:<BsThreeDotsVertical style={{cursor:"pointer"}}/>
+    dots: <BsThreeDotsVertical style={{ cursor: "pointer" }} />,
   },
 ];
 
