@@ -18,11 +18,19 @@ interface Props {
   data: ArticleProps[];
   search?: true | false;
   width: string;
+  active?: number;
+  setActive: (e: number) => void;
 }
 
-export const MapArticle = ({ data, search = false, width }: Props) => {
+export const MapArticle = ({
+  data,
+  search = false,
+  width,
+  setActive,
+  active,
+}: Props) => {
   const [dataValue, setDataValue] = useState(data);
-  const [active, setActive] = useState<number>(1);
+
   const searchData = (e: React.ChangeEvent<HTMLInputElement>) => {
     const term = e.target.value;
 
@@ -53,7 +61,7 @@ export const MapArticle = ({ data, search = false, width }: Props) => {
               <Title>{item.title}</Title>
               <TruckNum>{item.text}</TruckNum>
             </div>
-            <Status  $statusBg={item.status}>{item.status}</Status>
+            <Status $statusBg={item.status}>{item.status}</Status>
           </Between>
           <Description>
             {item.desc}

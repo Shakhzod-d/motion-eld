@@ -4,11 +4,11 @@ import { IftaReportColumns } from "../types";
 import styled, { keyframes, css } from "styled-components";
 import { StatusBadge } from "../components/shared/custom-table/custom-styled";
 import { MdCheckBoxOutlineBlank, MdModeEdit } from "react-icons/md";
-import { IoAddCircle } from "react-icons/io5";
 
 import { HiPhone } from "react-icons/hi2";
 import { RiUser3Fill } from "react-icons/ri";
 import { IoMdMail } from "react-icons/io";
+import { BsThreeDotsVertical } from "react-icons/bs";
 
 export const manageCompanyButtons = [
   { id: 1, text: "Company" },
@@ -22,6 +22,7 @@ export const Text = styled.p<{
   $font?: string;
   color?: string;
   $mb?: string;
+  $line?: string;
 }>`
   font-weight: ${({ $font }) => $font};
   font-size: ${({ size }) => `${size}px`};
@@ -29,79 +30,81 @@ export const Text = styled.p<{
   color: ${({ color }) => color};
   display: flex;
   margin-bottom: ${({ $mb }) => $mb};
-  gap: 2px;
+  line-height: ${({ $line }) => $line};
 `;
 
-export const driversData = Array(70).fill({
-  key: "name",
-  id: "0",
-  f_name: "Davis",
-  l_name: "Miller",
-  u_name: "captain_49",
-  co_driver: "",
-  driver_Type: "",
-  app_version: "4.6.7",
-  documents: "Not uploaded",
-  activated: "2024-03-02",
-  device_info: "Open",
-  action: "",
-});
+export const driversData = [
+  {
+    id: "0",
+    f_name: "Davis",
+    l_name: "Miller",
+    u_name: "captain_49",
+    co_driver: "",
+    vehicle: "",
+    driver_Type: "",
+    app_version: "4.6.7",
+    documents: "Not uploaded",
+    activated: "2024-03-02",
+    device_info: "Open",
+    action: "",
+  },
+];
 
 export const driverColumns = [
   {
-    title: "#",
-    dataIndex: "id",
-    key: "id",
+    header: "#",
+    accessor: "id",
+    id: 1,
   },
   {
-    title: "First Name",
-    dataIndex: "f_name",
-    key: "f_name",
+    header: "First Name",
+    accessor: "f_name",
+    id: 2,
   },
   {
-    title: "Last Name",
-    dataIndex: "l_name",
-    key: "l_name",
+    header: "Last Name",
+    accessor: "l_name",
+    id: 3,
   },
   {
-    title: "User Name",
-    dataIndex: "u_name",
-    key: "u_name",
+    header: "User Name",
+    accessor: "u_name",
+    id: 4,
   },
   {
-    title: "Co driver",
-    dataIndex: "co_driver",
-    key: "co_driver",
+    header: "Co driver",
+    accessor: "Co_driver",
+    id: 5,
   },
   {
-    title: "Driver Type",
-    dataIndex: "driver_type",
-    key: "driver_type",
+    header: "Driver Type",
+    accessor: "driver_Type",
+    id: 6,
   },
   {
-    title: "Vehicle ID",
-    dataIndex: "v_id",
-    key: "v_id",
+    header: "Vehicle ID",
+    accessor: "vehicle",
+    id: 7,
   },
   {
-    title: "App Version",
-    dataIndex: "app_version",
-    key: "app_version",
+    header: "App version",
+    accessor: "app_version",
+    id: 8,
   },
   {
-    title: "Documents",
-    dataIndex: "documents",
-    key: "documents",
+    header: "Documents",
+    accessor: "documents",
+    id: 9,
   },
   {
-    title: "Activated",
-    dataIndex: "activated",
-    key: "activated",
+    header: "Activated",
+    accessor: "activated",
+    id: 10,
   },
   {
-    title: "Device Info",
-    dataIndex: "device_info",
-    key: "device_info",
+    header: "Device Info",
+    accessor: "device_info",
+    id: 11,
     render: (text: string) => (
       <u>
         <b>{text}</b>
@@ -109,9 +112,9 @@ export const driverColumns = [
     ),
   },
   {
-    title: "Action",
-    dataIndex: "action",
-    key: "action",
+    header: "Action",
+    accessor: "action",
+    id: 12,
   },
 ];
 
@@ -232,49 +235,50 @@ export const IftaReportSelectData = [
 
 export const unitsColumns = [
   {
-    title: "#",
-    dataIndex: "id",
-    key: "id",
+    header: "#",
+    accessor: "id",
+    id: 1,
   },
   {
-    title: "Vehicle ID",
-    dataIndex: "index",
-    key: "index",
+    header: "Vehicle ID",
+    accessor: "vehicle",
+    id: 2,
   },
   {
-    title: "Drivers",
-    dataIndex: "driver_name",
-    key: "drivers_name",
+    header: "Drivers",
+    accessor: "drivers",
+    id: 3,
   },
   {
-    title: "Make/Model",
-    dataIndex: "model",
-    key: "model",
+    header: "Make/Model",
+    accessor: "model",
+    id: 4,
   },
   {
-    title: "Eld",
-    dataIndex: "eld",
-    key: "eld",
+    header: "Eld",
+    accessor: "eld",
+    id: 5,
+  },
+
+  {
+    header: "VIN",
+    accessor: "vin1",
+    id: 6,
   },
   {
-    title: "Notes",
-    dataIndex: "notes",
-    key: "notes",
+    header: "VIN",
+    accessor: "vin2",
+    id: 7,
   },
   {
-    title: "VIN",
-    dataIndex: "vin",
-    key: "vin",
+    header: "Documents",
+    accessor: "documents",
+    id: 8,
   },
   {
-    title: "Documents",
-    dataIndex: "documents",
-    key: "documents",
-  },
-  {
-    title: "Activated",
-    dataIndex: "activated",
-    key: "activated",
+    header: "Activated",
+    accessor: "activated",
+    id: 8,
   },
 ];
 
@@ -284,13 +288,13 @@ export const Between = styled.div`
   align-items: center;
 `;
 export const unitsData = Array(10).fill({
-  id: "0",
-  index: 152,
-  driver_name: "Davit Kiknavelidze",
+  id: "1",
+  vehicle: 152,
+  drivers: "Davit Kiknavelidze",
   model: "Freightliner/ Cascadia",
   eld: "PT30_09A3",
-  notes: "1FUJGLDV2HLJH2911",
-  vin: "Not uploaded",
+  vin1: "1FUJGLDV2HLJH2911",
+  vin2: "Not uploaded",
   documents: "2024-03-02",
   activated: "",
 });
@@ -309,52 +313,23 @@ export const transferBtns = [
 ];
 
 export const transferColums = [
-  {
-    title: "Driver",
-    dataIndex: "driver",
-    key: "driver",
-    render: (title: string) => <b style={{ fontWeight: "900" }}> {title}</b>,
-  },
-  {
-    title: "Comment",
-    dataIndex: "comment",
-    key: "comment",
-  },
-  {
-    title: "Start Date",
-    dataIndex: "start_date",
-    key: "start_date",
-  },
-  {
-    title: "End Date",
-    dataIndex: "end_date",
-    key: "end_date",
-  },
-  {
-    title: "Status",
-    dataIndex: "status",
-    key: "status",
-  },
-  {
-    title: "Processed Time",
-    dataIndex: "p_time",
-    key: "p_time",
-  },
-  {
-    title: "Submission ID",
-    dataIndex: "s_id",
-    key: "s_id",
-  },
+  { header: "Driver", accessor: "driver", id: 1 },
+  { header: "Comment", accessor: "comment", id: 2 },
+  { header: "Start Date", accessor: "starD", id: 3 },
+  { header: "End Date", accessor: "endD", id: 4 },
+  { header: "Status", accessor: "status", id: 5 },
+  { header: "Processed Time", accessor: "time", id: 6 },
+  { header: "Submission ID", accessor: "submission", id: 7 },
 ];
 
 export const transferData = Array(3).fill({
   driver: "Koba Gogelashvili",
   comment: "in7558",
-  start_date: "Thu, Feb 22, 00:00, EST",
-  end_date: "Thu, Feb 29, 23:59, EST",
+  startD: "Thu, Feb 22, 00:00, EST",
+  endD: "Thu, Feb 29, 23:59, EST",
   status: "Information",
-  p_time: "Thu, Feb 29, 17:34, EST",
-  s_id: "693a6d13-dd88-4e00-a546-d6a9c8d97da9",
+  time: "Thu, Feb 29, 17:34, EST",
+  submission: "693a6d13-dd88-4e00-a546-d6a9c8d97da9",
 });
 
 export const Main = styled.main`
@@ -364,7 +339,7 @@ export const Main = styled.main`
   max-width: 100vw;
   height: calc(100vh - 15px);
   background: #f3f3f4;
-  overflow: "hidden";
+  overflow: hidden;
 `;
 
 export const OutletWrapper = styled.div`
@@ -429,10 +404,22 @@ export const driversStatisticsData = [
 
 export const LogsTabPages = [
   { label: "Map", key: "1", to: "map" },
-  { label: "Drivers", key: "2", to: "info" },
+  { label: "Drivers", key: "2", to: "drivers" },
   { label: "Logs", key: "3", to: "logs" },
   { label: "Violation", key: "4", to: "violation" },
   { label: "Trackings", key: "5", to: "tracking" },
+];
+export const MCTabPages = [
+  { label: "Company", key: "1", to: "company" },
+  { label: "Users", key: "2", to: "users" },
+  { label: "Api keys", key: "3", to: "keys" },
+  { label: "Histories", key: "4", to: "histories" },
+];
+export const MCompanyPages = [
+  { label: "Company", key: "1", children: "Content of Map" },
+  { label: "Users", key: "2", children: "Content of Drivers" },
+  { label: "Api keys", key: "3", children: "Content of Logs" },
+  { label: "Histories", key: "4", children: "Content of Violation" },
 ];
 
 export const ArticleMapItem = [
@@ -849,11 +836,14 @@ export const driversTableHeader = [
   { header: "Document", accessor: "document", id: 10 },
   { header: "Trailer", accessor: "trailer", id: 11 },
   {
-    header: (
-      <IoAddCircle color="orange" size={20} style={{ cursor: "pointer" }} />
-    ),
+    header: "",
     accessor: "add",
-    id:12
+    id: 12,
+  },
+  {
+    header: "",
+    accessor: "dots",
+    id: 13,
   },
 ];
 
@@ -872,6 +862,7 @@ export const driversTableData = [
     document: "N/A",
     trailer: "v502269",
     add: <MdModeEdit color="blue" size={20} style={{ cursor: "pointer" }} />,
+    dots: <BsThreeDotsVertical style={{ cursor: "pointer" }} />,
   },
   {
     id: 2,
@@ -887,6 +878,7 @@ export const driversTableData = [
     document: "N/A",
     trailer: "v502269",
     add: <MdModeEdit color="blue" size={20} style={{ cursor: "pointer" }} />,
+    dots: <BsThreeDotsVertical style={{ cursor: "pointer" }} />,
   },
   {
     id: 3,
@@ -902,6 +894,7 @@ export const driversTableData = [
     document: "N/A",
     trailer: "v502269",
     add: <MdModeEdit color="blue" size={20} style={{ cursor: "pointer" }} />,
+    dots: <BsThreeDotsVertical style={{ cursor: "pointer" }} />,
   },
 ];
 
@@ -1308,6 +1301,162 @@ export const editUserRoleModalBtns = [
         buttons: [
           { id: 1, text: "Admin", isActive: false },
           { id: 2, text: "Add", isActive: false },
+        ],
+      },
+    ],
+  },
+];
+export const permissionModal = [
+  {
+    id: 1,
+    options: [
+      {
+        id: 1,
+        title: "Vehicle",
+        buttons: [
+          { id: 1, text: "Edit", isActive: false },
+          { id: 1, text: "Add", isActive: false },
+          { id: 1, text: "View", isActive: true },
+        ],
+      },
+      {
+        id: 2,
+        title: "Driv",
+        buttons: [
+          { id: 1, text: "Add", isActive: false },
+
+          { id: 4, text: "View", isActive: true },
+        ],
+      },
+      {
+        id: 3,
+        title: "A. EHF",
+        buttons: [
+          { id: 1, text: "Three", isActive: false },
+          { id: 2, text: "False", isActive: false },
+        ],
+      },
+      {
+        id: 4,
+        title: "A.Split",
+        buttons: [
+          { id: 1, text: "Three", isActive: false },
+          { id: 2, text: "False", isActive: false },
+        ],
+      },
+    ],
+  },
+  {
+    id: 2,
+    options: [
+      {
+        id: 1,
+        title: "Carrier",
+        buttons: [{ id: 4, text: "View", isActive: true }],
+      },
+      {
+        id: 2,
+        title: "Terminals",
+        buttons: [{ id: 1, text: "View", isActive: true }],
+      },
+      {
+        id: 3,
+        title: "A. PTI",
+        buttons: [
+          { id: 1, text: "Thee", isActive: false },
+          { id: 2, text: "False", isActive: false },
+        ],
+      },
+      {
+        id: 4,
+        title: "A.Shift",
+        buttons: [
+          { id: 1, text: "Thee", isActive: false },
+          { id: 2, text: "False", isActive: false },
+        ],
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "",
+    options: [
+      {
+        id: 1,
+        title: "Logs",
+        buttons: [
+          { id: 1, text: "Edit", isActive: false },
+          { id: 2, text: "Add", isActive: false },
+          { id: 1, text: "View", isActive: true },
+        ],
+      },
+      {
+        id: 2,
+        title: "A.time",
+        buttons: [
+          { id: 1, text: "Thee", isActive: false },
+          { id: 2, text: "False", isActive: false },
+        ],
+      },
+      {
+        id: 3,
+        title: "A. Certify",
+        buttons: [
+          { id: 1, text: "Thee", isActive: false },
+          { id: 2, text: "False", isActive: false },
+        ],
+      },
+      {
+        id: 4,
+        title: "A. DFM",
+        buttons: [
+          { id: 1, text: "Thee", isActive: false },
+          { id: 2, text: "False", isActive: false },
+        ],
+      },
+    ],
+  },
+  {
+    id: 4,
+    title: "",
+    options: [
+      {
+        id: 1,
+        title: "Locations",
+        buttons: [{ id: 1, text: "Add", isActive: false }],
+      },
+
+      {
+        id: 3,
+        title: "A. Normalizer",
+        buttons: [
+          { id: 1, text: "Thee", isActive: false },
+          { id: 2, text: "False", isActive: false },
+        ],
+      },
+      {
+        id: 4,
+        title: "A. Break",
+        buttons: [
+          { id: 1, text: "Thee", isActive: false },
+          { id: 2, text: "False", isActive: false },
+        ],
+      },
+    ],
+  },
+];
+export const companySettingsModal = [
+  {
+    id: 1,
+    options: [
+      {
+        id: 1,
+        title: "V",
+        buttons: [
+          { id: 1, text: "Edit Logs", isActive: false },
+          { id: 1, text: "Documents", isActive: false },
+          { id: 1, text: "IFTA Real", isActive: false },
+          { id: 1, text: "Ai", isActive: true },
         ],
       },
     ],

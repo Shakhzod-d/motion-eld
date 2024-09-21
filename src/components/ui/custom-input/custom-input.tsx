@@ -3,12 +3,15 @@ import { StyledInput } from "./input-styled";
 interface Props {
   type?: string;
   change?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  width?: number;
+  width?: string |"";
   height?: number;
+  margin?:string
 }
-export const CustomInput = ({ type, change }: Props) => {
+export const CustomInput = ({ type, change, width ,margin}: Props) => {
   return (
-    <StyledInput 
+    <StyledInput
+      $width={width}
+      $margin={margin}
       prefix={type == "search" ? <AiOutlineSearch size={20} /> : null}
       onChange={change}
     />

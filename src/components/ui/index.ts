@@ -6,3 +6,5 @@ export { TimeContainer } from "../ui/time-container";
 export { CustomInput } from "./custom-input";
 export { EditModalBtn } from "./edit-modal-btn";
 export { CustomSelect } from "./custom-select";
+export { CustomProgress } from "./progress";
+export { TablePopup } from "./table-popup";

@@ -14,3 +14,5 @@ export { Violation } from "./violation";
 export { Trackings } from "./trackings";
 export { DriversInfo } from "./drivers-info";
 export { Users } from "./users-page";
+export { TabCompany } from "./tab-company";
+export { CompanyUsers } from "./company-users";

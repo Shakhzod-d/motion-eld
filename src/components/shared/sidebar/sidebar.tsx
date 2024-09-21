@@ -1,10 +1,12 @@
 import {
+  ArrowBtn,
   BtnWrap,
   Description,
-  Img,
   PageActive,
   PageBtn,
   SidebarContainer,
+  StyleFlex,
+  StyleLogo,
   TabBtn,
   User,
 } from "./sidebar-styled";
@@ -12,13 +14,17 @@ import Logo from "../../../assets/logo.svg";
 import { PiChartLineFill } from "react-icons/pi";
 import { HiOutlineBuildingLibrary } from "react-icons/hi2";
 import { FaPowerOff } from "react-icons/fa";
-import { MdOutlineReportProblem } from "react-icons/md";
+import {
+  MdOutlineKeyboardDoubleArrowRight,
+  MdOutlineReportProblem,
+} from "react-icons/md";
 import { VscFileSubmodule } from "react-icons/vsc";
 import { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { sidebarToggle } from "../../../store/booleans-slice";
+import { Text } from "../../../utils/constants";
 
 const items = [
   {
@@ -64,7 +70,12 @@ export const Sidebar = () => {
   };
   return (
     <SidebarContainer $active={active}>
-      <Img src={Logo} alt="" onClick={() => tabBtnFun(0)} />
+      <StyleFlex align="center" justify="space-between" $active={active}>
+        {active && <StyleLogo src={Logo} alt="" />}
+        <ArrowBtn $active={active} onClick={() => tabBtnFun(0)}>
+          <MdOutlineKeyboardDoubleArrowRight color="white" size={25} />
+        </ArrowBtn>
+      </StyleFlex>
       <div style={{ flex: "1" }}>
         <PageBtn onClick={() => setBtnActive(0)} to={"/"} $active={active}>
           <PiChartLineFill />
@@ -80,27 +91,7 @@ export const Sidebar = () => {
           {active && <p>Company</p>}
         </PageBtn>
 
-        {/* <User className="light user-profile" background="#FFF" color="#000">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="41"
-              height="42"
-              viewBox="0 0 41 42"
-              fill="none"
-            >
-              <circle cx="20.5" cy="21.3734" r="20.5" fill="#F80638" />
-              <path
-                d="M17.1211 27.8734H14.1719V13.7816H17.1211V20.2074H17.209L22.502 13.7816H25.7832L20.5684 20.0316L26.1445 27.8734H22.6191L18.4395 21.9847L17.1211 23.5668V27.8734Z"
-                fill="white"
-              />
-            </svg>
-            <div>
-              <h2>
-                Karavan logistics <br /> group LLC
-              </h2>
-              <p>Zava Zava</p>
-            </div>
-          </User> */}
+     
 
         <Description>Menu</Description>
         {items.map((item) => {
@@ -132,11 +123,11 @@ export const Sidebar = () => {
         </PageBtn>
       </div>
       <User className="user-profile">
-        <img src="/src/assets/user.png" alt="user" />
+        <img src="/user.png" alt="user" />
         {active && (
           <div>
             <h2>Jonibek Muradov</h2>
-            <p>jonibek1984@gmail.com</p>
+            <Text size={12} color="#fff">jonibek1984@gmail.com</Text>
           </div>
         )}
       </User>

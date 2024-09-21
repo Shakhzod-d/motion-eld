@@ -14,6 +14,6 @@ export const Map = styled.div`
   border-radius: 10px;
   padding: 5px;
   width: 100%;
-  max-width: 1170px;
+  // max-width: 1170px;
   height: 500px;
 `;

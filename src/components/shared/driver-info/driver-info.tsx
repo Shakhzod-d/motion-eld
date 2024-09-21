@@ -51,7 +51,7 @@ export const DriverInfo = () => {
               </Flex>
 
               <Flex gap={12} align="center">
-                <Status background="#FC973A">Sleep</Status>
+                <Status $background="#FC973A">Sleep</Status>
                 <DiAndroid fill="#BABAC1" size={24} />
                 <FaAudioDescription fill="#BABAC1" size={24} />
               </Flex>

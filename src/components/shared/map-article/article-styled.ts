@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const CardArticle = styled.article`
   height: calc(100vh - 260px);
-  overflow-y: auto;
+  // overflow-x: auto !important;
 `;
 export const Between = styled.div`
   display: flex;

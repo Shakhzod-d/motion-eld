@@ -1,6 +1,5 @@
-import { useState } from "react";
-import { BtnGroup, Card, CardsTop } from "./info-table-styled";
-import { Button, Flex, Modal } from "antd";
+import { Card, CardsTop } from "./info-table-styled";
+import { Flex } from "antd";
 import { Text } from "../../../utils/constants";
 interface Header {
   header: string;
@@ -9,34 +8,38 @@ interface Header {
 interface Name {
   label?: string;
   img?: string;
-  data?: { id: number; text: string; icon?: React.ReactElement|string }[];
+  data?: { id: number; text: string; icon?: React.ReactElement | string }[];
 }
 
 interface DataType {
-  [key: string]: Name; 
+  [key: string]: Name;
 }
 
 interface Prop {
   header: Header[];
-  data: DataType[]; 
-  
+  data: DataType[];
+  editData?: (id: number) => void ;
 }
 
 interface Data {
   [key: string]: {
     label?: string;
-    data?: { id: number; text: string; icon?: React.ReactElement|string }[];
+    data?: { id: number; text: string; icon?: React.ReactElement | string }[];
   };
 }
 
 interface RowData {
   label?: string;
   img?: string;
-  data?: { id: number; text: string; icon?: React.ReactElement|string }[];
+  data?: { id: number; text: string; icon?: React.ReactElement | string }[];
+  
 }
-export const InfoTable = ({ header, data }: Prop) => {
-  const [open, setOpen] = useState<boolean>(false);
-
+export const InfoTable = ({ header, data, editData }: Prop) => {
+  const edit =(id:number)=>{
+    if(editData){
+      editData(id)
+    }
+  }
   return (
     <>
       <CardsTop>
@@ -66,6 +69,7 @@ export const InfoTable = ({ header, data }: Prop) => {
                     }
                     $mb="5px"
                     size={ind == 0 ? 20 : 16}
+                    onClick={()=>rowData?.label =="Edit"? edit(1):null}
                   >
                     {rowData?.label ? rowData.label : ""}
                   </Text>
@@ -88,6 +92,7 @@ export const InfoTable = ({ header, data }: Prop) => {
                           size={14}
                           color={c.text == "Active" ? "red" : ""}
                           key={c.id}
+                          
                         >
                           {c.text}
                         </Text>
@@ -100,25 +105,6 @@ export const InfoTable = ({ header, data }: Prop) => {
           })}
         </Card>
       ))}
-      <Modal
-        centered
-        open={open}
-        onOk={() => setOpen(false)}
-        onCancel={() => setOpen(false)}
-        width={1000}
-      >
-        <BtnGroup className="close-btns">
-          <Button className="btn-default">Clear Form</Button>
-          <div>
-            <Button className="btn-default" onClick={() => setOpen(false)}>
-              Close
-            </Button>
-            <Button className="btn-primary" onClick={() => setOpen(false)}>
-              Save
-            </Button>
-          </div>
-        </BtnGroup>
-      </Modal>
     </>
   );
 };

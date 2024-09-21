@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   height: 433px;
   margin-top: 10px;
   background: #fff;
+  margin-bottom: 40px;
 `;
 
 export const CustomButton = styled(Button)`

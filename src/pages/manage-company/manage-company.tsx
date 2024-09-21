@@ -1,104 +1,51 @@
-import { useState } from "react";
-import {
-  BorderedBtn,
-  TransparentButton,
-} from "../ifta-reports/ifta-reports-styled";
-import { Flex } from "antd";
-import { Main, manageCompanyButtons } from "../../utils/constants";
+import { DriversStatistics, ManageUserModal } from "../../components/shared";
 import { Navbar } from "../../components/ui";
-import { Div, Label, StyledInput } from "./manage-company-styled";
-import { DriversStatistics } from "../../components/shared";
+import { Main } from "../../utils";
+
+import { Flex } from "antd";
+import { MCTabPages } from "../../utils/constants";
+
+import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { TransparentButton } from "../ifta-reports/ifta-reports-styled";
+import { AddBtn } from "./manage-company-styled";
+import { FaPlus } from "react-icons/fa6";
 
 export const ManageCompany = () => {
-  const [activeBtn, setActiveBtn] = useState<number>(1);
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    if (pathname.length <= 18) navigate("company");
+  }, [navigate, pathname.length]);
 
   return (
     <Main>
-      {/* Universal statistics component */}
+      <ManageUserModal open={open} setOpen={setOpen} />
+      <Navbar title="Manage Company" />
+      <DriversStatistics />
 
-      <Flex gap={20} vertical>
-        <Navbar title={"Manage Company"} />
-
-        <DriversStatistics />
-
-        <Flex justify="space-between">
-          <Flex gap={5}>
-            {manageCompanyButtons.map((item) => (
+      <Flex justify="space-between">
+        <Flex gap={5} style={{ marginBottom: "20px" }}>
+          {MCTabPages.map((item) => (
+            <NavLink to={item.to} key={item.key}>
               <TransparentButton
-                key={item.id}
-                active={(activeBtn == item.id).toString()}
-                onClick={() => setActiveBtn(item.id)}
-                height="60px"
+                active={String(pathname.endsWith(item.to))}
+                padding="35px 20px"
               >
-                {item.text}
+                {item.label}
               </TransparentButton>
-            ))}
-          </Flex>
-
-          <TransparentButton height="60px">Refresh</TransparentButton>
+            </NavLink>
+          ))}
         </Flex>
-
-        <Flex gap={15} vertical>
-          <Flex gap={10}>
-            <Div>
-              <Label>Company Name*</Label>
-              <StyledInput defaultValue={"Caravan Logistics Group LLC"} />
-            </Div>
-            <Div>
-              <Label>Email</Label>
-              <StyledInput
-                defaultValue={"dispatch@caravanlogisticsgroup.com"}
-              />
-            </Div>
-            <Div>
-              <Label>Company Address</Label>
-              <StyledInput
-                defaultValue={"5714 Kenneth Ave, Cincinnati, OH, 45224"}
-              />
-            </Div>
-            <Div>
-              <Label>Terminal Address</Label>
-              <StyledInput
-                defaultValue={"5714 Kenneth Ave, Cincinnati, OH, 45224"}
-              />
-            </Div>
-          </Flex>
-
-          <Flex gap={10}>
-            <Div>
-              <Label>Phone Number</Label>
-              <StyledInput defaultValue={"(765) 994-1080"} />
-            </Div>
-            <Div>
-              <Label>Company Timezone*</Label>
-              <StyledInput defaultValue={"Eastern Standart Time"} />
-            </Div>
-            <Div>
-              <Label>USDOT*</Label>
-              <StyledInput defaultValue={"3497865"} />
-            </Div>
-            <Div>
-              <Label>Start of week</Label>
-              <StyledInput defaultValue={""} />
-            </Div>
-          </Flex>
-
-          <Flex gap={10} align="center">
-            <Div>
-              <Label>Accounting Email</Label>
-              <StyledInput defaultValue={""} />
-            </Div>
-            <Div>
-              <Label>Safety Email</Label>
-              <StyledInput defaultValue={""} />
-            </Div>
-            <Div>
-              <Label> &nbsp;</Label>
-              <BorderedBtn height="70px">Upload company logo</BorderedBtn>
-            </Div>
-          </Flex>
-        </Flex>
+        {pathname == "/manage-company/users" && (
+          <AddBtn type="primary" onClick={() => setOpen(true)}>
+            <FaPlus /> Add
+          </AddBtn>
+        )}
       </Flex>
+
+      <Outlet />
     </Main>
   );
 };

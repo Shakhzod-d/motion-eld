@@ -1,4 +1,3 @@
-
 export { ViolationsChart } from "./violations-chart";
 export { ProgressBar } from "./progress-bar";
 export { Sidebar } from "./sidebar";
@@ -16,3 +15,14 @@ export { DriversHeader } from "./drivers-header";
 export { TripPlanner } from "./trip-planner";
 export { UserEditModal } from "./user-edit-modal";
 export { InfoTable } from "./info-table";
+export { DriversAddModal } from "./drivers-add-modal";
+export { ManageUserModal } from "./manage-user-modal";
+export { CompanyModal } from "./company-page-modal";
+export { Map } from "./map";
+export {
+  Normalize,
+  UpdateModal,
+  actionAlert,
+  Certify,
+  TimeModal,
+} from "./driving-info-modals";

@@ -1,4 +1,4 @@
-import { Input } from "antd";
+import { Button, Input } from "antd";
 import styled from "styled-components";
 
 export const Label = styled.label`
@@ -11,7 +11,7 @@ export const Label = styled.label`
 export const StyledInput = styled(Input)<{
   height?: string;
   width?: string;
-  background?: string;
+  $background?: string;
   padding?: string;
 }>`
   padding: ${({ padding }) => padding || "20px 25px"};
@@ -22,7 +22,7 @@ export const StyledInput = styled(Input)<{
   max-width: 380px;
   width: ${({ width }) => width || ""};
   height: ${({ height }) => height || ""};
-  background: ${({ background }) => background || "transparent"};
+  background: ${({ $background }) => $background || "transparent"};
 `;
 
 export const Div = styled.div`
@@ -34,5 +34,17 @@ export const Div = styled.div`
   width: 100%;
   * {
     width: 100%;
+  }
+`;
+
+export const AddBtn = styled(Button)`
+  border-radius: 10px;
+  padding: 15px 25px;
+  width: 97px;
+  height: 49px;
+  background: #fc973a;
+  &:hover{
+    background: #fc973a !important;
+    opacity: 0.8;
   }
 `;

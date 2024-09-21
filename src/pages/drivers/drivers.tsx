@@ -1,7 +1,5 @@
 import { useState } from "react";
 import {
-  ActiveBtn,
-  DefaultBtn,
   ModalCheckBox,
   ModalInput,
   ModalSelect,
@@ -9,9 +7,11 @@ import {
   PrimaryBtn,
   TopContainer,
 } from "../units/units-styled";
-import { Flex, Modal, Table } from "antd";
+import { Flex, Modal } from "antd";
 import { driverColumns, driversData, Main } from "../../utils";
 import { Navbar } from "../../components/ui";
+import { CustomTable } from "../../components/shared";
+import { BtnWrap, ActiveBtn, DefaultBtn } from "./styled";
 
 export const Drivers = () => {
   const [open, setOpen] = useState(false);
@@ -28,16 +28,12 @@ export const Drivers = () => {
             Add new Driver
           </PrimaryBtn>
         </TopContainer>
-        <ActiveBtn style={{ padding: "20px 35px" }}>Vehicle</ActiveBtn>
-        <DefaultBtn style={{ padding: "20px 35px", marginLeft: "5px" }}>
-          Deactivated
-        </DefaultBtn>
-        <Table
-          columns={driverColumns}
-          dataSource={driversData}
-          id="table"
-          style={{ marginTop: "20px" }}
-        />
+
+        <BtnWrap>
+          <ActiveBtn>Vehicle</ActiveBtn>
+          <DefaultBtn>Deactivated</DefaultBtn>
+        </BtnWrap>
+        <CustomTable columns={driverColumns} data={driversData} />
       </Main>
       <Modal
         centered

@@ -5,18 +5,25 @@ interface Option {
 }
 interface Props {
   option: Option[];
-  change?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  width?: number;
+  change?: (value: unknown,) => void;
+  width?: string;
   height?: number;
+  placeholder?: string;
 }
-export const CustomSelect = ({ option, width, height }: Props) => {
+export const CustomSelect = ({
+  option,
+  width,
+  height,
+  placeholder,
+  change,
+}: Props) => {
   return (
     <StyledSelect
-      defaultValue={option[0].value}
+      defaultValue={placeholder}
       options={option}
       width={width}
       height={height}
-      
+      onChange={change}
     />
   );
 };
