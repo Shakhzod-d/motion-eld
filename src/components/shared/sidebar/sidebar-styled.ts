@@ -38,10 +38,9 @@ export const Description = styled.p`
 `;
 export const PageBtn = styled(NavLink)<{ $active: boolean }>`
   border-radius: 10px;
-  padding: 25px 20px;
+  padding: 15px 20px;
   width: 100%;
   max-width: 220px;
-  height: 70px;
   background: rgba(255, 255, 255, 0.1);
   margin-bottom: 10px;
   display: flex;
@@ -69,7 +68,7 @@ export const PageBtn = styled(NavLink)<{ $active: boolean }>`
 export const TabBtn = styled.div<{ $active: boolean }>`
   border-radius: 10px;
   width: ${({ $active }) => ($active ? "220px" : "100%")};
-  min-height: 70px;
+  // min-height: 70px;
   transition: max-width 1s ease, width 1.3s ease;
   background: rgba(255, 255, 255, 0.1);
   margin-bottom: 10px;
@@ -86,9 +85,10 @@ export const TabBtn = styled.div<{ $active: boolean }>`
   }
 `;
 export const BtnWrap = styled.div`
-  padding: 25px 20px 10px 20px;
+  padding: 15px 20px;
   display: flex;
   gap: 10px;
+  height: 48px;
   align-items: center;
 `;
 export const PageActive = styled(NavLink)`
@@ -96,7 +96,7 @@ export const PageActive = styled(NavLink)`
   padding: 15px 20px;
   color: white;
   width: 100%;
-  height: 49px;
+  // height: 49px;
   transition: all 0.3s;
 
   &:hover {

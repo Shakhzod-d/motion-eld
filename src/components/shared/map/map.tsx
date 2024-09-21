@@ -60,7 +60,7 @@ export function Map({ mapData, activeId }: Props) {
     ? [activeTruck.lat, activeTruck.lng]
     : [37.0902, -95.7129]; // Default center if no active truck is found
 
-  const route:L.LatLngTuple[] = activeTruck
+  const route: L.LatLngTuple[] = activeTruck
     ? [
         [activeTruck.lat, activeTruck.lng],
         [activeTruck.destLat, activeTruck.destLng],
@@ -79,7 +79,7 @@ export function Map({ mapData, activeId }: Props) {
       <MapContainer
         center={center}
         zoom={2}
-        style={{ width: "100%", height: "calc(100vh - 300px)" }}
+        style={{ width: "100%", height: "100vh !important" }}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -91,7 +91,10 @@ export function Map({ mapData, activeId }: Props) {
         {activeTruck && (
           <>
             {route.length > 0 && <Polyline positions={route} color="black" />}
-            <Marker position={[activeTruck.lat, activeTruck.lng]} icon={customIcon}>
+            <Marker
+              position={[activeTruck.lat, activeTruck.lng]}
+              icon={customIcon}
+            >
               <Popup>{activeTruck.destination}</Popup>
             </Marker>
             <Marker position={[activeTruck.destLat, activeTruck.destLng]}>
