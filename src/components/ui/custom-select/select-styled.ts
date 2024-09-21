@@ -5,11 +5,22 @@ interface Props {
   height?: number;
 }
 export const StyledSelect = styled(Select)<Props>`
-  width: ${({ width = "300px" }) => width};
+  width: ${({ width = "268px" }) => width};
   height: ${({ height = 47 }) => `${height}px`};
   border-radius: 10px;
   background: #f9f9fa !important;
 
+  .ant-select-arrow {
+    * {
+      display: flex !important;
+      jusctify-content: center !important;
+      align-items: center !important;
+      width: 15px !important;
+      height: 12px !important;
+      overflow: hidden !important;
+      fill: #000 !important;
+    }
+  }
   & {
     padding: 25px 10px;
   }

@@ -43,12 +43,16 @@ export const Dashboard = () => {
     <Main>
       <Navbar title="Dashboard" />
       <Day>
-        <CustomBtn>
-          <BiCalendarStar />
-        </CustomBtn>
-        {btnArr.map((item) => (
-          <CustomBtn key={item.id}>{item.text}</CustomBtn>
-        ))}
+        <Flex gap={20}>
+          <CustomBtn>
+            <BiCalendarStar />
+          </CustomBtn>
+          <Flex gap={5}>
+            {btnArr.map((item) => (
+              <CustomBtn key={item.id}>{item.text}</CustomBtn>
+            ))}
+          </Flex>
+        </Flex>
       </Day>
       <CardWrapper $width={sidebarActive}>
         <Drivers />
@@ -68,15 +72,17 @@ export const Dashboard = () => {
         </Radio.Group>
         <Flex gap={"small"} align="center" wrap={true}>
           <CustomSelect option={option} placeholder="Name" />
-          <CustomSelect option={option} placeholder="Company"/>
-          <CustomSelect option={option} placeholder="Violations"/>
-          <CustomSelect option={option} placeholder="Date"/>
-          <CustomSelect option={option} placeholder="Eld connection"/>
+          <CustomSelect option={option} placeholder="Company" />
+          <CustomSelect option={option} placeholder="Violations" />
+          <CustomSelect option={option} placeholder="Date" />
+          <CustomSelect option={option} placeholder="Eld connection" />
+          <CustomSelect option={option} placeholder="Cycle" />
+
           <div>
             <Text size={12} $mb="10px" color="#2D2E2F">
               Driver option
             </Text>
-            <CustomSelect option={option}  placeholder="Cycle"/>
+            <CustomSelect option={option} placeholder="Cycle" />
           </div>
           <div>
             <Text size={12} $mb="10px" color="#2D2E2F">
