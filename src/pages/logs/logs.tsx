@@ -19,7 +19,7 @@ export const Logs = () => {
   return (
     <Main>
       <Navbar title="Logs" />
-      <DriversStatistics />
+      {/* <DriversStatistics /> */}
 
       <Flex justify="space-between">
         <Flex gap={5} style={{ marginBottom: "20px" }}>

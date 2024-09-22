@@ -88,6 +88,7 @@ export const InfoTable = ({ header, data, editData }: Prop) => {
                         {Icon}
 
                         <Text
+                        $font="400"
                           size={14}
                           color={c.text == "Active" ? "red" : ""}
                           key={c.id}

@@ -2,10 +2,11 @@ import { Flex } from "antd";
 import styled from "styled-components";
 
 export const FormRow = styled(Flex)`
+  width: 100%;
   border-radius: 10px;
   margin-bottom: 5px;
   padding: 15px 25px;
-  width: 535px;
+  max-width: 575px;
 
   background: #fdfdfd;
 `;
@@ -24,5 +25,7 @@ export const ValueBox = styled.span`
 export const StyleFlex = styled(Flex)<{ $active: boolean }>`
   width: 100%;
   max-width: calc(100vw - ${({ $active }) => ($active ? "295px" : "100px")});
-  overflow-x: auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
 `;

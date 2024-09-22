@@ -13,7 +13,7 @@ export const TripPlanner = () => {
         style={{ marginBottom: "15px" }}
       >
         <Text size={32} $font="500">
-          Log form
+        Trip Planner
         </Text>
         <CustomButton
           type="primary"
@@ -21,7 +21,7 @@ export const TripPlanner = () => {
           padding="15px 25px"
           height="50px"
         >
-          Correction & Annotation
+          Roadmap
         </CustomButton>
       </Flex>
       <Flex gap={"small"}>

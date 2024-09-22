@@ -43,4 +43,5 @@ export const Btn = styled(Button)<{ $bg?: string }>`
     background: ${({ $bg = "#ADADB8" }) => $bg} !important;
     opacity: 0.8;
   }
+    box-shadow:none;
 `;

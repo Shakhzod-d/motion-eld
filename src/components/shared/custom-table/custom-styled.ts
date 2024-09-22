@@ -33,7 +33,7 @@ export const TableData = styled.td<{ color: string | number }>`
   text-align: left;
   color: ${({ color }) => color};
   position: relative;
-  cursor:pointer;
+  cursor: pointer;
 `;
 
 export const StatusBadge = styled.span<{

@@ -5,7 +5,9 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 
 export const DriversForm = () => {
-  const sidebarActive =useSelector((state:RootState)=>state.booleans.sidebarActive)
+  const sidebarActive = useSelector(
+    (state: RootState) => state.booleans.sidebarActive
+  );
   return (
     <section style={{ marginBottom: "40px" }}>
       <Flex
@@ -25,8 +27,8 @@ export const DriversForm = () => {
           Correction & Annotation
         </CustomButton>
       </Flex>
-      <StyleFlex gap={"15px"} justify="space-between" $active={sidebarActive}>
-        <div>
+      <StyleFlex gap={"15px"} $active={sidebarActive}>
+        <div >
           {logsForm.map((item) => (
             <FormRow key={item.id} align="center">
               <FormTitle>

@@ -9,6 +9,9 @@ import {
   TableRow,
 } from "./custom-styled";
 
+import { GoCopy } from "react-icons/go";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 type CustomObject = {
   [key: string]: string | number | JSX.Element;
   // $status?: string;
@@ -26,16 +29,16 @@ interface TableProps {
   itemColor?: string | undefined;
   colorId?: number | string;
   onClick?: <T>(id: T) => void;
+  copyId?: number;
 }
 
+const status = ["sb", "off", "dr", "on"];
 export const CustomTable = ({
   columns,
   data,
-  colorId,
-  itemColor,
   onClick,
+  copyId = 0,
 }: TableProps) => {
-  const color = itemColor ? itemColor : "";
   const [PopupActive, setPopupActive] = useState<
     number | null | string | undefined
   >(null);
@@ -58,9 +61,41 @@ export const CustomTable = ({
       setPopupActive(index);
     }
   }
+  function colorFun<T>(text: T, title: T): string {
+    let color: string = "";
+
+    if (title == "updated" || title == "location_date") return "#3DA8D5";
+    if (title == "warnings" || title == "error") return "red";
+
+    switch (text) {
+      case "connected":
+        color = "#32BE61";
+        break;
+      case "not connected":
+        color = "red";
+        break;
+      case "form & signature":
+        color = "#FC973A";
+        break;
+      case "violation":
+        color = "red";
+        break;
+      default:
+        color = "";
+        break;
+    }
+    return color;
+  }
+
+  const handleCopy = (text: string) => {
+    navigator.clipboard.writeText(text).then(() => {
+      toast.success("copy added");
+    });
+  };
 
   return (
     <TableContainer>
+      <ToastContainer />
       <TableElement>
         <thead>
           <tr>
@@ -75,10 +110,15 @@ export const CustomTable = ({
               {columns.map((column) => (
                 <TableData
                   key={column.accessor}
-                  color={column.id == colorId ? color : ""}
+                  color={colorFun(
+                    row[column?.accessor]?.valueOf().toString().toLowerCase(),
+                    column.accessor.toLowerCase()
+                  )}
                   onClick={() => tableDataHandler(index, column.accessor)}
                 >
-                  {column?.accessor === "status" ? (
+                  {status.includes(
+                    String(row[column?.accessor]).toLowerCase()
+                  ) ? (
                     <StatusBadge $status={row[column?.accessor]}>
                       {row[column.accessor]}
                     </StatusBadge>
@@ -88,6 +128,14 @@ export const CustomTable = ({
                   {column.accessor == "dots"
                     ? PopupActive == index && <TablePopup />
                     : ""}
+                  {copyId == column.id ? (
+                    <GoCopy
+                      style={{ marginLeft: "20px " }}
+                      onClick={() => handleCopy(String(row[column.accessor]))}
+                    />
+                  ) : (
+                    ""
+                  )}
                 </TableData>
               ))}
             </TableRow>

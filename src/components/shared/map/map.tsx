@@ -5,7 +5,7 @@ import "leaflet/dist/leaflet.css";
 import "leaflet-routing-machine";
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css"; // Routing CSS
 import { useSelector } from "react-redux";
-import { MapWrapper } from "./map-styled";
+import { Maps, MapWrapper } from "./map-styled";
 import { RootState } from "../../../store/store";
 
 interface Truck {
@@ -82,10 +82,7 @@ export function Map({ mapData, activeId }: Props) {
 
   return (
     <MapWrapper $active={sidebarActive}>
-      <div
-        id="map"
-        style={{ width: "100%", height: "calc(100vh - 300px)" }}
-      ></div>
+      <Maps id="map"></Maps>
     </MapWrapper>
   );
 }

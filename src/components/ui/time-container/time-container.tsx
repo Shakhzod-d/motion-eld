@@ -1,24 +1,24 @@
-import {
-  Between,
-  Box,
-  SmallBox,
-} from "../../../utils/constants";
-import { Flex } from "./time-styled";
+import { MdOutlineArrowBack } from "react-icons/md";
+import { Between, Box, SmallBox } from "../../../utils/constants";
+import { Flex } from "antd";
+
 export const TimeContainer = () => {
   return (
     <Between>
-      <Flex>
+      <Flex align="center" gap={"small"} justify="center">
         <Box>03-10-2024</Box>
-        <SmallBox></SmallBox>
-        <SmallBox></SmallBox>
+        <SmallBox>
+          <MdOutlineArrowBack />
+        </SmallBox>
+        <SmallBox style={{ rotate: "180deg" }}>
+          <MdOutlineArrowBack />
+        </SmallBox>
       </Flex>
-      <Flex>
+      <Flex gap={"small"}>
         <Box>Driver name</Box>
         <Box>Location</Box>
-        <Box>Violation</Box>
-        <SmallBox></SmallBox>
+
         <Box>Warnings</Box>
-        <SmallBox></SmallBox>
       </Flex>
     </Between>
   );
