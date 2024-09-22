@@ -1,17 +1,13 @@
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
-  useMap,
-  Polyline,
-} from "react-leaflet";
+import React, { useEffect, useState } from "react";
+
+import L  from "leaflet";
 import "leaflet/dist/leaflet.css";
-import L, { LatLngExpression } from "leaflet";
-import { MapWrapper } from "./map-styled";
+import "leaflet-routing-machine";
+import "leaflet-routing-machine/dist/leaflet-routing-machine.css"; // Routing CSS
 import { useSelector } from "react-redux";
+import { MapWrapper } from "./map-styled";
 import { RootState } from "../../../store/store";
-import { useState, useEffect } from "react";
+
 
 interface Truck {
   id: number;
@@ -30,18 +26,6 @@ interface Props {
   activeId: number;
 }
 
-function MapFlyTo({ center }: { center: LatLngExpression }) {
-  const map = useMap();
-
-  useEffect(() => {
-    if (center) {
-      map.flyTo(center, 8);
-    }
-  }, [center, map]);
-
-  return null;
-}
-
 export function Map({ mapData, activeId }: Props) {
   const [activeTruck, setActiveTruck] = useState<Truck | undefined>(
     mapData.find((truck) => truck.id === activeId)
@@ -56,63 +40,53 @@ export function Map({ mapData, activeId }: Props) {
     setActiveTruck(selectedTruck);
   }, [activeId, mapData]);
 
-  const center: LatLngExpression = activeTruck
-    ? [activeTruck.lat, activeTruck.lng]
-    : [37.0902, -95.7129]; // Default center if no active truck is found
+  useEffect(() => {
+    if (activeTruck) {
+      const map = L.map("map").setView([activeTruck.lat, activeTruck.lng], 8);
 
-  const route:L.LatLngTuple[] = activeTruck
-    ? [
-        [activeTruck.lat, activeTruck.lng],
-        [activeTruck.destLat, activeTruck.destLng],
-      ]
-    : [];
+      // TileLayer qo'shish
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap contributors",
+      }).addTo(map);
 
-  const customIcon = new L.Icon({
-    iconUrl:
-      "https://icons.veryicon.com/png/o/phone/location2/33-navigation-arrow-1.png",
-    iconSize: [30, 30],
-    iconAnchor: [12, 41],
-  });
+      // Leaflet Routing Machine orqali yo'nalishni yaratish
+      L.Routing.control({
+        waypoints: [
+          L.latLng(activeTruck.lat, activeTruck.lng),
+          L.latLng(activeTruck.destLat, activeTruck.destLng),
+        ],
+        routeWhileDragging: true, // Yo'lni yangilab turish
+        lineOptions: {
+          styles: [{ color: "black", weight: "2" }], 
+        },
+      }).addTo(map);
+
+      // Marker va popup qo'shish
+      const customIcon = new L.Icon({
+        iconUrl:
+          "https://icons.veryicon.com/png/o/phone/location2/33-navigation-arrow-1.png",
+        iconSize: [30, 30],
+        iconAnchor: [12, 41],
+      });
+
+      L.marker([activeTruck.lat, activeTruck.lng], { icon: customIcon })
+        .addTo(map)
+        .bindPopup(
+          `<strong>${activeTruck.name}</strong><br>Status: ${activeTruck.status}<br>Address: ${activeTruck.address}`
+        );
+
+      return () => {
+        map.remove(); // Xarita komponenti o'chirilganda tozalash
+      };
+    }
+  }, [activeTruck]);
 
   return (
     <MapWrapper $active={sidebarActive}>
-      <MapContainer
-        center={center}
-        zoom={2}
+      <div
+        id="map"
         style={{ width: "100%", height: "calc(100vh - 300px)" }}
-      >
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution="&copy; OpenStreetMap contributors"
-        />
-
-        <MapFlyTo center={center} />
-
-        {activeTruck && (
-          <>
-            {route.length > 0 && <Polyline positions={route} color="black" />}
-            <Marker position={[activeTruck.lat, activeTruck.lng]} icon={customIcon}>
-              <Popup>{activeTruck.destination}</Popup>
-            </Marker>
-            <Marker position={[activeTruck.destLat, activeTruck.destLng]}>
-              <Popup>{activeTruck.destination}</Popup>
-            </Marker>
-            <Marker
-              key={activeTruck.id}
-              position={[activeTruck.lat, activeTruck.lng]}
-              icon={customIcon}
-            >
-              <Popup>
-                <strong>{activeTruck.name}</strong>
-                <br />
-                Status: {activeTruck.status}
-                <br />
-                Address: {activeTruck.address}
-              </Popup>
-            </Marker>
-          </>
-        )}
-      </MapContainer>
+      ></div>
     </MapWrapper>
   );
 }

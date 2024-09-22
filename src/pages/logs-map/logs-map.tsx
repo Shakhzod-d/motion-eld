@@ -15,6 +15,7 @@ const truckData = [
     destination: "New York, NY",
     destLat: 40.7128, // New York
     destLng: -74.006,
+    progress: 20, // 20% of the route completed
   },
   {
     id: 2,
@@ -26,6 +27,7 @@ const truckData = [
     destination: "Los Angeles, CA",
     destLat: 34.0522, // Los Angeles
     destLng: -118.2437,
+    progress: 100, // 100% (arrived at destination)
   },
   {
     id: 3,
@@ -37,6 +39,7 @@ const truckData = [
     destination: "San Francisco, CA",
     destLat: 37.7749, // San Francisco
     destLng: -122.4194,
+    progress: 50, // 50% of the route completed
   },
   {
     id: 4,
@@ -48,6 +51,7 @@ const truckData = [
     destination: "Atlanta, GA",
     destLat: 33.749, // Atlanta
     destLng: -84.388,
+    progress: 30, // 30% of the route completed
   },
   {
     id: 5,
@@ -59,6 +63,7 @@ const truckData = [
     destination: "Houston, TX",
     destLat: 29.7604, // Houston
     destLng: -95.3698,
+    progress: 75, // 75% of the route completed
   },
   {
     id: 6,
@@ -70,6 +75,7 @@ const truckData = [
     destination: "Phoenix, AZ",
     destLat: 33.4484, // Phoenix
     destLng: -112.074,
+    progress: 40, // 40% of the route completed
   },
   {
     id: 7,
@@ -81,8 +87,11 @@ const truckData = [
     destination: "San Diego, CA",
     destLat: 32.7157, // San Diego
     destLng: -117.1611,
+    progress: 60, // 60% of the route completed
   },
 ];
+
+
 
 export function LogsMap() {
   const [active, setActive] = useState<number>(1);
