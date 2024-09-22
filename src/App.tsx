@@ -42,8 +42,8 @@ function App() {
             <Route path="map" element={<LogsMap />} />
             <Route path="logs" element={<LogsLog />} />
             <Route path="drivers" element={<LogsDrivers />}>
-              <Route path="info" element={<DriversInfo />} />
             </Route>
+              <Route path="info" element={<DriversInfo />} />
             <Route path="violation" element={<Violation />} />
             <Route path="tracking" element={<Trackings />} />
           </Route>

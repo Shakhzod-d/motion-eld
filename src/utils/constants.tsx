@@ -141,6 +141,7 @@ export const CustomButton = styled(Button)<{
     background: ${({ $background }) => $background}!important;
     opacity: 0.7;
   }
+  box-shadow: none;
 `;
 export const unitsButtons = [
   { id: 1, text: "Vehicle" },
@@ -305,6 +306,7 @@ export const SmallBox = styled.div`
   height: 38px;
   background: #fff;
   color: #8c8c9b;
+  cursor: pointer;
 `;
 export const transferBtns = [
   { id: 1, text: "Map" },
@@ -339,7 +341,7 @@ export const Main = styled.main`
   max-width: 100vw;
   height: calc(100vh - 15px);
   background: #f3f3f4;
-  overflow-x: hidden;
+  overflow: hidden;
 `;
 
 export const OutletWrapper = styled.div`
@@ -357,7 +359,7 @@ const expandAnimation = keyframes`
 `;
 
 export const InfoCard = styled.div<{ $active?: boolean; duration?: number }>`
-  flex: 0 0 517px;
+  flex: 0 0 500px;
   border-radius: 15px;
   ${({ $active }) =>
     !$active &&
@@ -368,7 +370,7 @@ export const InfoCard = styled.div<{ $active?: boolean; duration?: number }>`
   align-items:center;
   
   `}
-  padding: ${({ $active }) => ($active ? "25px" : "15px 20px")};
+  padding: ${({ $active }) => ($active ? "10px" : "10px 10px")};
   width: 517px;
   height: ${({ $active }) => ($active ? "244px" : "50px")};
   background: #fff;
@@ -384,12 +386,11 @@ export const InfoCard = styled.div<{ $active?: boolean; duration?: number }>`
 export const Box = styled.div`
   border-radius: 5px;
   padding: 10px 20px;
-  width: 200px;
+  // width: 200px;
   height: 38px;
   min-width: 200px;
   background: #fff;
   color: #8c8c9b;
-  margin-bottom: 10px;
 `;
 
 export const btnArr = [
@@ -556,7 +557,7 @@ export const LogsDriverDataHeader = [
   { header: "Truck no", accessor: "truckNo", id: 3 },
   { header: "Status", accessor: "status", id: 4 },
   { header: "Last known Location", accessor: "location", id: 5 },
-  { header: "", accessor: "week", id: 6 },
+  { header: "Updated", accessor: "updated", id: 6 },
   { header: "Warnings & Violation", accessor: "warnings", id: 7 },
   { header: "Break", accessor: "break", id: 8 },
   { header: "Drive", accessor: "drive", id: 9 },
@@ -570,7 +571,7 @@ export const LogsDataHeader = [
   { header: "Truck no", accessor: "truckNo", id: 3 },
   { header: "Status", accessor: "status", id: 4 },
   { header: "Last known Location", accessor: "location", id: 5 },
-  { header: "", accessor: "week", id: 6 },
+  { header: "Updated", accessor: "updated", id: 6 },
   { header: "Warnings & Violation", id: 7, accessor: "warnings" },
   { header: "Break", accessor: "break", id: 8 },
   { header: "Drive", accessor: "drive", id: 9 },
@@ -602,7 +603,7 @@ export const LogsDriverData = [
     shift: "27:25",
     cycle: "27:25",
     recap: "00:00",
-    week: "13 weeks ago",
+    updated: "13 weeks ago",
   },
   {
     id: 2,
@@ -616,7 +617,7 @@ export const LogsDriverData = [
     shift: "27:25",
     cycle: "27:25",
     recap: "00:00",
-    week: "13 weeks ago",
+    updated: "13 weeks ago",
   },
   {
     id: 3,
@@ -630,7 +631,7 @@ export const LogsDriverData = [
     shift: "27:25",
     cycle: "27:25",
     recap: "00:00",
-    week: "13 weeks ago",
+    updated: "13 weeks ago",
   },
   {
     id: 4,
@@ -644,7 +645,7 @@ export const LogsDriverData = [
     shift: "27:25",
     cycle: "27:25",
     recap: "00:00",
-    week: "13 weeks ago",
+    updated: "13 weeks ago",
   },
   {
     id: 5,
@@ -658,7 +659,7 @@ export const LogsDriverData = [
     shift: "27:25",
     cycle: "27:25",
     recap: "00:00",
-    week: "13 weeks ago",
+    updated: "13 weeks ago",
   },
 ];
 export const violationTabData = [
@@ -721,7 +722,7 @@ export const LogsData = [
     shift: "27:25",
     cycle: "27:25",
     recap: "00:00",
-    week: "",
+    updated: "",
   },
   {
     id: 2,
@@ -735,7 +736,7 @@ export const LogsData = [
     shift: "27:25",
     cycle: "27:25",
     recap: "00:00",
-    week: "",
+    updated: "",
   },
   {
     id: 3,
@@ -749,7 +750,7 @@ export const LogsData = [
     shift: "27:25",
     cycle: "27:25",
     recap: "00:00",
-    week: "13 weeks ago",
+    updated: "13 weeks ago",
   },
   {
     id: 4,
@@ -763,7 +764,7 @@ export const LogsData = [
     shift: "27:25",
     cycle: "27:25",
     recap: "00:00",
-    week: "11 days ago",
+    updated: "11 days ago",
   },
   {
     id: 5,
@@ -777,7 +778,7 @@ export const LogsData = [
     shift: "27:25",
     cycle: "27:25",
     recap: "00:00",
-    week: "10 days ago",
+    updated: "10 days ago",
   },
 ];
 export const DriversWeek = [
@@ -1567,5 +1568,33 @@ export const dataSource = [
     cycle: "4:40",
     company: "Unity Eld Llc",
     updated: "3 minutes ago",
+  },
+];
+
+export const trackingHeader = [
+  { header: "No", accessor: "no", id: 1 },
+  { header: "Driver", accessor: "driver", id: 2 },
+  { header: "Truck no", accessor: "truck", id: 3 },
+  { header: "Status", accessor: "status", id: 4 },
+  { header: "Last known location", accessor: "location", id: 5 },
+  { header: "Date", accessor: "location_date", id: 6 },
+];
+
+export const trackingData = [
+  {
+    no: 1,
+    driver: "Daniel Lee",
+    truck: "103",
+    status: "SB",
+    location: "17, Cedar Ln, New York, Texas ",
+    location_date: "2024-01-20 00:08",
+  },
+  {
+    no: 2,
+    driver: "Kimberly Miller",
+    truck: "104",
+    status: "Off",
+    location: "54, Oak St, New York, Florida ",
+    location_date: " 2024-01-20 00:08",
   },
 ];

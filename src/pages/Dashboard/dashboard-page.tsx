@@ -5,7 +5,7 @@ import {
   Navbar,
   OverviewCard,
 } from "../../components/ui";
-import { btnArr, Main } from "../../utils/index";
+import { Main } from "../../utils/index";
 
 import { dashboardProgressActive } from "../../store/booleans-slice";
 import { useDispatch, useSelector } from "react-redux";
@@ -37,21 +37,30 @@ export const Dashboard = () => {
     { value: "active", label: "Actice" },
     { value: "completed", label: "Completed" },
   ];
+  const refreshSelect = [
+    { value: "off", label: "Auto Refresh off" },
+    { value: "1-min", label: "1 minute" },
+    { value: "5-min", label: "5 minute" },
+    { value: "10-min", label: "10 minute" },
+  ];
   const dispatch = useDispatch();
 
   return (
     <Main>
       <Navbar title="Dashboard" />
       <Day>
+        <Flex gap={5}>
+          <CustomSelect
+            option={refreshSelect}
+            width="170px"
+            placeholder="Auto Refresh off"
+          />
+        </Flex>
+        <CustomBtn>Refresh</CustomBtn>
         <Flex gap={20}>
           <CustomBtn>
-            <BiCalendarStar />
+            <BiCalendarStar size={30} />
           </CustomBtn>
-          <Flex gap={5}>
-            {btnArr.map((item) => (
-              <CustomBtn key={item.id}>{item.text}</CustomBtn>
-            ))}
-          </Flex>
         </Flex>
       </Day>
       <CardWrapper $width={sidebarActive}>
@@ -70,12 +79,20 @@ export const Dashboard = () => {
           <CustomRadio value={1}>Include</CustomRadio>
           <CustomRadio value={2}>Exclude</CustomRadio>
         </Radio.Group>
-        <Flex gap={"small"} align="center" wrap={true}>
-          <CustomSelect option={option} placeholder="Name" />
-          <CustomSelect option={option} placeholder="Company" />
-          <CustomSelect option={option} placeholder="Violations" />
-          <CustomSelect option={option} placeholder="Date" />
-          <CustomSelect option={option} placeholder="Eld connection" />
+        <Flex gap={"small"} align="end" wrap={true}>
+          <CustomSelect option={option} placeholder="Name" width="200px" />
+          <CustomSelect option={option} placeholder="Company" width="200px" />
+          <CustomSelect
+            option={option}
+            placeholder="Violations"
+            width="200px"
+          />
+          <CustomSelect option={option} placeholder="Date" width="200px" />
+          <CustomSelect
+            option={option}
+            placeholder="Eld connection"
+            width="200px"
+          />
           <CustomSelect option={option} placeholder="Cycle" />
 
           <div>

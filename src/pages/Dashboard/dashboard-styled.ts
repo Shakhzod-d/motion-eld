@@ -6,13 +6,14 @@ export const Day = styled.div`
   width: 100%;
   display: flex;
   justify-content: end;
-  gap: 2px;
+  gap: 10px;
   margin-bottom: 10px;
+
 `;
 
 export const CustomBtn = styled(Button)`
   border-radius: 10px;
-  padding: 10px 20px;
+  padding: 1px 20px;
   height: 50px;
   justify-content: center;
   align-items: center;

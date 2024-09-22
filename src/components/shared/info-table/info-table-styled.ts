@@ -49,5 +49,8 @@ export const CardsTop = styled.div`
   padding: 20px 24px;
   color: #303030;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 400;
+  p{
+    fon
+  }
 `;

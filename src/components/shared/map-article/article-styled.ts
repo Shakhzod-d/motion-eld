@@ -2,8 +2,10 @@ import { Input } from "antd";
 import styled from "styled-components";
 
 export const CardArticle = styled.article`
-  height: calc(100vh - 260px);
-  // overflow-x: auto !important;
+  width: 460px !important;
+  height: calc(100vh - 175px);
+  overflow-y: auto !important;
+  // border: 1px solid red;
 `;
 export const Between = styled.div`
   display: flex;
@@ -19,6 +21,7 @@ export const StyleInput = styled(Input)`
   margin-bottom: 10px;
 `;
 export const Card = styled.div<{ $color: boolean }>`
+  width: 350px;
   border-radius: 10px;
   padding: 15px 10px 15px 15px;
   border: ${({ $color }) => ($color ? "1px solid #FC973A" : "")};
@@ -28,7 +31,7 @@ export const Card = styled.div<{ $color: boolean }>`
 `;
 export const Status = styled.div<{ $statusBg: string }>`
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 5px 5px;
 
   background: ${({ $statusBg }) =>
     $statusBg == "ON"
@@ -40,6 +43,7 @@ export const Status = styled.div<{ $statusBg: string }>`
       : "#32BE61"};
 
   color: #fff;
+  font-size: 12px;
 `;
 export const Title = styled.h3`
   font-weight: 590;

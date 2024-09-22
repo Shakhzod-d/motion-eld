@@ -25,7 +25,7 @@ interface Props {
 export const MapArticle = ({
   data,
   search = false,
-  width,
+
   setActive,
   active,
 }: Props) => {
@@ -41,7 +41,7 @@ export const MapArticle = ({
     setDataValue(filter);
   };
   return (
-    <CardArticle style={{ width }}>
+    <CardArticle>
       {search && <StyleInput prefix={<BsSearch />} onChange={searchData} />}
       {search || (
         <Flex>

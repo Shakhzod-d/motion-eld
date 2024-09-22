@@ -1,3 +1,4 @@
+import { FaAngleDown } from "react-icons/fa6";
 import { StyledSelect } from "./select-styled";
 interface Option {
   value: string;
@@ -24,6 +25,7 @@ export const CustomSelect = ({
       width={width}
       height={height}
       onChange={change}
+      suffixIcon={<FaAngleDown />}
     />
   );
 };
