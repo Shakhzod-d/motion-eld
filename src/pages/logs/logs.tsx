@@ -6,6 +6,7 @@ import { LogsTabPages } from "../../utils/constants";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { TransparentButton } from "../ifta-reports/ifta-reports-styled";
 import { useEffect } from "react";
+import { MdRestartAlt } from "react-icons/md";
 
 export const Logs = () => {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ export const Logs = () => {
             <NavLink to={item.to} key={item.key}>
               <TransparentButton
                 active={String(pathname.endsWith(item.to))}
-                padding="35px 20px"
+                padding="15px 35px"
               >
                 {item.label}
               </TransparentButton>
@@ -34,7 +35,10 @@ export const Logs = () => {
           ))}
         </Flex>
 
-        <TransparentButton padding="35px 20px">Reflash</TransparentButton>
+        <TransparentButton padding="15px 25px">
+          <MdRestartAlt />
+          Refresh
+        </TransparentButton>
       </Flex>
 
       <Outlet />

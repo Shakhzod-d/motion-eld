@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-import L  from "leaflet";
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet-routing-machine";
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css"; // Routing CSS
 import { useSelector } from "react-redux";
 import { MapWrapper } from "./map-styled";
 import { RootState } from "../../../store/store";
-
 
 interface Truck {
   id: number;
@@ -57,7 +56,7 @@ export function Map({ mapData, activeId }: Props) {
         ],
         routeWhileDragging: true, // Yo'lni yangilab turish
         lineOptions: {
-          styles: [{ color: "black", weight: "2" }], 
+          styles: [{ color: "black", weight: "2" }],
         },
       }).addTo(map);
 

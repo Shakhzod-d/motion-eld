@@ -339,7 +339,7 @@ export const Main = styled.main`
   max-width: 100vw;
   height: calc(100vh - 15px);
   background: #f3f3f4;
-  overflow: hidden;
+  overflow-x: hidden;
 `;
 
 export const OutletWrapper = styled.div`
@@ -364,14 +364,16 @@ export const InfoCard = styled.div<{ $active?: boolean; duration?: number }>`
     `
   display:flex;
   gap:40px;
+  user-select: none;
   align-items:center;
+  
   `}
   padding: ${({ $active }) => ($active ? "25px" : "15px 20px")};
   width: 517px;
   height: ${({ $active }) => ($active ? "244px" : "50px")};
   background: #fff;
   transition: height 1s ease, width 0.3s ease;
-  overflow: hidden;
+  overflow-x: auto;
   ${({ $active }) =>
     $active &&
     css`
