@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { TablePopup } from "../../ui";
 import {
+  BorderLBottom,
+  BorderLTop,
+  BorderRBottom,
+  BorderRTop,
   StatusBadge,
   TableContainer,
   TableData,
@@ -11,7 +15,8 @@ import {
 
 import { GoCopy } from "react-icons/go";
 import { toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
+import { Text } from "../../../utils/constants";
 type CustomObject = {
   [key: string]: string | number | JSX.Element;
   // $status?: string;
@@ -55,6 +60,7 @@ export const CustomTable = ({
     }
   }
   function PopupOpen<T extends number | null | string | undefined>(index: T) {
+    console.log(index);
     if (index == PopupActive) {
       setPopupActive(null);
     } else {
@@ -105,17 +111,40 @@ export const CustomTable = ({
           </tr>
         </thead>
         <tbody>
-          {data.map((row, index) => (
-            <TableRow key={index}>
-              {columns.map((column) => (
+          {data.map((row, element) => (
+            <TableRow key={element}>
+              {columns.map((column, index) => (
                 <TableData
+                  className={
+                    column.accessor.toLowerCase() == "warnings" &&
+                    "table_hover_elm "
+                  }
                   key={column.accessor}
                   color={colorFun(
                     row[column?.accessor]?.valueOf().toString().toLowerCase(),
                     column.accessor.toLowerCase()
                   )}
-                  onClick={() => tableDataHandler(index, column.accessor)}
+                  // onClick={() => tableDataHandler(element, column.accessor)}
                 >
+                  {index == 0 && (
+                    <>
+                      <BorderLBottom></BorderLBottom>
+                      <BorderLTop></BorderLTop>
+                    </>
+                  )}
+                  {column.accessor.toLowerCase() == "warnings" && (
+                    <div className="hover_container">
+                      <Text $font="600">1. Shift limit</Text>
+                      <Text $font="600">2. Cycle limit</Text>
+                      <Text $font="600">3. No signature</Text>
+                    </div>
+                  )}
+                  {columns.length - 1 == index && (
+                    <>
+                      <BorderRTop></BorderRTop>
+                      <BorderRBottom></BorderRBottom>
+                    </>
+                  )}
                   {status.includes(
                     String(row[column?.accessor]).toLowerCase()
                   ) ? (
@@ -125,9 +154,7 @@ export const CustomTable = ({
                   ) : (
                     row[column.accessor]
                   )}
-                  {column.accessor == "dots"
-                    ? PopupActive == index && <TablePopup />
-                    : ""}
+                  {PopupActive == column.id ? <TablePopup /> : ""}
                   {copyId == column.id ? (
                     <GoCopy
                       style={{ marginLeft: "20px " }}

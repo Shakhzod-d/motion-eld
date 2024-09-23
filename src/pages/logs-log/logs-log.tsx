@@ -24,12 +24,8 @@ export function LogsLog() {
           <Box>Search</Box>
         </Flex>
       </Flex>
-      <CustomTable
-        columns={LogsDataHeader}
-        data={LogsData}
-        colorId={6}
-        itemColor="red"
-      />
+
+      <CustomTable columns={LogsDataHeader} data={LogsData} />
     </>
   );
 }

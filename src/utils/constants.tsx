@@ -359,28 +359,30 @@ const expandAnimation = keyframes`
 `;
 
 export const InfoCard = styled.div<{ $active?: boolean; duration?: number }>`
-  flex: 0 0 500px;
+  width: 100%;
   border-radius: 15px;
   ${({ $active }) =>
     !$active &&
     `
   display:flex;
-  gap:40px;
+  gap:10px;
   user-select: none;
   align-items:center;
   
   `}
-  padding: ${({ $active }) => ($active ? "10px" : "10px 10px")};
-  width: 517px;
+  padding: ${({ $active }) => ($active ? "10px" : "10px 8px")};
+  max-width: 517px;
+  min-width:300px;
   height: ${({ $active }) => ($active ? "244px" : "50px")};
   background: #fff;
   transition: height 1s ease, width 0.3s ease;
-  overflow-x: auto;
-  ${({ $active }) =>
-    $active &&
-    css`
-      animation: ${expandAnimation} 0.6s ease-in;
-    `}
+  // overflow-x: auto;
+  flex-grow: calc(300px, 500px)
+    ${({ $active }) =>
+      $active &&
+      css`
+        animation: ${expandAnimation} 0.6s ease-in;
+      `};
 `;
 
 export const Box = styled.div`

@@ -10,6 +10,7 @@ import {
 } from "../../utils/index";
 import { Navbar } from "../../components/ui";
 
+
 export const IftaReports = () => {
   const [activeBtn, setActiveBtn] = useState<number>(1);
 
@@ -48,8 +49,9 @@ export const IftaReports = () => {
       </Flex>
 
       {/* Ifta Reports data table */}
-
-      <Table columns={IftaReportColData} dataSource={IftaReportData} />
+      
+        <Table columns={IftaReportColData} dataSource={IftaReportData} />
+   
     </Main>
   );
 };

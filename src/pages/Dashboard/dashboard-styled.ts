@@ -8,7 +8,6 @@ export const Day = styled.div`
   justify-content: end;
   gap: 10px;
   margin-bottom: 10px;
-
 `;
 
 export const CustomBtn = styled(Button)`
@@ -38,13 +37,14 @@ export const Title = styled.h2`
 `;
 
 export const CardWrapper = styled.div<{ $width: boolean }>`
-  display: flex;
-  width: 100vw !important;
+  width: 100%;
   max-width: ${({ $width }) =>
     $width ? "calc( 100vw - 300px )" : "calc( 100vw - 150px )"};
   margin-bottom: 40px;
 
-  overflow: auto;
+  display: grid;
+  grid-template-columns: 0.8fr 1fr 1.05fr 40px;
+
   align-items: end;
   ${({ $width }) => (!$width ? "justify-content:space-between" : "")};
   gap: 10px;
@@ -86,50 +86,11 @@ export const SelectWrapper = styled.div`
   gap: 20px;
   margin-bottom: 20px;
 `;
-
 export const TableWrapper = styled.div`
   height: calc(100vh - 505px);
   overflow-x: auto;
-
-  * {
-    border-bottom: none !important;
-    background: transparent !important;
-    position: relative !important;
-  }
-  thead {
-    * {
-      color: #5d5e5f !important;
-      font-size: 14px !important;
-    }
-  }
-  tbody {
-    gap: 10px !important;
-    flex-wrap: wrap !important;
-    tr {
-      border-radius: 10px !important;
-      overflow: hidden !important;
-      border-bottom: 5px solid #f3f3f4 !important;
-      position: relative !important;
-
-      * {
-        position: relative !important;
-        z-index: 10 !important;
-      }
-
-      &:after {
-        content: "";
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        background: #fff !important;
-        border-radius: 10px !important;
-        z-index: 1 !important;
-      }
-    }
-  }
 `;
+
 export const ArrowIcon = styled.div<{ $active: boolean }>`
   ${({ $active }) => $active && `transform: rotate(180deg)`};
 `;

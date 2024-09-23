@@ -6,8 +6,9 @@ import { GrUserAdmin } from "react-icons/gr";
 import { Item, ItemTitle, Title } from "./drivers-style";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
-import { Text } from "../../../utils/constants";
+
 import { Flex } from "antd";
+import { ChartText } from "../overview-card/overview-styled";
 
 export const Drivers = () => {
   const active = useSelector(
@@ -18,7 +19,7 @@ export const Drivers = () => {
       {active ? (
         <>
           <Title>Drivers</Title>
-          <div style={{ display: "flex", gap: "50px" }}>
+          <div style={{ display: "flex", gap: "10px" }}>
             <Item>
               <FaPowerOff
                 color="#b0b0b9"
@@ -54,21 +55,13 @@ export const Drivers = () => {
           </div>
         </>
       ) : (
-        <Flex gap={"90px"} align="center">
-          <Text $font="600">Drivers</Text>
-          <Flex gap={"25px"} align="center">
-            <Text $font="500" color="#5D5E5F">
-              Off duty 12
-            </Text>
-            <Text $font="500" color="#3DA8D5">
-              On duty 4
-            </Text>
-            <Text $font="500" color="#32BE61">
-              Driving 6
-            </Text>
-            <Text $font="500" color="#FC973A">
-              Sleeping 0
-            </Text>
+        <Flex gap={"20px"} align="center">
+          <ChartText>Drivers</ChartText>
+          <Flex gap={"small"} align="center" justify="space-between">
+            <ChartText $clr="#5D5E5F">Off duty 12</ChartText>
+            <ChartText $clr="#3DA8D5">On duty 4</ChartText>
+            <ChartText $clr="#32BE61">Driving 6</ChartText>
+            <ChartText $clr="#FC973A">Sleeping 0</ChartText>
           </Flex>
         </Flex>
       )}
