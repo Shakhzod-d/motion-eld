@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
-import { Button, Checkbox, TableProps } from "antd";
-import { IftaReportColumns } from "../types";
+import { Button, Checkbox,  } from "antd";
+
 import styled, { keyframes, css } from "styled-components";
 import { StatusBadge } from "../components/shared/custom-table/custom-styled";
 import { MdCheckBoxOutlineBlank, MdModeEdit } from "react-icons/md";
@@ -148,63 +148,31 @@ export const unitsButtons = [
   { id: 2, text: "Deactivated" },
 ];
 
-export const IftaReportColData: TableProps<IftaReportColumns>["columns"] = [
+export const IftaReportColData = [
   {
-    title: "Vehicle",
-    dataIndex: "vehicle",
-    key: "vehicle",
+    header: "Vehicle",
+    accessor: "vehicle",
+    id: 1,
   },
   {
-    title: "State",
-    dataIndex: "state",
-    key: "state",
+    header: "State",
+    accessor: "state",
+    id: 2,
   },
   {
-    title: "Melis",
-    dataIndex: "melis",
-    key: "melis",
+    header: "Melis",
+    accessor: "melis",
+    id: 3,
   },
 ];
 
 export const IftaReportData = [
   {
-    key: "0",
     vehicle: "143",
     state: "AD",
     melis: "43",
   },
   {
-    key: "1",
-    vehicle: "143",
-    state: "AD",
-    melis: "43",
-  },
-  {
-    key: "2",
-    vehicle: "143",
-    state: "AD",
-    melis: "43",
-  },
-  {
-    key: "4",
-    vehicle: "143",
-    state: "AD",
-    melis: "43",
-  },
-  {
-    key: "5",
-    vehicle: "143",
-    state: "AD",
-    melis: "43",
-  },
-  {
-    key: "6",
-    vehicle: "143",
-    state: "AD",
-    melis: "43",
-  },
-  {
-    key: "7",
     vehicle: "143",
     state: "AD",
     melis: "43",
@@ -288,7 +256,7 @@ export const Between = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-export const unitsData = Array(10).fill({
+export const unitsData = Array(4).fill({
   id: "1",
   vehicle: 152,
   drivers: "Davit Kiknavelidze",
@@ -372,7 +340,7 @@ export const InfoCard = styled.div<{ $active?: boolean; duration?: number }>`
   `}
   padding: ${({ $active }) => ($active ? "10px" : "10px 8px")};
   max-width: 517px;
-  min-width:300px;
+  min-width: 300px;
   height: ${({ $active }) => ($active ? "244px" : "50px")};
   background: #fff;
   transition: height 1s ease, width 0.3s ease;

@@ -25,7 +25,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { sidebarToggle } from "../../../store/booleans-slice";
 import { Text } from "../../../utils/constants";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const items = [
   {
@@ -73,7 +73,11 @@ export const Sidebar = () => {
   return (
     <SidebarContainer $active={active}>
       <StyleFlex align="center" justify="space-between" $active={active}>
-        {active && <StyleLogo src={Logo} alt="" />}
+        {active && (
+          <Link to={"/"}>
+            <StyleLogo src={Logo} alt="" />
+          </Link>
+        )}
         <ArrowBtn $active={active} onClick={() => tabBtnFun(0)}>
           <MdOutlineKeyboardDoubleArrowRight color="white" size={25} />
         </ArrowBtn>

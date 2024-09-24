@@ -1,5 +1,5 @@
 import { IoMoonOutline, IoNotificationsOutline } from "react-icons/io5";
-import { Header, Title } from "./navbar-styled";
+import { Header, Icon, Title } from "./navbar-styled";
 
 import { Flex } from "antd";
 import { CustomInput } from "../custom-input";
@@ -12,9 +12,13 @@ export const Navbar = ({ title }: Props) => {
     <Header>
       <Title>{title}</Title>
       <Flex align="center" gap={"20px"}>
-        <CustomInput type="search"/>
-        <IoMoonOutline size={30} />
-        <IoNotificationsOutline size={30} />
+        <CustomInput type="search" />
+        <Icon>
+          <IoMoonOutline size={30} />
+        </Icon>
+        <Icon>
+          <IoNotificationsOutline size={30} />
+        </Icon>
       </Flex>
     </Header>
   );

@@ -2,7 +2,7 @@ import { Input } from "antd";
 import styled from "styled-components";
 
 export const CardArticle = styled.article`
-  width: 460px !important;
+  width: 470px !important;
   height: calc(100vh - 175px);
   overflow-y: auto !important;
   // border: 1px solid red;

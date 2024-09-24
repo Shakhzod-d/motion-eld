@@ -18,14 +18,14 @@ export const Login = () => {
   return (
     <Main>
       <img
-        src="../../src/assets/images/loginBg.png"
+        src="/src/assets/images/loginBg.png"
         alt="photo"
         style={{ width: "50%", borderRadius: "20px" }}
       />
       <FromWrapper>
         <StyledForm autoComplete="off" onFinish={onFinish}>
           <img
-            src="../../src/assets/icons/logo.svg"
+            src="/src/assets/icons/logo.svg"
             alt="logo"
             style={{ marginBottom: "20px" }}
           />
