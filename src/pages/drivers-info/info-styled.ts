@@ -27,11 +27,13 @@ export const Text = styled.p<{ size?: number; $font?: string; color?: string }>`
 `;
 
 export const Wrapper = styled.div`
+  width: 100%;
   height: 840px;
-  overflow: auto;
+  overflow-x: auto;
+  padding-bottom: 40px;
 `;
 export const FlexWrapper = styled(Flex)`
-margin-bottom:20px;
+  margin-bottom: 20px;
 `;
 export const Btn = styled(Button)<{ $bg?: string }>`
   border-radius: 10px;
@@ -43,5 +45,5 @@ export const Btn = styled(Button)<{ $bg?: string }>`
     background: ${({ $bg = "#ADADB8" }) => $bg} !important;
     opacity: 0.8;
   }
-    box-shadow:none;
+  box-shadow: none;
 `;

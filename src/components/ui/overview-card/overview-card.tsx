@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import { InfoCard } from "../../../utils/index";
-import { Item, Title, Value, Wrapper } from "./overview-styled";
+import { Item, Title, Value, Wrapper, ChartText } from "./overview-styled";
 import { RootState } from "../../../store/store";
 import { Flex } from "antd";
-import { Text } from "../../../utils/constants";
+
 
 export const OverviewCard = () => {
   const active = useSelector(
@@ -39,20 +39,22 @@ export const OverviewCard = () => {
           </Wrapper>
         </>
       ) : (
-        <Flex gap={"50px"} align="center">
-          <Text $font="600">Overview</Text>
+        <Flex gap={"15px"} align="center">
+          <ChartText $size="16px">Overview</ChartText>
           <Flex gap={"middle"} align="center">
             <Flex gap={"small"}>
-              <Text color="#32BE61">38</Text>
-              <Text color="#5D5E5F">Active drivers</Text>
+              <ChartText $clr="#32BE61">38</ChartText>
+              <ChartText $clr="#5D5E5F">
+                Active drivers
+              </ChartText>
             </Flex>
             <Flex gap={"small"}>
-              <Text color="#EF3E2D">44</Text>
-              <Text color="#5D5E5F">Active vehicles</Text>
+              <ChartText $clr="#EF3E2D">44</ChartText>
+              <ChartText $clr="#5D5E5F">Active vehicles</ChartText>
             </Flex>
             <Flex gap={"small"}>
-              <Text color="#FC973A">890</Text>
-              <Text color="#5D5E5F">Inspection</Text>
+              <ChartText $clr="#FC973A">890</ChartText>
+              <ChartText $clr="#5D5E5F">Inspection</ChartText>
             </Flex>
           </Flex>
         </Flex>

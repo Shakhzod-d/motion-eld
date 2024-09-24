@@ -21,8 +21,8 @@ import {
   Day,
   SelectWrapper,
   Title,
-  TableWrapper,
   CustomRadio,
+  TableWrapper,
 } from "./dashboard-styled";
 
 export const Dashboard = () => {
@@ -122,12 +122,7 @@ export const Dashboard = () => {
         </Flex>
       </SelectWrapper>
       <TableWrapper>
-        <CustomTable
-          columns={dashboardTableHeader}
-          data={dataSource}
-          colorId={2}
-          itemColor="red"
-        />
+        <CustomTable columns={dashboardTableHeader} data={dataSource} />
       </TableWrapper>
     </Main>
   );

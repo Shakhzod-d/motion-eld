@@ -17,8 +17,6 @@ export function LogsDrivers() {
         columns={LogsDriverDataHeader}
         data={LogsDriverData}
         onClick={driversInfoHandler}
-        colorId={7}
-        itemColor="red"
       />
     </>
   );

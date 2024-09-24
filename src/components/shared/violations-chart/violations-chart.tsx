@@ -5,6 +5,7 @@ import { Text } from "../../../utils/constants";
 import { Flex, Progress } from "antd";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
+import { ChartText } from "../../ui/overview-card/overview-styled";
 
 export const ViolationsChart = () => {
   const active = useSelector(
@@ -15,39 +16,31 @@ export const ViolationsChart = () => {
       <InfoCard $active={active}>
         {active || (
           <>
-            <Text>Violations Chart</Text>
+            <ChartText>Violations Chart</ChartText>
             <Flex gap={"middle"} align="center">
               <Flex gap={"small"} align="center">
-                <Text size={14} color="#EF3E2D" $font="500">
-                  Violations
-                </Text>
+                <ChartText $clr="#EF3E2D">Violations</ChartText>
                 <Progress
                   type="dashboard"
                   percent={20}
-                  size={24}
+                  size={22}
                   strokeWidth={22}
                   showInfo={false}
                   strokeColor={"#EF3E2D"}
                 />
-                <Text size={14} $font="600">
-                  2 ( 20% )
-                </Text>
+                <ChartText>2 ( 20% )</ChartText>
               </Flex>
               <Flex gap={"small"} align="center">
-                <Text size={14} color="#FC973A" $font="500">
-                  Signature
-                </Text>
+                <ChartText $clr="#FC973A">Signature</ChartText>
                 <Progress
                   type="dashboard"
                   percent={80}
-                  size={24}
+                  size={22}
                   strokeWidth={22}
                   showInfo={false}
                   strokeColor={"#FC973A"}
                 />
-                <Text size={14} $font="600">
-                  8 ( 80% )
-                </Text>
+                <ChartText $media_siz="10px">8 ( 80% )</ChartText>
               </Flex>
             </Flex>
           </>

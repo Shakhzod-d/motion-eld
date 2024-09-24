@@ -18,8 +18,49 @@
 body {
   background: #19223f;
   overflow: hidden;
-
-
+}
+.hover_container {
+  position: absolute;
+  border-radius: 10px;
+  padding: 16px 10px;
+  width: 173px;
+  height: 109px;
+  backdrop-filter: blur(80px);
+  box-shadow: 0 10px 60px 0 rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.97);
+  z-index: 9999;
+  bottom: 80px;
+  left: -20px;
+  &:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 30px solid rgba(255, 255, 255, 0.97);
+    transform: rotate(180deg);
+    border-radius: 20px;
+    margin: 20px;
+    bottom: -35px;
+    left: 35px;
+    z-index: -1;
+    box-shadow: 0 10px 60px 0 rgba(0, 0, 0, 0.1);
+  }
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  color: black;
+}
+.table_hover_elm {
+  &:hover {
+    .hover_container {
+      display: flex;
+    }
+  }
 }
 
 a {

@@ -4,6 +4,9 @@ export const Wrapper = styled.div`
   display: flex;
   gap: 56px;
   justify-content: center;
+  @media (max-width: 1500px) {
+    gap: 30px;
+  }
 `;
 export const Value = styled.p`
   font-weight: 590;
@@ -19,4 +22,17 @@ export const Item = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+export const ChartText = styled.p<{
+  $clr?: string;
+  $size?: string;
+  $media_siz?: string;
+}>`
+  font-size: ${({ $size }) => $size};
+  color: ${({ $clr }) => $clr};
+  font-weight: 500;
+  @media (max-width: 1480px) {
+    font-size: ${({ $media_siz = "13px" }) => $media_siz};
+  }
 `;
