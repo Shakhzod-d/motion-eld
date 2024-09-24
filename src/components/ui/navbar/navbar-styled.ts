@@ -14,3 +14,6 @@ export const Title = styled.h2`
   letter-spacing: -0.01em;
   color: #000;
 `;
+export const Icon = styled.div`
+cursor:pointer;
+`;

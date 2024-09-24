@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Flex, Table } from "antd";
+import { Flex,  } from "antd";
 import { ReportsSelect, TransparentButton } from "./ifta-reports-styled";
 import {
   IftaReportButtons,
@@ -9,7 +9,7 @@ import {
   Main,
 } from "../../utils/index";
 import { Navbar } from "../../components/ui";
-
+import { CustomTable } from "../../components/shared";
 
 export const IftaReports = () => {
   const [activeBtn, setActiveBtn] = useState<number>(1);
@@ -49,9 +49,8 @@ export const IftaReports = () => {
       </Flex>
 
       {/* Ifta Reports data table */}
-      
-        <Table columns={IftaReportColData} dataSource={IftaReportData} />
-   
+
+      <CustomTable columns={IftaReportColData} data={IftaReportData} />
     </Main>
   );
 };
