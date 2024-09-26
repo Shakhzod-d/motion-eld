@@ -19,6 +19,7 @@ export { DriversAddModal } from "./drivers-add-modal";
 export { ManageUserModal } from "./manage-user-modal";
 export { CompanyModal } from "./company-page-modal";
 export { Map } from "./map";
+export { TrackingMap } from "./tracking-map";
 export {
   Normalize,
   UpdateModal,

@@ -1,8 +1,12 @@
 import styled from "styled-components";
 export const Wrapper = styled.main`
   width: 100%;
-  display: flex;
-  gap: 10px;
+  // display: flex;
+  flex-direction: column;
+  gap: 50px;
+  height: calc(100vh - 175px);
+  // border: 1px solid red;
+  overflow-x: auto;
 `;
 
 export const Map = styled.div<{ $active: boolean }>`
@@ -13,4 +17,10 @@ export const Map = styled.div<{ $active: boolean }>`
   border-radius: 10px;
   padding: 10px;
   height: calc(100vh - 270px);
+`;
+
+export const Div = styled.div`
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
 `;

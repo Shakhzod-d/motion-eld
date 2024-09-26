@@ -18,6 +18,8 @@ import {
   Users,
   TabCompany,
   CompanyUsers,
+  ApiKeys,
+  Histories,
 } from "./pages";
 import Layout from "./components/shared/layout";
 
@@ -33,6 +35,8 @@ function App() {
           <Route path="manage-company" element={<ManageCompany />}>
             <Route path="company" element={<TabCompany />} />
             <Route path="users" element={<CompanyUsers />} />
+            <Route path="keys" element={<ApiKeys />} />
+            <Route path="histories" element={<Histories />} />
           </Route>
           <Route path="drivers" element={<Drivers />} />
           <Route path="transfer" element={<Transfer />} />
@@ -41,9 +45,8 @@ function App() {
           <Route path="logs" element={<Logs />}>
             <Route path="map" element={<LogsMap />} />
             <Route path="logs" element={<LogsLog />} />
-            <Route path="drivers" element={<LogsDrivers />}>
-            </Route>
-              <Route path="info" element={<DriversInfo />} />
+            <Route path="drivers" element={<LogsDrivers />}></Route>
+            <Route path="info" element={<DriversInfo />} />
             <Route path="violation" element={<Violation />} />
             <Route path="tracking" element={<Trackings />} />
           </Route>

@@ -27,9 +27,9 @@ export const Div = styled.div`
 
 export const AddBtn = styled(Button)`
   border-radius: 16px;
-  padding: 6px 7px;
-  width: 34px !important;
-  height: 33px !important;
+  padding: 6px 7px !important;
+  width: 55px !important;
+  height: 30px !important;
   background: #adadb8;
   color: #fff;
 `;
@@ -44,7 +44,7 @@ export const UploadBtn = styled.div`
   justify-content: center;
   align-items: center;
   gap: 5px;
-  margin-bottom:20px;
+  margin-bottom: 20px;
 `;
 
 export const Note = styled.textarea`

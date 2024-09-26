@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -23,9 +23,10 @@ interface Truck {
 interface Props {
   mapData: Truck[];
   activeId: number;
+  height?: string;
 }
 
-export function Map({ mapData, activeId }: Props) {
+export function Map({ mapData, activeId, height }: Props) {
   const [activeTruck, setActiveTruck] = useState<Truck | undefined>(
     mapData.find((truck) => truck.id === activeId)
   );
@@ -81,7 +82,7 @@ export function Map({ mapData, activeId }: Props) {
   }, [activeTruck]);
 
   return (
-    <MapWrapper $active={sidebarActive}>
+    <MapWrapper $active={sidebarActive} $height={height}>
       <Maps id="map"></Maps>
     </MapWrapper>
   );
