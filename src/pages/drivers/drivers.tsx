@@ -9,7 +9,7 @@ import {
 } from "../units/units-styled";
 import { Flex, Modal } from "antd";
 import { driverColumns, driversData, Main } from "../../utils";
-import { Navbar } from "../../components/ui";
+import { CustomSelect, Navbar } from "../../components/ui";
 import { CustomTable } from "../../components/shared";
 import { BtnWrap, ActiveBtn, DefaultBtn } from "./styled";
 
@@ -54,33 +54,42 @@ export const Drivers = () => {
           <Flex gap={10}>
             <ModalInput placeholder="Password*" />
             <ModalInput placeholder="Phone No*" type="tel" />
-            <ModalSelect
-              defaultValue={"default"}
-              options={[{ value: "default", label: "Vehicle ID" }]}
+            <CustomSelect 
+              placeholder="default"
+              option={[{ value: "default", label: "Vehicle ID" }]}
+              width="50%"
             />
             <ModalInput placeholder="Driver's License No*" />
           </Flex>
           <Flex gap={10}>
-            <ModalSelect
-              defaultValue={"default"}
-              options={[
+            <CustomSelect
+              placeholder="default"
+              option={[
                 { value: "default", label: "Driver's License Issuing State*" },
               ]}
+              width="50%"
+              height={70}
             />
             <ModalInput placeholder="Home Terminal Address*" />
-            <ModalSelect
-              defaultValue={"default"}
-              options={[{ value: "default", label: "CO Driver" }]}
+            <CustomSelect
+              placeholder={"default"}
+              option={[{ value: "default", label: "CO Driver" }]}
+              width="50%"
+              height={70}
             />
-            <ModalSelect
-              defaultValue={"default"}
-              options={[{ value: "default", label: "Colors" }]}
+            <CustomSelect
+              placeholder={"default"}
+              option={[{ value: "default", label: "Colors" }]}
+              width="50%"
+              height={70}
             />
           </Flex>
           <Flex gap={10}>
-            <ModalSelect
-              defaultValue={"default"}
-              options={[{ value: "default", label: "Address 1" }]}
+            <CustomSelect
+              placeholder={"default"}
+              option={[{ value: "default", label: "Address 1" }]}
+              width="50%"
+              height={70}
             />
             <ModalInput placeholder="Address 2" />
             <ModalInput placeholder="City" />
