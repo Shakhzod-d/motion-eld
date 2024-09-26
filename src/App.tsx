@@ -27,18 +27,16 @@ function App() {
   return (
     <>
       <Routes>
-        <Route>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Dashboard />} />
-            <Route path="company" element={<Company />} />
-            <Route path="units" element={<Units />} />
-            <Route path="ifta-reports" element={<IftaReports />} />
-            <Route path="manage-company" element={<ManageCompany />}>
-              <Route path="company" element={<TabCompany />} />
-              <Route path="users" element={<CompanyUsers />} />
-              <Route path="keys" element={<ApiKeys />} />
-              <Route path="histories" element={<Histories />} />
-            </Route>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="company" element={<Company />} />
+          <Route path="units" element={<Units />} />
+          <Route path="ifta-reports" element={<IftaReports />} />
+          <Route path="manage-company" element={<ManageCompany />}>
+            <Route path="company" element={<TabCompany />} />
+            <Route path="users" element={<CompanyUsers />} />
+            <Route path="keys" element={<ApiKeys />} />
+            <Route path="histories" element={<Histories />} />
           </Route>
           <Route path="drivers" element={<Drivers />} />
           <Route path="transfer" element={<Transfer />} />

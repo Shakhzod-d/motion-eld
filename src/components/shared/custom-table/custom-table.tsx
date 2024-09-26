@@ -17,6 +17,7 @@ import { GoCopy } from "react-icons/go";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Text } from "../../../utils/constants";
+import { Pagination } from "antd";
 type CustomObject = {
   [key: string]: string | number | JSX.Element;
   // $status?: string;
@@ -35,15 +36,13 @@ interface TableProps {
   colorId?: number | string;
   onClick?: <T>(id: T) => void;
   copyId?: number;
+  pagination?: true | false;
+  pTotal?: number;
 }
 
 const status = ["sb", "off", "dr", "on"];
-export const CustomTable = ({
-  columns,
-  data,
-  onClick,
-  copyId = 0,
-}: TableProps) => {
+export const CustomTable = (props: TableProps) => {
+  const { columns, data, onClick, copyId = 0, pagination, pTotal } = props;
   const [PopupActive, setPopupActive] = useState<
     number | null | string | undefined
   >(null);
@@ -124,7 +123,7 @@ export const CustomTable = ({
                     row[column?.accessor]?.valueOf().toString().toLowerCase(),
                     column.accessor.toLowerCase()
                   )}
-                  // onClick={() => tableDataHandler(element, column.accessor)}
+                  onClick={() => tableDataHandler(element, column.accessor)}
                 >
                   {index == 0 && (
                     <>
@@ -169,6 +168,7 @@ export const CustomTable = ({
           ))}
         </tbody>
       </TableElement>
+      {pagination && <Pagination total={pTotal} defaultCurrent={1} />}
     </TableContainer>
   );
 };
