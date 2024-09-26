@@ -11,7 +11,7 @@ import {
 } from "./units-styled";
 import { Flex, Modal } from "antd";
 import { Main, unitsButtons, unitsColumns, unitsData } from "../../utils/index";
-import { Navbar } from "../../components/ui";
+import { CustomSelect, Navbar } from "../../components/ui";
 import { TransparentButton } from "../ifta-reports/ifta-reports-styled";
 import { CustomTable } from "../../components/shared";
 
@@ -55,35 +55,44 @@ export const Units = () => {
         <Flex vertical gap={10}>
           <Flex justify="space-between" gap="10px">
             <ModalInput placeholder="Vehicle ID" type="number" />
-            <ModalSelect
-              defaultValue={"default"}
-              options={[{ value: "default", label: "Makes" }]}
+            <CustomSelect
+              placeholder={"default"}
+              option={[{ value: "default", label: "Makes" }]}
+              width="50%"
+              height={70}
             />
           </Flex>
           <Flex justify="space-between" gap="10px">
-            <ModalSelect
-              defaultValue={"default"}
-              options={[{ value: "default", label: "Models" }]}
+            <CustomSelect
+              placeholder={"default"}
+              option={[{ value: "default", label: "Models" }]}
+              width="50%"
+              height={70}
             />
             <ModalInput placeholder="Licensec Plate No" type="number" />
           </Flex>
           <Flex justify="space-between" gap="10px">
-            <ModalSelect
-              defaultValue={"default"}
-              options={[
+            <CustomSelect
+              placeholder={"default"}
+              option={[
                 { value: "default", label: "Licensec Plate Issuing State" },
               ]}
+              width="50%"
+              height={70}
             />
-            <ModalSelect
-              defaultValue={"default"}
-              options={[{ value: "default", label: "Year" }]}
+            <CustomSelect
+              placeholder={"default"}
+              option={[{ value: "default", label: "Year" }]}
+              width="50%"
+              height={70}
             />
           </Flex>
           <Flex>
-            <ModalSelect
-              defaultValue={"default"}
-              options={[{ value: "default", label: "Fuel Type" }]}
-              style={{ width: "100%" }}
+            <CustomSelect
+              placeholder={"default"}
+              option={[{ value: "default", label: "Fuel Type" }]}
+              width="100%"
+              height={70}
             />
           </Flex>
           <ModalTextArea placeholder="Notes" />
