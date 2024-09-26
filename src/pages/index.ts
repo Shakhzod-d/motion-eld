@@ -16,3 +16,5 @@ export { DriversInfo } from "./drivers-info";
 export { Users } from "./users-page";
 export { TabCompany } from "./tab-company";
 export { CompanyUsers } from "./company-users";
+export { ApiKeys } from "./api-keys";
+export { Histories } from "./histories";

@@ -30,15 +30,14 @@ export function DriversInfo() {
         <Btn type="primary">Deactivate</Btn>
       </FlexWrapper>
 
-    
       <div style={{ marginBottom: "40px" }}>
-          <CustomTable
-            columns={driversTableHeader}
-            data={driversTableData}
-            copyId={5}
-          />
+        <CustomTable
+          columns={driversTableHeader}
+          data={driversTableData}
+          copyId={5}
+        />
       </div>
-     
+
       <DriversForm />
       <TripPlanner />
     </Wrapper>

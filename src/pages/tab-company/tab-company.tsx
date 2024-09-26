@@ -1,4 +1,3 @@
-import { BiPlus } from "react-icons/bi";
 import {
   AddBtn,
   CustomInput,
@@ -10,6 +9,7 @@ import {
 } from "./styled";
 import { TiDownload } from "react-icons/ti";
 import { Text } from "../../utils/constants";
+import { FaPlus } from "react-icons/fa6";
 
 export const TabCompany = () => {
   return (
@@ -28,7 +28,7 @@ export const TabCompany = () => {
           <CustomInput />
         </Div>
         <AddBtn type="primary">
-          <BiPlus />
+          <FaPlus />
         </AddBtn>
       </StyleFlex>
 
@@ -89,10 +89,10 @@ export const TabCompany = () => {
         </Div>
       </StyleFlex>
       <UploadBtn>
-      <TiDownload />
-      <Text> Upload company logo</Text>
+        <TiDownload />
+        <Text> Upload company logo</Text>
       </UploadBtn>
-      <Note placeholder="Note"/>
+      <Note placeholder="Note" />
     </div>
   );
 };

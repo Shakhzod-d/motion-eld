@@ -31,7 +31,7 @@ export const ManageCompany = () => {
             <NavLink to={item.to} key={item.key}>
               <TransparentButton
                 active={String(pathname.endsWith(item.to))}
-                padding="35px 20px"
+                padding="25px 10px"
               >
                 {item.label}
               </TransparentButton>
