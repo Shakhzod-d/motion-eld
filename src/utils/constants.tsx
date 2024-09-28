@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { Button, Checkbox, TableProps } from "antd";
+import { Button, Checkbox, TableProps, TimePicker } from "antd";
 import { IftaReportColumns } from "../types";
 import styled, { keyframes, css } from "styled-components";
 import { StatusBadge } from "../components/shared/custom-table/custom-styled";
@@ -31,6 +31,56 @@ export const Text = styled.p<{
   display: flex;
   margin-bottom: ${({ $mb }) => $mb};
   line-height: ${({ $line }) => $line};
+`;
+
+export const TimePickerInput = styled(TimePicker)`
+  width: 100%;
+  padding: 20px 25px;
+  max-height: 69px;
+  border-radius: 10px;
+  background: #f9f9fa;
+
+  .ant-picker-footer {
+    display: none !important;
+  }
+  .ant-picker-panel {
+    position: relative !important;
+    &:before {
+      content: "" !important;
+      position: absolute !important;
+      z-index: 1000000 !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 40px !important;
+      background: linear-gradient(to bottom, #f0f0f0, #fff) !important;
+      opacity: 0.7 !important;
+    }
+  }
+
+  li.ant-picker-time-panel-cell-selected .ant-picker-time-panel-cell-inner {
+    background: #f4f4f0 !important;
+
+    * {
+      background: transparent !important;
+    }
+  }
+  .ant-picker-time-panel-column {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    height: 100% !important;
+    margin-top: 50%;
+  }
+  * {
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+    border-inline-start: 0 !important;
+  }
+  .ant-picker-suffix {
+    display: none;
+  }
 `;
 
 export const driversData = [
