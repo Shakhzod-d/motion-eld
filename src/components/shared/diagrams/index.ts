@@ -1,1 +1,1 @@
-export  {Diagrams} from     "./diagrams"
+export  {Diagrams} from "./diagrams"

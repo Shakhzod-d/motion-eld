@@ -18,3 +18,27 @@ export const CustomButton = styled(Button)`
   height: 59px;
   background: #f3f3f4;
 `;
+
+export const CustomContainer = styled.div`
+  display: flex;
+  width: 100%;
+  position: relative;
+`
+
+export const StyledImage = styled.img`
+  postion: absolute;
+  width: 100%;
+  height: auto;
+  z-index: 1
+`;
+
+export const ChartWrapper = styled.div`
+  position: absolute;
+  top: 58.1%;
+  left: 50.6%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  border-radius: 8px;
+  text-align: center;
+  z-index: 2
+`;
