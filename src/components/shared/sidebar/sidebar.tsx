@@ -46,6 +46,11 @@ const items = [
   {
     key: 3,
     icon: <VscFileSubmodule />,
+    label: "Notification",
+  },
+  {
+    key: 4,
+    icon: <VscFileSubmodule />,
     label: "Fleet manager",
     page: [
       { id: 1, text: " -  Units", url: "/units" },

@@ -2,10 +2,11 @@ import { Input } from "antd";
 import styled from "styled-components";
 
 export const CardArticle = styled.article`
-  width: 470px !important;
+  width: 100%;
+  max-width: 360px !important;
   height: calc(100vh - 175px);
   overflow-y: auto !important;
-  // border: 1px solid red;
+
 `;
 export const Between = styled.div`
   display: flex;
@@ -15,13 +16,13 @@ export const Between = styled.div`
 export const StyleInput = styled(Input)`
   border-radius: 10px;
   padding: 10px 15px;
-  width: 350px;
+  // max-width: 350px;
   height: 44px;
   position: sticky;
   margin-bottom: 10px;
 `;
 export const Card = styled.div<{ $color: boolean }>`
-  width: 350px;
+  // max-width: 350px;
   border-radius: 10px;
   padding: 15px 10px 15px 15px;
   border: ${({ $color }) => ($color ? "1px solid #FC973A" : "")};

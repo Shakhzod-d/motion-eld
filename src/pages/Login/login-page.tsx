@@ -15,7 +15,7 @@ import { errorMessage } from "../../utils/message";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 export const Login = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
   const error = (message: string) => {
     messageApi.open({
@@ -28,13 +28,12 @@ export const Login = () => {
   const onFinish = (values: unknown) => {
     setLoading(true);
     const data = values as LoginData;
-    console.log(data);
 
     loginMutation.mutate(data, {
       onSuccess: (res: ILoginData) => {
         setLoading(false);
         const { data } = res;
-        navigate("/")
+        navigate("/");
         setLocalStorage("token", data?.token);
         // const role: IUserRole = data.role;
 
@@ -85,7 +84,7 @@ export const Login = () => {
       />
       {contextHolder}
       <FromWrapper>
-        <StyledForm autoComplete="off" onFinish={onFinish}>
+        <StyledForm autoComplete="off" onFinish={onFinish} name="email_form">
           <img
             src="/src/assets/icons/logo.svg"
             alt="logo"
@@ -94,9 +93,18 @@ export const Login = () => {
           <Label htmlFor="">Login</Label>
           <Form.Item
             name={"email"}
-            rules={[{ required: true, message: "Please input your login!" }]}
+            rules={[
+              {
+                required: true,
+                message: "Please input your login!",
+              },
+              {
+                pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                message: 'Please enter a valid email address!',
+              },
+            ]}
           >
-            <StyledInput placeholder="Inter login" type="email" />
+            <StyledInput placeholder="Inter login" type="" />
           </Form.Item>
           <Label htmlFor="">Password</Label>
           <Form.Item

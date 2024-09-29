@@ -3,12 +3,13 @@ import { FaPowerOff } from "react-icons/fa";
 import { TbMoonStars } from "react-icons/tb";
 import { BsTruck } from "react-icons/bs";
 import { GrUserAdmin } from "react-icons/gr";
-import { Item, ItemTitle, Title } from "./drivers-style";
+import { ActiveCard, Item, ItemTitle } from "./drivers-style";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 
-import { Flex } from "antd";
+
 import { ChartText } from "../overview-card/overview-styled";
+import { Text } from "../../../utils/constants";
 
 export const Drivers = () => {
   const active = useSelector(
@@ -18,8 +19,8 @@ export const Drivers = () => {
     <InfoCard $active={active}>
       {active ? (
         <>
-          <Title>Drivers</Title>
-          <div style={{ display: "flex", gap: "10px" }}>
+          <Text $mb="60px">Drivers</Text>
+          <ActiveCard>
             <Item>
               <FaPowerOff
                 color="#b0b0b9"
@@ -52,18 +53,18 @@ export const Drivers = () => {
               <ItemTitle>Sleeping</ItemTitle>
               <b style={{ fontSize: "20px" }}>0</b>
             </Item>
-          </div>
+          </ActiveCard>
         </>
       ) : (
-        <Flex gap={"20px"} align="center">
+        <ActiveCard >
           <ChartText>Drivers</ChartText>
-          <Flex gap={"small"} align="center" justify="space-between">
+          <ActiveCard>
             <ChartText $clr="#5D5E5F">Off duty 12</ChartText>
             <ChartText $clr="#3DA8D5">On duty 4</ChartText>
             <ChartText $clr="#32BE61">Driving 6</ChartText>
             <ChartText $clr="#FC973A">Sleeping 0</ChartText>
-          </Flex>
-        </Flex>
+          </ActiveCard>
+        </ActiveCard>
       )}
     </InfoCard>
   );

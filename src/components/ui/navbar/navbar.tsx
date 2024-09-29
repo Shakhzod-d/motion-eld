@@ -6,13 +6,14 @@ import { CustomInput } from "../custom-input";
 
 interface Props {
   title: string;
+  search?: boolean;
 }
-export const Navbar = ({ title }: Props) => {
+export const Navbar = ({ title, search = true }: Props) => {
   return (
     <Header>
       <Title>{title}</Title>
       <Flex align="center" gap={"20px"}>
-        <CustomInput type="search" />
+        {search && <CustomInput type="search" />}
         <Icon>
           <IoMoonOutline size={30} />
         </Icon>
