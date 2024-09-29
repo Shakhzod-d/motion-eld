@@ -22,7 +22,7 @@ import {
   SelectWrapper,
   Title,
   CustomRadio,
-  TableWrapper,
+
 } from "./dashboard-styled";
 
 export const Dashboard = () => {
@@ -48,6 +48,7 @@ export const Dashboard = () => {
   return (
     <Main>
       <Navbar title="Dashboard" />
+
       <Day>
         <Flex gap={5}>
           <CustomSelect
@@ -121,9 +122,8 @@ export const Dashboard = () => {
           </div>
         </Flex>
       </SelectWrapper>
-      <TableWrapper>
-        <CustomTable columns={dashboardTableHeader} data={dataSource} />
-      </TableWrapper>
+
+      <CustomTable columns={dashboardTableHeader} data={dataSource} />
     </Main>
   );
 };

@@ -15,7 +15,7 @@ export const Company = () => {
   return (
     <Main>
       <CompanyModal open={open} setOpen={setOpen} />
-      <Navbar title={"Company"} />
+      <Navbar title={"Company"} search={false} />
       <Container>
         <Top>
           <CustomInput type="search" />

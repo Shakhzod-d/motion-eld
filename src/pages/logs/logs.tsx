@@ -26,8 +26,9 @@ export const Logs = () => {
           {LogsTabPages.map((item) => (
             <NavLink to={item.to} key={item.key}>
               <TransparentButton
+              width="120px"
                 active={String(pathname.endsWith(item.to))}
-                padding="15px 35px"
+                padding="0 25px"
               >
                 {item.label}
               </TransparentButton>

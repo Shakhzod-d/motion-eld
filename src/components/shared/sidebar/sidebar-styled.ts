@@ -14,14 +14,14 @@ export const SidebarContainer = styled.article<{ $active: boolean }>`
   max-width: 240px;
   max-width: ${({ $active }) => ($active ? "240px" : "100px")};
   height: 100vh;
-  transition: max-width 1s ease, width 0.3s ease;
+  transition: max-width 0.4s ease, width 0.1s ease;
   padding: 10px;
   display: flex;
   flex-direction: column;
   ${({ $active }) =>
     $active &&
     css`
-      animation: ${expandAnimation} 0.6s ease-in;
+      animation: ${expandAnimation} 0.1s ease-in;
     `}
 `;
 
@@ -69,7 +69,7 @@ export const TabBtn = styled.div<{ $active: boolean }>`
   border-radius: 10px;
   width: ${({ $active }) => ($active ? "220px" : "100%")};
   // min-height: 70px;
-  transition: max-width 1s ease, width 1.3s ease;
+  transition: max-width 0.4s ease, width .3s ease;
   background: rgba(255, 255, 255, 0.1);
   margin-bottom: 10px;
   color: #fff;

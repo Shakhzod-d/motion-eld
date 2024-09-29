@@ -16,8 +16,8 @@ export const ViolationsChart = () => {
       <InfoCard $active={active}>
         {active || (
           <>
+            <Flex gap={"middle"} align="center" justify="s">
             <ChartText>Violations Chart</ChartText>
-            <Flex gap={"middle"} align="center">
               <Flex gap={"small"} align="center">
                 <ChartText $clr="#EF3E2D">Violations</ChartText>
                 <Progress
@@ -47,7 +47,7 @@ export const ViolationsChart = () => {
         )}
         {active && (
           <>
-            <Text>Violations Chart</Text>
+            <Text $mb="30px">Violations Chart</Text>
             <div
               style={{
                 display: "flex",

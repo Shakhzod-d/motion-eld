@@ -9,7 +9,7 @@ export const PopupContainer = styled.div`
   box-shadow: 0 10px 60px 0 rgba(0, 0, 0, 0.1);
   background: rgba(255, 255, 255, 0.97), #5c5c5c;
   position: absolute;
-  right: -12px;
+  right: 12px;
   top: 50px;
   z-index: 99999;
   display: flex;

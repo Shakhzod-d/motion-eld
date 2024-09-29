@@ -38,15 +38,14 @@ export const Title = styled.h2`
 
 export const CardWrapper = styled.div<{ $width: boolean }>`
   width: 100%;
-  max-width: ${({ $width }) =>
-    $width ? "calc( 100vw - 300px )" : "calc( 100vw - 150px )"};
+
   margin-bottom: 40px;
 
   display: grid;
-  grid-template-columns: 0.8fr 1fr 1.05fr 40px;
-
+  grid-template-columns: 1fr 1fr 1fr 40px;
   align-items: end;
-  ${({ $width }) => (!$width ? "justify-content:space-between" : "")};
+  // justify-content: space-between;
+  ${({ $width }) => (!$width ? "" : "")};
   gap: 10px;
   padding-bottom: 15px;
   &::-webkit-scrollbar {
@@ -88,7 +87,7 @@ export const SelectWrapper = styled.div`
 `;
 export const TableWrapper = styled.div`
   height: calc(100vh - 505px);
-  overflow-x: auto;
+  // overflow-x: auto;
 `;
 
 export const ArrowIcon = styled.div<{ $active: boolean }>`

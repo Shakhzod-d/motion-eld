@@ -2,10 +2,16 @@ import styled from "styled-components";
 
 export const Header = styled.header`
   width: 100%;
+  // border: 1px solid;
+  // max-width: 1700px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
+  position: sticky;
+  background: #f3f3f4;
+  z-index: 999;
+  top: 0;
 `;
 
 export const Title = styled.h2`
@@ -15,5 +21,5 @@ export const Title = styled.h2`
   color: #000;
 `;
 export const Icon = styled.div`
-cursor:pointer;
+  cursor: pointer;
 `;
