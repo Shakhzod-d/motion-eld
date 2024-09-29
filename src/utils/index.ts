@@ -32,3 +32,8 @@ export {
   editUserModalBtns,
   editUserRoleModalBtns,
 } from "./constants";
+export {
+  getLocalStorage,
+  setLocalStorage,
+  removeLocalStorage,
+} from "./localStorage";
