@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { BiCalendarStar } from "react-icons/bi";
 import { IoIosArrowDown } from "react-icons/io";
 import { Flex, Radio } from "antd";
-import { dashboardTableHeader, dataSource, Text } from "../../utils/constants";
+import { dashboardTableHeader, dataSource, Reload, companyTable, Text, companyTableElement, dateTable, dateTableElement} from "../../utils/constants";
 import { RootState } from "../../store/store";
 import {
   ArrowIcon,
@@ -24,6 +24,8 @@ import {
   CustomRadio,
   TableWrapper,
 } from "./dashboard-styled";
+import { OrderTablet } from "../../components/shared/order-table/order-table";
+import { useState } from "react";
 
 export const Dashboard = () => {
   const active = useSelector(
@@ -32,6 +34,7 @@ export const Dashboard = () => {
   const sidebarActive = useSelector(
     (state: RootState) => state.booleans.sidebarActive
   );
+  const [selectEvent, setSelectEvent] = useState<string>('order')
   const option = [
     { value: "status", label: "Two-factures" },
     { value: "active", label: "Actice" },
@@ -44,7 +47,10 @@ export const Dashboard = () => {
     { value: "10-min", label: "10 minute" },
   ];
   const dispatch = useDispatch();
-
+  
+  function onChange(event: string){
+    setSelectEvent(event);
+  }
   return (
     <Main>
       <Navbar title="Dashboard" />
@@ -56,7 +62,7 @@ export const Dashboard = () => {
             placeholder="Auto Refresh off"
           />
         </Flex>
-        <CustomBtn>Refresh</CustomBtn>
+        <CustomBtn onClick={Reload}>Refresh</CustomBtn>
         <Flex gap={20}>
           <CustomBtn>
             <BiCalendarStar size={30} />
@@ -106,9 +112,10 @@ export const Dashboard = () => {
               Driver option
             </Text>
             <CustomSelect
-              option={[{ value: "order", label: "Order By" }]}
+              option={[{ value: "order", label: "Order By" },{ value: "company", label: "Company" },{ value: "date", label: "Date" }]}
               width={"126px"}
               placeholder="Order By"
+              change={onChange}
             />
           </div>
           <div>
@@ -122,7 +129,9 @@ export const Dashboard = () => {
         </Flex>
       </SelectWrapper>
       <TableWrapper>
-        <CustomTable columns={dashboardTableHeader} data={dataSource} />
+        {selectEvent == 'order' ? 
+        <CustomTable columns={dashboardTableHeader} data={dataSource} /> :
+        <OrderTablet data={selectEvent == 'company' ? companyTable : dateTable} element={selectEvent == 'company' ? companyTableElement : dateTableElement} selectEvent={selectEvent}/>}
       </TableWrapper>
     </Main>
   );

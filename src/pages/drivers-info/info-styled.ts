@@ -28,7 +28,7 @@ export const Text = styled.p<{ size?: number; $font?: string; color?: string }>`
 
 export const Wrapper = styled.div`
   width: 100%;
-  height: 840px;
+  height: calc(100vh - 180px);
   overflow-x: auto;
   padding-bottom: 40px;
 `;

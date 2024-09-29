@@ -13,7 +13,7 @@ import { FaPlus } from "react-icons/fa6";
 
 export const TabCompany = () => {
   return (
-    <div>
+    <div style={{maxWidth: '100%'}}>
       <StyleFlex gap={"small"} align="center">
         <Div>
           <Label>Company Name*</Label>

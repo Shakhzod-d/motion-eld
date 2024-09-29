@@ -15,7 +15,7 @@ export const Between = styled.div`
 export const StyleInput = styled(Input)`
   border-radius: 10px;
   padding: 10px 15px;
-  width: 350px;
+  max-width: 350px;
   height: 44px;
   position: sticky;
   margin-bottom: 10px;

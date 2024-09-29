@@ -37,7 +37,7 @@ export const UploadBtn = styled.div`
   border: 1px solid #d3d3df;
   border-radius: 10px;
   padding: 25px 20px;
-  width: 812px;
+  max-width: 812px;
   height: 69px;
   background: #f9f9fa;
   display: flex;
@@ -50,7 +50,8 @@ export const UploadBtn = styled.div`
 export const Note = styled.textarea`
   border-radius: 10px;
   padding: 20px 20px 80px 20px;
-  width: 1635px;
+  width: 100%;
+  max-width: 1635px;
   height: 119px;
   background: #ffffff;
   border: none;
