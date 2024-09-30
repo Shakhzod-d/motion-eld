@@ -3,6 +3,7 @@ import styled from "styled-components";
 interface Props {
   width?: string;
   height?: number;
+  color?: string;
 }
 export const StyledSelect = styled(Select)<Props>`
   width: ${({ width = "268px" }) => width};
@@ -29,7 +30,7 @@ export const StyledSelect = styled(Select)<Props>`
     background: #f9f9fa !important;
   }
   span {
-    color: #5d5e5f;
+    color: ${({ color = "#5d5e5f" }) => color};
     font-size: 16px !important;
     font-weight: 500;
   }

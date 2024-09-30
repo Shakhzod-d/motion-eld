@@ -78,7 +78,7 @@ export const Login = () => {
   return (
     <Main>
       <img
-        src="/src/assets/images/loginBg.png"
+        src="/images/loginBg.png"
         alt="photo"
         style={{ width: "50%", borderRadius: "20px" }}
       />
@@ -86,7 +86,7 @@ export const Login = () => {
       <FromWrapper>
         <StyledForm autoComplete="off" onFinish={onFinish} name="email_form">
           <img
-            src="/src/assets/icons/logo.svg"
+            src="/logo.svg"
             alt="logo"
             style={{ marginBottom: "20px" }}
           />
@@ -104,7 +104,8 @@ export const Login = () => {
               },
             ]}
           >
-            <StyledInput placeholder="Inter login" type="" />
+            <StyledInput placeholder="Enter login" type="email" />
+            <StyledInput placeholder="Enter login" type="" />
           </Form.Item>
           <Label htmlFor="">Password</Label>
           <Form.Item
@@ -112,7 +113,7 @@ export const Login = () => {
             rules={[{ required: true, message: "Please input your password!" }]}
           >
             <StyledInput
-              placeholder="Inter password"
+              placeholder="Enter password"
               type="password"
               style={{ marginBottom: "20px" }}
             />

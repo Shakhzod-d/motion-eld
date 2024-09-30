@@ -306,7 +306,6 @@ export const Main = styled.main`
   border-radius: 20px;
   padding:0 20px 20px 20px;
   width: 100%;
-  max-width: 100vw;
   height: calc(100vh - 15px);
   background: #f3f3f4;
   overflow-x: auto;
@@ -316,7 +315,6 @@ export const Main = styled.main`
 export const OutletWrapper = styled.div`
   padding: 10px;
   width: 100%;
-  max-width: 100vw;
 `;
 const expandAnimation = keyframes`
   from {
@@ -1569,3 +1567,61 @@ export const trackingData = [
     location_date: " 2024-01-20 00:08",
   },
 ];
+
+export const companyTable = [
+  {company: 'Unity Eld LIc', name: 'Name', violations: 'Donald Lee', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
+  {company: 'Unity Eld LIc', name: 'Name', violations: 'Donald Lee', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
+  {company: 'Unity Eld LIc', name: 'Name', violations: 'Donald Lee', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
+  {company: 'Unity Eld LIc', name: 'Name', violations: 'Donald Lee', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
+  {company: 'Unity Eld LIc', name: 'Name', violations: 'Donald Lee', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
+  {company: 'Unity Eld LIc', name: 'Name', violations: 'Donald Lee', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
+  {company: 'Unity Eld LIc', name: 'Name', violations: 'Donald Lee', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
+]
+
+export const companyTableElement = [
+  {company: 'Bakht For Amir Inc', name: 'Donald Lee', violations: 'Form & Signature', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
+  {company: 'Bakht For Amir Inc', name: 'Donald Lee', violations: 'Form & Signature', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
+  {company: 'Bakht For Amir Inc', name: 'Donald Lee', violations: 'Form & Signature', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
+  {company: 'Bakht For Amir Inc', name: 'Donald Lee', violations: 'Form & Signature', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
+]
+
+export const dateTable = [
+  { date: 'May 3, 2014', name: 'Name', violations: 'Donald Lee', company: 'Unity Eld LIc', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
+  { date: 'May 3, 2014', name: 'Name', violations: 'Donald Lee', company: 'Unity Eld LIc', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
+  { date: 'May 3, 2014', name: 'Name', violations: 'Donald Lee', company: 'Unity Eld LIc', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
+  { date: 'May 3, 2014', name: 'Name', violations: 'Donald Lee', company: 'Unity Eld LIc', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
+  { date: 'May 3, 2014', name: 'Name', violations: 'Donald Lee', company: 'Unity Eld LIc', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
+  { date: 'May 3, 2014', name: 'Name', violations: 'Donald Lee', company: 'Unity Eld LIc', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
+  { date: 'May 3, 2014', name: 'Name', violations: 'Donald Lee', company: 'Unity Eld LIc', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
+]
+
+export const dateTableElement = [
+  {company: 'February 27, 2022', name: 'Donald Lee', violations: 'Form & Signature', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
+  {company: 'February 27, 2022', name: 'Donald Lee', violations: 'Form & Signature', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
+  {company: 'February 27, 2022', name: 'Donald Lee', violations: 'Form & Signature', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
+  {company: 'February 27, 2022', name: 'Donald Lee', violations: 'Form & Signature', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
+]
+
+// Reload page
+export function Reload() {
+  window.location.reload();
+}
+
+export const Company = [
+  {title: 'Company'},
+  {title: 'Name'},
+  {title: 'Violations'},
+  {title: 'Date'},
+  {title: 'Eld connection'},
+  {title: 'Cycle'},
+  {title: 'Updated'},
+]
+export const Data = [
+  {title: 'Date'},
+  {title: 'Name'},
+  {title: 'Violations'},
+  {title: 'Company'},
+  {title: 'Eld connection'},
+  {title: 'Cycle'},
+  {title: 'Updated'},
+]
