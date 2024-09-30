@@ -7,11 +7,12 @@ import { Suspense } from "react";
 import { NotFound } from "./pages/not-found/not.found";
 
 import { PrivateRoute } from "./components/shared/Private-route";
+import { PageLoad } from "./components/ui";
 
 function App() {
   return (
     <>
-      <Suspense fallback={<NotFound />}>
+      <Suspense fallback={<PageLoad/>}>
         <Routes>
           <Route
             path="/"

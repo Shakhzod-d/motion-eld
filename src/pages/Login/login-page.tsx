@@ -84,7 +84,7 @@ export const Login = () => {
       />
       {contextHolder}
       <FromWrapper>
-        <StyledForm autoComplete="off" onFinish={onFinish} name="email_form">
+        <StyledForm autoComplete="off" onFinish={onFinish} >
           <img
             src="/src/assets/icons/logo.svg"
             alt="logo"
@@ -98,10 +98,10 @@ export const Login = () => {
                 required: true,
                 message: "Please input your login!",
               },
-              {
-                pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                message: 'Please enter a valid email address!',
-              },
+              // {
+              //   pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+              //   message: 'Please enter a valid email address!',
+              // },
             ]}
           >
             <StyledInput placeholder="Inter login" type="" />

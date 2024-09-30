@@ -77,6 +77,7 @@ export const Sidebar = () => {
   };
   return (
     <SidebarContainer $active={active}>
+      
       <StyleFlex align="center" justify="space-between" $active={active}>
         {active && (
           <Link to={"/"}>
@@ -93,14 +94,6 @@ export const Sidebar = () => {
           {active && <p>Dashboard</p>}
         </PageBtn>
 
-        {/* <PageBtn
-          onClick={() => setBtnActive(0)}
-          to={"/company"}
-          $active={active}
-        >
-          <HiOutlineBuildingLibrary />
-          {active && <p>Company</p>}
-        </PageBtn> */}
         {pathname == "/company" ? (
           <PageBtn onClick={() => setBtnActive(0)} to={"/company"}>
             <HiOutlineBuildingLibrary />

@@ -14,14 +14,14 @@ export const SidebarContainer = styled.article<{ $active: boolean }>`
   max-width: 240px;
   max-width: ${({ $active }) => ($active ? "240px" : "100px")};
   height: 100vh;
-  transition: max-width 0.4s ease, width 0.1s ease;
+  transition: max-width 0.2s ease, width 0.02s ease;
   padding: 10px;
   display: flex;
   flex-direction: column;
   ${({ $active }) =>
     $active &&
     css`
-      animation: ${expandAnimation} 0.1s ease-in;
+      animation: ${expandAnimation} 0.02s ease-in;
     `}
 `;
 
