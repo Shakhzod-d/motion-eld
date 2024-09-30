@@ -34,7 +34,7 @@ export const Login = () => {
             name={"login"}
             rules={[{ required: true, message: "Please input your login!" }]}
           >
-            <StyledInput placeholder="Inter login" type="email" />
+            <StyledInput placeholder="Enter login" type="email" />
           </Form.Item>
           <Label htmlFor="">Password</Label>
           <Form.Item
@@ -42,7 +42,7 @@ export const Login = () => {
             rules={[{ required: true, message: "Please input your password!" }]}
           >
             <StyledInput
-              placeholder="Inter password"
+              placeholder="Enter password"
               type="password"
               style={{ marginBottom: "20px" }}
             />
