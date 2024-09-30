@@ -22,7 +22,7 @@ import {
   SelectWrapper,
   Title,
   CustomRadio,
-  TableWrapper,
+
 } from "./dashboard-styled";
 import { OrderTablet } from "../../components/shared/order-table/order-table";
 import { useState } from "react";
@@ -54,6 +54,7 @@ export const Dashboard = () => {
   return (
     <Main>
       <Navbar title="Dashboard" />
+
       <Day>
         <Flex gap={5}>
           <CustomSelect
@@ -128,11 +129,9 @@ export const Dashboard = () => {
           </div>
         </Flex>
       </SelectWrapper>
-      <TableWrapper>
         {selectEvent == 'order' ? 
         <CustomTable columns={dashboardTableHeader} data={dataSource} /> :
         <OrderTablet data={selectEvent == 'company' ? companyTable : dateTable} element={selectEvent == 'company' ? companyTableElement : dateTableElement} selectEvent={selectEvent}/>}
-      </TableWrapper>
     </Main>
   );
 };

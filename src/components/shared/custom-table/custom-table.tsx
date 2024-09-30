@@ -51,6 +51,8 @@ export const CustomTable = (props: TableProps) => {
     id: number | string | undefined,
     text?: T
   ): void {
+    console.log(id);
+
     if (onClick) {
       onClick(id);
     }
@@ -110,62 +112,69 @@ export const CustomTable = (props: TableProps) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((row, element) => (
-            <TableRow key={element}>
-              {columns.map((column, index) => (
-                <TableData
-                  className={
-                    column.accessor.toLowerCase() == "warnings" &&
-                    "table_hover_elm "
-                  }
-                  key={column.accessor}
-                  color={colorFun(
-                    row[column?.accessor]?.valueOf().toString().toLowerCase(),
-                    column.accessor.toLowerCase()
-                  )}
-                  onClick={() => tableDataHandler(element, column.accessor)}
-                >
-                  {index == 0 && (
-                    <>
-                      <BorderLBottom></BorderLBottom>
-                      <BorderLTop></BorderLTop>
-                    </>
-                  )}
-                  {column.accessor.toLowerCase() == "warnings" && (
-                    <div className="hover_container">
-                      <Text $font="600">1. Shift limit</Text>
-                      <Text $font="600">2. Cycle limit</Text>
-                      <Text $font="600">3. No signature</Text>
-                    </div>
-                  )}
-                  {columns.length - 1 == index && (
-                    <>
-                      <BorderRTop></BorderRTop>
-                      <BorderRBottom></BorderRBottom>
-                    </>
-                  )}
-                  {status.includes(
-                    String(row[column?.accessor]).toLowerCase()
-                  ) ? (
-                    <StatusBadge $status={row[column?.accessor]}>
-                      {row[column.accessor]}
-                    </StatusBadge>
-                  ) : (
-                    row[column.accessor]
-                  )}
-                  {PopupActive == column.id ? <TablePopup /> : ""}
-                  {copyId == column.id ? (
-                    <GoCopy
-                      style={{ marginLeft: "20px " }}
-                      onClick={() => handleCopy(String(row[column.accessor]))}
-                    />
-                  ) : (
-                    ""
-                  )}
-                </TableData>
-              ))}
-            </TableRow>
-          ))}
+          {data.map((row, element) => {
+            const ID: unknown = row.id;
+            return (
+              <TableRow key={element}>
+                {columns.map((column, index) => (
+                  <TableData
+                    className={
+                      column.accessor.toLowerCase() == "warnings" &&
+                      "table_hover_elm"
+                    }
+                    key={column.accessor}
+                    color={colorFun(
+                      row[column?.accessor]?.valueOf().toString().toLowerCase(),
+                      column.accessor.toLowerCase()
+                    )}
+                    onClick={() => tableDataHandler(ID, column.accessor)}
+                  >
+                    {index == 0 && (
+                      <>
+                        <BorderLBottom></BorderLBottom>
+                        <BorderLTop></BorderLTop>
+                      </>
+                    )}
+                    {column.accessor.toLowerCase() == "warnings" && (
+                      <div className="hover_container">
+                        <Text $font="600">1. Shift limit</Text>
+                        <Text $font="600">2. Cycle limit</Text>
+                        <Text $font="600">3. No signature</Text>
+                      </div>
+                    )}
+                    {columns.length - 1 == index && (
+                      <>
+                        <BorderRTop></BorderRTop>
+                        <BorderRBottom></BorderRBottom>
+                      </>
+                    )}
+                    {status.includes(
+                      String(row[column?.accessor]).toLowerCase()
+                    ) ? (
+                      <StatusBadge $status={row[column?.accessor]}>
+                        {row[column.accessor]}
+                      </StatusBadge>
+                    ) : (
+                      row[column.accessor]
+                    )}
+                    {PopupActive == row.id && column.accessor == "dots" ? (
+                      <TablePopup />
+                    ) : (
+                      ""
+                    )}
+                    {copyId == column.id ? (
+                      <GoCopy
+                        style={{ marginLeft: "20px " }}
+                        onClick={() => handleCopy(String(row[column.accessor]))}
+                      />
+                    ) : (
+                      ""
+                    )}
+                  </TableData>
+                ))}
+              </TableRow>
+            );
+          })}
         </tbody>
       </TableElement>
       {pagination && <Pagination total={pTotal} defaultCurrent={1} />}

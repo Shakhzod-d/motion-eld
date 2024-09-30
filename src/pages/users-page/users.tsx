@@ -15,7 +15,7 @@ export const Users = () => {
   return (
     <Main>
       <UserEditModal setOpen={setOpen} open={open} />
-      <Navbar title="Users" />
+      <Navbar title="Users" search={false} />
       <Flex justify="end" gap={"middle"}>
         <CustomInput type="search" />
         <CustomButton type="primary">

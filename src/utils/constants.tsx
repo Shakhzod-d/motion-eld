@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { Button, Checkbox,  } from "antd";
+import { Button, Checkbox } from "antd";
 
 import styled, { keyframes, css } from "styled-components";
 import { StatusBadge } from "../components/shared/custom-table/custom-styled";
@@ -304,10 +304,12 @@ export const transferData = Array(3).fill({
 
 export const Main = styled.main`
   border-radius: 20px;
-  padding: 0 20px 20px 20px;
+  padding:0 20px 20px 20px;
   width: 100%;
   height: calc(100vh - 15px);
   background: #f3f3f4;
+  overflow-x: auto;
+  position: relative;
 `;
 
 export const OutletWrapper = styled.div`
@@ -336,12 +338,12 @@ export const InfoCard = styled.div<{ $active?: boolean; duration?: number }>`
   
   `}
   padding: ${({ $active }) => ($active ? "10px" : "10px 8px")};
-  max-width: 517px;
+  // max-width: 517px;
   min-width: 300px;
   height: ${({ $active }) => ($active ? "244px" : "50px")};
   background: #fff;
   transition: height 1s ease, width 0.3s ease;
-  // overflow-x: auto;
+  overflow-x: auto;
   flex-grow: calc(300px, 500px)
     ${({ $active }) =>
       $active &&

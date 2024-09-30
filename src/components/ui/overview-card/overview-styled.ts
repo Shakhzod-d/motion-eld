@@ -36,3 +36,10 @@ export const ChartText = styled.p<{
     font-size: ${({ $media_siz = "13px" }) => $media_siz};
   }
 `;
+
+export const StyleFlex = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;

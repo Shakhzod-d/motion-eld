@@ -1,6 +1,11 @@
+import { IUserData } from "./user.type";
+
 export interface LoginData {
   login: string;
   password: string;
+}
+export interface ILoginData {
+  data: IUserData;
 }
 export type ISetState<S> = React.Dispatch<React.SetStateAction<S>>;
 export type TItemStatus =
