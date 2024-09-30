@@ -6,10 +6,9 @@ import { TransparentButton } from "../../../pages/ifta-reports/ifta-reports-styl
 import {
   DefaultBtn,
   ModalInput,
-  ModalSelect,
   PrimaryBtn,
 } from "../../../pages/units/units-styled";
-import { EditModalBtn } from "../../ui";
+import { CustomSelect, EditModalBtn } from "../../ui";
 interface Props {
   setOpen: Dispatch<SetStateAction<boolean>>;
   open: boolean;
@@ -45,13 +44,15 @@ export const UserEditModal = ({ setOpen, open }: Props) => {
         {activeBtn == 1 ? (
           <>
             <Flex gap={10}>
-              <ModalSelect
-                defaultValue="status"
-                options={[
+              <CustomSelect
+                placeholder="status"
+                option={[
                   { value: "status", label: "Reseller" },
                   { value: "active", label: "Actice" },
                   { value: "completed", label: "Completed" },
                 ]}
+                width="50%"
+                height={70}
               />
 
               <ModalInput placeholder="Phone" />
@@ -65,29 +66,35 @@ export const UserEditModal = ({ setOpen, open }: Props) => {
             </Flex>
 
             <Flex gap={10}>
-              <ModalSelect
-                defaultValue="status"
-                options={[
+              <CustomSelect
+                placeholder="status"
+                option={[
                   { value: "status", label: "Status" },
                   { value: "active", label: "Actice" },
                   { value: "completed", label: "Completed" },
                 ]}
+                width="50%"
+                height={70}
               />
-              <ModalSelect
-                defaultValue="status"
-                options={[
+              <CustomSelect
+                placeholder="status"
+                option={[
                   { value: "status", label: "Two-factures" },
                   { value: "active", label: "Actice" },
                   { value: "completed", label: "Completed" },
                 ]}
+                width="50%"
+                height={70}
               />
-              <ModalSelect
-                defaultValue="status"
-                options={[
+              <CustomSelect
+                placeholder="status"
+                option={[
                   { value: "status", label: "Role" },
                   { value: "active", label: "Actice" },
                   { value: "completed", label: "Completed" },
                 ]}
+                width="50%"
+                height={70}
               />
             </Flex>
           </>

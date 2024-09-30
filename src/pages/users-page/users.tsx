@@ -11,7 +11,6 @@ export const Users = () => {
   const [open, setOpen] = useState<boolean>(false);
   const editData = (id: number) => {
     setOpen(true);
-    console.log(id);
   };
   return (
     <Main>

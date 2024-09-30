@@ -10,12 +10,14 @@ interface Props {
   width?: string;
   height?: number;
   placeholder?: string;
+  color?: string;
 }
 export const CustomSelect = ({
   option,
   width,
   height,
   placeholder,
+  color,
   change,
 }: Props) => {
   return (
@@ -24,6 +26,7 @@ export const CustomSelect = ({
       options={option}
       width={width}
       height={height}
+      color={color}
       onChange={change}
       suffixIcon={<FaAngleDown />}
     />

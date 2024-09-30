@@ -8,7 +8,7 @@ import {
   IftaReportSelectData,
   Main,
 } from "../../utils/index";
-import { Navbar } from "../../components/ui";
+import { CustomSelect, Navbar } from "../../components/ui";
 import { CustomTable } from "../../components/shared";
 
 export const IftaReports = () => {
@@ -23,10 +23,13 @@ export const IftaReports = () => {
       <Flex justify="space-between" align="center">
         <Flex gap={10}>
           {IftaReportSelectData.map((item) => (
-            <ReportsSelect
+            <CustomSelect
               key={item.id}
-              defaultValue={item.defaultValue}
-              options={item.options}
+              placeholder={item.defaultValue}
+              option={item.options}
+              width="185px"
+              height={50}
+              color='#000'
             />
           ))}
         </Flex>

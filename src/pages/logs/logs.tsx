@@ -2,7 +2,7 @@ import { Flex } from "antd";
 import { DriversStatistics } from "../../components/shared";
 import { Navbar } from "../../components/ui";
 import { Main } from "../../utils";
-import { LogsTabPages } from "../../utils/constants";
+import { LogsTabPages, Reload } from "../../utils/constants";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { TransparentButton } from "../ifta-reports/ifta-reports-styled";
 import { useEffect } from "react";
@@ -19,7 +19,7 @@ export const Logs = () => {
   return (
     <Main>
       <Navbar title="Logs" />
-      {/* <DriversStatistics /> */}
+      <DriversStatistics />
 
       <Flex justify="space-between">
         <Flex gap={5} style={{ marginBottom: "20px" }}>
@@ -36,7 +36,7 @@ export const Logs = () => {
           ))}
         </Flex>
 
-        <TransparentButton padding="15px 25px">
+        <TransparentButton onClick={Reload} padding="15px 25px">
           <MdRestartAlt />
           Refresh
         </TransparentButton>
