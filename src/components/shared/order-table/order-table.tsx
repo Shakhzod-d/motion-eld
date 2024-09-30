@@ -25,7 +25,7 @@ export const OrderTablet = (props: TableProps) => {
 
       <Div>
     <Department>  
-      <p>Unity Eld LIc</p>
+      <p>{data[0].company || selectEvent}</p>
       <IoIosArrowUp style={{cursor: "pointer", rotate: column ? '180deg' : ''}} onClick={()=>{setColumn(!column)}}/>
     </Department>
     {data.map((items, i)=>{
@@ -44,7 +44,7 @@ export const OrderTablet = (props: TableProps) => {
 
       <Div>
     <Department>
-      <p>Bakht For Amir Inc</p>
+      <p>{element[0].company || selectEvent}</p>
       <IoIosArrowUp style={{cursor: "pointer", rotate: columnAnimate ? '180deg' : ''}} onClick={()=>{setColumnAnimate(!columnAnimate)}}/>
     </Department>
     {element.map((items, i)=>{
