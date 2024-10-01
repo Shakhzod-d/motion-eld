@@ -304,10 +304,10 @@ export const transferData = Array(3).fill({
 
 export const Main = styled.main`
   border-radius: 20px;
-  padding:0 20px 20px 20px;
+  padding: 0 20px 20px 20px;
   width: 100%;
   height: calc(100vh - 15px);
-    background: ${(props) => props.theme.mainBg};
+  background:#f3f3f4;
   overflow-x: auto;
   position: relative;
 `;
