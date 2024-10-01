@@ -5,6 +5,7 @@ import {
   DriversHeader,
   TripPlanner,
 } from "../../components/shared";
+import { Correction } from "../../components/shared/drivers-info-modal/correction";
 
 // ------  MODALS
 
@@ -13,6 +14,9 @@ import {
 /* <Certify open={open} setOpen={setOpen} /> */
 /* <UpdateModal open={open} setOpen={setOpen} />; */
 
+{
+  /* <EhfModal open={true} setOpen={setState} /> */
+}
 // const [open, setOpen] = useState<boolean>(true);
 
 import { driversTableData, driversTableHeader } from "../../utils/constants";
@@ -21,6 +25,7 @@ import { Btn, FlexWrapper, Wrapper } from "./info-styled";
 export function DriversInfo() {
   return (
     <Wrapper>
+      {/* <Correction /> */}
       <DriversHeader />
       <Diagrams />
       <FlexWrapper gap={"10px"} justify="end">

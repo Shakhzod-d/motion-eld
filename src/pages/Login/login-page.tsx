@@ -33,6 +33,8 @@ export const Login = () => {
       onSuccess: (res: ILoginData) => {
         setLoading(false);
         const { data } = res;
+        console.log(data);
+
         navigate("/");
         setLocalStorage("token", data?.token);
         // const role: IUserRole = data.role;
@@ -84,12 +86,8 @@ export const Login = () => {
       />
       {contextHolder}
       <FromWrapper>
-        <StyledForm autoComplete="off" onFinish={onFinish} >
-          <img
-            src="/logo.svg"
-            alt="logo"
-            style={{ marginBottom: "20px" }}
-          />
+        <StyledForm autoComplete="off" onFinish={onFinish}>
+          <img src="/logo.svg" alt="logo" style={{ marginBottom: "20px" }} />
           <Label htmlFor="">Login</Label>
           <Form.Item
             name={"email"}
@@ -100,11 +98,10 @@ export const Login = () => {
               },
               {
                 pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                message: 'Please enter a valid email address!',
+                message: "Please enter a valid email address!",
               },
             ]}
           >
-            
             <StyledInput placeholder="Enter login" type="" />
           </Form.Item>
           <Label htmlFor="">Password</Label>
