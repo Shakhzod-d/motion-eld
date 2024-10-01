@@ -98,13 +98,13 @@ export const Login = () => {
                 required: true,
                 message: "Please input your login!",
               },
-              // {
-              //   pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-              //   message: 'Please enter a valid email address!',
-              // },
+              {
+                pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                message: 'Please enter a valid email address!',
+              },
             ]}
           >
-            <StyledInput placeholder="Enter login" type="email" />
+            
             <StyledInput placeholder="Enter login" type="" />
           </Form.Item>
           <Label htmlFor="">Password</Label>

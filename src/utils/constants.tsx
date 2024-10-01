@@ -307,7 +307,7 @@ export const Main = styled.main`
   padding:0 20px 20px 20px;
   width: 100%;
   height: calc(100vh - 15px);
-  background: #f3f3f4;
+    background: ${(props) => props.theme.mainBg};
   overflow-x: auto;
   position: relative;
 `;
@@ -1569,38 +1569,214 @@ export const trackingData = [
 ];
 
 export const companyTable = [
-  {company: 'Unity Eld LIc', name: 'Name', violations: 'Donald Lee', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
-  {company: 'Unity Eld LIc', name: 'Name', violations: 'Donald Lee', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
-  {company: 'Unity Eld LIc', name: 'Name', violations: 'Donald Lee', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
-  {company: 'Unity Eld LIc', name: 'Name', violations: 'Donald Lee', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
-  {company: 'Unity Eld LIc', name: 'Name', violations: 'Donald Lee', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
-  {company: 'Unity Eld LIc', name: 'Name', violations: 'Donald Lee', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
-  {company: 'Unity Eld LIc', name: 'Name', violations: 'Donald Lee', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
-]
+  {
+    company: "Unity Eld LIc",
+    name: "Name",
+    violations: "Donald Lee",
+    date: "May 3, 2014",
+    connection: "Connected",
+    cycle: "5:51",
+    update: "3 minutes ago",
+  },
+  {
+    company: "Unity Eld LIc",
+    name: "Name",
+    violations: "Donald Lee",
+    date: "May 3, 2014",
+    connection: "Connected",
+    cycle: "5:51",
+    update: "3 minutes ago",
+  },
+  {
+    company: "Unity Eld LIc",
+    name: "Name",
+    violations: "Donald Lee",
+    date: "May 3, 2014",
+    connection: "Connected",
+    cycle: "5:51",
+    update: "3 minutes ago",
+  },
+  {
+    company: "Unity Eld LIc",
+    name: "Name",
+    violations: "Donald Lee",
+    date: "May 3, 2014",
+    connection: "Connected",
+    cycle: "5:51",
+    update: "3 minutes ago",
+  },
+  {
+    company: "Unity Eld LIc",
+    name: "Name",
+    violations: "Donald Lee",
+    date: "May 3, 2014",
+    connection: "Connected",
+    cycle: "5:51",
+    update: "3 minutes ago",
+  },
+  {
+    company: "Unity Eld LIc",
+    name: "Name",
+    violations: "Donald Lee",
+    date: "May 3, 2014",
+    connection: "Connected",
+    cycle: "5:51",
+    update: "3 minutes ago",
+  },
+  {
+    company: "Unity Eld LIc",
+    name: "Name",
+    violations: "Donald Lee",
+    date: "May 3, 2014",
+    connection: "Connected",
+    cycle: "5:51",
+    update: "3 minutes ago",
+  },
+];
 
 export const companyTableElement = [
-  {company: 'Bakht For Amir Inc', name: 'Donald Lee', violations: 'Form & Signature', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
-  {company: 'Bakht For Amir Inc', name: 'Donald Lee', violations: 'Form & Signature', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
-  {company: 'Bakht For Amir Inc', name: 'Donald Lee', violations: 'Form & Signature', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
-  {company: 'Bakht For Amir Inc', name: 'Donald Lee', violations: 'Form & Signature', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
-]
+  {
+    company: "Bakht For Amir Inc",
+    name: "Donald Lee",
+    violations: "Form & Signature",
+    date: "May 3, 2014",
+    connection: "Connected",
+    cycle: "5:51",
+    update: "3 minutes ago",
+  },
+  {
+    company: "Bakht For Amir Inc",
+    name: "Donald Lee",
+    violations: "Form & Signature",
+    date: "May 3, 2014",
+    connection: "Connected",
+    cycle: "5:51",
+    update: "3 minutes ago",
+  },
+  {
+    company: "Bakht For Amir Inc",
+    name: "Donald Lee",
+    violations: "Form & Signature",
+    date: "May 3, 2014",
+    connection: "Connected",
+    cycle: "5:51",
+    update: "3 minutes ago",
+  },
+  {
+    company: "Bakht For Amir Inc",
+    name: "Donald Lee",
+    violations: "Form & Signature",
+    date: "May 3, 2014",
+    connection: "Connected",
+    cycle: "5:51",
+    update: "3 minutes ago",
+  },
+];
 
 export const dateTable = [
-  { date: 'May 3, 2014', name: 'Name', violations: 'Donald Lee', company: 'Unity Eld LIc', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
-  { date: 'May 3, 2014', name: 'Name', violations: 'Donald Lee', company: 'Unity Eld LIc', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
-  { date: 'May 3, 2014', name: 'Name', violations: 'Donald Lee', company: 'Unity Eld LIc', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
-  { date: 'May 3, 2014', name: 'Name', violations: 'Donald Lee', company: 'Unity Eld LIc', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
-  { date: 'May 3, 2014', name: 'Name', violations: 'Donald Lee', company: 'Unity Eld LIc', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
-  { date: 'May 3, 2014', name: 'Name', violations: 'Donald Lee', company: 'Unity Eld LIc', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
-  { date: 'May 3, 2014', name: 'Name', violations: 'Donald Lee', company: 'Unity Eld LIc', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
-]
+  {
+    date: "May 3, 2014",
+    name: "Name",
+    violations: "Donald Lee",
+    company: "Unity Eld LIc",
+    connection: "Connected",
+    cycle: "5:51",
+    update: "3 minutes ago",
+  },
+  {
+    date: "May 3, 2014",
+    name: "Name",
+    violations: "Donald Lee",
+    company: "Unity Eld LIc",
+    connection: "Connected",
+    cycle: "5:51",
+    update: "3 minutes ago",
+  },
+  {
+    date: "May 3, 2014",
+    name: "Name",
+    violations: "Donald Lee",
+    company: "Unity Eld LIc",
+    connection: "Connected",
+    cycle: "5:51",
+    update: "3 minutes ago",
+  },
+  {
+    date: "May 3, 2014",
+    name: "Name",
+    violations: "Donald Lee",
+    company: "Unity Eld LIc",
+    connection: "Connected",
+    cycle: "5:51",
+    update: "3 minutes ago",
+  },
+  {
+    date: "May 3, 2014",
+    name: "Name",
+    violations: "Donald Lee",
+    company: "Unity Eld LIc",
+    connection: "Connected",
+    cycle: "5:51",
+    update: "3 minutes ago",
+  },
+  {
+    date: "May 3, 2014",
+    name: "Name",
+    violations: "Donald Lee",
+    company: "Unity Eld LIc",
+    connection: "Connected",
+    cycle: "5:51",
+    update: "3 minutes ago",
+  },
+  {
+    date: "May 3, 2014",
+    name: "Name",
+    violations: "Donald Lee",
+    company: "Unity Eld LIc",
+    connection: "Connected",
+    cycle: "5:51",
+    update: "3 minutes ago",
+  },
+];
 
 export const dateTableElement = [
-  {company: 'February 27, 2022', name: 'Donald Lee', violations: 'Form & Signature', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
-  {company: 'February 27, 2022', name: 'Donald Lee', violations: 'Form & Signature', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
-  {company: 'February 27, 2022', name: 'Donald Lee', violations: 'Form & Signature', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
-  {company: 'February 27, 2022', name: 'Donald Lee', violations: 'Form & Signature', date: 'May 3, 2014', connection: 'Connected', cycle: '5:51', update: '3 minutes ago'},
-]
+  {
+    company: "February 27, 2022",
+    name: "Donald Lee",
+    violations: "Form & Signature",
+    date: "May 3, 2014",
+    connection: "Connected",
+    cycle: "5:51",
+    update: "3 minutes ago",
+  },
+  {
+    company: "February 27, 2022",
+    name: "Donald Lee",
+    violations: "Form & Signature",
+    date: "May 3, 2014",
+    connection: "Connected",
+    cycle: "5:51",
+    update: "3 minutes ago",
+  },
+  {
+    company: "February 27, 2022",
+    name: "Donald Lee",
+    violations: "Form & Signature",
+    date: "May 3, 2014",
+    connection: "Connected",
+    cycle: "5:51",
+    update: "3 minutes ago",
+  },
+  {
+    company: "February 27, 2022",
+    name: "Donald Lee",
+    violations: "Form & Signature",
+    date: "May 3, 2014",
+    connection: "Connected",
+    cycle: "5:51",
+    update: "3 minutes ago",
+  },
+];
 
 // Reload page
 export function Reload() {
@@ -1608,20 +1784,20 @@ export function Reload() {
 }
 
 export const Company = [
-  {title: 'Company'},
-  {title: 'Name'},
-  {title: 'Violations'},
-  {title: 'Date'},
-  {title: 'Eld connection'},
-  {title: 'Cycle'},
-  {title: 'Updated'},
-]
+  { title: "Company" },
+  { title: "Name" },
+  { title: "Violations" },
+  { title: "Date" },
+  { title: "Eld connection" },
+  { title: "Cycle" },
+  { title: "Updated" },
+];
 export const Data = [
-  {title: 'Date'},
-  {title: 'Name'},
-  {title: 'Violations'},
-  {title: 'Company'},
-  {title: 'Eld connection'},
-  {title: 'Cycle'},
-  {title: 'Updated'},
-]
+  { title: "Date" },
+  { title: "Name" },
+  { title: "Violations" },
+  { title: "Company" },
+  { title: "Eld connection" },
+  { title: "Cycle" },
+  { title: "Updated" },
+];
