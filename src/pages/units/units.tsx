@@ -3,7 +3,6 @@ import {
   DefaultBtn,
   ModalCheckBox,
   ModalInput,
-  ModalSelect,
   ModalTextArea,
   ModalTitle,
   PrimaryBtn,
@@ -18,6 +17,10 @@ import { CustomTable } from "../../components/shared";
 export const Units = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [activeBtn, setActiveBtn] = useState<number>(1);
+  // const { data } = useApi("/vehicles", {
+  //   page: 1,
+  //   limit: 1000,
+  // });
 
   return (
     <Main>
@@ -28,7 +31,7 @@ export const Units = () => {
       <Flex gap={10}>
         {unitsButtons.map((item) => (
           <TransparentButton
-          key={item.id}
+            key={item.id}
             active={(activeBtn == item.id).toString()}
             onClick={() => setActiveBtn(item.id)}
           >
@@ -113,10 +116,7 @@ export const Units = () => {
             >
               Close
             </DefaultBtn>
-            <PrimaryBtn
-              onClick={() => setOpen(false)}
-              style={{ width: "200px", height: "55px" }}
-            >
+            <PrimaryBtn style={{ width: "200px", height: "55px" }}>
               Save
             </PrimaryBtn>
           </Flex>

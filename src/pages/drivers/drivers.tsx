@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   ModalCheckBox,
   ModalInput,
-  ModalSelect,
   ModalTextArea,
   PrimaryBtn,
   TopContainer,
@@ -54,7 +53,7 @@ export const Drivers = () => {
           <Flex gap={10}>
             <ModalInput placeholder="Password*" />
             <ModalInput placeholder="Phone No*" type="tel" />
-            <CustomSelect 
+            <CustomSelect
               placeholder="default"
               option={[{ value: "default", label: "Vehicle ID" }]}
               width="50%"

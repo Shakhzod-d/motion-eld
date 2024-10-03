@@ -37,6 +37,7 @@ export const Login = () => {
 
         navigate("/");
         setLocalStorage("token", data?.token);
+        setLocalStorage("roleId", data?.role?.roleId);
         // const role: IUserRole = data.role;
 
         // const isAdmin = role.roleName === "superAdmin";

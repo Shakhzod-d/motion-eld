@@ -9,3 +9,7 @@ export type ISetState<S> = React.Dispatch<React.SetStateAction<S>>;
 export type IInputAttr = InputHTMLAttributes<HTMLInputElement>;
 export type IPageData<T> = { data: T; total: number };
 export type IHideMessage = { hideMessage: boolean };
+
+export type ObjType = {
+  [key: string]: {[key: string]:string|number|unknown};
+};
