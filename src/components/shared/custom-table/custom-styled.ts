@@ -55,8 +55,7 @@ export const BorderLBottom = styled.span`
   &:before {
     content: "";
     position: absolute;
-    left: -1px;
-
+    left: 0;
     bottom: 0;
     width: 10px;
     height: 10px;
@@ -78,7 +77,7 @@ export const BorderLTop = styled.span`
   &:before {
     content: "";
     position: absolute;
-    left: -1px;
+    left: -0;
     bottom: 0;
     width: 10px;
     height: 10px;
@@ -100,7 +99,7 @@ export const BorderRTop = styled.span`
   &:before {
     content: "";
     position: absolute;
-    left: -1px;
+    left: -2px;
     bottom: 0;
     width: 10px;
     height: 10px;
@@ -120,7 +119,7 @@ export const BorderRBottom = styled.span`
   &:before {
     content: "";
     position: absolute;
-    left: -1px;
+    left: -2px;
     bottom: 0;
     width: 10px;
     height: 10px;

@@ -7,13 +7,21 @@ import {
 } from "../../components/ui";
 import { Main } from "../../utils/index";
 
-import { dashboardProgressActive } from "../../store/booleans-slice";
 import { useDispatch, useSelector } from "react-redux";
 import { BiCalendarStar } from "react-icons/bi";
 import { IoIosArrowDown } from "react-icons/io";
 import { Flex, Radio } from "antd";
-import { dashboardTableHeader, dataSource, Reload, companyTable, Text, companyTableElement, dateTable, dateTableElement} from "../../utils/constants";
-import { RootState } from "../../store/store";
+import {
+  dashboardTableHeader,
+  dataSource,
+  Reload,
+  companyTable,
+  Text,
+  companyTableElement,
+  dateTable,
+  dateTableElement,
+} from "../../utils/constants";
+
 import {
   ArrowIcon,
   CardWrapper,
@@ -22,10 +30,11 @@ import {
   SelectWrapper,
   Title,
   CustomRadio,
-
 } from "./dashboard-styled";
 import { OrderTablet } from "../../components/shared/order-table/order-table";
 import { useState } from "react";
+import { RootState } from "../../store/store";
+import { dashboardProgressActive } from "../../store/booleans-slice";
 
 export const Dashboard = () => {
   const active = useSelector(
@@ -34,7 +43,7 @@ export const Dashboard = () => {
   const sidebarActive = useSelector(
     (state: RootState) => state.booleans.sidebarActive
   );
-  const [selectEvent, setSelectEvent] = useState<string>('order')
+  const [selectEvent, setSelectEvent] = useState<string>("order");
   const option = [
     { value: "status", label: "Two-factures" },
     { value: "active", label: "Actice" },
@@ -47,8 +56,8 @@ export const Dashboard = () => {
     { value: "10-min", label: "10 minute" },
   ];
   const dispatch = useDispatch();
-  
-  function onChange(event: string){
+
+  function onChange(event: string) {
     setSelectEvent(event);
   }
   return (
@@ -113,7 +122,11 @@ export const Dashboard = () => {
               Driver option
             </Text>
             <CustomSelect
-              option={[{ value: "order", label: "Order By" },{ value: "company", label: "Company" },{ value: "date", label: "Date" }]}
+              option={[
+                { value: "order", label: "Order By" },
+                { value: "company", label: "Company" },
+                { value: "date", label: "Date" },
+              ]}
               width={"126px"}
               placeholder="Order By"
               change={onChange}
@@ -129,9 +142,17 @@ export const Dashboard = () => {
           </div>
         </Flex>
       </SelectWrapper>
-        {selectEvent == 'order' ? 
-        <CustomTable columns={dashboardTableHeader} data={dataSource} /> :
-        <OrderTablet data={selectEvent == 'company' ? companyTable : dateTable} element={selectEvent == 'company' ? companyTableElement : dateTableElement} selectEvent={selectEvent}/>}
+      {selectEvent == "order" ? (
+        <CustomTable columns={dashboardTableHeader} data={dataSource} />
+      ) : (
+        <OrderTablet
+          data={selectEvent == "company" ? companyTable : dateTable}
+          element={
+            selectEvent == "company" ? companyTableElement : dateTableElement
+          }
+          selectEvent={selectEvent}
+        />
+      )}
     </Main>
   );
 };

@@ -13,11 +13,11 @@ export const ViolationsChart = () => {
   );
   return (
     <div>
-      <InfoCard $active={active}>
+      <InfoCard $active={active} $minW="200px">
         {active || (
           <>
             <Flex gap={"middle"} align="center" justify="s">
-            <ChartText>Violations Chart</ChartText>
+              <ChartText>Violations Chart</ChartText>
               <Flex gap={"small"} align="center">
                 <ChartText $clr="#EF3E2D">Violations</ChartText>
                 <Progress

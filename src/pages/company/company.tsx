@@ -3,15 +3,26 @@ import { FaPlus } from "react-icons/fa6";
 import { Main } from "../../utils/index";
 import { CustomInput, Navbar } from "../../components/ui";
 import { CompanyModal, InfoTable } from "../../components/shared";
-import { companyTableData, companyTableHeader } from "../../utils/constants";
+import { companyTableHeader } from "../../utils/constants";
 import { useState } from "react";
+import useApi from "../../hooks/useApi";
+import { mapCompanies } from "../../utils/mapData";
 
 export const Company = () => {
   const [open, setOpen] = useState(false);
-  const modalActive = (id: number) => {
+  const { data } = useApi("/companies", {
+    page: 1,
+    limit: 1000,
+  });
+  console.log(data);
+
+  const companies = mapCompanies(data ? data?.data?.data : []);
+
+  const modalActive = (id: string) => {
     console.log(id);
     setOpen(true);
   };
+
   return (
     <Main>
       <CompanyModal open={open} setOpen={setOpen} />
@@ -25,7 +36,7 @@ export const Company = () => {
         <div>
           <InfoTable
             header={companyTableHeader}
-            data={companyTableData}
+            data={companies}
             editData={modalActive}
           />
         </div>

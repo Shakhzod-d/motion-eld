@@ -1,24 +1,16 @@
 import { Card, CardsTop } from "./info-table-styled";
 import { Flex } from "antd";
 import { Text } from "../../../utils/constants";
+import { ObjType } from "../../../types/helper.type";
 interface Header {
   header: string;
   accessor: string;
 }
-interface Name {
-  label?: string;
-  img?: string;
-  data?: { id: number; text: string; icon?: React.ReactElement | string }[];
-}
-
-interface DataType {
-  [key: string]: Name;
-}
 
 interface Prop {
   header: Header[];
-  data: DataType[];
-  editData?: (id: number) => void;
+  data:ObjType[];
+  editData?: (id: string) => void;
 }
 
 interface Data {
@@ -34,7 +26,7 @@ interface RowData {
   data?: { id: number; text: string; icon?: React.ReactElement | string }[];
 }
 export const InfoTable = ({ header, data, editData }: Prop) => {
-  const edit = (id: number) => {
+  const edit = (id: string) => {
     if (editData) {
       editData(id);
     }
@@ -68,7 +60,9 @@ export const InfoTable = ({ header, data, editData }: Prop) => {
                     }
                     $mb="5px"
                     size={ind == 0 ? 20 : 16}
-                    onClick={() => (rowData?.label == "Edit" ? edit(1) : null)}
+                    onClick={() =>
+                      rowData?.label == "Edit" ? edit(String(item._id)) : null
+                    }
                   >
                     {rowData?.label ? rowData.label : ""}
                   </Text>
@@ -88,7 +82,7 @@ export const InfoTable = ({ header, data, editData }: Prop) => {
                         {Icon}
 
                         <Text
-                        $font="400"
+                          $font="400"
                           size={14}
                           color={c.text == "Active" ? "red" : ""}
                           key={c.id}

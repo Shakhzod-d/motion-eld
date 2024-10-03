@@ -42,7 +42,7 @@ export const CardWrapper = styled.div<{ $width: boolean }>`
   margin-bottom: 40px;
 
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 40px;
+  grid-template-columns: 1fr 1.1fr 1fr 40px;
   align-items: end;
   // justify-content: space-between;
   ${({ $width }) => (!$width ? "" : "")};

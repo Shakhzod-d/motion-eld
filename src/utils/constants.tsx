@@ -307,8 +307,8 @@ export const Main = styled.main`
   padding: 0 20px 20px 20px;
   width: 100%;
   height: calc(100vh - 15px);
-  background:#f3f3f4;
-  overflow-x: auto;
+  background: #f3f3f4;
+  overflow-y: auto;
   position: relative;
 `;
 
@@ -325,7 +325,11 @@ const expandAnimation = keyframes`
   }
 `;
 
-export const InfoCard = styled.div<{ $active?: boolean; duration?: number }>`
+export const InfoCard = styled.div<{
+  $active?: boolean;
+  duration?: number;
+  $minW?: string;
+}>`
   width: 100%;
   border-radius: 15px;
   ${({ $active }) =>
@@ -338,12 +342,13 @@ export const InfoCard = styled.div<{ $active?: boolean; duration?: number }>`
   
   `}
   padding: ${({ $active }) => ($active ? "10px" : "10px 8px")};
-  // max-width: 517px;
-  min-width: 300px;
+
+  min-width: ${({ $minW = "300px" }) => $minW};
   height: ${({ $active }) => ($active ? "244px" : "50px")};
   background: #fff;
   transition: height 1s ease, width 0.3s ease;
   overflow-x: auto;
+
   flex-grow: calc(300px, 500px)
     ${({ $active }) =>
       $active &&
