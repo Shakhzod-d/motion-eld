@@ -130,7 +130,10 @@ export const UserEditModal = ({ setOpen, open }: Props) => {
         )}
 
         <Flex gap={10} justify="end" style={{ marginTop: "50px" }}>
-          <DefaultBtn style={{ width: "200px", height: "55px" }}>
+          <DefaultBtn
+            style={{ width: "200px", height: "55px" }}
+            onClick={() => setOpen(false)}
+          >
             Cancel
           </DefaultBtn>
           <PrimaryBtn style={{ width: "200px", height: "55px" }}>Ok</PrimaryBtn>

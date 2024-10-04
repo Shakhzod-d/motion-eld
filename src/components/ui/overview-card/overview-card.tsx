@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { InfoCard } from "../../../utils/index";
-import { Item, Title, Value, Wrapper, ChartText, StyleFlex } from "./overview-styled";
+import { Item, Title, Value, Wrapper,  StyleFlex, ResText, ResTitle } from "./overview-styled";
 import { RootState } from "../../../store/store";
 import { Flex } from "antd";
 import { Text } from "../../../utils/constants";
@@ -34,18 +34,18 @@ export const OverviewCard = () => {
         </>
       ) : (
           <StyleFlex>
-          <ChartText $size="16px">Overview</ChartText>
+          <ResTitle >Overview</ResTitle>
             <Flex gap={"small"}>
-              <ChartText $clr="#32BE61">38</ChartText>
-              <ChartText $clr="#5D5E5F">Active drivers</ChartText>
+              <ResText $clr="#32BE61">38</ResText>
+              <ResText $clr="#5D5E5F">Active drivers</ResText>
             </Flex>
             <Flex gap={"small"}>
-              <ChartText $clr="#EF3E2D">44</ChartText>
-              <ChartText $clr="#5D5E5F">Active vehicles</ChartText>
+              <ResText $clr="#EF3E2D">44</ResText>
+              <ResText $clr="#5D5E5F">Active vehicles</ResText>
             </Flex>
             <Flex gap={"small"}>
-              <ChartText $clr="#FC973A">890</ChartText>
-              <ChartText $clr="#5D5E5F">Inspection</ChartText>
+              <ResText $clr="#FC973A">890</ResText>
+              <ResText $clr="#5D5E5F">Inspection</ResText>
             </Flex>
           </StyleFlex>
       )}

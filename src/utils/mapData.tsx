@@ -35,6 +35,7 @@ export const mapUserData = (data: ObjType[]) => {
       status: {
         label: "Active",
       },
+
       role: {
         label: role["roleName"],
       },

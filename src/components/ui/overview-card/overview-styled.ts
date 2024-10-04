@@ -43,3 +43,32 @@ export const StyleFlex = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
+
+export const ResTitle = styled.p`
+  font-size: 15px;
+  font-weight: 500;
+  @media (max-width: 1685px) {
+    font-size: 13px;
+  }
+`;
+export const ResText = styled.p<{ $clr?: string }>`
+  font-size: 14px;
+  font-weight: 500;
+  @media (max-width: 1685px) {
+    font-size: 13px;
+  }
+  @media (max-width: 1500px) {
+    font-size: 11px;
+  }
+  color: ${({ $clr = "#000" }) => $clr};
+`;
+export const ResValue = styled.p`
+  font-size: 15px;
+  font-weight: 500;
+  @media (max-width: 1685px) {
+    font-size: 13px;
+  }
+  @media (max-width: 1500px) {
+    font-size: 9px;
+  }
+`;

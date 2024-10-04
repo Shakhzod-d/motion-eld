@@ -1,12 +1,6 @@
-import { Checkbox, Flex } from "antd";
+import { Checkbox, } from "antd";
 import { CustomSelect } from "../../ui";
-import {
-  Btn,
-  CustomFlex,
-  CustomInput,
-  StyleFlex,
-  TextAria,
-} from "./modal-styled";
+import { CustomInput, StyleFlex, TextAria } from "./modal-styled";
 const cycleType = [
   { label: "Cycle Type", value: "cycle" },
   { label: "USA 70/8", value: "usa70/8" },
@@ -84,13 +78,6 @@ export const Information = () => {
         <Checkbox> Allow Personal Conviance</Checkbox>
         <Checkbox> Allow Yard Move</Checkbox>
       </StyleFlex>
-      <CustomFlex justify="end">
-        <Flex gap={"small"}>
-          <Btn type="primary">Close</Btn>
-
-          <Btn type="primary" $type="add">Add</Btn>
-        </Flex>
-      </CustomFlex>
     </>
   );
 };

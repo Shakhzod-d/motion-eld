@@ -7,8 +7,7 @@ import { ActiveCard, Item, ItemTitle } from "./drivers-style";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 
-
-import { ChartText } from "../overview-card/overview-styled";
+import {  ResText, ResTitle } from "../overview-card/overview-styled";
 import { Text } from "../../../utils/constants";
 
 export const Drivers = () => {
@@ -56,13 +55,13 @@ export const Drivers = () => {
           </ActiveCard>
         </>
       ) : (
-        <ActiveCard >
-          <ChartText>Drivers</ChartText>
+        <ActiveCard>
+          <ResTitle>Drivers</ResTitle>
           <ActiveCard>
-            <ChartText $clr="#5D5E5F">Off duty 12</ChartText>
-            <ChartText $clr="#3DA8D5">On duty 4</ChartText>
-            <ChartText $clr="#32BE61">Driving 6</ChartText>
-            <ChartText $clr="#FC973A">Sleeping 0</ChartText>
+            <ResText $clr="#5D5E5F">Off duty 12</ResText>
+            <ResText $clr="#3DA8D5">On duty 4</ResText>
+            <ResText $clr="#32BE61">Driving 6</ResText>
+            <ResText $clr="#FC973A">Sleeping 0</ResText>
           </ActiveCard>
         </ActiveCard>
       )}

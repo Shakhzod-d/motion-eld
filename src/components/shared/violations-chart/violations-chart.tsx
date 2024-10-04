@@ -5,7 +5,12 @@ import { Text } from "../../../utils/constants";
 import { Flex, Progress } from "antd";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
-import { ChartText } from "../../ui/overview-card/overview-styled";
+import {
+  ResText,
+  ResTitle,
+  ResValue,
+  StyleFlex,
+} from "../../ui/overview-card/overview-styled";
 
 export const ViolationsChart = () => {
   const active = useSelector(
@@ -13,13 +18,13 @@ export const ViolationsChart = () => {
   );
   return (
     <div>
-      <InfoCard $active={active} $minW="200px">
+      <InfoCard $active={active}>
         {active || (
           <>
-            <Flex gap={"middle"} align="center" justify="s">
-              <ChartText>Violations Chart</ChartText>
+            <StyleFlex>
+              <ResTitle>Violations Chart</ResTitle>
               <Flex gap={"small"} align="center">
-                <ChartText $clr="#EF3E2D">Violations</ChartText>
+                <ResText $clr="#EF3E2D">Violations</ResText>
                 <Progress
                   type="dashboard"
                   percent={20}
@@ -28,10 +33,10 @@ export const ViolationsChart = () => {
                   showInfo={false}
                   strokeColor={"#EF3E2D"}
                 />
-                <ChartText>2 ( 20% )</ChartText>
+                <ResValue>2 ( 20% )</ResValue>
               </Flex>
               <Flex gap={"small"} align="center">
-                <ChartText $clr="#FC973A">Signature</ChartText>
+                <ResText $clr="#FC973A">Signature</ResText>
                 <Progress
                   type="dashboard"
                   percent={80}
@@ -40,9 +45,9 @@ export const ViolationsChart = () => {
                   showInfo={false}
                   strokeColor={"#FC973A"}
                 />
-                <ChartText $media_siz="10px">8 ( 80% )</ChartText>
+                <ResValue>8 ( 80% )</ResValue>
               </Flex>
-            </Flex>
+            </StyleFlex>
           </>
         )}
         {active && (

@@ -309,8 +309,11 @@ export const Main = styled.main`
   height: calc(100vh - 15px);
   background: #f3f3f4;
   overflow-y: auto;
+  overflow-x: hidden;
   position: relative;
+  box-sizing: border-box; 
 `;
+
 
 export const OutletWrapper = styled.div`
   padding: 10px;
