@@ -1,12 +1,11 @@
 import { Flex, Form, Modal } from "antd";
 import { Text } from "../../../utils/constants";
-import { ModalInput, PrimaryBtn } from "../../../pages/units/units-styled";
-
+import {  PrimaryBtn } from "../../../pages/units/units-styled";
 import { DefaultBtn } from "../../../pages/drivers/styled";
 import { Dispatch, SetStateAction } from "react";
-import { Item } from "./add-user-styled";
 import { getLocalStorage } from "../../../utils";
 import useApiMutation from "../../../hooks/useApiMutation";
+import { FormInput } from "../../ui";
 interface Props {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
@@ -58,45 +57,38 @@ export const AddUser = ({ open, setOpen }: Props) => {
       <Form onFinish={submit}>
         <Flex gap={"20px"} vertical={true}>
           <Flex gap={"20px"}>
-            <Item
-              name={"fistName"}
-              rules={[
-                { required: true, message: "Please input your fistName!" },
-              ]}
-            >
-              <ModalInput placeholder="FirstName" width="100%" />
-            </Item>
-            <Item
-              name={"lastName"}
-              rules={[
-                { required: true, message: "Please input your lastName!" },
-              ]}
-            >
-              <ModalInput placeholder="LastName" width="100%" />
-            </Item>
-            <Item
-              name={"role"}
-              rules={[{ required: true, message: "Please input your role!" }]}
-            >
-              <ModalInput placeholder="role" width="100%" />
-              {/* <CustomSelect
-                option={roleSelect}
-                width="500px"
-                height={80}
-                placeholder="Role"
-              /> */}
-            </Item>
+            <FormInput
+              name="firstName"
+              rules={[{
+                required: true,
+                message: "Please input your firstName!",
+              }]}
+              placeholder="FirstName"
+              width="100%"
+            />
+            <FormInput
+              name="lastName"
+              rules={[{ required: true, message: "Please input your LastName!" }]}
+              placeholder="lastName"
+              width="100%"
+            />
+            <FormInput
+              name="role"
+              rules={[{ required: true, message: "Please input your Role!" }]}
+              placeholder="Role"
+              width="100%"
+            />
           </Flex>
 
           <Flex gap={"20px"}>
-            <Item
-              name={"phone"}
+            <FormInput
+              name="phone"
               rules={[{ required: true, message: "Please input your phone!" }]}
-            >
-              <ModalInput placeholder="Phone" width="100%" />
-            </Item>
-            <Item
-              name={"email"}
+              placeholder="Phone"
+              width="100%"
+            />
+            <FormInput
+              name="email"
               rules={[
                 {
                   required: true,
@@ -107,17 +99,18 @@ export const AddUser = ({ open, setOpen }: Props) => {
                   message: "Please enter a valid email address!",
                 },
               ]}
-            >
-              <ModalInput placeholder="email" width="100%" />
-            </Item>
-            <Item
+              placeholder="Email"
+              width="100%"
+            />
+            <FormInput
               name={"password"}
               rules={[
                 { required: true, message: "Please input your password!" },
               ]}
-            >
-              <ModalInput placeholder="password" type="password" width="100%" />
-            </Item>
+              placeholder="password"
+              type="password"
+            />
+
           </Flex>
           <Flex justify="end" gap={"20px"}>
             <DefaultBtn

@@ -1,6 +1,6 @@
 import { Flex, Modal } from "antd";
 import { Text } from "../../../utils/constants";
-import { CustomFlex, TabBtn } from "./modal-styled";
+import { Btn, CustomFlex, TabBtn } from "./modal-styled";
 import { useState, Dispatch, SetStateAction } from "react";
 import { Information } from "./information";
 import { Permission } from "./permission";
@@ -38,6 +38,17 @@ export const ManageUserModal = ({ setOpen, open }: Props) => {
         </Flex>
       </CustomFlex>
       {tabId == 1 ? <Information /> : <Permission />}
+      <CustomFlex justify="end">
+        <Flex gap={"small"}>
+          <Btn type="primary" onClick={() => setOpen(false)}>
+            Close
+          </Btn>
+
+          <Btn type="primary" $type="add">
+            Add
+          </Btn>
+        </Flex>
+      </CustomFlex>
     </Modal>
   );
 };

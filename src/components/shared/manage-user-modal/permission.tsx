@@ -2,7 +2,7 @@ import { Flex } from "antd";
 
 import { EditModalBtn } from "../../ui";
 import { permissionModal, Text } from "../../../utils/constants";
-import { Btn, CustomFlex } from "./modal-styled";
+import {  CustomFlex } from "./modal-styled";
 
 export const Permission = () => {
   return (
@@ -30,15 +30,7 @@ export const Permission = () => {
           </Flex>
         ))}
       </CustomFlex>
-      <CustomFlex justify="end">
-        <Flex gap={"small"}>
-          <Btn type="primary">Close</Btn>
-
-          <Btn type="primary" $type="add">
-            Add
-          </Btn>
-        </Flex>
-      </CustomFlex>
+   
     </>
   );
 };

@@ -65,13 +65,13 @@ export const Sidebar = () => {
   const active = useSelector(
     (state: RootState) => state.booleans.sidebarActive
   );
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const tabBtnFun = (key: number) => {
     if (key > 0) {
       setBtnActive(key);
-      dispatch(sidebarToggle(true));
+      // dispatch(sidebarToggle(true));
     } else {
-      dispatch(sidebarToggle(active ? false : true));
+      // dispatch(sidebarToggle(active ? false : true));
       setBtnActive(0);
     }
   };
