@@ -13,7 +13,7 @@ interface Props {
 export const AddUser = ({ open, setOpen }: Props) => {
   const UserMutation = useApiMutation("/user", { hideMessage: true });
 
-  const roleSelect = [
+  const roleSelectOption = [
     { value: "superAdmin", label: "superAdmin" },
     { value: "serviceAdmin", label: "serviceAdmin" },
     { value: "loggerAdmin", label: "loggerAdmin" },
@@ -80,7 +80,7 @@ export const AddUser = ({ open, setOpen }: Props) => {
               name="role"
               rules={[{ required: true, message: "Please input your Role!" }]}
               placeholder="Role"
-              data={roleSelect}
+              data={roleSelectOption}
             />
           </Flex>
 
