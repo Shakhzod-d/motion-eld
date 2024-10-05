@@ -1,7 +1,6 @@
+import { Rules } from "../../../types/helper.type";
 import { Item, StyledInput } from "./input-styled";
-interface Rules {
-  [key: string]: string | number | boolean | unknown;
-}
+
 interface Props {
   name: string;
   rules?: Rules[];

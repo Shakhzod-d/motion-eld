@@ -1,11 +1,11 @@
 import { Flex, Form, Modal } from "antd";
 import { Text } from "../../../utils/constants";
-import {  PrimaryBtn } from "../../../pages/units/units-styled";
+import { PrimaryBtn } from "../../../pages/units/units-styled";
 import { DefaultBtn } from "../../../pages/drivers/styled";
 import { Dispatch, SetStateAction } from "react";
 import { getLocalStorage } from "../../../utils";
 import useApiMutation from "../../../hooks/useApiMutation";
-import { FormInput } from "../../ui";
+import { FormInput, FormSelect } from "../../ui";
 interface Props {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
@@ -13,12 +13,12 @@ interface Props {
 export const AddUser = ({ open, setOpen }: Props) => {
   const UserMutation = useApiMutation("/user", { hideMessage: true });
 
-  //   const roleSelect = [
-  //     { value: "superAdmin", label: "superAdmin" },
-  //     { value: "serviceAdmin", label: "serviceAdmin" },
-  //     { value: "loggerAdmin", label: "loggerAdmin" },
-  //     { value: "companyAdmin", label: "companyAdmin" },
-  //   ];
+  const roleSelectOption = [
+    { value: "superAdmin", label: "superAdmin" },
+    { value: "serviceAdmin", label: "serviceAdmin" },
+    { value: "loggerAdmin", label: "loggerAdmin" },
+    { value: "companyAdmin", label: "companyAdmin" },
+  ];
   interface User {
     [key: string]: string;
   }
@@ -59,24 +59,28 @@ export const AddUser = ({ open, setOpen }: Props) => {
           <Flex gap={"20px"}>
             <FormInput
               name="firstName"
-              rules={[{
-                required: true,
-                message: "Please input your firstName!",
-              }]}
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your firstName!",
+                },
+              ]}
               placeholder="FirstName"
               width="100%"
             />
             <FormInput
               name="lastName"
-              rules={[{ required: true, message: "Please input your LastName!" }]}
+              rules={[
+                { required: true, message: "Please input your LastName!" },
+              ]}
               placeholder="lastName"
               width="100%"
             />
-            <FormInput
+            <FormSelect
               name="role"
               rules={[{ required: true, message: "Please input your Role!" }]}
               placeholder="Role"
-              width="100%"
+              data={roleSelectOption}
             />
           </Flex>
 
@@ -110,7 +114,6 @@ export const AddUser = ({ open, setOpen }: Props) => {
               placeholder="password"
               type="password"
             />
-
           </Flex>
           <Flex justify="end" gap={"20px"}>
             <DefaultBtn

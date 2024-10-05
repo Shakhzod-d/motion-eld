@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { TablePopup } from "../../ui";
 import {
   BorderLBottom,
@@ -14,10 +13,12 @@ import {
 } from "./custom-styled";
 
 import { GoCopy } from "react-icons/go";
-import { toast, ToastContainer } from "react-toastify";
+
 import "react-toastify/dist/ReactToastify.css";
 import { Text } from "../../../utils/constants";
-import { Pagination } from "antd";
+import { message, Pagination } from "antd";
+import { useState } from "react";
+import { successMessage } from "../../../utils/message";
 type CustomObject = {
   [key: string]: string | number | JSX.Element;
   // $status?: string;
@@ -60,6 +61,7 @@ export const CustomTable = (props: TableProps) => {
       PopupOpen(id);
     }
   }
+  const [messageApi, contextHolder] = message.useMessage();
   function PopupOpen<T extends number | null | string | undefined>(index: T) {
     console.log(index);
     if (index == PopupActive) {
@@ -96,13 +98,13 @@ export const CustomTable = (props: TableProps) => {
 
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text).then(() => {
-      toast.success("copy added");
+      successMessage("copy added");
     });
   };
 
   return (
     <TableContainer>
-      <ToastContainer />
+      {contextHolder}
       <TableElement>
         <thead>
           <tr>

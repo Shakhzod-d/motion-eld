@@ -9,6 +9,9 @@ export const Wrapper = styled.div`
   margin-top: 10px;
   background: #fff;
   margin-bottom: 40px;
+  @media (max-width: 1620px) {
+    padding: 20px 10px;
+  }
 `;
 
 export const CustomButton = styled(Button)`
@@ -17,4 +20,11 @@ export const CustomButton = styled(Button)`
   // width: 114px;
   height: 59px;
   background: #f3f3f4;
+
+  @media (max-width: 1755px) {
+    padding: 15px 25px;
+  }
+  @media (max-width: 1620px) {
+    padding: 10px;
+  }
 `;

@@ -11,6 +11,7 @@ import { driverColumns, driversData, Main } from "../../utils";
 import { CustomSelect, Navbar } from "../../components/ui";
 import { CustomTable } from "../../components/shared";
 import { BtnWrap, ActiveBtn, DefaultBtn } from "./styled";
+import { stateSelect } from "../../utils/constants";
 
 export const Drivers = () => {
   const [open, setOpen] = useState(false);
@@ -62,10 +63,8 @@ export const Drivers = () => {
           </Flex>
           <Flex gap={10}>
             <CustomSelect
-              placeholder="default"
-              option={[
-                { value: "default", label: "Driver's License Issuing State*" },
-              ]}
+              placeholder="Driver's License Issuing State*"
+              option={stateSelect}
               width="50%"
               height={70}
             />

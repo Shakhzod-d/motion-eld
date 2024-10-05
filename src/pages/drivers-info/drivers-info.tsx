@@ -5,7 +5,7 @@ import {
   DriversHeader,
   TripPlanner,
 } from "../../components/shared";
-import { Correction } from "../../components/shared/drivers-info-modal/correction";
+// import { Correction } from "../../components/shared/drivers-info-modal/correction";
 
 // ------  MODALS
 

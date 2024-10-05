@@ -10,3 +10,4 @@ export { CustomProgress } from "./progress";
 export { TablePopup } from "./table-popup";
 export { PageLoad } from "./page-load";
 export { FormInput } from "./form-input";
+export {FormSelect} from "./form-select"

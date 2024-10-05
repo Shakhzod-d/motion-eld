@@ -1,6 +1,19 @@
 import { Flex } from "antd";
-import { CustomButton, logsForm, Text } from "../../../utils/constants";
-import { FormRow, FormTitle, StyleFlex, ValueBox } from "./form-styled";
+import {
+  CustomButton,
+  logsForm,
+  logsFormTwo,
+  logsFromThee,
+  Text,
+} from "../../../utils/constants";
+import {
+  FormRow,
+  FormTitle,
+  FormTitleText,
+  StyleFlex,
+  Value,
+  ValueBox,
+} from "./form-styled";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 
@@ -28,63 +41,43 @@ export const DriversForm = () => {
         </CustomButton>
       </Flex>
       <StyleFlex gap={"15px"} $active={sidebarActive}>
-        <div >
+        <div>
           {logsForm.map((item) => (
-            <FormRow key={item.id} align="center">
+            <FormRow key={item.id} align="center" justify="">
               <FormTitle>
-                <Text color="#8C8C9B" $font="500" size={16}>
-                  {item.title}
-                </Text>
+                <FormTitleText>{item.title}</FormTitleText>
               </FormTitle>
               {item.title == "Trailers" || item.title == "Shipping docs" ? (
                 <ValueBox>
-                  <Text size={16} $font="400">
-                    {item.value}
-                  </Text>
+                  <Value>{item.value}</Value>
                 </ValueBox>
               ) : (
-                <Text size={18}>{item.value}</Text>
+                <Value $clr={item.value == "Signed" ? "#32BE61" : "black"}>
+                  {item.value}
+                </Value>
               )}
             </FormRow>
           ))}
         </div>
         <div>
-          {logsForm.map((item) => (
+          {logsFormTwo.map((item) => (
             <FormRow key={item.id} align="center">
               <FormTitle>
-                <Text color="#8C8C9B" $font="500" size={16}>
-                  {item.title}
-                </Text>
+                <FormTitleText>{item.title}</FormTitleText>
               </FormTitle>
-              {item.title == "Trailers" || item.title == "Shipping docs" ? (
-                <ValueBox>
-                  <Text size={16} $font="400">
-                    {item.value}
-                  </Text>
-                </ValueBox>
-              ) : (
-                <Text size={18}>{item.value}</Text>
-              )}
+
+              <Value>{item.value}</Value>
             </FormRow>
           ))}
         </div>
         <div>
-          {logsForm.map((item) => (
+          {logsFromThee.map((item) => (
             <FormRow key={item.id} align="center">
               <FormTitle>
-                <Text color="#8C8C9B" $font="500" size={16}>
-                  {item.title}
-                </Text>
+                <FormTitleText>{item.title}</FormTitleText>
               </FormTitle>
-              {item.title == "Trailers" || item.title == "Shipping docs" ? (
-                <ValueBox>
-                  <Text size={16} $font="400">
-                    {item.value}
-                  </Text>
-                </ValueBox>
-              ) : (
-                <Text size={18}>{item.value}</Text>
-              )}
+
+              <Value>{item.value}</Value>
             </FormRow>
           ))}
         </div>

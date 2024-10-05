@@ -311,9 +311,8 @@ export const Main = styled.main`
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 `;
-
 
 export const OutletWrapper = styled.div`
   padding: 10px;
@@ -887,12 +886,89 @@ export const logsForm = [
   { id: 6, title: "Shipping docs", value: "N/A 11194RY9P" },
   { id: 7, title: "Signature", value: "Signed" },
 ];
+
+export const logsFormTwo = [
+  { id: 1, title: "Driver", value: "Azimjon Aliyev" },
+  { id: 2, title: "Vehicle", value: "082" },
+  { id: 3, title: "Trailers", value: "V502495" },
+  { id: 4, title: "Carrier", value: "Diamond Strarz" },
+  { id: 5, title: "Home Terminal", value: "116 Sunrise Dr, Edison, NJ" },
+  { id: 6, title: "Shipping Docs", value: "654196845684" },
+  { id: 7, title: "App", value: "9.0" },
+  { id: 8, title: "Co driver", value: "." },
+  { id: 9, title: "Distance", value: "215 Miles" },
+  { id: 10, title: "Engine Hours", value: "5.8" },
+  { id: 11, title: "Device ", value: "17.5.1-iPad13.19" },
+];
+export const logsFromThee = [
+  { id: 1, title: "Vehicles", value: "Volvo, Volvo 2" },
+  { id: 2, title: "Trailers", value: "4455" },
+  { id: 4, title: "Shopping docs", value: "0000921344, Coca Cola" },
+  { id: 5, title: "Co-driver", value: "." },
+  { id: 6, title: "Carrier", value: "Greengo Trans Ins" },
+  { id: 7, title: "Home Terminal", value: "Greengo Trans Ins, Greengo Tr..." },
+  { id: 8, title: "Cycle", value: "US 70hr/8days" },
+  { id: 9, title: "Distance", value: "100 Mi, 120 Mi" },
+  { id: 10, title: "Engine hours", value: "0.00 Hours" },
+];
 export const driverEditModalBtns = [
   { id: 0, text: "On" },
   { id: 1, text: "Sb" },
   { id: 2, text: "Off" },
   { id: 3, text: "Ym" },
   { id: 4, text: "Pc" },
+];
+export const stateSelect = [
+  { id: 1, value: "alabama", label: "Alabamamen" },
+  { id: 2, value: "alaska", label: "Alaskamen" },
+  { id: 3, value: "arizona", label: "Arizonamen" },
+  { id: 4, value: "arkansas", label: "Arkansasmen" },
+  { id: 5, value: "california", label: "Californiamen" },
+  { id: 6, value: "colorado", label: "Coloradomen" },
+  { id: 7, value: "connecticut", label: "Connecticutmen" },
+  { id: 8, value: "delaware", label: "Delawaremen" },
+  { id: 9, value: "florida", label: "Floridamen" },
+  { id: 10, value: "georgia", label: "Georgiamen" },
+  { id: 11, value: "hawaii", label: "Hawaiimen" },
+  { id: 12, value: "idaho", label: "Idahomen" },
+  { id: 13, value: "illinois", label: "Illinoismen" },
+  { id: 14, value: "indiana", label: "Indianamen" },
+  { id: 15, value: "iowa", label: "Iowamen" },
+  { id: 16, value: "kansas", label: "Kansasmen" },
+  { id: 17, value: "kentucky", label: "Kentuckymen" },
+  { id: 18, value: "louisiana", label: "Louisianamen" },
+  { id: 19, value: "maine", label: "Mainemen" },
+  { id: 20, value: "maryland", label: "Marylandmen" },
+  { id: 21, value: "massachusetts", label: "Massachusettsmen" },
+  { id: 22, value: "michigan", label: "Michiganmen" },
+  { id: 23, value: "minnesota", label: "Minnesotamen" },
+  { id: 24, value: "mississippi", label: "Mississippimen" },
+  { id: 25, value: "missouri", label: "Missourimen" },
+  { id: 26, value: "montana", label: "Montanamen" },
+  { id: 27, value: "nebraska", label: "Nebraskamen" },
+  { id: 28, value: "nevada", label: "Nevadamen" },
+  { id: 29, value: "new hampshire", label: "New Hampshiremen" },
+  { id: 30, value: "new jersey", label: "New Jerseymen" },
+  { id: 31, value: "new mexico", label: "New Mexicomen" },
+  { id: 32, value: "new york", label: "New Yorkmen" },
+  { id: 33, value: "north carolina", label: "North Carolinamen" },
+  { id: 34, value: "north dakota", label: "North Dakotamen" },
+  { id: 35, value: "ohio", label: "Ohiomen" },
+  { id: 36, value: "oklahoma", label: "Oklahomamen" },
+  { id: 37, value: "oregon", label: "Oregonmen" },
+  { id: 38, value: "pennsylvania", label: "Pennsylvaniamen" },
+  { id: 39, value: "rhode island", label: "Rhode Islandmen" },
+  { id: 40, value: "south carolina", label: "South Carolinamen" },
+  { id: 41, value: "south dakota", label: "South Dakotamen" },
+  { id: 42, value: "tennessee", label: "Tennesseemen" },
+  { id: 43, value: "texas", label: "Texasmen" },
+  { id: 44, value: "utah", label: "Utahmen" },
+  { id: 45, value: "vermont", label: "Vermontmen" },
+  { id: 46, value: "virginia", label: "Virginiamen" },
+  { id: 47, value: "washington", label: "Washingtonmen" },
+  { id: 48, value: "west virginia", label: "West Virginiamen" },
+  { id: 49, value: "wisconsin", label: "Wisconsinmen" },
+  { id: 50, value: "wyoming", label: "Wyomingmen" },
 ];
 
 export const ehfModalColums = [

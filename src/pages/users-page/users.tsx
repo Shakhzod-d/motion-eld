@@ -40,7 +40,9 @@ export const Users = () => {
       <Flex justify="end" gap={"middle"}>
         <CustomInput
           type="search"
-          change={(e: unknown) => setSearchTerm(e.target.value)}
+          change={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setSearchTerm(e.target.value)
+          }
         />
         <CustomButton type="primary" onClick={() => setAddUser(true)}>
           <FaPlus />
