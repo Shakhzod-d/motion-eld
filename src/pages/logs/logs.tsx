@@ -1,5 +1,4 @@
 import { Flex } from "antd";
-import { DriversStatistics } from "../../components/shared";
 import { Navbar } from "../../components/ui";
 import { Main } from "../../utils";
 import { LogsTabPages, Reload } from "../../utils/constants";
@@ -19,7 +18,7 @@ export const Logs = () => {
   return (
     <Main>
       <Navbar title="Logs" />
-      <DriversStatistics />
+      {/* <DriversStatistics /> */}
 
       <Flex justify="space-between">
         <Flex gap={5} style={{ marginBottom: "20px" }}>

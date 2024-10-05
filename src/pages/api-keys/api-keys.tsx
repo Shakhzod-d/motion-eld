@@ -1,10 +1,10 @@
-import { FormInput } from "../../components/ui";
+import { FormSelect } from "../../components/ui";
 
 export const ApiKeys = () => {
   return (
     <div>
       <h1>ApiKeys</h1>
-      <FormInput />
+      <FormSelect />
     </div>
   );
 };

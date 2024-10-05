@@ -12,7 +12,10 @@ export const FormRow = styled(Flex)`
 `;
 
 export const FormTitle = styled.div`
-  width: 300px;
+  width: 190px;
+  @media (max-width: 1450px) {
+    width: 140px;
+  }
 `;
 export const ValueBox = styled.span`
   border-radius: 10px;
@@ -28,4 +31,20 @@ export const StyleFlex = styled(Flex)<{ $active: boolean }>`
 
   display: grid;
   grid-template-columns: repeat(3, minmax(200px, 1fr));
+`;
+
+export const FormTitleText = styled.p`
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.03em;
+  color: #8c8c9b;
+`;
+
+export const Value = styled.p<{ $clr?: string }>`
+  font-weight: 600;
+  font-size: 18px;
+  color: ${({ $clr = "#000" }) => $clr};
+  @media (max-width: 1550px) {
+    font-size: 14px;
+  }
 `;

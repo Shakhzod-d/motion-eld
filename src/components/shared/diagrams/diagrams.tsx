@@ -22,7 +22,7 @@ export const Diagrams = () => {
             ))}
           </Flex>
 
-          <Flex gap={"small"} style={{ margin: "20px 0" }}>
+          <Flex gap={"small"} style={{ margin: "20px 0" }} >
             <CustomButton>Report</CustomButton>
             <CustomButton>Certify</CustomButton>
             <CustomButton>Duplicate</CustomButton>

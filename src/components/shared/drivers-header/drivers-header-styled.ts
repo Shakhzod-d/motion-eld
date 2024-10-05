@@ -7,15 +7,22 @@ export const Block = styled.div<{
   content?: string;
   width?: number;
 }>`
+  max-width: ${({ width }) => `${width}px`} !important; /* ma-width to'g'ri yozildi */
   border-radius: 10px;
   padding: 15px 20px;
   background: #fff;
   display: ${({ display }) => display};
   align-items: center;
   height: 75px;
-  width: ${({ width }) => `${width}px`};
   gap: ${({ $gap = 0 }) => `${$gap}px`};
   justify-content: ${({ content }) => content};
+`;
+
+
+export const Div = styled.div<{ $w?: string }>`
+  width: 100%;
+  max-width: ${({ $w = "100px" }) => $w} !important;
+  border: 1px solid;
 `;
 export const Text = styled.p<{ size?: number; $font?: number; color?: string }>`
   font-weight: ${({ $font }) => $font};
@@ -29,7 +36,8 @@ export const Text = styled.p<{ size?: number; $font?: number; color?: string }>`
 export const StyleButton = styled(Button)<{ active: string }>`
   border-radius: 10px;
   padding: 20px;
-  width: 192px;
+  width: 100%;
+  max-width: 192px;
   height: 57px;
   background: ${({ active }) => (active == "true" ? "#19223f" : "")};
 `;
