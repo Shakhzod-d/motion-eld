@@ -21,6 +21,8 @@ export { CompanyModal } from "./company-page-modal";
 export { Map } from "./map";
 export { TrackingMap } from "./tracking-map";
 export { AddUser } from "./add-user-modal";
+export { UnitsAddModal } from "./units-add-modal";
+export { DriversModal } from "./drivers-modal";
 export {
   Normalize,
   UpdateModal,

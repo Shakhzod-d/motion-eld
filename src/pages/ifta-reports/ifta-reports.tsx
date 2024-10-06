@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Flex,  } from "antd";
-import { ReportsSelect, TransparentButton } from "./ifta-reports-styled";
+import { Flex } from "antd";
+import { TransparentButton } from "./ifta-reports-styled";
 import {
   IftaReportButtons,
   IftaReportColData,
@@ -29,7 +29,7 @@ export const IftaReports = () => {
               option={item.options}
               width="185px"
               height={50}
-              color='#000'
+              color="#000"
             />
           ))}
         </Flex>

@@ -970,7 +970,106 @@ export const stateSelect = [
   { id: 49, value: "wisconsin", label: "Wisconsinmen" },
   { id: 50, value: "wyoming", label: "Wyomingmen" },
 ];
+export const yearState = [
+  { id: 1, value: 1999, label: 1999 },
+  { id: 2, value: 2000, label: 2000 },
+  { id: 3, value: 2001, label: 2001 },
+  { id: 4, value: 2002, label: 2002 },
+  { id: 5, value: 2003, label: 2003 },
+  { id: 6, value: 2004, label: 2004 },
+  { id: 7, value: 2005, label: 2005 },
+  { id: 8, value: 2006, label: 2006 },
+  { id: 9, value: 2007, label: 2007 },
+  { id: 10, value: 2008, label: 2008 },
+  { id: 11, value: 2009, label: 2009 },
+  { id: 12, value: 2010, label: 2010 },
+  { id: 13, value: 2011, label: 2011 },
+  { id: 14, value: 2012, label: 2012 },
+  { id: 15, value: 2013, label: 2013 },
+  { id: 16, value: 2014, label: 2014 },
+  { id: 17, value: 2015, label: 2015 },
+  { id: 18, value: 2016, label: 2016 },
+  { id: 19, value: 2017, label: 2017 },
+  { id: 20, value: 2018, label: 2018 },
+  { id: 21, value: 2019, label: 2019 },
+  { id: 22, value: 2020, label: 2020 },
+  { id: 23, value: 2021, label: 2021 },
+  { id: 24, value: 2022, label: 2022 },
+  { id: 25, value: 2023, label: 2023 },
+  { id: 26, value: 2024, label: 2024 },
+  { id: 27, value: 2025, label: 2025 },
+];
+export const makesState = [
+  { label: "Freightliner", value: 1 },
 
+  { label: "Volvo", value: 2 },
+
+  { label: "Ram", value: 3 },
+
+  { label: "International", value: 4 },
+  { label: "Kenworth", value: 5 },
+
+  { label: "Peterbilt", value: 6 },
+  { label: "Mack", value: 7 },
+
+  { label: "Western Star", value: 8 },
+  { label: "Ford", value: 9 },
+  { label: "GMC", value: 10 },
+  { label: "Wabash National Corporation", value: 17 },
+  { label: "Chevrolet", value: 18 },
+
+  { label: "Mercedes", value: 19 },
+
+  { label: "HINO", value: 20 },
+  { label: "BIG TEX", value: 21 },
+
+  { label: "KAUFMAN", value: 22 },
+
+  { label: "STERLING", value: 23 },
+
+  { label: "(VNTC)", value: 24 },
+
+  { label: "PJ", value: 25 },
+  { label: "ISUZU", value: 26 },
+  { label: "HONDA", value: 27 },
+  { label: "COTTRELL", value: 28 },
+  { label: "DODGE", value: 29 },
+  { label: "NISSAN", value: 30 },
+  { label: "GREAT DANE", value: 31 },
+
+  { label: "Toyota", value: 32 },
+  { label: "IHC", value: 33 },
+];
+export const models = [
+  { label: "Cascadia", value: 1 },
+  { label: "WFC 120", value: 2 },
+
+  { label: "FLA", value: 3 },
+  { label: "FLA 104", value: 4 },
+  { label: "FLA 104 64", value: 5 },
+
+  { label: "FLA 75", value: 6 },
+  { label: "FLA 7542T", value: 7 },
+];
+export const fuelType = [
+  { label: "Diesel", value: "Diesel" },
+
+  { label: "Gasoline", value: "Gasoline" },
+
+  { label: "Propane", value: "Propane" },
+
+  { label: "Liquid Natural Gas", value: "Liquid Natura…" },
+
+  { label: "Compressed Natural Gas", value: "Compresse…" },
+  { label: "Ethanol", value: "Ethanol" },
+
+  { label: "Methanol", value: "Methanol" },
+  { label: "E-85", value: "E-85" },
+  { label: "M-85", value: "M-85" },
+  { label: "A55", value: "A55" },
+  { label: "Biodiesel", value: "Biodiesel" },
+  { label: "Other", value: "Other" },
+];
 export const ehfModalColums = [
   {
     title: "ID",
