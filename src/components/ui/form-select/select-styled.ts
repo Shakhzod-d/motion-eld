@@ -16,10 +16,13 @@ export const StyledSelect = styled(Select)<{
   width: ${({ $w = "100%" }) => $w} !important;
   height: ${({ $h = "50px" }) => $h} !important;
   color: ${({ $clr = "#000" }) => $clr} !important;
-  background: ${({ $bg = "#f9f9fa" }) => $bg} !important;
+  background: ${({ $bg}) => $bg} !important;
   border: none !important; /* Borderni to'liq olib tashlash */
   box-shadow: none !important; /* Box-shadowni olib tashlash */
-
+  .ant-select-selector {
+    background-color: ${({ $bg = "#f9f9fa" }) => $bg} !important;
+    // border: none !important;
+  }
   &:hover {
     background: ${({ $bg = "#f9f9fa" }) => $bg} !important;
     border: none !important;

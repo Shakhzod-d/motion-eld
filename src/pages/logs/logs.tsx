@@ -18,14 +18,12 @@ export const Logs = () => {
   return (
     <Main>
       <Navbar title="Logs" />
-      {/* <DriversStatistics /> */}
-
       <Flex justify="space-between">
         <Flex gap={5} style={{ marginBottom: "20px" }}>
           {LogsTabPages.map((item) => (
             <NavLink to={item.to} key={item.key}>
               <TransparentButton
-              width="120px"
+                width="120px"
                 active={String(pathname.endsWith(item.to))}
                 padding="0 25px"
               >

@@ -4,7 +4,8 @@ import { FaAngleDown } from "react-icons/fa";
 import { Rules } from "../../../types/helper.type";
 
 interface Option {
-  label: string;
+  id?: number | string;
+  label: string|number;
   value: string | boolean | number;
 }
 interface Props {
@@ -36,7 +37,7 @@ export const FormSelect = (props: Props) => {
       >
         {data?.map((item) => {
           return (
-            <Select.Option value={item.value}>{item.label}"</Select.Option>
+            <Select.Option value={item.value}>{item.label}</Select.Option>
           );
         })}
       </StyledSelect>
