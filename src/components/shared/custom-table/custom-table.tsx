@@ -14,11 +14,10 @@ import {
 
 import { GoCopy } from "react-icons/go";
 
-import "react-toastify/dist/ReactToastify.css";
 import { Text } from "../../../utils/constants";
 import { message, Pagination } from "antd";
 import { useState } from "react";
-import { successMessage } from "../../../utils/message";
+// import { successMessage } from "../../../utils/message";
 type CustomObject = {
   [key: string]: string | number | JSX.Element;
   // $status?: string;
@@ -62,6 +61,12 @@ export const CustomTable = (props: TableProps) => {
     }
   }
   const [messageApi, contextHolder] = message.useMessage();
+  const successMessage = (message: string) => {
+    messageApi.open({
+      type: "success",
+      content: message,
+    });
+  };
   function PopupOpen<T extends number | null | string | undefined>(index: T) {
     console.log(index);
     if (index == PopupActive) {
