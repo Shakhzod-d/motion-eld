@@ -1,10 +1,6 @@
 import { Flex, Form, Modal } from "antd";
 import { ModalCheckBox, ModalTextArea, ModalTitle } from "./styled";
-import {
-  DefaultBtn,
-  ModalInput,
-  PrimaryBtn,
-} from "../../../pages/units/units-styled";
+import { DefaultBtn, PrimaryBtn } from "../../../pages/units/units-styled";
 import { FormInput, FormSelect } from "../../ui";
 import { Dispatch, SetStateAction } from "react";
 import {
@@ -14,6 +10,7 @@ import {
   stateSelect,
   yearState,
 } from "../../../utils/constants";
+import useApiMutation from "../../../hooks/useApiMutation";
 interface Prop {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
@@ -21,9 +18,28 @@ interface Prop {
 interface Data {
   [key: string]: string | number | boolean;
 }
+
 export const UnitsAddModal = ({ open, setOpen }: Prop) => {
+  const unitsMutation = useApiMutation("/vehicle", { hideMessage: true });
   const submit = (data: Data) => {
-    console.log(data);
+    const unitsData = {
+      make: data.make,
+      model: data.model,
+      vin: data.vin,
+      unit: data.unit,
+      year: data.year,
+      licensePlateNo: data.licensec,
+      fuelType: data.fuel_type,
+      notes: data.notes,
+    };
+    unitsMutation.mutate(unitsData, {
+      onSuccess: (res: unknown) => {
+        console.log(res);
+      },
+      onError: (err) => {
+        console.log(err);
+      },
+    });
   };
   return (
     <Modal
@@ -59,7 +75,7 @@ export const UnitsAddModal = ({ open, setOpen }: Prop) => {
               pClr="#000"
               data={makesState}
               h={"60px"}
-              name="makes"
+              name="make"
             />
           </Flex>
           <Flex justify="space-between" gap="10px">
@@ -73,7 +89,7 @@ export const UnitsAddModal = ({ open, setOpen }: Prop) => {
               ]}
               data={models}
               h={"60px"}
-              name="models"
+              name="model"
             />
 
             <FormInput placeholder="Licensec Plate No" name="licensec" />
@@ -118,19 +134,18 @@ export const UnitsAddModal = ({ open, setOpen }: Prop) => {
               ]}
             />
           </Flex>
-          <ModalTextArea placeholder="Notes" />
+          <Form.Item name={"notes"}>
+            <ModalTextArea placeholder="Notes" />
+          </Form.Item>
           <Flex vertical>
             <ModalCheckBox>Enter Vin Manually</ModalCheckBox>
-            <ModalInput placeholder="Type" style={{ width: "100%" }} />
+            <FormInput placeholder="Type" name="vin" />
           </Flex>
           <Flex vertical>
             <ModalCheckBox>
               Get Automatically from ELD ( recommended )
             </ModalCheckBox>
-            <ModalInput
-              placeholder="Type"
-              style={{ width: "100%", marginBottom: "45px" }}
-            />
+            <FormInput placeholder="Type" name="unit" />
           </Flex>
           <Flex justify="end" gap={"10px"}>
             <DefaultBtn

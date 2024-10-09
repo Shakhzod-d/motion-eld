@@ -11,9 +11,9 @@ const expandAnimation = keyframes`
 `;
 export const SidebarContainer = styled.article<{ $active: boolean }>`
   width: 100%;
-  max-width: 240px;
-  // max-width: ${({ $active }) => ($active ? "240px" : "100px")};
-  max-width: 240px;
+  // max-width: 240px;
+  max-width: ${({ $active }) => ($active ? "240px" : "100px")};
+  // max-width: 240px;
   height: 100vh;
   // transition: max-width 0.2s ease, width 0.02s ease;
   padding: 10px;

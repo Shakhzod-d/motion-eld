@@ -35,9 +35,9 @@ export const FormSelect = (props: Props) => {
         $w={width}
         $h={h}
       >
-        {data?.map((item) => {
+        {data?.map((item,i) => {
           return (
-            <Select.Option value={item.value}>{item.label}</Select.Option>
+            <Select.Option value={item.value} key={i}>{item.label}</Select.Option>
           );
         })}
       </StyledSelect>

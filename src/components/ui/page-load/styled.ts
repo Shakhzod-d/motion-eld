@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div<{ $bg?: string }>`
+export const Wrapper = styled.div<{ $bg?: string; $h?: string }>`
   width: 100%;
-  height: 100vh;
+  height: ${({ $h = "100vh" }) => $h};
   background: ${({ $bg = "#fff" }) => $bg};
   display: flex;
   justify-content: center;
