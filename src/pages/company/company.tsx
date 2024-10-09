@@ -12,7 +12,7 @@ export const Company = () => {
   const [open, setOpen] = useState(false);
   const { data } = useApi("/companies", {
     page: 1,
-    limit: 1000,
+    limit: 7,
   });
   console.log(data);
 

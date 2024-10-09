@@ -27,6 +27,7 @@ import { sidebarToggle } from "../../../store/booleans-slice";
 import { Text } from "../../../utils/constants";
 import { Link, useLocation } from "react-router-dom";
 
+
 const items = [
   {
     key: 1,
@@ -65,19 +66,18 @@ export const Sidebar = () => {
   const active = useSelector(
     (state: RootState) => state.booleans.sidebarActive
   );
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const tabBtnFun = (key: number) => {
     if (key > 0) {
       setBtnActive(key);
-      // dispatch(sidebarToggle(true));
+      dispatch(sidebarToggle(true));
     } else {
-      // dispatch(sidebarToggle(active ? false : true));
+      dispatch(sidebarToggle(active ? false : true));
       setBtnActive(0);
     }
   };
   return (
     <SidebarContainer $active={active}>
-      
       <StyleFlex align="center" justify="space-between" $active={active}>
         {active && (
           <Link to={"/"}>
@@ -139,14 +139,17 @@ export const Sidebar = () => {
                 {active && <p>{item.label}</p>}
               </BtnWrap>
 
-              {btnActive == item.key &&
-                item.page?.map((i) => {
-                  return (
-                    <PageActive key={i.id} to={i.url}>
-                      <p>{i.text}</p>
-                    </PageActive>
-                  );
-                })}
+              { !active ||
+
+                (btnActive == item.key &&
+                  item.page?.map((i) => {
+                    return (
+                      <PageActive key={i.id} to={i.url}>
+                        {/* <TbDeviceSdCard /> */}
+                        {active && <p>{i.text}</p>}
+                      </PageActive>
+                    );
+                  }))}
             </TabBtn>
           );
         })}

@@ -11,9 +11,10 @@ interface Props {
   pClr?: string;
   bg?: string;
   type?: string;
+  h?:string
 }
 export const FormInput = (prop: Props) => {
-  const { name, rules, placeholder, width, padding, clr, pClr, bg, type } =
+  const { name, rules, placeholder, width, padding, clr, pClr, bg, type,h } =
     prop;
   return (
     <Item name={name} rules={rules ? rules : []}>
@@ -24,6 +25,7 @@ export const FormInput = (prop: Props) => {
         $clr={clr}
         $pClr={pClr}
         $bg={bg}
+        $h={h}
         type={type}
       />
     </Item>

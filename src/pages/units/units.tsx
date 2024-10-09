@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { PrimaryBtn, TopContainer } from "./units-styled";
-import { Flex, } from "antd";
+import { Flex } from "antd";
 import { Main, unitsButtons, unitsColumns, unitsData } from "../../utils/index";
 import { Navbar } from "../../components/ui";
 import { TransparentButton } from "../ifta-reports/ifta-reports-styled";
 import { CustomTable } from "../../components/shared";
 import { UnitsAddModal } from "../../components/shared/units-add-modal";
+// import useApi from "../../hooks/useApi";
 
 export const Units = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -14,6 +15,7 @@ export const Units = () => {
   //   page: 1,
   //   limit: 1000,
   // });
+  // console.log(data);
 
   return (
     <Main>

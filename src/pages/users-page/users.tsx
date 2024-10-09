@@ -48,7 +48,7 @@ export const Users = () => {
           <FaPlus />
         </CustomButton>
       </Flex>
-      {isLoading && <PageLoad bg="#f3f3f4" />}
+      {isLoading && <PageLoad bg="#f3f3f4" h="calc(100vh - 400px)" />}
       {isLoading || (
         <InfoTable
           header={usersTableHeader}

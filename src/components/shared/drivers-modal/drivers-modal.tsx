@@ -5,7 +5,7 @@ import {
   ModalInput,
   PrimaryBtn,
 } from "../../../pages/units/units-styled";
-import { CustomSelect } from "../../ui";
+import { CustomSelect, FormInput, FormSelect } from "../../ui";
 import { stateSelect } from "../../../utils/constants";
 import { ModalCheckBox, ModalTextArea } from "../units-add-modal/styled";
 interface Prop {
@@ -25,27 +25,33 @@ export const DriversModal = ({ open, setOpen }: Prop) => {
       <h2 className="modal-title">Create Drivers</h2>
       <Flex vertical gap={10}>
         <Flex gap={10}>
-          <ModalInput placeholder="First Name*" />
-          <ModalInput placeholder="Last name*" />
-          <ModalInput placeholder="Username*" />
-          <ModalInput placeholder="Email*" type="email" />
-        </Flex>
-        <Flex gap={10}>
-          <ModalInput placeholder="Password*" />
-          <ModalInput placeholder="Phone No*" type="tel" />
-          <CustomSelect
-            placeholder="default"
-            option={[{ value: "default", label: "Vehicle ID" }]}
-            width="50%"
+          <FormInput
+            name="firstName"
+            placeholder="First Name*"
+            padding="20px 25px"
           />
-          <ModalInput placeholder="Driver's License No*" />
+          <FormInput placeholder="Last name*" name="lastName" />
+          <FormInput placeholder="Username*" name="userName" />
+          <FormInput placeholder="Email*" type="email" name="username" />
         </Flex>
         <Flex gap={10}>
-          <CustomSelect
+          <FormInput placeholder="Password*" name="password" type="password" />
+          <FormInput placeholder="Phone No*" type="tel" name="phone" />
+          <FormSelect
+            placeholder="default"
+            h="60px"
+            data={[{ value: "default", label: "Vehicle ID" }]}
+            // width="50%"
+            name="VehicleI"
+          />
+          <FormInput placeholder="Driver's License No*" name="d_license_no" />
+        </Flex>
+        <Flex gap={10}>
+          <FormSelect
             placeholder="Driver's License Issuing State*"
-            option={stateSelect}
-            width="50%"
-            height={70}
+            data={stateSelect}
+            name="state"
+            h={"70px"}
           />
           <ModalInput placeholder="Home Terminal Address*" />
           <CustomSelect
@@ -86,7 +92,7 @@ export const DriversModal = ({ open, setOpen }: Prop) => {
             Close
           </DefaultBtn>
           <PrimaryBtn
-            onClick={() => setOpen(false)}
+            // onClick={}
             style={{ width: "200px", height: "55px" }}
           >
             Save

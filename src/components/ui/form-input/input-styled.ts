@@ -11,9 +11,11 @@ export const StyledInput = styled(Input)<{
   $clr?: string;
   $pClr?: string;
   $bg?: string;
+  $h?: string;
 }>`
   border-radius: 10px;
   padding: ${({ $p = "20px" }) => $p};
+  height: ${({ $h = "60px" }) => $h};
   width: ${({ $w = "100%" }) => $w};
   color: ${({ $clr = "#000" }) => $clr} !important;
   background: ${({ $bg = "#f9f9fa" }) => $bg};
