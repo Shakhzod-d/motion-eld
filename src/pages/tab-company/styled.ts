@@ -56,4 +56,5 @@ export const Note = styled.textarea`
   background: #ffffff;
   border: none;
   outline: none;
+  margin-bottom: 20px;
 `;

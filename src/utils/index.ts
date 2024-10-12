@@ -4,7 +4,7 @@ export {
   transferColums,
   Main,
   unitsColumns,
-  unitsData,
+
   unitsButtons,
   manageCompanyButtons,
   IftaReportButtons,

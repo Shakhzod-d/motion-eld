@@ -4,6 +4,10 @@ export interface LoginData {
   login: string;
   password: string;
 }
+export interface SelectData {
+  value: string | unknown;
+  label: string;
+}
 export interface ILoginData {
   data: IUserData;
 }
@@ -39,7 +43,6 @@ export interface ArticleProps {
   desc: string;
   time?: string;
 }
-
 
 export interface ILog {
   coDriverId: string;
