@@ -33,11 +33,12 @@ export const Login = () => {
       onSuccess: (res: ILoginData) => {
         setLoading(false);
         const { data } = res;
-        console.log(data);
+      
 
         navigate("/");
         setLocalStorage("token", data?.token);
         setLocalStorage("roleId", data?.role?.roleId);
+        setLocalStorage("companyId", data?.companyId);
         // const role: IUserRole = data.role;
 
         // const isAdmin = role.roleName === "superAdmin";
@@ -68,7 +69,6 @@ export const Login = () => {
         //   window.location.reload();
 
         // }
-        console.log("user", data);
       },
       onError: (err) => {
         errorMessage(err?.data.error);

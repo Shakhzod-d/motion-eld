@@ -37,7 +37,7 @@ export const Description = styled.p`
   font-weight: 300;
   margin: 10px 0;
 `;
-export const PageBtn = styled(NavLink)<{ $active: boolean }>`
+export const PageBtn = styled(NavLink)<{ $active?: boolean }>`
   border-radius: 10px;
   padding: 15px 20px;
   width: 100%;

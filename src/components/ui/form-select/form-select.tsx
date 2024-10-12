@@ -6,10 +6,10 @@ import { Rules } from "../../../types/helper.type";
 interface Option {
   id?: number | string;
   label: string|number;
-  value: string | boolean | number;
+  value: string | boolean | number|unknown;
 }
 interface Props {
-  name: string;
+  name?: string;
   rules?: Rules[];
   h?: string;
   width?: string;

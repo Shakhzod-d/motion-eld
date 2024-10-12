@@ -17,16 +17,17 @@ import { GoCopy } from "react-icons/go";
 import { Text } from "../../../utils/constants";
 import { message, Pagination } from "antd";
 import { useState } from "react";
+
 // import { successMessage } from "../../../utils/message";
 type CustomObject = {
-  [key: string]: string | number | JSX.Element;
+  [key: string]: string | number | JSX.Element ;
   // $status?: string;
 };
 
 interface TableColumn {
   header: string | JSX.Element;
   accessor: string;
-  id?: number;
+  id?: string |number;
 }
 
 interface TableProps {

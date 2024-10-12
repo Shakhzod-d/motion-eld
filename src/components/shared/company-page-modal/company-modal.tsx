@@ -40,9 +40,9 @@ export const CompanyModal = ({ setOpen, open }: Props) => {
       {tabId == 1 ? <Details /> : <Settings />}
       <CustomFlex justify="end">
         <Flex gap={"small"}>
-          <Btn type="primary">Close</Btn>
+          <Btn type="primary" onClick={()=>setOpen(false)}>Close</Btn>
 
-          <Btn type="primary" $type="add">
+          <Btn type="primary" $type="add" onClick={()=>setOpen(false)}>
             Save
           </Btn>
         </Flex>

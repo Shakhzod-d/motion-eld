@@ -2,6 +2,7 @@ import { HiPhone } from "react-icons/hi2";
 import { ObjType } from "../types/helper.type";
 import { IoMdMail } from "react-icons/io";
 import { RiUser3Fill } from "react-icons/ri";
+import { useDate } from "../hooks/useDate";
 
 function calculateDaysBetweenDates(startDate: string): number {
   // Sana: ISO formatidagi satrni Date ob'ektiga o'zgartirish
@@ -46,8 +47,8 @@ export const mapUserData = (data: ObjType[]) => {
 
 export const mapCompanies = (data: ObjType[]) => {
   return data?.map((item) => {
-    // const role = item["role"] as ObjType;
-    // const daysBetween = calculateDaysBetweenDates(String(item.updatedAt));
+    const createdAt = useDate(item && item?.createdAt);
+    const edited = useDate(item && item.updatedAt);
     return {
       name: {
         label: item.companyName,
@@ -69,8 +70,8 @@ export const mapCompanies = (data: ObjType[]) => {
       created: {
         label: "",
         data: [
-          { id: 1, text: "Created: Apr 3rd 2023", icon: "" },
-          { id: 2, text: "Edited: Apr 3rd 2023", icon: "" },
+          { id: 1, text: `Created: ${createdAt}`, icon: "" },
+          { id: 2, text: `Edited: ${edited}`, icon: "" },
         ],
       },
       edit: { label: "Edit" },

@@ -11,36 +11,49 @@ import {
   yearState,
 } from "../../../utils/constants";
 import useApiMutation from "../../../hooks/useApiMutation";
+import { RuleObject } from "antd/es/form";
+import { errorMessage, successMessage } from "../../../utils/message";
 interface Prop {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
 }
 interface Data {
-  [key: string]: string | number | boolean;
+  [key: string]: string | boolean;
 }
 
 export const UnitsAddModal = ({ open, setOpen }: Prop) => {
   const unitsMutation = useApiMutation("/vehicle", { hideMessage: true });
+
+  const [form] = Form.useForm();
+
+  const handleReset = () => {
+    form.resetFields(); // Formani tozalash
+    setOpen(false);
+  };
+  const validateLength = (_: RuleObject, value: string) => {
+    if (value && value.length === 17) {
+      return Promise.resolve();
+    }
+    return Promise.reject(
+      new Error("The input must be exactly 17 characters long!")
+    );
+  };
+
+  //--------------submit
   const submit = (data: Data) => {
-    const unitsData = {
-      make: data.make,
-      model: data.model,
-      vin: data.vin,
-      unit: data.unit,
-      year: data.year,
-      licensePlateNo: data.licensec,
-      fuelType: data.fuel_type,
-      notes: data.notes,
-    };
-    unitsMutation.mutate(unitsData, {
+    unitsMutation.mutate(data, {
       onSuccess: (res: unknown) => {
         console.log(res);
+
+        successMessage("vehicle created added");
+        handleReset();
       },
       onError: (err) => {
-        console.log(err);
+        errorMessage(`${err.data.message}  (${err.data.data})`);
       },
     });
   };
+  //--------------submit end
   return (
     <Modal
       centered
@@ -52,11 +65,12 @@ export const UnitsAddModal = ({ open, setOpen }: Prop) => {
       <ModalTitle>Create Vehicle</ModalTitle>
 
       <Flex vertical gap={10}>
-        <Form onFinish={submit}>
+        <Form onFinish={submit} form={form}>
           <Flex justify="space-between" gap="10px">
             <FormInput
               placeholder="Vehicle ID"
-              name="vehicle_id"
+              // name="vehicle_id"
+              disabled={true}
               rules={[
                 {
                   required: true,
@@ -78,6 +92,7 @@ export const UnitsAddModal = ({ open, setOpen }: Prop) => {
               name="make"
             />
           </Flex>
+
           <Flex justify="space-between" gap="10px">
             <FormSelect
               placeholder={"Models"}
@@ -92,20 +107,30 @@ export const UnitsAddModal = ({ open, setOpen }: Prop) => {
               name="model"
             />
 
-            <FormInput placeholder="Licensec Plate No" name="licensec" />
+            <FormInput
+              placeholder="Licensec Plate No"
+              name="licensePlateNo"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your Licensec Plate No",
+                },
+              ]}
+            />
           </Flex>
+
           <Flex justify="space-between" gap="10px">
             <FormSelect
               placeholder={"License Plate Issuing State"}
               data={stateSelect}
               h={"60px"}
-              name="licensec_state"
-              rules={[
-                {
-                  required: true,
-                  message: "License Plate Issuing State",
-                },
-              ]}
+              // name="licensec_state"
+              // rules={[
+              //   {
+              //     required: true,
+              //     message: "License Plate Issuing State",
+              //   },
+              // ]}
             />
             <FormSelect
               placeholder={"Year"}
@@ -120,12 +145,13 @@ export const UnitsAddModal = ({ open, setOpen }: Prop) => {
               ]}
             />
           </Flex>
+
           <Flex>
             <FormSelect
               placeholder={"fuel type"}
               data={fuelType}
               h={"60px"}
-              name="fuel_type"
+              name="fuelType"
               rules={[
                 {
                   required: true,
@@ -134,22 +160,55 @@ export const UnitsAddModal = ({ open, setOpen }: Prop) => {
               ]}
             />
           </Flex>
-          <Form.Item name={"notes"}>
+
+          <Form.Item
+            name={"notes"}
+            rules={[
+              {
+                required: true,
+                message: "Please input your notes",
+              },
+            ]}
+          >
             <ModalTextArea placeholder="Notes" />
           </Form.Item>
+
           <Flex vertical>
             <ModalCheckBox>Enter Vin Manually</ModalCheckBox>
-            <FormInput placeholder="Type" name="vin" />
+            <FormInput
+              placeholder="Type"
+              name="vin"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input 17 characters!",
+                },
+                {
+                  validator: validateLength,
+                },
+              ]}
+            />
           </Flex>
+
           <Flex vertical>
             <ModalCheckBox>
               Get Automatically from ELD ( recommended )
             </ModalCheckBox>
-            <FormInput placeholder="Type" name="unit" />
+            <FormInput
+              placeholder="Type"
+              name="unit"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your uint",
+                },
+              ]}
+            />
           </Flex>
+
           <Flex justify="end" gap={"10px"}>
             <DefaultBtn
-              onClick={() => setOpen(false)}
+              onClick={handleReset}
               style={{ width: "200px", height: "55px" }}
             >
               Close
@@ -158,6 +217,7 @@ export const UnitsAddModal = ({ open, setOpen }: Prop) => {
             <PrimaryBtn
               style={{ width: "200px", height: "55px" }}
               htmlType="submit"
+              loading={unitsMutation.isLoading}
             >
               Save
             </PrimaryBtn>
