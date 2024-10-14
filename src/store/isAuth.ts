@@ -1,9 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
 interface State {
   isAuth: boolean;
+  data: object;
 }
 const initialState: State = {
   isAuth: false,
+  data: [],
 };
 
 export const isAuth = createSlice({
@@ -13,9 +16,12 @@ export const isAuth = createSlice({
     setAuth: (state, action: PayloadAction<boolean>) => {
       state.isAuth = action.payload;
     },
+    setData: (state, action: PayloadAction<object>) => {
+      state.data = action.payload;
+    },
   },
 });
 
-export const { setAuth } = isAuth.actions;
+export const { setAuth, setData } = isAuth.actions;
 
 export default isAuth.reducer;

@@ -14,6 +14,7 @@ import { setLocalStorage } from "../../utils";
 import { errorMessage } from "../../utils/message";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { setUser } from "../../utils/dispatch";
 export const Login = () => {
   const navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
@@ -33,12 +34,12 @@ export const Login = () => {
       onSuccess: (res: ILoginData) => {
         setLoading(false);
         const { data } = res;
-      
 
-        navigate("/");
         setLocalStorage("token", data?.token);
+        setUser(data);
         setLocalStorage("roleId", data?.role?.roleId);
         setLocalStorage("companyId", data?.companyId);
+        navigate("/");
         // const role: IUserRole = data.role;
 
         // const isAdmin = role.roleName === "superAdmin";
