@@ -1,7 +1,7 @@
 import { Card, CardsTop } from "./info-table-styled";
 import { Flex } from "antd";
 import { Text } from "../../../utils/constants";
-import { ObjType } from "../../../types/helper.type";
+
 interface Header {
   header: string;
   accessor: string;
@@ -9,8 +9,9 @@ interface Header {
 
 interface Prop {
   header: Header[];
-  data:ObjType[];
+  data: object[];
   editData?: (id: string) => void;
+  onClick: (id: string) => void;
 }
 
 interface Data {
@@ -25,7 +26,7 @@ interface RowData {
   img?: string;
   data?: { id: number; text: string; icon?: React.ReactElement | string }[];
 }
-export const InfoTable = ({ header, data, editData }: Prop) => {
+export const InfoTable = ({ header, data, editData, onClick }: Prop) => {
   const edit = (id: string) => {
     if (editData) {
       editData(id);
@@ -40,7 +41,7 @@ export const InfoTable = ({ header, data, editData }: Prop) => {
       </CardsTop>
 
       {data.map((item, i) => (
-        <Card key={i}>
+        <Card key={i} onClick={() => onClick(item.id)}>
           {header.map((row, ind) => {
             const Header = row.accessor;
             const Item: Data = item;

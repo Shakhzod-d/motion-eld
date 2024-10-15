@@ -10,8 +10,8 @@ import useApi from "../../hooks/useApi";
 import { ObjType } from "../../types/helper.type";
 import { SelectData } from "../../types";
 import { DriversSelectId } from "../../utils/dispatch";
+import { Text } from "../../utils/constants";
 export const Units = () => {
-  
   const [open, setOpen] = useState<boolean>(false);
   const [activeBtn, setActiveBtn] = useState<number>(1);
   const { data, isLoading } = useApi("/vehicles", {
@@ -40,8 +40,9 @@ export const Units = () => {
       };
     });
     const select: SelectData[] = dataArr.map((item) => {
-      const firstName = item?.driver.firstName;
-      const lastNama = item?.driver.lastName;
+      const firstName = item?.model;
+      const lastNama = item?.make;
+
       return {
         value: item._id,
         label: `${firstName} ${lastNama}`,
@@ -51,7 +52,7 @@ export const Units = () => {
   };
 
   const unitsData = dataSort(data ? data.data?.data : []);
-  // console.log(unitsData);
+  console.log(unitsData);
   DriversSelectId(unitsData.select);
   return (
     <Main>
@@ -74,8 +75,13 @@ export const Units = () => {
       {/* Units table data */}
       {isLoading ? (
         <PageLoad bg="#f3f3f4" h="calc(100vh - 400px)" />
-      ) : (
+      ) : unitsData.arr.length !== 0 ? (
         <CustomTable columns={unitsColumns} data={unitsData.arr} />
+      ) : (
+        <>
+          <CustomTable columns={unitsColumns} data={[{}]} />
+          <Text size={20}>NO Data</Text>
+        </>
       )}
       <UnitsAddModal open={open} setOpen={setOpen} />
       {/* Units change modal */}

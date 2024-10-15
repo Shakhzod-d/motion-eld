@@ -1,13 +1,23 @@
 import { useState } from "react";
 import { PrimaryBtn, TopContainer } from "../units/units-styled";
 
-import { driverColumns, driversData, Main } from "../../utils";
-import { Navbar } from "../../components/ui";
+import { driverColumns, Main } from "../../utils";
+import { Navbar, PageLoad } from "../../components/ui";
 import { CustomTable, DriversModal } from "../../components/shared";
 import { BtnWrap, ActiveBtn, DefaultBtn } from "./styled";
+import useApi from "../../hooks/useApi";
+import { companyDrivers } from "../../utils/mapData";
 
 export const Drivers = () => {
   const [open, setOpen] = useState(false);
+
+  const { data, isLoading } = useApi("/drivers", {
+    page: 1,
+    limit: 1000,
+  });
+  console.log(data);
+
+  const drivers = companyDrivers(data ? data?.data?.data : []);
   return (
     <>
       <Main>
@@ -26,7 +36,15 @@ export const Drivers = () => {
           <ActiveBtn>Vehicle</ActiveBtn>
           <DefaultBtn>Deactivated</DefaultBtn>
         </BtnWrap>
-        <CustomTable columns={driverColumns} data={driversData} />
+        {isLoading ? (
+          <PageLoad bg="#f3f3f4" h="calc(100vh - 400px)" />
+        ) : drivers.length != 0 ? (
+          <CustomTable columns={driverColumns} data={drivers} />
+        ) : (
+          <>
+            <CustomTable columns={driverColumns} data={[{}]} /> <p>No Data</p>
+          </>
+        )}
       </Main>
       <DriversModal open={open} setOpen={setOpen} />
     </>

@@ -50,6 +50,7 @@ export const mapCompanies = (data: ObjType[]) => {
     const createdAt = useDate(item && item?.createdAt);
     const edited = useDate(item && item.updatedAt);
     return {
+      id: item._id,
       name: {
         label: item.companyName,
         img: "/company-logo.png",
@@ -78,3 +79,24 @@ export const mapCompanies = (data: ObjType[]) => {
     };
   });
 };
+
+export const companyDrivers = (data: ObjType[]) => {
+  return data.map((item,i) => {
+    return {
+      id: i,
+      f_name: item.firstName,
+      l_name: item.lastName,
+      u_name: item.username,
+      co_driver: "",
+      vehicle: item.vehicleId,
+      driver_Type: "",
+      app_version: "4.6.7",
+      documents: "Not uploaded",
+      activated: "2024-03-02",
+      device_info: item.deviceInfo,
+      action: "",
+    };
+  });
+};
+
+

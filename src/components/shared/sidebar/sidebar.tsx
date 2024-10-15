@@ -1,7 +1,9 @@
 import {
   ArrowBtn,
   BtnWrap,
+  CompanyIcon,
   Description,
+  Exit,
   PageActive,
   PageBtn,
   SidebarContainer,
@@ -25,7 +27,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { sidebarToggle } from "../../../store/booleans-slice";
 import { Text } from "../../../utils/constants";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { removeLocalStorage } from "../../../utils";
+import { setCompany } from "../../../utils/dispatch";
+import useApi from "../../../hooks/useApi";
 
 const items = [
   {
@@ -61,11 +66,30 @@ const items = [
 ];
 export const Sidebar = () => {
   const [btnActive, setBtnActive] = useState<number>(0);
-  const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  const { data } = useApi("/companies", {
+    page: 1,
+    limit: 1000,
+  });
+
   const active = useSelector(
     (state: RootState) => state.booleans.sidebarActive
   );
+
+  const exitFun = () => {
+    removeLocalStorage("company");
+    setCompany(false);
+    navigate("/company");
+  };
+
+  const companyData = useSelector((state: RootState) => state.company.company);
+
+  const filterData = items.filter((item) => item.label !== "Fleet manager");
+  const sidebarData = companyData ? items : filterData;
+
   const dispatch = useDispatch();
+
   const tabBtnFun = (key: number) => {
     if (key > 0) {
       setBtnActive(key);
@@ -75,6 +99,7 @@ export const Sidebar = () => {
       setBtnActive(0);
     }
   };
+
   return (
     <SidebarContainer $active={active}>
       <StyleFlex align="center" justify="space-between" $active={active}>
@@ -93,44 +118,36 @@ export const Sidebar = () => {
           {active && <p>Dashboard</p>}
         </PageBtn>
 
-        {pathname == "/company" ? (
-          <PageBtn onClick={() => setBtnActive(0)} to={"/company"} $active={active}>
+        {!companyData ? (
+          <PageBtn
+            onClick={() => setBtnActive(0)}
+            to={"/company"}
+            $active={active}
+          >
             <HiOutlineBuildingLibrary />
 
-            {active && <p>Company</p>}
+            {active && (
+              <>
+                <p>Company</p>{" "}
+                <p style={{ marginLeft: "50px" }}>{data?.data.data.length}</p>
+              </>
+            )}
           </PageBtn>
         ) : (
-          <PageBtn onClick={() => setBtnActive(0)} to={"/company"} $active={active}>
-            <HiOutlineBuildingLibrary />
-            {active && <p>Company</p>}
-          </PageBtn>
-          // <User className="light user-profile" background="#FFF" color="#000">
-          //   <svg
-          //     xmlns="http://www.w3.org/2000/svg"
-          //     width="41"
-          //     height="42"
-          //     viewBox="0 0 41 42"
-          //     fill="none"
-          //   >
-          //     <circle cx="20.5" cy="21.3734" r="20.5" fill="#F80638" />
-          //     <path
-          //       d="M17.1211 27.8734H14.1719V13.7816H17.1211V20.2074H17.209L22.502 13.7816H25.7832L20.5684 20.0316L26.1445 27.8734H22.6191L18.4395 21.9847L17.1211 23.5668V27.8734Z"
-          //       fill="white"
-          //     />
-          //   </svg>
-          //   {active && (
-          //     <div>
-          //       <h2>
-          //         Karavan logistics <br /> group LLC
-          //       </h2>
-          //       <p>Zava Zava</p>
-          //     </div>
-          //   )}
-          // </User>
+          <User className="light user-profile" $background="#FFF" color="#000">
+            <CompanyIcon>
+              <p>{String(companyData?.companyName).slice(0, 1)}</p>
+            </CompanyIcon>
+            {active && (
+              <div>
+                <h2>{companyData?.companyName}</h2>
+              </div>
+            )}
+          </User>
         )}
 
         <Description>Menu</Description>
-        {items.map((item) => {
+        {sidebarData.map((item) => {
           const Icon = () => item.icon;
           return (
             <TabBtn
@@ -160,6 +177,12 @@ export const Sidebar = () => {
           <p>Users</p>
         </PageBtn>
       </div>
+
+      {companyData && (
+        <Exit type="primary" onClick={exitFun}>
+          EXIT
+        </Exit>
+      )}
       <User className="user-profile">
         <img src="/user.png" alt="user" />
         {active && (
