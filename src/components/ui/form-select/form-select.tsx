@@ -5,8 +5,8 @@ import { Rules } from "../../../types/helper.type";
 
 interface Option {
   id?: number | string;
-  label: string|number;
-  value: string | boolean | number|unknown;
+  label: string | number;
+  value: string | boolean | number | unknown;
 }
 interface Props {
   name?: string;
@@ -35,9 +35,11 @@ export const FormSelect = (props: Props) => {
         $w={width}
         $h={h}
       >
-        {data?.map((item,i) => {
+        {data?.map((item, i) => {
           return (
-            <Select.Option value={item.value} key={i}>{item.label}</Select.Option>
+            <Select.Option value={item.value} key={i}>
+              {item.label}
+            </Select.Option>
           );
         })}
       </StyledSelect>

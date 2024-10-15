@@ -13,6 +13,7 @@ import { validatePhoneNumber } from "../../../utils/method";
 import { Obj } from "../../../types/helper.type";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
+import useApiMutation from "../../../hooks/useApiMutation";
 interface Prop {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
@@ -29,23 +30,23 @@ export const DriversModal = ({ open, setOpen }: Prop) => {
   const vehicleId = useSelector(
     (state: RootState) => state.booleans.driverSelect
   );
-  // const driversMutation = useApiMutation("/driver", { hideMessage: true });
+  const driversMutation = useApiMutation("/driver", { hideMessage: true });
   const submit = (data: Obj) => {
-    console.log(data);
+   
 
-    handleReset();
-    // const DriverData = {
-    //   ...data,
-    //   organization: "Unity",
-    // };
-    // driversMutation.mutate(DriverData, {
-    //   onSuccess: (res: unknown) => {
-    //     console.log(res);
-    //   },
-    //   onError: (err) => {
-    //     console.log(err);
-    //   },
-    // });
+    // handleReset();
+    const DriverData = {
+      ...data,
+      organization: "Unity",
+    };
+    driversMutation.mutate(DriverData, {
+      onSuccess: (res: unknown) => {
+        console.log(res);
+      },
+      onError: (err) => {
+        console.log(err);
+      },
+    });
   };
   return (
     <Modal
@@ -111,13 +112,13 @@ export const DriversModal = ({ open, setOpen }: Prop) => {
               rules={[{ validator: validatePhoneNumber }]}
             />
             <FormSelect
-              placeholder="default"
+              placeholder="Vehicle Id"
               h="60px"
               data={vehicleId}
               // width="50%"
               name="VehicleId"
               rules={[
-                { required: true, message: "Please input your Vehicleid!" },
+                { required: true, message: "Please input your VehicleId!" },
               ]}
             />
             <FormInput
@@ -192,6 +193,7 @@ export const DriversModal = ({ open, setOpen }: Prop) => {
             </DefaultBtn>
             <PrimaryBtn
               // onClick={}
+              loading={driversMutation.isLoading}
               htmlType="submit"
               style={{ width: "200px", height: "55px" }}
             >

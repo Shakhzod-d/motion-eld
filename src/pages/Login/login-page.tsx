@@ -38,7 +38,7 @@ export const Login = () => {
         setLocalStorage("token", data?.token);
         setUser(data);
         setLocalStorage("roleId", data?.role?.roleId);
-        setLocalStorage("companyId", data?.companyId);
+        // setLocalStorage("companyId", "66fcf8f52ccf4ba8e6b32c36");
         navigate("/");
         // const role: IUserRole = data.role;
 

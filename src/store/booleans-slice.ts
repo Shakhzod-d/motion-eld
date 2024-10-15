@@ -7,6 +7,7 @@ interface Bool {
   MCompanyPages: string;
   darkMode: boolean;
   driverSelect: SelectData[] | [];
+  pageLoading: boolean;
 }
 
 const initialState: Bool = {
@@ -15,6 +16,7 @@ const initialState: Bool = {
   MCompanyPages: "company",
   darkMode: false,
   driverSelect: [],
+  pageLoading: false,
 };
 
 export const booleanSlice = createSlice({
@@ -36,6 +38,9 @@ export const booleanSlice = createSlice({
     setSelect: (state, action: PayloadAction<SelectData[]>) => {
       state.driverSelect = action.payload;
     },
+    setPageLoad: (state, action: PayloadAction<boolean>) => {
+      state.pageLoading = action.payload;
+    },
   },
 });
 
@@ -45,6 +50,7 @@ export const {
   setTabPages,
   setDarkMode,
   setSelect,
+  setPageLoad
 } = booleanSlice.actions;
 
 export default booleanSlice.reducer;

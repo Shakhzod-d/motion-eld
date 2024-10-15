@@ -11,7 +11,7 @@ export type IPageData<T> = { data: T; total: number };
 export type IHideMessage = { hideMessage: boolean };
 
 export type ObjType = {
-  [key: string]: { [key: string]: string | number  };
+  [key: string]: { [key: string]: string | number |undefined };
 };
 export interface Rules {
   [key: string]: string | number | boolean | unknown;

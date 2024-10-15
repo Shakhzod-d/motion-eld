@@ -1,4 +1,4 @@
-import { Flex } from "antd";
+import { Button, Flex } from "antd";
 import { NavLink } from "react-router-dom";
 import styled, { css, keyframes } from "styled-components";
 const expandAnimation = keyframes`
@@ -66,6 +66,18 @@ export const PageBtn = styled(NavLink)<{ $active?: boolean }>`
     color: #000;
   }
 `;
+export const Exit = styled(Button)`
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 220px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 10px;
+  &:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    opacity: 0.8;
+  }
+`;
 export const TabBtn = styled.div<{ $active: boolean }>`
   border-radius: 10px;
   width: ${({ $active }) => ($active ? "220px" : "100%")};
@@ -108,7 +120,7 @@ export const PageActive = styled(NavLink)`
     background: rgba(255, 255, 255, 0.1);
   }
 `;
-export const User = styled.div<{ background?: string; color?: string }>`
+export const User = styled.div<{ $background?: string; color?: string }>`
   display: flex;
   padding: 15px 20px;
   align-items: center;
@@ -116,8 +128,8 @@ export const User = styled.div<{ background?: string; color?: string }>`
   max-width: 220px;
   gap: 10px;
   border-radius: 10px;
-  background: ${({ background }) =>
-    background ? background : "rgba(255, 255, 255, 0.15)"};
+  background: ${({ $background }) =>
+    $background ? $background : "rgba(255, 255, 255, 0.15)"};
 
   img {
     width: 42px;
@@ -151,4 +163,17 @@ export const StyleFlex = styled(Flex)<{ $active: boolean }>`
     justify-content:center;
     align-items:center; `
       : ""};
+`;
+
+export const CompanyIcon = styled.div`
+  width: 40px;
+  height: 40px;
+  background: red;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    color: #fff;
+  }
 `;
