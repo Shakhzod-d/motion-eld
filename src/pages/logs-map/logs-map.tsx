@@ -8,13 +8,13 @@ const truckData = [
   {
     id: 1,
     name: "Aisyah Clara Riyanti",
-    lat: 34.0522, // Los Angeles
-    lng: -118.2437,
-    address: "459, Cedar Ln, Los Angeles",
+    lat: 38.861, // Qarshi
+    lng: 65.7847,
+    address: "Qarshi, Uzbekistan",
     status: "61 mph",
-    destination: "New York, NY",
-    destLat: 40.7128, // New York
-    destLng: -74.006,
+    destination: "Samarqand, Uzbekistan",
+    destLat: 39.6542, // Samarqand
+    destLng: 66.9597,
     progress: 20, // 20% of the route completed
   },
   {
@@ -90,8 +90,6 @@ const truckData = [
     progress: 60, // 60% of the route completed
   },
 ];
-
-
 
 export function LogsMap() {
   const [active, setActive] = useState<number>(1);

@@ -11,14 +11,14 @@ import { PageLoad } from "./components/ui";
 import { useSelector } from "react-redux";
 import { RootState } from "./store/store";
 import { getLocalStorage } from "./utils";
-// import { ThemeProvider } from "styled-components";
-// import { darkTheme, lightTheme } from "./utils/theme";
-// import { useSelector } from "react-redux";
-// import { RootState } from "./store/store";
+import { ThemeProvider } from "styled-components";
+import { darkTheme, lightTheme } from "./utils/theme";
 
 function App() {
-  const company = useSelector((state: RootState) => state.company.company) ||getLocalStorage("company");
-  // const dark = useSelector((state: RootState) => state.booleans.darkMode);
+  const company =
+    useSelector((state: RootState) => state.company.company) ||
+    getLocalStorage("company");
+  const dark = useSelector((state: RootState) => state.booleans.darkMode);
   const excludePaths = ["/units", "drivers", "manage-company/company"];
 
   const filteredRoutes = RoutesData.filter(
@@ -30,61 +30,61 @@ function App() {
     : filteredRoutes;
   return (
     <>
-      {/* <ThemeProvider theme={dark ? darkTheme : lightTheme}> */}
-      <Suspense fallback={<PageLoad />}>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <PrivateRoute>
-                {" "}
-                <Layout />
-              </PrivateRoute>
-            }
-          >
-            {filterRout.map((page) => {
-              const Component = page.component;
-              const bool = page.route;
-              if (bool) {
-                return (
-                  <Route
-                    path={page.path}
-                    element={<Component />}
-                    key={page.path}
-                  >
-                    {bool.map((data) => {
-                      const Component = data.component;
-                      return (
-                        <Route
-                          path={data.path}
-                          element={
-                            <PrivateRoute>
-                              {" "}
-                              <Component />
-                            </PrivateRoute>
-                          }
-                          key={data.path}
-                        />
-                      );
-                    })}
-                  </Route>
-                );
-              } else {
-                return (
-                  <Route
-                    path={page.path}
-                    element={<Component />}
-                    key={page.path}
-                  />
-                );
+      <ThemeProvider theme={dark ? darkTheme : lightTheme}>
+        <Suspense fallback={<PageLoad />}>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <PrivateRoute>
+                  {" "}
+                  <Layout />
+                </PrivateRoute>
               }
-            })}
-          </Route>
-          <Route path="login" element={<Login />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Suspense>
-      {/* </ThemeProvider> */}
+            >
+              {filterRout.map((page) => {
+                const Component = page.component;
+                const bool = page.route;
+                if (bool) {
+                  return (
+                    <Route
+                      path={page.path}
+                      element={<Component />}
+                      key={page.path}
+                    >
+                      {bool.map((data) => {
+                        const Component = data.component;
+                        return (
+                          <Route
+                            path={data.path}
+                            element={
+                              <PrivateRoute>
+                                {" "}
+                                <Component />
+                              </PrivateRoute>
+                            }
+                            key={data.path}
+                          />
+                        );
+                      })}
+                    </Route>
+                  );
+                } else {
+                  return (
+                    <Route
+                      path={page.path}
+                      element={<Component />}
+                      key={page.path}
+                    />
+                  );
+                }
+              })}
+            </Route>
+            <Route path="login" element={<Login />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </ThemeProvider>
     </>
   );
 }

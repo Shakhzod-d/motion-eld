@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet-routing-machine";
@@ -18,6 +17,7 @@ interface Truck {
   destination: string;
   destLat: number;
   destLng: number;
+  progress: number; // 0 to 100 for progress
 }
 
 interface Props {
@@ -49,19 +49,40 @@ export function Map({ mapData, activeId, height }: Props) {
         attribution: "&copy; OpenStreetMap contributors",
       }).addTo(map);
 
-      // Leaflet Routing Machine orqali yo'nalishni yaratish
+      // Progress hisoblash
+      const getInterpolatedPosition = (
+        startLat: number,
+        startLng: number,
+        endLat: number,
+        endLng: number,
+        progress: number
+      ) => {
+        const lat = startLat + (endLat - startLat) * (progress / 100);
+        const lng = startLng + (endLng - startLng) * (progress / 100);
+        return { lat, lng };
+      };
+
+      const currentLocation = getInterpolatedPosition(
+        activeTruck.lat,
+        activeTruck.lng,
+        activeTruck.destLat,
+        activeTruck.destLng,
+        activeTruck.progress
+      );
+
+      // Yo'nalishni yaratish
       L.Routing.control({
         waypoints: [
           L.latLng(activeTruck.lat, activeTruck.lng),
           L.latLng(activeTruck.destLat, activeTruck.destLng),
         ],
-        routeWhileDragging: true, // Yo'lni yangilab turish
+        routeWhileDragging: true,
         lineOptions: {
           styles: [{ color: "black", weight: "2" }],
         },
       }).addTo(map);
 
-      // Marker va popup qo'shish
+      // Custom icon for marker
       const customIcon = new L.Icon({
         iconUrl:
           "https://icons.veryicon.com/png/o/phone/location2/33-navigation-arrow-1.png",
@@ -69,7 +90,8 @@ export function Map({ mapData, activeId, height }: Props) {
         iconAnchor: [12, 41],
       });
 
-      L.marker([activeTruck.lat, activeTruck.lng], { icon: customIcon })
+      // Add marker with current location based on progress
+      L.marker([currentLocation.lat, currentLocation.lng], { icon: customIcon })
         .addTo(map)
         .bindPopup(
           `<strong>${activeTruck.name}</strong><br>Status: ${activeTruck.status}<br>Address: ${activeTruck.address}`

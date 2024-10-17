@@ -297,7 +297,7 @@ export const Main = styled.main`
   padding: 0 20px 20px 20px;
   width: 100%;
   height: calc(100vh - 15px);
-  background: #f3f3f4;
+  background: ${(props) => props.theme.mainBg};
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
@@ -337,7 +337,7 @@ export const InfoCard = styled.div<{
 
   min-width: ${({ $minW = "300px" }) => $minW};
   height: ${({ $active }) => ($active ? "244px" : "50px")};
-  background: #fff;
+  background: ${({theme})=>theme.white};
   transition: height 1s ease, width 0.3s ease;
   overflow-x: auto;
 

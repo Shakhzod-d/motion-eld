@@ -3,11 +3,11 @@ import { StyledInput } from "./input-styled";
 interface Props {
   type?: string;
   change?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  width?: string |"";
+  width?: string | "";
   height?: number;
-  margin?:string
+  margin?: string;
 }
-export const CustomInput = ({ type, change, width ,margin}: Props) => {
+export const CustomInput = ({ type, change, width, margin }: Props) => {
   return (
     <StyledInput
       $width={width}

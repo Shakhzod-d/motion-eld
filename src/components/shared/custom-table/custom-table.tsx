@@ -17,17 +17,19 @@ import { GoCopy } from "react-icons/go";
 import { Text } from "../../../utils/constants";
 import { message, Pagination } from "antd";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store/store";
 
 // import { successMessage } from "../../../utils/message";
 type CustomObject = {
-  [key: string]: string | number | JSX.Element ;
+  [key: string]: string | number | JSX.Element;
   // $status?: string;
 };
 
 interface TableColumn {
   header: string | JSX.Element;
   accessor: string;
-  id?: string |number;
+  id?: string | number;
 }
 
 interface TableProps {
@@ -68,6 +70,7 @@ export const CustomTable = (props: TableProps) => {
       content: message,
     });
   };
+  const dark = useSelector((state: RootState) => state.booleans.darkMode);
   function PopupOpen<T extends number | null | string | undefined>(index: T) {
     console.log(index);
     if (index == PopupActive) {
@@ -77,7 +80,7 @@ export const CustomTable = (props: TableProps) => {
     }
   }
   function colorFun<T>(text: T, title: T): string {
-    let color: string = "";
+    let color: string = dark ? "#f9f9f9" : "#000";
 
     if (title == "updated" || title == "location_date") return "#3DA8D5";
     if (title == "warnings" || title == "error") return "red";
@@ -96,9 +99,10 @@ export const CustomTable = (props: TableProps) => {
         color = "red";
         break;
       default:
-        color = "";
+        color = dark ? "#f9f9f9" : "#000";
         break;
     }
+    // if (dark) return "white";
     return color;
   }
 

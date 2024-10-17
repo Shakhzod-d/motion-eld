@@ -20,6 +20,8 @@ export const CustomBtn = styled(Button)`
   gap: 10px;
   border: none;
   font-weight: 700;
+  color:${({ theme }) => theme.clr};
+  background: ${({ theme }) => theme.white};
   div {
     height: 13px;
   }

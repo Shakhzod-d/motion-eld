@@ -9,7 +9,7 @@ export const StyledSelect = styled(Select)<Props>`
   width: ${({ width = "268px" }) => width};
   height: ${({ height = 47 }) => `${height}px`};
   border-radius: 10px;
-  background: #f9f9fa !important;
+  background: ${(props) => props.theme.white} !important;
 
   .ant-select-arrow {
     * {
@@ -19,7 +19,8 @@ export const StyledSelect = styled(Select)<Props>`
       width: 15px !important;
       height: 12px !important;
       overflow: hidden !important;
-      fill: #000 !important;
+      fill: ${({theme})=>theme.clr} !important;
+      background: ${(props) => props.theme.white} !important;
     }
   }
   & {
@@ -27,20 +28,20 @@ export const StyledSelect = styled(Select)<Props>`
   }
   * {
     border: none !important;
-    background: #f9f9fa !important;
+    background: ${(props) => props.theme.white} !important;
   }
   span {
-    color: ${({ color = "#5d5e5f" }) => color};
+    color: ${({ color = (props) => props.theme.clr }) => color};
     font-size: 16px !important;
     font-weight: 500;
   }
 
   .ant-select-arrow {
-    color: #5d5e5f !important;
+    color: ${({ theme }) => theme.clr} !important;
     font-size: 15px;
     height: 10px;
   }
   &::placeholder {
-    color: #000 !important;
+    color: ${({ theme }) => theme.clr} !important;
   }
 `;

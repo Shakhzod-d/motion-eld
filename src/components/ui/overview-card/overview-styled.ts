@@ -47,6 +47,7 @@ export const StyleFlex = styled.div`
 export const ResTitle = styled.p`
   font-size: 15px;
   font-weight: 500;
+  color: ${({ theme }) => theme.clr};
   @media (max-width: 1685px) {
     font-size: 13px;
   }

@@ -1,12 +1,14 @@
 import { FaAngleDown } from "react-icons/fa6";
 import { StyledSelect } from "./select-styled";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store/store";
 interface Option {
   value: string;
   label: string;
 }
 interface Props {
   option: Option[];
-  change?: (value: unknown,) => void;
+  change?: (value: unknown) => void;
   width?: string;
   height?: number;
   placeholder?: string;
@@ -20,6 +22,7 @@ export const CustomSelect = ({
   color,
   change,
 }: Props) => {
+  const darkMode = useSelector((state: RootState) => state.booleans.darkMode);
   return (
     <StyledSelect
       defaultValue={placeholder}
@@ -28,7 +31,7 @@ export const CustomSelect = ({
       height={height}
       color={color}
       onChange={change}
-      suffixIcon={<FaAngleDown />}
+      suffixIcon={<FaAngleDown color={darkMode ? "#fff" : "#000"} />}
     />
   );
 };

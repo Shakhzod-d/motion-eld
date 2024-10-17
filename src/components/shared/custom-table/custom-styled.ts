@@ -16,13 +16,14 @@ export const TableElement = styled.table`
 export const TableHeader = styled.th`
   padding: 10px;
   text-align: left;
+  color:${({theme})=>theme.clr};
 `;
 
 export const TableRow = styled.tr`
   // border: 1px solid red;
   border-radius: 10px;
   padding: 25px;
-  background: #fdfdfd;
+   background: ${(props) => props.theme.white};
   position: relative;
   height: 77px;
 
@@ -34,7 +35,7 @@ export const HoverContainer = styled.div``;
 export const TableData = styled.td<{ color: string | number }>`
   padding: 10px;
   // background: #ddd;
-  border-bottom: 6px solid #f3f3f4;
+  border-bottom: 6px solid ${(props)=>props.theme.mainBg};
   text-align: left;
   color: ${({ color }) => color};
   position: relative;
@@ -50,7 +51,7 @@ export const BorderLBottom = styled.span`
   bottom: 0;
   width: 8px;
   height: 10px;
-  background: #f3f3f4;
+  background: ${(props) => props.theme.mainBg};
 
   &:before {
     content: "";
@@ -59,7 +60,7 @@ export const BorderLBottom = styled.span`
     bottom: 0;
     width: 10px;
     height: 10px;
-    background: #fdfdfd;
+     background: ${(props) => props.theme.white};
 
     border-bottom-left-radius: 50px;
 
@@ -72,8 +73,8 @@ export const BorderLTop = styled.span`
   top: 0;
   width: 8px;
   height: 10px;
-  background: #f3f3f4;
-  // #f3f3f4;
+  background: ${(props) => props.theme.mainBg};
+  
   &:before {
     content: "";
     position: absolute;
@@ -81,7 +82,7 @@ export const BorderLTop = styled.span`
     bottom: 0;
     width: 10px;
     height: 10px;
-    background: #fdfdfd;
+   background: ${(props) => props.theme.white};
 
     border-top-left-radius: 50px;
     // border-bottom-right-radius: 10px;
@@ -94,7 +95,7 @@ export const BorderRTop = styled.span`
   top: 0;
   width: 8px;
   height: 10px;
-  background: #f3f3f4;
+ background: ${(props) => props.theme.mainBg};
 
   &:before {
     content: "";
@@ -103,7 +104,7 @@ export const BorderRTop = styled.span`
     bottom: 0;
     width: 10px;
     height: 10px;
-    background: #fdfdfd;
+ background: ${(props) => props.theme.white};
     border-top-right-radius: 50px;
     z-index: 10;
   }
@@ -114,7 +115,7 @@ export const BorderRBottom = styled.span`
   bottom: 0;
   width: 8px;
   height: 10px;
-  background: #f3f3f4;
+   background: ${(props) => props.theme.mainBg};
   // #f3f3f4;
   &:before {
     content: "";
@@ -123,7 +124,7 @@ export const BorderRBottom = styled.span`
     bottom: 0;
     width: 10px;
     height: 10px;
-    background: #fdfdfd;
+  background: ${(props) => props.theme.white};
     border-bottom-right-radius: 50px;
     z-index: 10;
   }
