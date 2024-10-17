@@ -124,6 +124,7 @@ export const User = styled.div<{ $background?: string; color?: string }>`
   display: flex;
   padding: 15px 20px;
   align-items: center;
+  cursor: pointer;
   width: 100%;
   max-width: 220px;
   gap: 10px;

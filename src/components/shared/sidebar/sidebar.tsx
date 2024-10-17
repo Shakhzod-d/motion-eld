@@ -3,7 +3,7 @@ import {
   BtnWrap,
   CompanyIcon,
   Description,
-  Exit,
+
   PageActive,
   PageBtn,
   SidebarContainer,
@@ -134,7 +134,12 @@ export const Sidebar = () => {
             )}
           </PageBtn>
         ) : (
-          <User className="light user-profile" $background="#FFF" color="#000">
+          <User
+            className="light user-profile"
+            $background="#FFF"
+            color="#000"
+            onClick={exitFun}
+          >
             <CompanyIcon>
               <p>{String(companyData?.companyName).slice(0, 1)}</p>
             </CompanyIcon>
@@ -178,11 +183,6 @@ export const Sidebar = () => {
         </PageBtn>
       </div>
 
-      {companyData && (
-        <Exit type="primary" onClick={exitFun}>
-          EXIT
-        </Exit>
-      )}
       <User className="user-profile">
         <img src="/user.png" alt="user" />
         {active && (
