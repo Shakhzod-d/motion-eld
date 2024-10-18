@@ -1,10 +1,11 @@
-import { Flex, Modal } from "antd";
+import { Flex } from "antd";
 import { CustomFlex } from "../drivers-add-modal/styled";
 import { Btn, TabBtn } from "../manage-user-modal/modal-styled";
 import { Dispatch, SetStateAction, useState } from "react";
 
 import { Details } from "./details";
 import { Settings } from "./settings";
+import { CustomModal } from "../../../utils/constants";
 
 const btnArr = [
   { id: 1, label: "Details" },
@@ -17,7 +18,7 @@ interface Props {
 export const CompanyModal = ({ setOpen, open }: Props) => {
   const [tabId, setTabId] = useState(1);
   return (
-    <Modal
+    <CustomModal
       open={open}
       width={"1300px"}
       onOk={() => setOpen(false)}
@@ -40,13 +41,15 @@ export const CompanyModal = ({ setOpen, open }: Props) => {
       {tabId == 1 ? <Details /> : <Settings />}
       <CustomFlex justify="end">
         <Flex gap={"small"}>
-          <Btn type="primary" onClick={()=>setOpen(false)}>Close</Btn>
+          <Btn type="primary" onClick={() => setOpen(false)}>
+            Close
+          </Btn>
 
-          <Btn type="primary" $type="add" onClick={()=>setOpen(false)}>
+          <Btn type="primary" $type="add" onClick={() => setOpen(false)}>
             Save
           </Btn>
         </Flex>
       </CustomFlex>
-    </Modal>
+    </CustomModal>
   );
 };
