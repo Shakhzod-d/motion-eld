@@ -68,7 +68,7 @@ export const Company = () => {
 
       <div>
         {isLoading ? (
-          <PageLoad bg="#f3f3f4" h="calc(100vh - 400px)" />
+          <PageLoad  h="calc(100vh - 400px)" />
         ) : (
           <InfoTable
             header={companyTableHeader}
