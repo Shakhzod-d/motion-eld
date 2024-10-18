@@ -52,7 +52,7 @@ export const Units = () => {
   };
 
   const unitsData = dataSort(data ? data.data?.data : []);
-  console.log(unitsData);
+
   DriversSelectId(unitsData.select);
   return (
     <Main>
@@ -74,7 +74,7 @@ export const Units = () => {
 
       {/* Units table data */}
       {isLoading ? (
-        <PageLoad bg="#f3f3f4" h="calc(100vh - 400px)" />
+        <PageLoad h="calc(100vh - 400px)" />
       ) : unitsData.arr.length !== 0 ? (
         <CustomTable columns={unitsColumns} data={unitsData.arr} />
       ) : (

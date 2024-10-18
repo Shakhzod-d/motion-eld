@@ -4,7 +4,7 @@ export const ApiKeys = () => {
   return (
     <div>
       <h1>ApiKeys</h1>
-      <FormSelect />
+      <FormSelect  bg="card/card-primary"/>
     </div>
   );
 };

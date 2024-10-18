@@ -111,7 +111,7 @@ export const PageActive = styled(NavLink)`
   width: 100%;
   // height: 49px;
   transition: all 0.3s;
-
+  cursor: pointer;
   &:hover {
     background: rgba(255, 255, 255, 0.05);
   }

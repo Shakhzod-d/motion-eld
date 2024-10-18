@@ -43,10 +43,10 @@ export const TransparentButton = styled(Button)<{
 }>`
   padding: ${({ padding }) => (padding ? padding : "15px 35px")};
   border-radius: ${({ border }) => border || "10px"};
-  background-color: ${({ active, $background }) =>
-    active == "true" ? "#19223F" : $background || "#fff"};
-  color: ${({ active, color }) =>
-    active == "true" ? "#fff" : color || "#000"};
+  background-color: ${({ active, $background, theme }) =>
+    active == "true" ? theme.btnActive : $background || theme.white};
+  color: ${({ active, color, theme }) =>
+    active == "true" ? theme.btnActiveClr : color || theme.clr};
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.5px;

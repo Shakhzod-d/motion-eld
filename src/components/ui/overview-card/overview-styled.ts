@@ -17,6 +17,7 @@ export const Title = styled.p`
   font-weight: 590;
   font-size: 14px;
   text-align: center;
+  color:${({theme})=>theme.clrGray}
 `;
 export const Item = styled.div`
   display: flex;
@@ -61,11 +62,13 @@ export const ResText = styled.p<{ $clr?: string }>`
   @media (max-width: 1500px) {
     font-size: 11px;
   }
-  color: ${({ $clr = "#000" }) => $clr};
+  color: ${({ theme }) => theme.clrGray};
+  color: ${({ $clr }) => $clr};
 `;
 export const ResValue = styled.p`
   font-size: 15px;
   font-weight: 500;
+  color: ${({ theme }) => theme.clr};
   @media (max-width: 1685px) {
     font-size: 13px;
   }

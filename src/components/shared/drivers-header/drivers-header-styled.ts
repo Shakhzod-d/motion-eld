@@ -7,17 +7,18 @@ export const Block = styled.div<{
   content?: string;
   width?: number;
 }>`
-  max-width: ${({ width }) => `${width}px`} !important; /* ma-width to'g'ri yozildi */
+  max-width: ${({ width }) =>
+    `${width}px`} !important; /* ma-width to'g'ri yozildi */
   border-radius: 10px;
   padding: 15px 20px;
-  background: #fff;
+  background: ${({ theme }) => theme.white};
   display: ${({ display }) => display};
   align-items: center;
   height: 75px;
   gap: ${({ $gap = 0 }) => `${$gap}px`};
   justify-content: ${({ content }) => content};
+  color ${({ theme }) => theme.clr};
 `;
-
 
 export const Div = styled.div<{ $w?: string }>`
   width: 100%;
@@ -28,6 +29,7 @@ export const Text = styled.p<{ size?: number; $font?: number; color?: string }>`
   font-weight: ${({ $font }) => $font};
   font-size: ${({ size }) => `${size}px`};
   letter-spacing: -0.03em;
+  color: ${({ theme }) => theme.clr};
   color: ${({ color }) => color};
   display: flex;
   gap: 2px;
@@ -39,7 +41,9 @@ export const StyleButton = styled(Button)<{ active: string }>`
   width: 100%;
   max-width: 192px;
   height: 57px;
-  background: ${({ active }) => (active == "true" ? "#19223f" : "")};
+  background: ${({ active ,theme}) => (active == "true" ? theme.btnActive : theme.white)};
+  color:${({theme ,active})=>active=="true"?  theme.btnActiveClr:theme.clr};
+  border:none;
 `;
 export const BtnContainer = styled.div`
   width: 100%;

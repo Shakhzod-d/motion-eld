@@ -6,19 +6,19 @@ export const StyledInput = styled(Input)<{ $width?: string; $margin?: string }>`
   padding: 10px 15px;
   width: ${({ $width = "270px" }) => $width};
   height: 44px;
-  background: ${({ theme }) => theme.white}; /* Oq rang oddiy holatda */
+  background: ${({ theme }) => theme.inputBg} !important;
   outline: none;
+  color: ${({ theme }) => theme.clr};
   margin: ${({ $margin }) => $margin};
-
   &:hover {
-    background: ${({ theme }) => theme.white}; /* Custom hover rang */
+    background: ${({ theme }) => theme.inputBg} !important;
   }
 
-  &:focus {
-    background: ${({ theme }) => theme.white}; /* Custom focus rang */
+  &::focus {
+    background: ${({ theme }) => theme.inputBg} !important;
   }
 
   &:active {
-    background: ${({ theme }) => theme.white}; /* Custom active rang */
+    background: ${({ theme }) => theme.inputBg} !important;
   }
 `;

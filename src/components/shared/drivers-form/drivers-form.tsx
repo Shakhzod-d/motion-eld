@@ -49,10 +49,10 @@ export const DriversForm = () => {
               </FormTitle>
               {item.title == "Trailers" || item.title == "Shipping docs" ? (
                 <ValueBox>
-                  <Value>{item.value}</Value>
+                  <Value $clr="black">{item.value}</Value>
                 </ValueBox>
               ) : (
-                <Value $clr={item.value == "Signed" ? "#32BE61" : "black"}>
+                <Value $clr={item.value == "Signed" ? "#32BE61" : ""}>
                   {item.value}
                 </Value>
               )}

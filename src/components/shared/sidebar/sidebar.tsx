@@ -3,7 +3,6 @@ import {
   BtnWrap,
   CompanyIcon,
   Description,
-  Exit,
   PageActive,
   PageBtn,
   SidebarContainer,
@@ -79,13 +78,16 @@ export const Sidebar = () => {
 
   const exitFun = () => {
     removeLocalStorage("company");
+    removeLocalStorage("companyId");
     setCompany(false);
     navigate("/company");
   };
 
   const companyData = useSelector((state: RootState) => state.company.company);
-
-  const filterData = items.filter((item) => item.label !== "Fleet manager");
+  const companyPage = ["Fleet manager", "ELD", "Reports"];
+  const filterData = items.filter(
+    (item) => item.label && !companyPage.includes(item.label)
+  );
   const sidebarData = companyData ? items : filterData;
 
   const dispatch = useDispatch();
@@ -134,7 +136,12 @@ export const Sidebar = () => {
             )}
           </PageBtn>
         ) : (
-          <User className="light user-profile" $background="#FFF" color="#000">
+          <User
+            className="light user-profile"
+            $background="#FFF"
+            color="#000"
+            onClick={exitFun}
+          >
             <CompanyIcon>
               <p>{String(companyData?.companyName).slice(0, 1)}</p>
             </CompanyIcon>
@@ -178,11 +185,6 @@ export const Sidebar = () => {
         </PageBtn>
       </div>
 
-      {companyData && (
-        <Exit type="primary" onClick={exitFun}>
-          EXIT
-        </Exit>
-      )}
       <User className="user-profile">
         <img src="/user.png" alt="user" />
         {active && (

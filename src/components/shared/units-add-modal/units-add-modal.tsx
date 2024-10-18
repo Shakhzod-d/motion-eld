@@ -1,9 +1,10 @@
-import { Flex, Form, Modal } from "antd";
+import { Flex, Form,} from "antd";
 import { ModalCheckBox, ModalTextArea, ModalTitle } from "./styled";
 import { DefaultBtn, PrimaryBtn } from "../../../pages/units/units-styled";
 import { FormInput, FormSelect } from "../../ui";
 import { Dispatch, SetStateAction } from "react";
 import {
+  CustomModal,
   fuelType,
   makesState,
   models,
@@ -55,7 +56,7 @@ export const UnitsAddModal = ({ open, setOpen }: Prop) => {
   };
   //--------------submit end
   return (
-    <Modal
+    <CustomModal
       centered
       open={open}
       onOk={() => setOpen(false)}
@@ -224,6 +225,6 @@ export const UnitsAddModal = ({ open, setOpen }: Prop) => {
           </Flex>
         </Form>
       </Flex>
-    </Modal>
+    </CustomModal>
   );
 };

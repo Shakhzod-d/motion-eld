@@ -36,7 +36,7 @@ export function Trackings() {
       <CustomTable
         data={trackingData}
         columns={trackingHeader}
-        pagination={true}
+        // pagination={true}
         pTotal={50}
         onClick={handleButtonClick}
       />

@@ -9,6 +9,7 @@ export const Title = styled.p`
 export const Value = styled.p`
   font-weight: 590;
   font-size: 14px;
+  color:${({theme})=>theme.clr}
 `;
 export const ProgressWrapper = styled.div`
   width: 155px;

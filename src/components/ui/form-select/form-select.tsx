@@ -1,7 +1,9 @@
 import { Select } from "antd";
-import { Item, StyledSelect } from "./select-styled";
+import { GlobalStyle, Item, StyledSelect } from "./select-styled";
 import { FaAngleDown } from "react-icons/fa";
 import { Rules } from "../../../types/helper.type";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store/store";
 
 interface Option {
   id?: number | string;
@@ -24,25 +26,29 @@ interface Props {
 export const FormSelect = (props: Props) => {
   const { h, rules, width, name, clr, pClr, bg, placeholder, data, value } =
     props;
+  const dark = useSelector((state: RootState) => state.booleans.darkMode);
   return (
-    <Item name={name} rules={rules} initialValue={value}>
-      <StyledSelect
-        suffixIcon={<FaAngleDown />}
-        placeholder={placeholder}
-        $bg={bg}
-        $pClr={pClr}
-        $clr={clr}
-        $w={width}
-        $h={h}
-      >
-        {data?.map((item, i) => {
-          return (
-            <Select.Option value={item.value} key={i}>
-              {item.label}
-            </Select.Option>
-          );
-        })}
-      </StyledSelect>
-    </Item>
+    <>
+      <GlobalStyle $bg={dark ? "#7c7c80d6" : bg} />
+      <Item name={name} rules={rules} initialValue={value}>
+        <StyledSelect
+          suffixIcon={<FaAngleDown />}
+          placeholder={placeholder}
+          $bg={dark ? "#7c7c80d6" : bg}
+          $pClr={dark ? "#fff" : pClr}
+          $clr={dark ? "#fff" : clr}
+          $w={width}
+          $h={h}
+        >
+          {data?.map((item, i) => {
+            return (
+              <Select.Option value={item.value} key={i}>
+                {item.label}
+              </Select.Option>
+            );
+          })}
+        </StyledSelect>
+      </Item>
+    </>
   );
 };

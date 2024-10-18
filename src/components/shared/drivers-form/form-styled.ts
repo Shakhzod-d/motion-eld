@@ -8,7 +8,7 @@ export const FormRow = styled(Flex)`
   padding: 15px 25px;
   max-width: 575px;
 
-  background: #fdfdfd;
+  background: ${({theme})=>theme.white};
 `;
 
 export const FormTitle = styled.div`
@@ -43,7 +43,7 @@ export const FormTitleText = styled.p`
 export const Value = styled.p<{ $clr?: string }>`
   font-weight: 600;
   font-size: 18px;
-  color: ${({ $clr = "#000" }) => $clr};
+  color: ${({ theme, $clr =theme.clr }) => $clr ==""?theme.clr:$clr};
   @media (max-width: 1550px) {
     font-size: 14px;
   }

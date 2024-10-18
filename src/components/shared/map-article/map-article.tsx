@@ -1,5 +1,5 @@
 import { ArticleProps } from "../../../types";
-import { BsSearch } from "react-icons/bs";
+
 import { useState } from "react";
 
 import {
@@ -10,10 +10,11 @@ import {
   TruckNum,
   Status,
   Description,
-  StyleInput,
 } from "./article-styled";
 import { Box, SmallBox } from "../../../utils/constants";
 import { Flex } from "../../ui/time-container/time-styled";
+
+import { CustomInput } from "../../ui";
 interface Props {
   data: ArticleProps[];
   search?: true | false;
@@ -42,7 +43,12 @@ export const MapArticle = ({
   };
   return (
     <CardArticle>
-      {search && <StyleInput prefix={<BsSearch />} onChange={searchData} />}
+      <CustomInput
+        type="search"
+        width="100%"
+        margin="0 0 10px 0"
+        change={searchData}
+      />
       {search || (
         <Flex>
           {" "}

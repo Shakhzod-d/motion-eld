@@ -16,6 +16,7 @@ export const ViolationsChart = () => {
   const active = useSelector(
     (state: RootState) => state.booleans.dashboardProgress
   );
+  const dark = useSelector((state: RootState) => state.booleans.darkMode);
   return (
     <div>
       <InfoCard $active={active}>
@@ -31,6 +32,7 @@ export const ViolationsChart = () => {
                   size={22}
                   strokeWidth={22}
                   showInfo={false}
+                  trailColor={dark ? "gray" : ""}
                   strokeColor={"#EF3E2D"}
                 />
                 <ResValue>2 ( 20% )</ResValue>
@@ -43,6 +45,7 @@ export const ViolationsChart = () => {
                   size={22}
                   strokeWidth={22}
                   showInfo={false}
+                  trailColor={dark ? "gray" : ""}
                   strokeColor={"#FC973A"}
                 />
                 <ResValue>8 ( 80% )</ResValue>
@@ -61,7 +64,7 @@ export const ViolationsChart = () => {
                 marginTop: "10px",
               }}
             >
-              <ProgressBar title="Violations" value={20} color="#EF3E2D" />
+              <ProgressBar title="Violations" value={20} color="#EF3E2D"  />
               <ProgressBar title="Violations" value={80} color="#FC973A" />
             </div>
           </>

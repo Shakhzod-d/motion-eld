@@ -1,19 +1,20 @@
- import { InfoCard } from "../../../utils/index";
+import { InfoCard } from "../../../utils/index";
 import { FaPowerOff } from "react-icons/fa";
 import { TbMoonStars } from "react-icons/tb";
 import { BsTruck } from "react-icons/bs";
 import { GrUserAdmin } from "react-icons/gr";
-import { ActiveCard, Item, ItemTitle } from "./drivers-style";
+import { ActiveCard, BoldNum, Item, ItemTitle } from "./drivers-style";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 
-import {  ResText, ResTitle } from "../overview-card/overview-styled";
+import { ResText, ResTitle } from "../overview-card/overview-styled";
 import { Text } from "../../../utils/constants";
 
 export const Drivers = () => {
   const active = useSelector(
     (state: RootState) => state.booleans.dashboardProgress
   );
+  const dark = useSelector((state: RootState) => state.booleans.darkMode);
   return (
     <InfoCard $active={active}>
       {active ? (
@@ -26,7 +27,7 @@ export const Drivers = () => {
                 style={{ width: "48px", height: "48px", marginBottom: "15px" }}
               />
               <ItemTitle>off duty</ItemTitle>
-              <b style={{ fontSize: "20px" }}>12</b>
+              <BoldNum>12</BoldNum>
             </Item>
             <Item>
               <GrUserAdmin
@@ -34,7 +35,7 @@ export const Drivers = () => {
                 style={{ width: "48px", height: "48px", marginBottom: "15px" }}
               />
               <ItemTitle>On duty</ItemTitle>
-              <b style={{ fontSize: "20px" }}>12</b>
+              <BoldNum>12</BoldNum>
             </Item>
             <Item>
               <BsTruck
@@ -42,7 +43,7 @@ export const Drivers = () => {
                 style={{ width: "48px", height: "48px", marginBottom: "15px" }}
               />
               <ItemTitle>Driving</ItemTitle>
-              <b style={{ fontSize: "20px" }}>12</b>
+              <BoldNum>12</BoldNum>
             </Item>
             <Item>
               <TbMoonStars
@@ -50,7 +51,7 @@ export const Drivers = () => {
                 style={{ width: "48px", height: "48px", marginBottom: "15px" }}
               />
               <ItemTitle>Sleeping</ItemTitle>
-              <b style={{ fontSize: "20px" }}>0</b>
+              <BoldNum>0</BoldNum>
             </Item>
           </ActiveCard>
         </>
@@ -58,7 +59,7 @@ export const Drivers = () => {
         <ActiveCard>
           <ResTitle>Drivers</ResTitle>
           <ActiveCard>
-            <ResText $clr="#5D5E5F">Off duty 12</ResText>
+            <ResText $clr={dark ? "bisque" : "#5D5E5F"}>Off duty 12</ResText>
             <ResText $clr="#3DA8D5">On duty 4</ResText>
             <ResText $clr="#32BE61">Driving 6</ResText>
             <ResText $clr="#FC973A">Sleeping 0</ResText>

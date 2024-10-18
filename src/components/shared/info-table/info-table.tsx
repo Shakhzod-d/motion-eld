@@ -11,7 +11,7 @@ interface Prop {
   header: Header[];
   data: object[];
   editData?: (id: string) => void;
-  onClick: (id: string) => void;
+  onClick?: (id: string) => void;
 }
 
 interface Data {
@@ -57,7 +57,7 @@ export const InfoTable = ({ header, data, editData, onClick }: Prop) => {
                         ? "#32BE61"
                         : rowData?.label == "Edit"
                         ? "#FC973A"
-                        : "#464343"
+                        : ""
                     }
                     $mb="5px"
                     size={ind == 0 ? 20 : 16}

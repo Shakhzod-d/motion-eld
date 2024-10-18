@@ -92,8 +92,12 @@ export const Dashboard = () => {
       <Title>Drivers info</Title>
       <SelectWrapper>
         <Radio.Group defaultValue={1}>
-          <CustomRadio value={1}>Include</CustomRadio>
-          <CustomRadio value={2}>Exclude</CustomRadio>
+          <CustomRadio value={1}>
+            <Text>Include</Text>
+          </CustomRadio>
+          <CustomRadio value={2}>
+            <Text>Exclude</Text>
+          </CustomRadio>
         </Radio.Group>
         <Flex gap={"small"} align="end" wrap={true}>
           <CustomSelect option={option} placeholder="Name" width="200px" />
@@ -112,13 +116,13 @@ export const Dashboard = () => {
           <CustomSelect option={option} placeholder="Cycle" />
 
           <div>
-            <Text size={12} $mb="10px" color="#2D2E2F">
+            <Text size={12} $mb="10px" >
               Driver option
             </Text>
             <CustomSelect option={option} placeholder="Cycle" />
           </div>
           <div>
-            <Text size={12} $mb="10px" color="#2D2E2F">
+            <Text size={12} $mb="10px" >
               Driver option
             </Text>
             <CustomSelect

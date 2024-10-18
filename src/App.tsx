@@ -19,7 +19,7 @@ function App() {
     useSelector((state: RootState) => state.company.company) ||
     getLocalStorage("company");
   const dark = useSelector((state: RootState) => state.booleans.darkMode);
-  const excludePaths = ["/units", "drivers", "manage-company/company"];
+  const excludePaths = ["/units", "drivers", "manage-company/company","logs","transfer","ifta-reports"];
 
   const filteredRoutes = RoutesData.filter(
     (item) => !excludePaths.includes(item.path)

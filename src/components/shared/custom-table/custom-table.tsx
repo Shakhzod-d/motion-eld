@@ -4,6 +4,7 @@ import {
   BorderLTop,
   BorderRBottom,
   BorderRTop,
+  HoverBox,
   StatusBadge,
   TableContainer,
   TableData,
@@ -148,11 +149,11 @@ export const CustomTable = (props: TableProps) => {
                       </>
                     )}
                     {column.accessor.toLowerCase() == "warnings" && (
-                      <div className="hover_container">
+                      <HoverBox className="hover_container">
                         <Text $font="600">1. Shift limit</Text>
                         <Text $font="600">2. Cycle limit</Text>
                         <Text $font="600">3. No signature</Text>
-                      </div>
+                      </HoverBox>
                     )}
                     {columns.length - 1 == index && (
                       <>

@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { Button, Checkbox } from "antd";
+import { Button, Checkbox, Modal } from "antd";
 
 import styled, { keyframes, css } from "styled-components";
 import { StatusBadge } from "../components/shared/custom-table/custom-styled";
@@ -27,6 +27,7 @@ export const Text = styled.p<{
   font-weight: ${({ $font }) => $font};
   font-size: ${({ size }) => `${size}px`};
   letter-spacing: -0.03em;
+  color: ${({ theme }) => theme.clr};
   color: ${({ color }) => color};
   display: flex;
   margin-bottom: ${({ $mb }) => $mb};
@@ -142,6 +143,16 @@ export const CustomButton = styled(Button)<{
     opacity: 0.7;
   }
   box-shadow: none;
+`;
+
+export const CustomModal = styled(Modal)`
+  .ant-modal-close-x {
+ color: ${({ theme }) => theme.clr}!important; // X tugmasi rangini qizil qilish
+  }
+  .ant-modal-content {
+    background-color: ${({ theme }) => theme.white} !important;
+    color: ${({ theme }) => theme.clr};
+  }
 `;
 export const unitsButtons = [
   { id: 1, text: "Vehicle" },
@@ -262,7 +273,7 @@ export const SmallBox = styled.div`
   padding: 10px 15px;
   width: 42px;
   height: 38px;
-  background: #fff;
+  background: ${({ theme }) => theme.white};
   color: #8c8c9b;
   cursor: pointer;
 `;
@@ -337,7 +348,7 @@ export const InfoCard = styled.div<{
 
   min-width: ${({ $minW = "300px" }) => $minW};
   height: ${({ $active }) => ($active ? "244px" : "50px")};
-  background: ${({theme})=>theme.white};
+  background: ${({ theme }) => theme.white};
   transition: height 1s ease, width 0.3s ease;
   overflow-x: auto;
 
@@ -355,7 +366,7 @@ export const Box = styled.div`
   // width: 200px;
   height: 38px;
   min-width: 200px;
-  background: #fff;
+  background: ${({ theme }) => theme.white};
   color: #8c8c9b;
 `;
 

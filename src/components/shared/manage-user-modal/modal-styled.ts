@@ -42,10 +42,14 @@ export const TextAria = styled.textarea`
   padding: 25px 20px;
   width: 1250px;
   height: 150px;
-  background: #f9f9fa;
+  background: ${({ theme }) => theme.selectGray};
+  color: ${({ theme }) => theme.clr};
   border: none;
   outline: none;
   margin-bottom: 20px;
+  &::placeholder {
+    color: ${({ theme }) => theme.clr};
+  }
 `;
 
 export const Btn = styled(Button)<{ $type?: string }>`

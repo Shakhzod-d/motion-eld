@@ -1,5 +1,7 @@
+import { useSelector } from "react-redux";
 import { Rules } from "../../../types/helper.type";
 import { Item, StyledInput } from "./input-styled";
+import { RootState } from "../../../store/store";
 
 interface Props {
   name?: string;
@@ -31,6 +33,7 @@ export const FormInput = (prop: Props) => {
     change,
     disabled,
   } = prop;
+const dark = useSelector((state: RootState) => state.booleans.darkMode);
   return (
     <Item name={name} rules={rules ? rules : []}>
       <StyledInput
@@ -39,9 +42,9 @@ export const FormInput = (prop: Props) => {
         placeholder={placeholder}
         $w={width}
         $p={padding}
-        $clr={clr}
-        $pClr={pClr}
-        $bg={bg}
+        $clr={dark ?"#fff": clr}
+        $pClr={dark? "#fff": pClr}
+        $bg={dark ?"#7c7c80d6": bg}
         $h={h}
         type={type}
       />

@@ -5,7 +5,8 @@ export const Block = styled.div<{ $bottom?: string; width?: string }>`
   padding: 20px;
   width: ${({ width }) => width};
   height: 59px;
-  background: #fdfdfd;
+  background: ${({theme})=>theme.white};
+  color: ${({theme})=>theme.clr};
   margin-bottom: ${({ $bottom }) => $bottom};
 `;
 

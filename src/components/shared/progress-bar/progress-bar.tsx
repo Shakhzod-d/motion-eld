@@ -1,6 +1,8 @@
 import { Progress } from "antd";
 import { FC } from "react";
 import { ProgressWrapper, Title, Value, ValueWrapper } from "./progress-styled";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store/store";
 interface Props {
   title: string;
   value: number;
@@ -8,11 +10,13 @@ interface Props {
 }
 
 export const ProgressBar: FC<Props> = ({ title, value, color }) => {
+  const dark = useSelector((state: RootState) => state.booleans.darkMode);
   return (
     <ProgressWrapper>
       <Progress
         type="dashboard"
         percent={value}
+        trailColor={dark ? "gray" : ""}
         size={155}
         gapDegree={70}
         strokeColor={color}
