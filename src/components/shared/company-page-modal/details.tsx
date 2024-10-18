@@ -1,8 +1,6 @@
-
-import { CustomSelect } from "../../ui";
+import {FormInput, FormSelect } from "../../ui";
 import {
 
-  CustomInput,
   StyleFlex,
   TextAria,
 } from "../manage-user-modal/modal-styled";
@@ -32,34 +30,38 @@ const country = [
   },
 ];
 
-const status =[
-    {label:"Active",value:"active"},
-    {label:"On Hold",value:"On Hold"},
-    {label:"Inactive",value:"Inactive"},
-    {label:"Suspended",value:"Suspended"},
-]
-const state =[{value:"ny",label:"NY"}]
+const status = [
+  { label: "Active", value: "active" },
+  { label: "On Hold", value: "On Hold" },
+  { label: "Inactive", value: "Inactive" },
+  { label: "Suspended", value: "Suspended" },
+];
+const state = [{ value: "ny", label: "NY" }];
 export const Details = () => {
   return (
     <>
       <StyleFlex gap={"small"}>
-        <CustomInput placeholder="Account Name" />
-        <CustomInput placeholder="DOT" />
-        <CustomSelect placeholder="Timezone" option={timezone} width="100%" />
-        <CustomSelect option={country} width="100%" placeholder="Country" />
+        <FormInput placeholder="Account Name" h="70px" />
+        <FormInput placeholder="DOT" h="70px" />
+        <FormSelect placeholder="Timezone" data={timezone} h="70px" />
+        <FormSelect
+          data={country}
+          width="100%"
+          placeholder="Country"
+          h="70px"
+        />
       </StyleFlex>
       <StyleFlex gap={"small"}>
-        <CustomInput placeholder="Address Line 1" />
-        <CustomInput placeholder="Address Line 2" />
-        <CustomInput placeholder="Contact phone" />
-        <CustomInput placeholder="City" />
+        <FormInput placeholder="Address Line 1" h="70px" />
+        <FormInput placeholder="Address Line 2" h="70px" />
+        <FormInput placeholder="Contact phone" h="70px" />
+        <FormInput placeholder="City" h="70px" />
       </StyleFlex>
       <StyleFlex gap={"small"}>
-        <CustomSelect placeholder="State" option={state} width="100%" />
-        <CustomSelect option={status} width="100%" placeholder="Status" />
+        <FormSelect placeholder="State" data={state} width="100%" h="70px" />
+        <FormSelect data={status} width="100%" placeholder="Status" h="70px" />
       </StyleFlex>
       <TextAria placeholder="Note" />
-     
     </>
   );
 };
