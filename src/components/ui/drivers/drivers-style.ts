@@ -10,7 +10,7 @@ export const Item = styled.div`
 export const ItemTitle = styled.p`
   font-weight: 590;
   font-size: 14px;
-  color: #5d5e5f;
+  color: ${({theme})=>theme.clrGray};
   margin-bottom: 5px;
 `;
 
@@ -25,5 +25,9 @@ export const ActiveCard = styled.div`
   display: flex;
   gap: 10px;
   justify-content: space-between;
+`;
 
+export const BoldNum = styled.b`
+  font-size: 20px;
+  color: ${({ theme }) => theme.clr};
 `;

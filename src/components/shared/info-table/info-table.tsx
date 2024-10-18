@@ -11,7 +11,7 @@ interface Prop {
   header: Header[];
   data: object[];
   editData?: (id: string) => void;
-  onClick: (id: string) => void;
+  onClick?: (id: string) => void;
 }
 
 interface Data {
@@ -27,11 +27,11 @@ interface RowData {
   data?: { id: number; text: string; icon?: React.ReactElement | string }[];
 }
 export const InfoTable = ({ header, data, editData, onClick }: Prop) => {
-  const edit = (id: string) => {
-    if (editData) {
-      editData(id);
-    }
-  };
+  // const edit = (id: string) => {
+  //   if (editData) {
+  //     editData(id);
+  //   }
+  // };
   return (
     <>
       <CardsTop>
@@ -57,13 +57,13 @@ export const InfoTable = ({ header, data, editData, onClick }: Prop) => {
                         ? "#32BE61"
                         : rowData?.label == "Edit"
                         ? "#FC973A"
-                        : "#464343"
+                        : ""
                     }
                     $mb="5px"
                     size={ind == 0 ? 20 : 16}
-                    onClick={() =>
-                      rowData?.label == "Edit" ? edit(String(item._id)) : null
-                    }
+                    // onClick={() =>
+                    //   rowData?.label == "Edit" ? edit(String(item._id)) : null
+                    // }
                   >
                     {rowData?.label ? rowData.label : ""}
                   </Text>

@@ -6,15 +6,15 @@ export const Card = styled.div`
   align-items: start;
   padding: 20px 25px;
   border-radius: 10px;
-  border: 1px solid #fdfdfd;
-  background: #fdfdfd;
+  border: 1px solid ${({ theme }) => theme.white};
+  background: ${({ theme }) => theme.white};
   transition: 0.3s ease;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
   margin-bottom: 5px;
   gap: 20px;
-  color:#5D5E5F;
+  color: #5d5e5f;
   div {
     min-width: 300px;
   }
@@ -47,7 +47,7 @@ export const CardsTop = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(50px, 100px));
   justify-content: space-between;
   padding: 20px 24px;
-  color: #303030;
+  color: ${({ theme }) => theme.tableTopColor};
   font-size: 14px;
   font-weight: 400;
   p{

@@ -29,7 +29,7 @@ export const IftaReports = () => {
               option={item.options}
               width="185px"
               height={50}
-              color="#000"
+              // color="#000"
             />
           ))}
         </Flex>

@@ -1,4 +1,4 @@
-import { Input } from "antd";
+
 import styled from "styled-components";
 
 export const CardArticle = styled.article`
@@ -6,28 +6,20 @@ export const CardArticle = styled.article`
   max-width: 360px !important;
   height: calc(100vh - 175px);
   overflow-y: auto !important;
-
 `;
 export const Between = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
-export const StyleInput = styled(Input)`
-  border-radius: 10px;
-  padding: 10px 15px;
-  // max-width: 350px;
-  height: 44px;
-  position: sticky;
-  margin-bottom: 10px;
-`;
+
 export const Card = styled.div<{ $color: boolean }>`
   // max-width: 350px;
   border-radius: 10px;
   padding: 15px 10px 15px 15px;
   border: ${({ $color }) => ($color ? "1px solid #FC973A" : "")};
   height: 108px;
-  background: #fff;
+  background: ${({ theme }) => theme.white};
   margin-bottom: 5px;
 `;
 export const Status = styled.div<{ $statusBg: string }>`
@@ -50,13 +42,13 @@ export const Title = styled.h3`
   font-weight: 590;
   font-size: 16px;
   letter-spacing: -0.03em;
-  color: #000;
+  color: ${({ theme }) => theme.clr};
 `;
 
 export const TruckNum = styled.p`
   font-weight: 500;
   font-size: 12px;
-  color: #5d5e5f;
+  color: ${({ theme }) => theme.clrGray2};
 `;
 
 export const Description = styled.span`
@@ -66,7 +58,7 @@ export const Description = styled.span`
   display: flex;
   gap: 10px;
   margin: 15px 0 0 20px;
-  color: #5d5e5f;
+  color: ${({ theme }) => theme.clrGray2};
   p {
     color: #3da8d5;
   }

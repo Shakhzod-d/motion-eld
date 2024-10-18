@@ -9,7 +9,7 @@ export const Header = styled.header`
   align-items: center;
   padding: 20px 0;
   position: sticky;
-  background:#f3f3f4;
+  background: ${(props) => props.theme.mainBg};
   z-index: 999;
   top: 0;
 `;

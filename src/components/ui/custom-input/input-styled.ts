@@ -6,7 +6,19 @@ export const StyledInput = styled(Input)<{ $width?: string; $margin?: string }>`
   padding: 10px 15px;
   width: ${({ $width = "270px" }) => $width};
   height: 44px;
-  background: #fdfdfd;
+  background: ${({ theme }) => theme.inputBg} !important;
   outline: none;
+  color: ${({ theme }) => theme.clr};
   margin: ${({ $margin }) => $margin};
+  &:hover {
+    background: ${({ theme }) => theme.inputBg} !important;
+  }
+
+  &::focus {
+    background: ${({ theme }) => theme.inputBg} !important;
+  }
+
+  &:active {
+    background: ${({ theme }) => theme.inputBg} !important;
+  }
 `;

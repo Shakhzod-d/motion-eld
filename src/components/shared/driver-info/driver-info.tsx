@@ -33,7 +33,7 @@ export const DriverInfo = () => {
       <Flex gap={15}>
         <Flex gap={5}>
           <Link to={"/logs/drivers"}>
-            <TransparentButton padding="20px 15px" width="54px" height="75px">
+            <TransparentButton padding="20px 15px" width="54px" height="75px" $background="">
               <FaArrowLeft fill="#5D5E5F" />
             </TransparentButton>
           </Link>

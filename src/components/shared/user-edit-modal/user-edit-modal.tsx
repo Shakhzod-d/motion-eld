@@ -1,14 +1,11 @@
-import { Flex, Modal } from "antd";
+import { Flex } from "antd";
 import { Dispatch, SetStateAction, useState } from "react";
 import { Title } from "../log-form-modal/log-modal-styled";
 import { editUserModalBtns, editUserRoleModalBtns } from "../../../utils";
 import { TransparentButton } from "../../../pages/ifta-reports/ifta-reports-styled";
-import {
-  DefaultBtn,
-  ModalInput,
-  PrimaryBtn,
-} from "../../../pages/units/units-styled";
-import { CustomSelect, EditModalBtn } from "../../ui";
+import { DefaultBtn, PrimaryBtn } from "../../../pages/units/units-styled";
+import { EditModalBtn, FormInput, FormSelect } from "../../ui";
+import { CustomModal } from "../../../utils/constants";
 interface Props {
   setOpen: Dispatch<SetStateAction<boolean>>;
   open: boolean;
@@ -17,7 +14,7 @@ export const UserEditModal = ({ setOpen, open }: Props) => {
   const [activeBtn, setActiveBtn] = useState<number>(1);
 
   return (
-    <Modal
+    <CustomModal
       width={"100%"}
       style={{ maxWidth: `${activeBtn == 1 ? "1330px" : "1000px"}` }}
       open={open}
@@ -44,57 +41,55 @@ export const UserEditModal = ({ setOpen, open }: Props) => {
         {activeBtn == 1 ? (
           <>
             <Flex gap={10}>
-              <CustomSelect
+              <FormSelect
                 placeholder="status"
-                option={[
+                data={[
                   { value: "status", label: "Reseller" },
                   { value: "active", label: "Actice" },
                   { value: "completed", label: "Completed" },
                 ]}
-                width="50%"
-                height={70}
+                width="100%"
+                h={"70px"}
               />
 
-              <ModalInput placeholder="Phone" />
+              <FormInput placeholder="Phone" width="100%" h="70px" />
             </Flex>
 
             <Flex gap={10}>
-              <ModalInput placeholder="First name" />
-              <ModalInput placeholder="Last name" />
-              <ModalInput placeholder="Email" />
-              <ModalInput placeholder="Password" />
+              <FormInput placeholder="First name" h="70px" />
+              <FormInput placeholder="Last name" h="70px" />
+              <FormInput placeholder="Email" h="70px" />
+              <FormInput placeholder="Password" h="70px" />
             </Flex>
 
             <Flex gap={10}>
-              <CustomSelect
+              <FormSelect
                 placeholder="status"
-                option={[
+                data={[
                   { value: "status", label: "Status" },
                   { value: "active", label: "Actice" },
                   { value: "completed", label: "Completed" },
                 ]}
-                width="50%"
-                height={70}
+                // width="50%"
+                h={"70px"}
               />
-              <CustomSelect
+              <FormSelect
                 placeholder="status"
-                option={[
+                data={[
                   { value: "status", label: "Two-factures" },
                   { value: "active", label: "Actice" },
                   { value: "completed", label: "Completed" },
                 ]}
-                width="50%"
-                height={70}
+                h={"70px"}
               />
-              <CustomSelect
+              <FormSelect
                 placeholder="status"
-                option={[
+                data={[
                   { value: "status", label: "Role" },
                   { value: "active", label: "Actice" },
                   { value: "completed", label: "Completed" },
                 ]}
-                width="50%"
-                height={70}
+                h={"70px"}
               />
             </Flex>
           </>
@@ -139,6 +134,6 @@ export const UserEditModal = ({ setOpen, open }: Props) => {
           <PrimaryBtn style={{ width: "200px", height: "55px" }}>Ok</PrimaryBtn>
         </Flex>
       </Flex>
-    </Modal>
+    </CustomModal>
   );
 };

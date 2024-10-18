@@ -39,12 +39,13 @@ export const UploadBtn = styled.div`
   padding: 25px 20px;
   max-width: 812px;
   height: 69px;
-  background: #f9f9fa;
+  background: ${({ theme }) => theme.selectGray};
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
   margin-bottom: 20px;
+  color: ${({ theme }) => theme.clr};
 `;
 
 export const Note = styled.textarea`
@@ -52,9 +53,13 @@ export const Note = styled.textarea`
   padding: 20px 20px 80px 20px;
   width: 100%;
   max-width: 1635px;
+  color: ${({ theme }) => theme.clr};
   height: 119px;
-  background: #ffffff;
+  background: ${({ theme }) => theme.selectGray};
   border: none;
   outline: none;
   margin-bottom: 20px;
+  &::placeholder {
+    color: ${({ theme }) => theme.clr};
+  }
 `;

@@ -37,7 +37,7 @@ export const Drivers = () => {
           <DefaultBtn>Deactivated</DefaultBtn>
         </BtnWrap>
         {isLoading ? (
-          <PageLoad bg="#f3f3f4" h="calc(100vh - 400px)" />
+          <PageLoad h="calc(100vh - 400px)" />
         ) : drivers.length != 0 ? (
           <CustomTable columns={driverColumns} data={drivers} />
         ) : (

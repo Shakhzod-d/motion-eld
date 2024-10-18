@@ -6,7 +6,7 @@ import {
   PrimaryBtn,
 } from "../../../pages/units/units-styled";
 import { CustomSelect, FormInput, FormSelect } from "../../ui";
-import { stateSelect } from "../../../utils/constants";
+import { CustomModal, stateSelect } from "../../../utils/constants";
 import { ModalCheckBox, ModalTextArea } from "../units-add-modal/styled";
 import { validatePhoneNumber } from "../../../utils/method";
 
@@ -32,8 +32,6 @@ export const DriversModal = ({ open, setOpen }: Prop) => {
   );
   const driversMutation = useApiMutation("/driver", { hideMessage: true });
   const submit = (data: Obj) => {
-   
-
     // handleReset();
     const DriverData = {
       ...data,
@@ -49,7 +47,7 @@ export const DriversModal = ({ open, setOpen }: Prop) => {
     });
   };
   return (
-    <Modal
+    <CustomModal
       centered
       open={open}
       onOk={() => setOpen(false)}
@@ -65,6 +63,7 @@ export const DriversModal = ({ open, setOpen }: Prop) => {
               name="firstName"
               placeholder="First Name*"
               padding="20px 25px"
+              h="70px"
               rules={[
                 { required: true, message: "Please input your FirstName!" },
               ]}
@@ -72,6 +71,7 @@ export const DriversModal = ({ open, setOpen }: Prop) => {
             <FormInput
               placeholder="Last name*"
               name="lastName"
+              h="70px"
               rules={[
                 { required: true, message: "Please input your Last name!" },
               ]}
@@ -79,6 +79,7 @@ export const DriversModal = ({ open, setOpen }: Prop) => {
             <FormInput
               placeholder="Username*"
               name="username"
+              h="70px"
               rules={[
                 { required: true, message: "Please input your username!" },
               ]}
@@ -87,6 +88,7 @@ export const DriversModal = ({ open, setOpen }: Prop) => {
               placeholder="Email*"
               type="email"
               name="email"
+              h="70px"
               rules={[
                 { required: true, message: "Please input your email!" },
                 {
@@ -101,6 +103,7 @@ export const DriversModal = ({ open, setOpen }: Prop) => {
               placeholder="Password*"
               name="password"
               type="password"
+              h="70px"
               rules={[
                 { required: true, message: "Please input your password!" },
               ]}
@@ -109,11 +112,12 @@ export const DriversModal = ({ open, setOpen }: Prop) => {
               placeholder="Phone No*"
               type="tel"
               name="phone"
+              h="70px"
               rules={[{ validator: validatePhoneNumber }]}
             />
             <FormSelect
               placeholder="Vehicle Id"
-              h="60px"
+              h="70px"
               data={vehicleId}
               // width="50%"
               name="VehicleId"
@@ -124,6 +128,7 @@ export const DriversModal = ({ open, setOpen }: Prop) => {
             <FormInput
               placeholder="Driver's License No*"
               name="driverLicense"
+              h="70px"
               rules={[
                 { required: true, message: "Please Driver's License No " },
               ]}
@@ -134,7 +139,7 @@ export const DriversModal = ({ open, setOpen }: Prop) => {
               placeholder="Driver's License Issuing State*"
               data={stateSelect}
               name="driverLicenseIssuingState"
-              h={"70px"}
+              h="70px"
               rules={[
                 {
                   required: true,
@@ -145,34 +150,33 @@ export const DriversModal = ({ open, setOpen }: Prop) => {
             <FormInput
               placeholder="Home Terminal Address*"
               name="homeTerminalAddress"
+              h="70px"
               rules={[
                 { required: true, message: "Please homeTerminalAddress " },
               ]}
             />
-            <CustomSelect
-              placeholder={"default"}
-              option={[{ value: "default", label: "CO Driver" }]}
-              width="50%"
-              height={70}
+            <FormSelect
+              placeholder={"CO Driver"}
+              data={[{ value: "default", label: "CO Driver" }]}
+              h="70px"
             />
-            <CustomSelect
-              placeholder={"default"}
-              option={[{ value: "default", label: "Colors" }]}
-              width="50%"
-              height={70}
+            <FormSelect
+              placeholder={"Colors"}
+              data={[{ value: "default", label: "Colors" }]}
+              width=""
+              h="70px"
             />
           </Flex>
           <Flex gap={10}>
-            <CustomSelect
-              placeholder={"default"}
-              option={[{ value: "default", label: "Address 1" }]}
-              width="50%"
-              height={70}
+            <FormSelect
+              placeholder={"Address 1"}
+              data={[{ value: "default", label: "Address 1" }]}
+              h="70px"
             />
-            <ModalInput placeholder="Address 2" />
-            <ModalInput placeholder="City" />
-            <ModalInput placeholder="State" />
-            <ModalInput placeholder="Zip" />
+            <FormInput placeholder="Address 2"  h="70px"/>
+            <FormInput placeholder="City"  h="70px"/>
+            <FormInput placeholder="State"  h="70px"/>
+            <FormInput placeholder="Zip"  h="70px"/>
           </Flex>
           <Form.Item
             name={"notes"}
@@ -202,6 +206,6 @@ export const DriversModal = ({ open, setOpen }: Prop) => {
           </Flex>
         </Flex>
       </Form>
-    </Modal>
+    </CustomModal>
   );
 };

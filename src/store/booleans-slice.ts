@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { SelectData } from "../types";
+import { getLocalStorage } from "../utils";
 
 interface Bool {
   dashboardProgress: boolean;
@@ -9,12 +10,12 @@ interface Bool {
   driverSelect: SelectData[] | [];
   pageLoading: boolean;
 }
-
+const dark_mode = getLocalStorage("darkMode");
 const initialState: Bool = {
   dashboardProgress: false,
   sidebarActive: true,
   MCompanyPages: "company",
-  darkMode: false,
+  darkMode: Boolean(dark_mode),
   driverSelect: [],
   pageLoading: false,
 };
@@ -33,7 +34,7 @@ export const booleanSlice = createSlice({
       state.MCompanyPages = action.payload;
     },
     setDarkMode: (state) => {
-      state.darkMode = !state.darkMode;
+      state.darkMode = Boolean(getLocalStorage("darkMode"));
     },
     setSelect: (state, action: PayloadAction<SelectData[]>) => {
       state.driverSelect = action.payload;
@@ -50,7 +51,7 @@ export const {
   setTabPages,
   setDarkMode,
   setSelect,
-  setPageLoad
+  setPageLoad,
 } = booleanSlice.actions;
 
 export default booleanSlice.reducer;

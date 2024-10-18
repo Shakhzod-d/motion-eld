@@ -1,5 +1,5 @@
-import { Flex, Modal } from "antd";
-import { Text } from "../../../utils/constants";
+import { Flex, } from "antd";
+import { CustomModal, Text } from "../../../utils/constants";
 import { Btn, CustomFlex, TabBtn } from "./modal-styled";
 import { useState, Dispatch, SetStateAction } from "react";
 import { Information } from "./information";
@@ -16,7 +16,7 @@ interface Props {
 export const ManageUserModal = ({ setOpen, open }: Props) => {
   const [tabId, setTabId] = useState(1);
   return (
-    <Modal
+    <CustomModal
       width={"1300px"}
       open={open}
       onOk={() => setOpen(false)}
@@ -49,6 +49,6 @@ export const ManageUserModal = ({ setOpen, open }: Props) => {
           </Btn>
         </Flex>
       </CustomFlex>
-    </Modal>
+    </CustomModal>
   );
 };

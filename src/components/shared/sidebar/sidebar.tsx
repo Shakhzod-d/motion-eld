@@ -3,7 +3,7 @@ import {
   BtnWrap,
   CompanyIcon,
   Description,
-
+  
   PageActive,
   PageBtn,
   SidebarContainer,
@@ -79,13 +79,16 @@ export const Sidebar = () => {
 
   const exitFun = () => {
     removeLocalStorage("company");
+    removeLocalStorage("companyId");
     setCompany(false);
     navigate("/company");
   };
 
   const companyData = useSelector((state: RootState) => state.company.company);
-
-  const filterData = items.filter((item) => item.label !== "Fleet manager");
+  const companyPage = ["Fleet manager", "ELD", "Reports"];
+  const filterData = items.filter(
+    (item) => item.label && !companyPage.includes(item.label)
+  );
   const sidebarData = companyData ? items : filterData;
 
   const dispatch = useDispatch();

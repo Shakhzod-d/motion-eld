@@ -1,5 +1,5 @@
-import { Flex, Form, Modal } from "antd";
-import { Text } from "../../../utils/constants";
+import { Flex, Form, } from "antd";
+import { CustomModal, Text } from "../../../utils/constants";
 import { PrimaryBtn } from "../../../pages/units/units-styled";
 import { DefaultBtn } from "../../../pages/drivers/styled";
 import { Dispatch, SetStateAction } from "react";
@@ -49,7 +49,7 @@ export const AddUser = ({ open, setOpen }: Props) => {
     });
   };
   return (
-    <Modal width={"70%"} open={open} onCancel={() => setOpen(false)}>
+    <CustomModal width={"70%"} open={open} onCancel={() => setOpen(false)}>
       <Text $mb="20px" size={30}>
         Add user
       </Text>
@@ -134,6 +134,6 @@ export const AddUser = ({ open, setOpen }: Props) => {
           </Flex>
         </Flex>
       </Form>
-    </Modal>
+    </CustomModal>
   );
 };

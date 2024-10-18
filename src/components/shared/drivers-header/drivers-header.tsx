@@ -12,9 +12,12 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { useState } from "react";
 import { DriversWeek } from "../../../utils/constants";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store/store";
 
 export const DriversHeader = () => {
   const [activeBtn, setActiveBtn] = useState(1);
+  const dark =useSelector((state:RootState)=>state.booleans.darkMode)
   return (
     <div>
       <Flex justify="space-between">
@@ -79,10 +82,10 @@ export const DriversHeader = () => {
             </div>
           </Block>
           <Block display="flex" content="center">
-            <IoIosArrowBack />
+            <IoIosArrowBack color={dark?"#fff":"#000"}/>
           </Block>
           <Block display="flex" content="center">
-            <IoIosArrowForward />
+            <IoIosArrowForward color={dark?"#fff":"#000"}/>
           </Block>
         </Flex>
       </Flex>

@@ -1,6 +1,7 @@
-import { Checkbox, } from "antd";
-import { CustomSelect } from "../../ui";
-import { CustomInput, StyleFlex, TextAria } from "./modal-styled";
+import { Checkbox } from "antd";
+import {  FormInput, FormSelect } from "../../ui";
+import {  StyleFlex, TextAria } from "./modal-styled";
+import { Text } from "../../../utils/constants";
 const cycleType = [
   { label: "Cycle Type", value: "cycle" },
   { label: "USA 70/8", value: "usa70/8" },
@@ -17,66 +18,71 @@ export const Information = () => {
   return (
     <>
       <StyleFlex gap={"small"}>
-        <CustomSelect
-          option={[{ value: "driver", label: "Driver" }]}
+        <FormSelect
+          data={[{ value: "driver", label: "Driver" }]}
           width="100%"
         />
-        <CustomSelect
-          option={[{ value: "status", label: "Status" }]}
+        <FormSelect
+          data={[{ value: "status", label: "Status" }]}
           width="100%"
         />
       </StyleFlex>
       <StyleFlex gap={"small"}>
-        <CustomInput placeholder="First Name*" />
-        <CustomInput placeholder="Lats Name*" />
-        <CustomInput placeholder="Username*" />
-        <CustomInput placeholder="Email" />
+        <FormInput placeholder="First Name*" h="69px" />
+        <FormInput placeholder="Lats Name*" h="69px" />
+        <FormInput placeholder="Username*" h="69px" />
+        <FormInput placeholder="Email" h="69px" />
       </StyleFlex>
       <StyleFlex gap={"small"}>
-        <CustomInput placeholder="Password*" />
-        <CustomInput placeholder="Phone No" />
-        <CustomSelect
-          option={[{ value: "vehicle", label: "Vehicle ID" }]}
+        <FormInput placeholder="Password*" h="69px" />
+        <FormInput placeholder="Phone No" h="69px" />
+        <FormSelect
+          data={[{ value: "vehicle", label: "Vehicle ID" }]}
           width="100%"
-          height={69}
+          h={"69px"}
         />
-        <CustomInput placeholder="Driver's License No*" />
+        <FormInput placeholder="Driver's License No*" h="69px" />
       </StyleFlex>
       <StyleFlex gap={"small"}>
-        <CustomSelect
-          option={[
+        <FormSelect
+          data={[
             { value: "drivers", label: "Driver's License Issuing State*" },
           ]}
           width="100%"
-          height={69}
+          h={"69px"}
         />
-        <CustomInput placeholder="Home Terminal Address*" />
-        <CustomSelect
-          option={[{ value: "coDriver", label: "Co-Driver" }]}
+        <FormInput placeholder="Home Terminal Address*" />
+        <FormSelect
+          data={[{ value: "coDriver", label: "Co-Driver" }]}
           width="100%"
-          height={69}
+          h={"69px"}
         />
       </StyleFlex>
       <StyleFlex gap={"small"}>
-        <CustomSelect
-          option={[{ value: "address1", label: "Address 1" }]}
+        <FormSelect
+          data={[{ value: "address1", label: "Address 1" }]}
           width="100%"
-          height={69}
+          h={"69px"}
         />
-        <CustomInput placeholder="Address 2" />
-        <CustomInput placeholder="City" />
-        <CustomInput placeholder="State" />
-        <CustomInput placeholder="Zip" />
+        <FormInput placeholder="Address 2" h="69px" />
+        <FormInput placeholder="City" h="69px" />
+        <FormInput placeholder="State" />
+        <FormInput placeholder="Zip" h="69px" />
       </StyleFlex>
       <StyleFlex gap={"small"}>
-        <CustomSelect option={cycleType} width="100%" height={69} />
+        <FormSelect data={cycleType} width="100%" h={"69px"} />
 
-        <CustomSelect option={restart} width="100%" height={69} />
+        <FormSelect data={restart} width="100%" h={"69px"} />
       </StyleFlex>
       <TextAria placeholder="Note" />
       <StyleFlex gap={"140px"}>
-        <Checkbox> Allow Personal Conviance</Checkbox>
-        <Checkbox> Allow Yard Move</Checkbox>
+        <Checkbox>
+          <Text> Allow Personal Conviance</Text>
+        </Checkbox>
+        <Checkbox>
+          {" "}
+          <Text> Allow Yard Move</Text>
+        </Checkbox>
       </StyleFlex>
     </>
   );
