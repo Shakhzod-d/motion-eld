@@ -15,7 +15,7 @@ export const Drivers = () => {
     page: 1,
     limit: 1000,
   });
-  console.log(data);
+
 
   const drivers = companyDrivers(data ? data?.data?.data : []);
   return (
@@ -38,8 +38,8 @@ export const Drivers = () => {
         </BtnWrap>
         {isLoading ? (
           <PageLoad h="calc(100vh - 400px)" />
-        ) : drivers.length != 0 ? (
-          <CustomTable columns={driverColumns} data={drivers} />
+        ) : drivers.drivers.length != 0 ? (
+          <CustomTable columns={driverColumns} data={drivers.drivers} />
         ) : (
           <>
             <CustomTable columns={driverColumns} data={[{}]} /> <p>No Data</p>

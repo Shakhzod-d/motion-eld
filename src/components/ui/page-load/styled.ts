@@ -7,4 +7,5 @@ export const Wrapper = styled.div<{ $bg?: string; $h?: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
+
 `;

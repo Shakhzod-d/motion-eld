@@ -3,6 +3,7 @@ import { ObjType } from "../types/helper.type";
 import { IoMdMail } from "react-icons/io";
 import { RiUser3Fill } from "react-icons/ri";
 import { useDate } from "../hooks/useDate";
+import { formatTime } from "./method";
 
 function calculateDaysBetweenDates(startDate: string): number {
   // Sana: ISO formatidagi satrni Date ob'ektiga o'zgartirish
@@ -20,7 +21,9 @@ function calculateDaysBetweenDates(startDate: string): number {
 // Test qilish
 export const mapUserData = (data: ObjType[]) => {
   return data?.map((item) => {
-    const role = item["role"] as ObjType;
+    const role = item["role"] as unknown as ObjType;
+console.log(item);
+
     const daysBetween = calculateDaysBetweenDates(String(item.updatedAt));
     return {
       _id: item._id,
@@ -80,15 +83,34 @@ export const mapCompanies = (data: ObjType[]) => {
   });
 };
 
-export const companyDrivers = (data: ObjType[]) => {
-  return data.map((item,i) => {
+interface Cycle {
+  break: number;
+  drive: number;
+  shift: number;
+  cycle: number;
+}
+
+interface DriversGet<T> {
+  _id: string;
+  firstName: string;
+  lastName: string;
+  username: string;
+  vehicleUnit: string;
+  deviceInfo: string;
+  status: string;
+  cycle?: Cycle;
+  [key: string]: string; // Bu yerda 'cycle' obyekti aniq belgilanadi
+}
+
+export function companyDrivers<T>(data: DriversGet<T>[] = []) {
+  const drivers = data.map((item, i) => {
     return {
       id: i,
       f_name: item.firstName,
       l_name: item.lastName,
       u_name: item.username,
       co_driver: "",
-      vehicle: item.vehicleId,
+      vehicle: item.vehicleUnit,
       driver_Type: "",
       app_version: "4.6.7",
       documents: "Not uploaded",
@@ -97,6 +119,39 @@ export const companyDrivers = (data: ObjType[]) => {
       action: "",
     };
   });
+
+  const logDrivers = data.map((item) => {
+    return {
+      id: item?._id,
+      date: "1/1/2020",
+      truckNo: 2358,
+      status: item.status,
+      location: "835, Trần Hưng Đạo",
+      warnings: "No Signature!",
+      break: formatTime(item.cycle ? item.cycle.break : 0),
+      drive: formatTime(item.cycle ? item.cycle.drive : 0),
+      shift: formatTime(item.cycle ? item.cycle.shift : 0),
+      cycle: formatTime(item.cycle ? item.cycle.cycle : 0),
+      recap: "00:00",
+      updated: "13 weeks ago",
+    };
+  });
+
+  return { drivers, logDrivers };
+}
+
+export const dashboardData = (data: ObjType[] | []) => {
+  data.map((item, i) => {
+    return {
+      key: i,
+      name: `${item.firstName} ${item.lastName}`,
+      violations: item.violation,
+      date: "May 3, 2014",
+      eld: "Connected",
+      cycle: formatTime(Number(item.cycle)),
+      company: item.companyName,
+      updated: "3 minutes ago",
+    };
+  });
+  return data;
 };
-
-

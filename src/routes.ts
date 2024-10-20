@@ -1,105 +1,32 @@
-import React, { lazy } from "react";
+import React from "react";
 
 //adimin page
-const Dashboard = lazy(() =>
-  import("./pages/Dashboard").then((module) => ({ default: module.Dashboard }))
-);
-const Company = lazy(() =>
-  import("./pages/company/company").then((module) => ({
-    default: module.Company,
-  }))
-);
-const IftaReports = lazy(() =>
-  import("./pages/ifta-reports/ifta-reports").then((module) => ({
-    default: module.IftaReports,
-  }))
-);
-
-const ManageCompany = lazy(() =>
-  import("./pages/manage-company/manage-company").then((module) => ({
-    default: module.ManageCompany,
-  }))
-);
-const Units = lazy(() =>
-  import("./pages/units/units").then((module) => ({
-    default: module.Units,
-  }))
-);
+import { Dashboard } from "./pages/Dashboard";
+import { Company } from "./pages/company/company";
+import { IftaReports } from "./pages/ifta-reports/ifta-reports";
+import { ManageCompany } from "./pages/manage-company/manage-company";
+import { Units } from "./pages/units/units";
 
 // ------------- MANAGE-COMPANY TAB PAGE START
-const TabCompany = lazy(() =>
-  import("./pages/tab-company").then((module) => ({
-    default: module.TabCompany,
-  }))
-);
-const ManageTabUser = lazy(() =>
-  import("./pages/company-users").then((module) => ({
-    default: module.CompanyUsers,
-  }))
-);
-const ManageKeys = lazy(() =>
-  import("./pages/api-keys").then((module) => ({
-    default: module.ApiKeys,
-  }))
-);
-const ManageHistories = lazy(() =>
-  import("./pages/histories").then((module) => ({
-    default: module.Histories,
-  }))
-);
+import { TabCompany } from "./pages/tab-company";
+import { CompanyUsers as ManageTabUser } from "./pages/company-users";
+import { ApiKeys as ManageKeys } from "./pages/api-keys";
+import { Histories as ManageHistories } from "./pages/histories";
 // ------------- MANAGE-COMPANY TAB PAGE END
-const Drivers = lazy(() =>
-  import("./pages/drivers/drivers").then((module) => ({
-    default: module.Drivers,
-  }))
-);
-const Transfer = lazy(() =>
-  import("./pages/transfer/transfer").then((module) => ({
-    default: module.Transfer,
-  }))
-);
-const Users = lazy(() =>
-  import("./pages/users-page").then((module) => ({
-    default: module.Users,
-  }))
-);
-const Logs = lazy(() =>
-  import("./pages/logs").then((module) => ({
-    default: module.Logs,
-  }))
-);
+import { Drivers } from "./pages/drivers/drivers";
+import { Transfer } from "./pages/transfer/transfer";
+import { Users } from "./pages/users-page";
+import { Logs } from "./pages/logs";
 
 // -----------------LOGS PAGE START
-const Map = lazy(() =>
-  import("./pages/logs-map").then((module) => ({
-    default: module.LogsMap,
-  }))
-);
-const LogsLog = lazy(() =>
-  import("./pages/logs-log").then((module) => ({
-    default: module.LogsLog,
-  }))
-);
-const LogsDrivers = lazy(() =>
-  import("./pages/logs-drivers").then((module) => ({
-    default: module.LogsDrivers,
-  }))
-);
-const logDriversInfo = lazy(() =>
-  import("./pages/drivers-info").then((module) => ({
-    default: module.DriversInfo,
-  }))
-);
-const LogsViolation = lazy(() =>
-  import("./pages/violation").then((module) => ({
-    default: module.Violation,
-  }))
-);
-const LogsTracking = lazy(() =>
-  import("./pages/trackings").then((module) => ({
-    default: module.Trackings,
-  }))
-);
+import { LogsMap as Map } from "./pages/logs-map";
+import { LogsLog } from "./pages/logs-log";
+import { LogsDrivers } from "./pages/logs-drivers";
+import { DriversInfo as logDriversInfo } from "./pages/drivers-info";
+import { Violation as LogsViolation } from "./pages/violation";
+import { Trackings as LogsTracking } from "./pages/trackings";
+import { getLocalStorage } from "./utils";
+
 // -----------------LOGS PAGE END
 
 interface Route {
@@ -107,111 +34,134 @@ interface Route {
   component: React.FC;
   status: string;
   route?: Route[];
+  sortPage: string;
 }
-export const RoutesData: Route[] = [
-  {
-    path: "/",
-    component: Dashboard,
-    status: "admin",
-  },
-  {
-    path: "dashboard",
-    component: Dashboard,
-    status: "admin",
-  },
-  {
-    path: "users",
-    component: Users,
-    status: "admin",
-  },
-  {
-    path: "/units",
-    component: Units,
-    status: "app",
-  },
-  {
-    path: "/company",
-    component: Company,
-    status: "admin",
-  },
 
-  {
-    path: "manage-company",
-    component: ManageCompany,
-    status: "app",
-    route: [
-      {
-        path: "company",
-        component: TabCompany,
-        status: "admin",
-      },
-      {
-        path: "/manage-company/users",
-        component: ManageTabUser,
-        status: "admin",
-      },
-      {
-        path: "/manage-company/keys",
-        component: ManageKeys,
-        status: "admin",
-      },
-      {
-        path: "/manage-company/histories",
-        component: ManageHistories,
-        status: "admin",
-      },
-    ],
-  },
-  {
-    path: "drivers",
-    component: Drivers,
-    status: "app",
-  },
-  {
-    path: "transfer",
-    component: Transfer,
-    status: "admin",
-  },
-  {
-    path: "ifta-reports",
-    component: IftaReports,
-    status: "app",
-  },
-  {
-    path: "logs",
-    component: Logs,
-    status: "admin",
-    route: [
-      {
-        path: "map",
-        component: Map,
-        status: "admin",
-      },
-      {
-        path: "logs",
-        component: LogsLog,
-        status: "admin",
-      },
-      {
-        path: "drivers",
-        component: LogsDrivers,
-        status: "admin",
-      },
-      {
-        path: "info",
-        component: logDriversInfo,
-        status: "admin",
-      },
-      {
-        path: "violation",
-        component: LogsViolation,
-        status: "admin",
-      },
-      {
-        path: "tracking",
-        component: LogsTracking,
-        status: "admin",
-      },
-    ],
-  },
-];
+// Funksiyani eksport qilamiz
+export const getRoutesData = (): Route[] => {
+  // Har safar chaqirilganda localStorage-dan yangi qiymatlarni oladi
+  const companyId = getLocalStorage("companyId");
+  const driverId = getLocalStorage("driverId");
+
+  return [
+    {
+      path: `/companyId=${companyId}/main/dashboard`,
+      component: Dashboard,
+      status: "admin",
+      sortPage: "company",
+    },
+    {
+      path: "users",
+      component: Users,
+      status: "admin",
+      sortPage: "app",
+    },
+    {
+      path: `/companyId=${companyId}/units`,
+      component: Units,
+      status: "app",
+      sortPage: "company",
+    },
+    {
+      path: "company",
+      component: Company,
+      status: "admin",
+      sortPage: "app",
+    },
+    {
+      path: `/companyId=${companyId}/manage-company`,
+      component: ManageCompany,
+      status: "app",
+      sortPage: "company",
+      route: [
+        {
+          path: "company",
+          component: TabCompany,
+          status: "admin",
+          sortPage: "company",
+        },
+        
+        {
+          path: `users`,
+          component: ManageTabUser,
+          status: "admin",
+          sortPage: "company",
+        },
+        {
+          path: `keys`,
+          component: ManageKeys,
+          status: "admin",
+          sortPage: "company",
+        },
+        {
+          path: `histories`,
+          component: ManageHistories,
+          status: "admin",
+          sortPage: "company",
+        },
+      ],
+    },
+    {
+      path: `companyId=${companyId}/drivers`,
+      component: Drivers,
+      status: "app",
+      sortPage: "company",
+    },
+    {
+      path: `companyId=${companyId}/transfer`,
+      component: Transfer,
+      status: "admin",
+      sortPage: "company",
+    },
+    {
+      path: `companyId=${companyId}/ifta-reports`,
+      component: IftaReports,
+      status: "app",
+      sortPage: "company",
+    },
+    {
+      path: `companyId=${companyId}/logs`,
+      component: Logs,
+      status: "admin",
+      sortPage: "company",
+      route: [
+        {
+          path: "map",
+          component: Map,
+          status: "admin",
+          sortPage: "company",
+        },
+        {
+          path: "log",
+          component: LogsLog,
+          status: "admin",
+          sortPage: "company",
+        },
+        {
+          path: "drivers",
+          component: LogsDrivers,
+          status: "admin",
+          sortPage: "company",
+        },
+        {
+          path: `drivers/driverID=${driverId}`,
+          component: logDriversInfo,
+          status: "admin",
+          sortPage: "company",
+        },
+        {
+          path: "violation",
+          component: LogsViolation,
+          status: "admin",
+          sortPage: "company",
+        },
+        {
+          path: "tracking",
+          component: LogsTracking,
+          status: "admin",
+          sortPage: "company",
+        },
+      ],
+    },
+  ];
+};

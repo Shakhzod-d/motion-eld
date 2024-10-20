@@ -6,7 +6,8 @@ import { CustomInput } from "../custom-input";
 import { useDispatch, useSelector } from "react-redux";
 import { setDarkMode } from "../../../store/booleans-slice";
 import { RootState } from "../../../store/store";
-import {setLocalStorage } from "../../../utils";
+import { setLocalStorage } from "../../../utils";
+import { CgSun } from "react-icons/cg";
 
 interface Props {
   title: string;
@@ -25,7 +26,7 @@ export const Navbar = ({ title, search = true }: Props) => {
       <Flex align="center" gap={"20px"}>
         {search && <CustomInput type="search" />}
         <Icon onClick={darkMode}>
-          <IoMoonOutline size={30} />
+          {dark ? <CgSun size={30} /> : <IoMoonOutline size={30} />}
         </Icon>
         <Icon>
           <IoNotificationsOutline size={30} />

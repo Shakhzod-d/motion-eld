@@ -22,10 +22,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 
 // import { successMessage } from "../../../utils/message";
-type CustomObject = {
-  [key: string]: string | number | JSX.Element;
-  // $status?: string;
-};
+type CustomObject = Record<string, string | number | JSX.Element >;
 
 interface TableColumn {
   header: string | JSX.Element;
@@ -36,9 +33,9 @@ interface TableColumn {
 interface TableProps {
   columns: TableColumn[];
   data: CustomObject[];
-  itemColor?: string | undefined;
+  itemColor?: string;
   colorId?: number | string;
-  onClick?: <T>(id: T) => void;
+  onClick?: (id: string |number|undefined ) => void;
   copyId?: number;
   pagination?: true | false;
   pTotal?: number;
@@ -126,14 +123,16 @@ export const CustomTable = (props: TableProps) => {
         </thead>
         <tbody>
           {data.map((row, element) => {
-            const ID: unknown = row.id;
+            const ID = row.id as string | number;
+
             return (
               <TableRow key={element}>
                 {columns.map((column, index) => (
                   <TableData
                     className={
-                      column.accessor.toLowerCase() == "warnings" &&
-                      "table_hover_elm"
+                      column.accessor.toLowerCase() == "warnings"
+                        ? "table_hover_elm"
+                        : ""
                     }
                     key={column.accessor}
                     color={colorFun(

@@ -82,16 +82,38 @@ export function Map({ mapData, activeId, height }: Props) {
         },
       }).addTo(map);
 
-      // Custom icon for marker
-      const customIcon = new L.Icon({
+      // Custom start and end icons (location marker)
+      const startEndIcon = new L.Icon({
         iconUrl:
           "https://icons.veryicon.com/png/o/phone/location2/33-navigation-arrow-1.png",
         iconSize: [30, 30],
-        iconAnchor: [12, 41],
+        iconAnchor: [15, 30],
       });
 
-      // Add marker with current location based on progress
-      L.marker([currentLocation.lat, currentLocation.lng], { icon: customIcon })
+      // Custom driver icon (yellow navigation arrow)
+      const driverIcon = new L.Icon({
+        iconUrl:
+          "https://icons.veryicon.com/png/o/phone/location2/33-navigation-arrow-1.png",
+        iconSize: [30, 30],
+        iconAnchor: [15, 30],
+      });
+
+      // Add start marker
+      L.marker([activeTruck.lat, activeTruck.lng])
+        .addTo(map)
+        .bindPopup(
+          `<strong>Start Point</strong><br>Truck: ${activeTruck.name}`
+        );
+
+      // Add end marker
+      L.marker([activeTruck.destLat, activeTruck.destLng], {})
+        .addTo(map)
+        .bindPopup(
+          `<strong>End Point</strong><br>Destination: ${activeTruck.destination}`
+        );
+
+      // Add driver marker (current location based on progress)
+      L.marker([currentLocation.lat, currentLocation.lng], { icon: driverIcon })
         .addTo(map)
         .bindPopup(
           `<strong>${activeTruck.name}</strong><br>Status: ${activeTruck.status}<br>Address: ${activeTruck.address}`

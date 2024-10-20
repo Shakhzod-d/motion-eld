@@ -19,3 +19,4 @@ export { CompanyUsers } from "./company-users";
 export { ApiKeys } from "./api-keys";
 export { Histories } from "./histories";
 export { NotFound } from "./not-found";
+export { Notification } from "./notification";

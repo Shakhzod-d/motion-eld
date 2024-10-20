@@ -12,13 +12,16 @@ import { CompanyData } from "../../utils/method";
 import { setCompany, setPageLoading } from "../../utils/dispatch";
 import { useNavigate } from "react-router-dom";
 import { Data } from "../../store/company-slice";
+import { useErrAuth } from "../../hooks/useAuth";
+
+
 
 export const Company = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState<string>("");
   const searchValue = useDebounce(searchTerm, 300);
-
+  const { errFun } = useErrAuth();
   const { data, isLoading } = useApi("/companies", {
     page: 1,
     limit: 1000,
@@ -26,7 +29,7 @@ export const Company = () => {
 
   const companies = mapCompanies(data ? data?.data?.data : []);
 
-  const filteredData = companies.filter((data: object) =>
+  const filteredData = companies.filter((data) =>
     String(data?.name?.label)
       .toLowerCase()
       .startsWith(searchValue.toLowerCase())
@@ -40,12 +43,13 @@ export const Company = () => {
     try {
       setPageLoading(true);
       const data: Data = await CompanyData(id);
-      setLocalStorage("companyId", data._id);
+      setLocalStorage("companyId", id);
       setLocalStorage("company", data);
       setCompany(data);
-      navigate("/");
+      await navigate(`/companyId=${id}/main/dashboard`);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
+      return errFun(err);
     } finally {
       setPageLoading(false);
     }
@@ -68,7 +72,7 @@ export const Company = () => {
 
       <div>
         {isLoading ? (
-          <PageLoad  h="calc(100vh - 400px)" />
+          <PageLoad h="calc(100vh - 400px)" />
         ) : (
           <InfoTable
             header={companyTableHeader}

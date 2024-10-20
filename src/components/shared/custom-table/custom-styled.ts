@@ -131,7 +131,7 @@ export const BorderRBottom = styled.span`
 `;
 
 export const StatusBadge = styled.span<{
-  $status: string | number | JSX.Element;
+  $status?: string | number | JSX.Element;
 }>`
   padding: 5px 10px;
   border-radius: 5px;

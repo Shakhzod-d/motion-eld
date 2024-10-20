@@ -11,6 +11,7 @@ interface PrivateRouteProps {
 
 export const PrivateRoute = ({ children }: PrivateRouteProps) => {
   const { loading, isAuth } = useAuth();
+
   if (loading) {
     return <PageLoad />;
   } else {

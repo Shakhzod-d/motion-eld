@@ -4,22 +4,24 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { GlobalStyle } from "../form-select/select-styled";
 interface Option {
-  value: string;
+  value: string | number;
   label: string;
 }
 interface Props {
   option: Option[];
-  change?: (value: string) => void;
+  change?: (value: string |number |unknown) => void;
   width?: string;
   height?: number;
   placeholder?: string;
   color?: string;
+  dValue?: string | number|null;
 }
 export const CustomSelect = ({
   option,
   width,
   height,
   placeholder,
+  dValue,
   color,
   change,
 }: Props) => {
@@ -28,7 +30,8 @@ export const CustomSelect = ({
     <>
       <GlobalStyle />
       <StyledSelect
-        defaultValue={placeholder}
+        placeholder={placeholder}
+        defaultValue={dValue}
         options={option}
         width={width}
         height={height}

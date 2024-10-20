@@ -5,11 +5,13 @@ export interface Data {
 }
 interface State {
   company: Data | false | null;
+  companyId: string | null;
 }
 const boolean = Boolean(getLocalStorage("company"));
 const companyData: Data | null = getLocalStorage("company");
 const initialState: State = {
   company: boolean ? companyData : false,
+  companyId: getLocalStorage("companyId"),
 };
 export const companySlice = createSlice({
   name: "companySlice",
@@ -20,5 +22,6 @@ export const companySlice = createSlice({
     },
   },
 });
+
 export const { setCompanyData } = companySlice.actions;
 export default companySlice.reducer;
