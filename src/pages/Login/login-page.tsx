@@ -10,7 +10,7 @@ import {
   StyledInput,
 } from "./login-styled";
 import useApiMutation from "../../hooks/useApiMutation";
-import { setLocalStorage } from "../../utils";
+import { getLocalStorage, setLocalStorage } from "../../utils";
 import { errorMessage } from "../../utils/message";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -38,7 +38,11 @@ export const Login = () => {
         setUser(data);
         setLocalStorage("roleId", data?.role?.roleId);
         // setLocalStorage("companyId", "66fcf8f52ccf4ba8e6b32c36");
-        navigate("/");
+        if (!getLocalStorage("company")) {
+          navigate("/company");
+        } else {
+          navigate("/");
+        }
       },
       onError: (err) => {
         errorMessage(err?.data.error);

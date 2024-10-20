@@ -30,11 +30,11 @@ export const StyledSelect = styled(Select)<{
   }
 
   .ant-select-dropdown {
-    background-color: red !important; 
+  
   }
 
   &.ant-select-status-error {
-    border: 1px solid red !important; 
+    border: 1px solid red !important;
   }
 
   &:hover {
@@ -51,12 +51,11 @@ export const StyledSelect = styled(Select)<{
 
   .ant-select-arrow {
     svg {
-      color: ${({ theme }) => theme.clr}  !important;
-      fill:${({ theme }) => theme.clr}  !important;
+      color: ${({ theme }) => theme.clr} !important;
+      fill: ${({ theme }) => theme.clr} !important;
     }
   }
 `;
-
 export const GlobalStyle = createGlobalStyle`
   .ant-select-dropdown {
     background-color:  ${({ theme }) => theme.selectGray} !important;
@@ -64,9 +63,20 @@ export const GlobalStyle = createGlobalStyle`
 
   .ant-select-item-option {
     color: ${({ theme }) => theme.clr} !important; 
+  } 
+  .ant-select-item-option:hover {
+    background-color: #f0f0f0 !important; /* Hover holatida fon rangi */
+    color: #000 !important; /* Hover holatida matn rangi */
   }
 
   
+
+  .ant-select-item-option-selected {
+    background-color: #1890ff !important; 
+    color: #fff !important; 
+    font-weight: bold !important; 
+  }
+
   .ant-select-selection-placeholder {
     color: ${({ theme }) => theme.clr} !important;
   }

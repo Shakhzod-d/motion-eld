@@ -16,8 +16,8 @@ export const ManageCompany = () => {
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
   useEffect(() => {
-    if (pathname.length <= 18) navigate("company");
-  }, [navigate, pathname.length]);
+    if (String(pathname.endsWith("/company"))) navigate("company");
+  }, []);
 
   return (
     <Main>

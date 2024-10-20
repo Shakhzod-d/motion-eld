@@ -11,12 +11,12 @@ export type IPageData<T> = { data: T; total: number };
 export type IHideMessage = { hideMessage: boolean };
 
 export type ObjType = {
-  [key: string]: { [key: string]: string | number |undefined };
+  [key: string]: { [key: string]: string | number |undefined  };
 };
 export interface Rules {
   [key: string]: string | number | boolean | unknown;
 }
 
 export interface Obj {
-  [key: string]: string | number | boolean ;
+  [key: string]: string | number | boolean  |ObjType;
 }

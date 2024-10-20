@@ -14,15 +14,17 @@ import { DriversWeek } from "../../../utils/constants";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
+import { getLocalStorage } from "../../../utils";
 
 export const DriversHeader = () => {
   const [activeBtn, setActiveBtn] = useState(1);
   const dark =useSelector((state:RootState)=>state.booleans.darkMode)
+  const companyId =getLocalStorage("companyId")
   return (
     <div>
       <Flex justify="space-between">
         <Flex gap={"middle"} align="center">
-          <Link to={"/logs/drivers"}>
+          <Link to={`/companyId=${companyId}/logs/drivers`}>
             <Block display="flex" content="center">
               <BiLeftArrow />
             </Block>

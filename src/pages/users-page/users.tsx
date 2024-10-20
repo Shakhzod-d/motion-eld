@@ -9,7 +9,7 @@ import useApi from "../../hooks/useApi";
 import { mapUserData } from "../../utils/mapData";
 import { usersTableHeader } from "../../utils/constants";
 import { useDebounce } from "../../hooks/use-debauce";
-import { ObjType } from "../../types/helper.type";
+
 export const Users = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [addUser, setAddUser] = useState<boolean>(false);
@@ -21,8 +21,9 @@ export const Users = () => {
     limit: 1000,
   });
   const users = mapUserData(data ? data?.data?.data : []);
-
-  const filteredData = users.filter((data: ObjType) =>
+  console.log(users);
+  
+  const filteredData = users.filter((data) =>
     String(data?.name?.label)
       .toLowerCase()
       .startsWith(searchValue.toLowerCase())

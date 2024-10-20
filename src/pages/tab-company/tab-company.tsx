@@ -16,7 +16,9 @@ interface CompanyData {
 export const TabCompany = () => {
   const companyMutation = useApiMutation("/company", { hideMessage: true });
 
+  // Append the file with the key 'file'import axios from "axios";
 
+  // Fayl yuklash funksiyasi
 
   const [form] = Form.useForm();
 
@@ -252,7 +254,6 @@ export const TabCompany = () => {
       >
         <Note placeholder="Note" />
       </Form.Item>
-
       <Flex justify="end" gap={"middle"}>
         <DefaultBtn onClick={() => handleReset()}>cancel</DefaultBtn>
         <PrimaryBtn

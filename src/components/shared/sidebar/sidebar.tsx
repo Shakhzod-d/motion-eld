@@ -3,7 +3,6 @@ import {
   BtnWrap,
   CompanyIcon,
   Description,
-  
   PageActive,
   PageBtn,
   SidebarContainer,
@@ -32,40 +31,67 @@ import { removeLocalStorage } from "../../../utils";
 import { setCompany } from "../../../utils/dispatch";
 import useApi from "../../../hooks/useApi";
 
-const items = [
-  {
-    key: 1,
-    icon: <FaPowerOff />,
-    label: "ELD",
-    page: [
-      { id: 1, text: "- Logs", url: "/logs" },
-      { id: 2, text: " -  Transfer", url: "/transfer" },
-    ],
-  },
-  {
-    key: 2,
-    icon: <MdOutlineReportProblem />,
-    label: "Reports",
-    page: [{ id: 1, text: " -  Ifta Reports", url: "/ifta-reports" }],
-  },
-  {
-    key: 3,
-    icon: <VscFileSubmodule />,
-    label: "Notification",
-  },
-  {
-    key: 4,
-    icon: <VscFileSubmodule />,
-    label: "Fleet manager",
-    page: [
-      { id: 1, text: " -  Units", url: "/units" },
-      { id: 2, text: "  -  Drivers", url: "/drivers" },
-      { id: 3, text: " -  Manage company", url: "/manage-company" },
-    ],
-  },
-];
 export const Sidebar = () => {
   const [btnActive, setBtnActive] = useState<number>(0);
+  const companyData = useSelector((state: RootState) => state.company.company);
+  const items = [
+    {
+      key: 1,
+      icon: <FaPowerOff />,
+      label: "ELD",
+      page: [
+        {
+          id: 1,
+          text: "- Logs",
+          url: `/companyId=${companyData && companyData._id}/logs/map`,
+        },
+        {
+          id: 2,
+          text: " -  Transfer",
+          url: `/companyId=${companyData && companyData._id}/transfer`,
+        },
+      ],
+    },
+    {
+      key: 2,
+      icon: <MdOutlineReportProblem />,
+      label: "Reports",
+      page: [
+        {
+          id: 1,
+          text: " -  Ifta Reports",
+          url: `/companyId=${companyData && companyData._id}/ifta-reports`,
+        },
+      ],
+    },
+    {
+      key: 3,
+      icon: <VscFileSubmodule />,
+      label: "Notification",
+    },
+    {
+      key: 4,
+      icon: <VscFileSubmodule />,
+      label: "Fleet manager",
+      page: [
+        {
+          id: 1,
+          text: " -  Units",
+          url: `/companyId=${companyData && companyData._id}/units`,
+        },
+        {
+          id: 2,
+          text: "  -  Drivers",
+          url: `/companyId=${companyData && companyData._id}/drivers`,
+        },
+        {
+          id: 3,
+          text: " -  Manage company",
+          url: `/companyId=${companyData && companyData._id}/manage-company`,
+        },
+      ],
+    },
+  ];
   const navigate = useNavigate();
 
   const { data } = useApi("/companies", {
@@ -84,7 +110,6 @@ export const Sidebar = () => {
     navigate("/company");
   };
 
-  const companyData = useSelector((state: RootState) => state.company.company);
   const companyPage = ["Fleet manager", "ELD", "Reports"];
   const filterData = items.filter(
     (item) => item.label && !companyPage.includes(item.label)
@@ -116,10 +141,16 @@ export const Sidebar = () => {
         </ArrowBtn>
       </StyleFlex>
       <div style={{ flex: "1" }}>
-        <PageBtn onClick={() => setBtnActive(0)} to={"/"} $active={active}>
-          <PiChartLineFill />
-          {active && <p>Dashboard</p>}
-        </PageBtn>
+        {companyData && (
+          <PageBtn
+            onClick={() => setBtnActive(0)}
+            to={`companyId=${companyData._id}/main/dashboard`}
+            $active={active}
+          >
+            <PiChartLineFill />
+            {active && <p>Dashboard</p>}
+          </PageBtn>
+        )}
 
         {!companyData ? (
           <PageBtn
@@ -181,9 +212,15 @@ export const Sidebar = () => {
             </TabBtn>
           );
         })}
-        <PageBtn onClick={() => setBtnActive(0)} to={"/users"} $active={active}>
-          <p>Users</p>
-        </PageBtn>
+        {!companyData && (
+          <PageBtn
+            onClick={() => setBtnActive(0)}
+            to={"/users"}
+            $active={active}
+          >
+            <p>Users</p>
+          </PageBtn>
+        )}
       </div>
 
       <User className="user-profile">

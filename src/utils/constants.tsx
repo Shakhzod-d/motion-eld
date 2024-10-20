@@ -385,7 +385,7 @@ export const driversStatisticsData = [
 export const LogsTabPages = [
   { label: "Map", key: "1", to: "map" },
   { label: "Drivers", key: "2", to: "drivers" },
-  { label: "Logs", key: "3", to: "logs" },
+  { label: "Logs", key: "3", to: "log" },
   { label: "Violation", key: "4", to: "violation" },
   { label: "Trackings", key: "5", to: "tracking" },
 ];

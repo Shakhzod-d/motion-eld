@@ -82,3 +82,22 @@ export interface ILog {
   endOdometer?: number;
   odometerDuration?: number;
 }
+
+export interface DriversData {
+  id: string;
+  f_name: string;
+  l_name: string;
+  u_name: string;
+  co_driver: "";
+  vehicle: string;
+  driver_Type: string;
+  app_version: string;
+  documents: string;
+  activated: string;
+  device_info: string;
+  action: "";
+}
+
+export interface DriversGet<T> {
+  [key: string]: T;
+}

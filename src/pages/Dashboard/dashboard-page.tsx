@@ -5,7 +5,7 @@ import {
   Navbar,
   OverviewCard,
 } from "../../components/ui";
-import { Main } from "../../utils/index";
+import { getLocalStorage, Main, setLocalStorage } from "../../utils/index";
 
 import { useDispatch, useSelector } from "react-redux";
 import { BiCalendarStar } from "react-icons/bi";
@@ -32,9 +32,12 @@ import {
   CustomRadio,
 } from "./dashboard-styled";
 import { OrderTablet } from "../../components/shared/order-table/order-table";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RootState } from "../../store/store";
 import { dashboardProgressActive } from "../../store/booleans-slice";
+import { autoRefresh } from "../../utils/method";
+// import useApi from "../../hooks/useApi";
+// import { dashboardData } from "../../utils/mapData";
 
 export const Dashboard = () => {
   const active = useSelector(
@@ -49,17 +52,39 @@ export const Dashboard = () => {
     { value: "active", label: "Actice" },
     { value: "completed", label: "Completed" },
   ];
+  // const { data, isLoading } = useApi("/main/violations", {
+  //   page: 1,
+  //   limit: 10,
+  // });
+  // console.log(data);
+  // const filerData = dashboardData(data ? data?.data?.data : []);
+  // console.log(filerData);
+
   const refreshSelect = [
     { value: "off", label: "Auto Refresh off" },
-    { value: "1-min", label: "1 minute" },
-    { value: "5-min", label: "5 minute" },
-    { value: "10-min", label: "10 minute" },
+    { value: 30000, label: "1 minute" },
+    { value: 300000, label: "5 minute" },
+    { value: 600000, label: "10 minute" },
   ];
   const dispatch = useDispatch();
 
   function onChange(event: string) {
     setSelectEvent(event);
   }
+  const refreshHandler = (e: number | string | unknown) => {
+    setLocalStorage("autoReload", e);
+    autoRefresh(e);
+  };
+  const reloadStatus: number | string | null =
+    getLocalStorage("autoReload") !== null
+      ? getLocalStorage("autoReload")
+      : "off";
+
+  useEffect(() => {
+    if (reloadStatus !== "off" || reloadStatus !== null) {
+      autoRefresh(reloadStatus);
+    }
+  }, [reloadStatus]);
   return (
     <Main>
       <Navbar title="Dashboard" />
@@ -68,8 +93,10 @@ export const Dashboard = () => {
         <Flex gap={5}>
           <CustomSelect
             option={refreshSelect}
+            dValue={reloadStatus}
             width="170px"
-            placeholder="Auto Refresh off"
+            // placeholder="Auto Refresh off"
+            change={refreshHandler}
           />
         </Flex>
         <CustomBtn onClick={Reload}>Refresh</CustomBtn>
@@ -79,6 +106,7 @@ export const Dashboard = () => {
           </CustomBtn>
         </Flex>
       </Day>
+
       <CardWrapper $width={sidebarActive}>
         <Drivers />
         <ViolationsChart />
@@ -89,7 +117,9 @@ export const Dashboard = () => {
           </ArrowIcon>
         </CustomBtn>
       </CardWrapper>
+
       <Title>Drivers info</Title>
+
       <SelectWrapper>
         <Radio.Group defaultValue={1}>
           <CustomRadio value={1}>
@@ -116,13 +146,13 @@ export const Dashboard = () => {
           <CustomSelect option={option} placeholder="Cycle" />
 
           <div>
-            <Text size={12} $mb="10px" >
+            <Text size={12} $mb="10px">
               Driver option
             </Text>
             <CustomSelect option={option} placeholder="Cycle" />
           </div>
           <div>
-            <Text size={12} $mb="10px" >
+            <Text size={12} $mb="10px">
               Driver option
             </Text>
             <CustomSelect
@@ -146,6 +176,7 @@ export const Dashboard = () => {
           </div>
         </Flex>
       </SelectWrapper>
+
       {selectEvent == "order" ? (
         <CustomTable columns={dashboardTableHeader} data={dataSource} />
       ) : (

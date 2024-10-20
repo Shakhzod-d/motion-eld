@@ -19,8 +19,17 @@ export const Units = () => {
     limit: 1000,
   });
   interface unitsProp {
-    [key: string]: string;
+    id: number|string;
+    vehicle: { [key: string]: string | number | undefined };
+    drivers: string;
+    model: string;
+    eld: string;
+    notes: { [key: string]: string | number | undefined };
+    vin: { [key: string]: string | number | undefined };
+    documents: string;
+    activated: string;
   }
+
   const dataSort = (dataArr: ObjType[] | []) => {
     const arr: unitsProp[] = dataArr.map((item, i) => {
       const firstName = item?.driver.firstName;
@@ -29,7 +38,7 @@ export const Units = () => {
       const modelMake = ` ${item.model}/ ${item.make}`;
       return {
         id: i,
-        vehicle: item._id,
+        vehicle: item.unit,
         drivers: `${firstName} ${lastNama}`,
         model: modelMake,
         eld: "PT30_09A3",
