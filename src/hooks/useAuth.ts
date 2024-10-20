@@ -40,11 +40,13 @@ export const useErrAuth = () => {
   const navigate = useNavigate();
   const errFun = (err: AxiosError | unknown) => {
     if (errMessage.includes(err.message)) {
-      return navigate("/login");
-      removeLocalStorage("token");
-      removeLocalStorage("roleId");
-      removeLocalStorage("company");
-      removeLocalStorage("companyId");
+      return (
+        navigate("/login"),
+        removeLocalStorage("token"),
+        removeLocalStorage("roleId"),
+        removeLocalStorage("company"),
+        removeLocalStorage("companyId")
+      );
     } else {
       // return navigate("/login");
       return console.log(err.message);

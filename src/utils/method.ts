@@ -1,7 +1,5 @@
 import api from "../api";
-import useApiMutation from "../hooks/useApiMutation";
 import { removeLocalStorage } from "./localStorage";
-
 export function validatePhoneNumber<T>(_: T, value: string) {
   const cleanedValue = value.replace(/\D/g, ""); // Faqat raqamlarni qoldiramiz
   if (cleanedValue.length !== 12) {
