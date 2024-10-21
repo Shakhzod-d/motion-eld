@@ -1,4 +1,4 @@
-import { Flex, Form,} from "antd";
+import { Flex, Form } from "antd";
 import { ModalCheckBox, ModalTextArea, ModalTitle } from "./styled";
 import { DefaultBtn, PrimaryBtn } from "../../../pages/units/units-styled";
 import { FormInput, FormSelect } from "../../ui";
@@ -17,12 +17,13 @@ import { errorMessage, successMessage } from "../../../utils/message";
 interface Prop {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
+  refetch: () => void;
 }
 interface Data {
   [key: string]: string | boolean;
 }
 
-export const UnitsAddModal = ({ open, setOpen }: Prop) => {
+export const UnitsAddModal = ({ open, setOpen, refetch }: Prop) => {
   const unitsMutation = useApiMutation("/vehicle", { hideMessage: true });
 
   const [form] = Form.useForm();
@@ -48,6 +49,7 @@ export const UnitsAddModal = ({ open, setOpen }: Prop) => {
 
         successMessage("vehicle created added");
         handleReset();
+        refetch();
       },
       onError: (err) => {
         errorMessage(`${err.data.message}  (${err.data.data})`);

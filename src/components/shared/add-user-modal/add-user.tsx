@@ -1,4 +1,4 @@
-import { Flex, Form, } from "antd";
+import { Flex, Form } from "antd";
 import { CustomModal, Text } from "../../../utils/constants";
 import { PrimaryBtn } from "../../../pages/units/units-styled";
 import { DefaultBtn } from "../../../pages/drivers/styled";
@@ -6,11 +6,13 @@ import { Dispatch, SetStateAction } from "react";
 import { getLocalStorage } from "../../../utils";
 import useApiMutation from "../../../hooks/useApiMutation";
 import { FormInput, FormSelect } from "../../ui";
+import { errorMessage, successMessage } from "../../../utils/message";
 interface Props {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
+  refetch: () => void;
 }
-export const AddUser = ({ open, setOpen }: Props) => {
+export const AddUser = ({ open, setOpen, refetch }: Props) => {
   const UserMutation = useApiMutation("/user", { hideMessage: true });
 
   const roleSelectOption = [
@@ -38,13 +40,13 @@ export const AddUser = ({ open, setOpen }: Props) => {
     };
     UserMutation.mutate(userData, {
       onSuccess: (res: unknown) => {
+        successMessage("add user success");
         setOpen(false);
+        refetch();
       },
       onError: (err) => {
         console.log(err);
-        // errorMessage(err?.data.error);
-        // setLoading(false);
-        // error(err.message);
+        errorMessage(err?.message);
       },
     });
   };
