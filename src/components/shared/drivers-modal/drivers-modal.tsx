@@ -1,11 +1,7 @@
-import { Flex, Form, Modal } from "antd";
+import { Flex, Form,  } from "antd";
 import { Dispatch, SetStateAction } from "react";
-import {
-  DefaultBtn,
-  ModalInput,
-  PrimaryBtn,
-} from "../../../pages/units/units-styled";
-import { CustomSelect, FormInput, FormSelect } from "../../ui";
+import { DefaultBtn, PrimaryBtn } from "../../../pages/units/units-styled";
+import { FormInput, FormSelect } from "../../ui";
 import { CustomModal, stateSelect } from "../../../utils/constants";
 import { ModalCheckBox, ModalTextArea } from "../units-add-modal/styled";
 import { validatePhoneNumber } from "../../../utils/method";
@@ -14,6 +10,7 @@ import { Obj } from "../../../types/helper.type";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import useApiMutation from "../../../hooks/useApiMutation";
+import { errorMessage, successMessage } from "../../../utils/message";
 interface Prop {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
@@ -30,9 +27,12 @@ export const DriversModal = ({ open, setOpen }: Prop) => {
   const vehicleId = useSelector(
     (state: RootState) => state.booleans.driverSelect
   );
+  console.log(vehicleId);
+
   const driversMutation = useApiMutation("/driver", { hideMessage: true });
   const submit = (data: Obj) => {
     // handleReset();
+
     const DriverData = {
       ...data,
       organization: "Unity",
@@ -40,9 +40,12 @@ export const DriversModal = ({ open, setOpen }: Prop) => {
     driversMutation.mutate(DriverData, {
       onSuccess: (res: unknown) => {
         console.log(res);
+        successMessage("driver create success");
+        handleReset();
       },
       onError: (err) => {
         console.log(err);
+        errorMessage(err.message);
       },
     });
   };
@@ -120,7 +123,7 @@ export const DriversModal = ({ open, setOpen }: Prop) => {
               h="70px"
               data={vehicleId}
               // width="50%"
-              name="VehicleId"
+              name="vehicleId"
               rules={[
                 { required: true, message: "Please input your VehicleId!" },
               ]}
@@ -173,10 +176,10 @@ export const DriversModal = ({ open, setOpen }: Prop) => {
               data={[{ value: "default", label: "Address 1" }]}
               h="70px"
             />
-            <FormInput placeholder="Address 2"  h="70px"/>
-            <FormInput placeholder="City"  h="70px"/>
-            <FormInput placeholder="State"  h="70px"/>
-            <FormInput placeholder="Zip"  h="70px"/>
+            <FormInput placeholder="Address 2" h="70px" />
+            <FormInput placeholder="City" h="70px" />
+            <FormInput placeholder="State" h="70px" />
+            <FormInput placeholder="Zip" h="70px" />
           </Flex>
           <Form.Item
             name={"notes"}
