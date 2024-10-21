@@ -11,11 +11,10 @@ import { companyDrivers } from "../../utils/mapData";
 export const Drivers = () => {
   const [open, setOpen] = useState(false);
 
-  const { data, isLoading } = useApi("/drivers", {
+  const { data, isLoading, refetch } = useApi("/drivers", {
     page: 1,
     limit: 1000,
   });
-
 
   const drivers = companyDrivers(data ? data?.data?.data : []);
   return (
@@ -46,7 +45,7 @@ export const Drivers = () => {
           </>
         )}
       </Main>
-      <DriversModal open={open} setOpen={setOpen} />
+      <DriversModal open={open} setOpen={setOpen} refetch={refetch} />
     </>
   );
 };

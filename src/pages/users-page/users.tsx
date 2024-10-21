@@ -16,7 +16,7 @@ export const Users = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const searchValue = useDebounce(searchTerm, 300);
 
-  const { data, isLoading } = useApi("/users", {
+  const { data, isLoading ,refetch} = useApi("/users", {
     page: 1,
     limit: 1000,
   });
@@ -35,7 +35,7 @@ export const Users = () => {
   };
   return (
     <Main>
-      <AddUser open={addUser} setOpen={setAddUser} />
+      <AddUser open={addUser} setOpen={setAddUser} refetch={refetch} />
       <UserEditModal setOpen={setOpen} open={open} />
       <Navbar title="Users" search={false} />
       <Flex justify="end" gap={"middle"}>

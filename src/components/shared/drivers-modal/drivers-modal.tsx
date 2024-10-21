@@ -14,9 +14,10 @@ import { errorMessage, successMessage } from "../../../utils/message";
 interface Prop {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
+  refetch:() => void
 }
 
-export const DriversModal = ({ open, setOpen }: Prop) => {
+export const DriversModal = ({ open, setOpen,refetch }: Prop) => {
   const [form] = Form.useForm();
 
   const handleReset = () => {
@@ -42,6 +43,7 @@ export const DriversModal = ({ open, setOpen }: Prop) => {
         console.log(res);
         successMessage("driver create success");
         handleReset();
+        refetch()
       },
       onError: (err) => {
         console.log(err);

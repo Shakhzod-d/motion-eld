@@ -14,7 +14,9 @@ import { Text } from "../../utils/constants";
 export const Units = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [activeBtn, setActiveBtn] = useState<number>(1);
-  const { data, isLoading } = useApi("/vehicles", {
+
+
+  const { data, isLoading ,refetch} = useApi("/vehicles", {
     page: 1,
     limit: 1000,
   });
@@ -94,7 +96,7 @@ export const Units = () => {
           <Text size={20}>NO Data</Text>
         </>
       )}
-      <UnitsAddModal open={open} setOpen={setOpen} />
+      <UnitsAddModal open={open} setOpen={setOpen} refetch={refetch}/>
       {/* Units change modal */}
     </Main>
   );
